@@ -45,7 +45,7 @@ Resources:
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-    TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml"
+      TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml"
         ProjectName: !Ref AWS::StackName
         Environment: !Ref Environment
       Tags:
