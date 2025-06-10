@@ -34,7 +34,7 @@ Resources:
   SecurityGroupsStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/security-groups.yaml"
+      TemplateURL: !Sub https://vegawebaws-templates-1749573989.s3.us-east-1.amazonaws.com/templates/security-groups.yaml
       Parameters:
         Environment: !Ref Environment
         VpcId: !Ref VpcId
@@ -48,7 +48,7 @@ Resources:
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml"
+      TemplateURL: !Sub https://vegawebaws-templates-1749573989.s3.us-east-1.amazonaws.com/templates/static-website.yaml
       Parameters:
         ProjectName: !Ref AWS::StackName
         Environment: !Ref Environment
