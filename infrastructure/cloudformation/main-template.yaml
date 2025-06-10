@@ -11,11 +11,11 @@ Parameters:
       - prod
     Description: The deployment environment
 
-    ProjectName:
-      Type: String
+  ProjectName:
+    Type: String
 
-    TemplateBucket:
-      Type: String
+  TemplateBucket:
+    Type: String
 
   VpcId:
     Type: AWS::EC2::VPC::Id
