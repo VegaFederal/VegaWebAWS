@@ -32,8 +32,7 @@ Resources:
   SecurityGroupsStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/security-groups.yaml
-      Parameters:
+      TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/security-groups.yaml"
         Environment: !Ref Environment
         VpcId: !Ref VpcId
       Tags:
@@ -46,8 +45,7 @@ Resources:
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
-      Parameters:
+    TemplateURL: !Sub "https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml"
         ProjectName: !Ref AWS::StackName
         Environment: !Ref Environment
       Tags:
