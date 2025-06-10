@@ -12,10 +12,12 @@ Parameters:
     Description: The deployment environment
 
   ProjectName:
-    Type: String
+      Type: String
+      Description: "Logical name/prefix for resources"
 
   TemplateBucket:
     Type: String
+    Description: S3 bucket containing CloudFormation templates
 
   VpcId:
     Type: AWS::EC2::VPC::Id
