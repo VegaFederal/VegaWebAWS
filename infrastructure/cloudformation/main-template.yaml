@@ -55,5 +55,12 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-# Outputs:
+Outputs:
   # Your outputs will go here
+  WebsiteBucketName:
+    Description: S3 Bucket for website content
+    Value: !GetAtt StaticWebsiteStack.Outputs.WebsiteBucketName
+
+  WebsiteURL:
+    Description: S3 Bucket for website content
+    Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
