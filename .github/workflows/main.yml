@@ -106,7 +106,7 @@ jobs:
       - name: Upload website files
         run: |
           BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text)
-          aws s3 sync src/dist/ s3://$BUCKET_NAME/
+          aws s3 sync dist/ s3://$BUCKET_NAME/
 
       - name: Get CloudFront URL
         run: |
