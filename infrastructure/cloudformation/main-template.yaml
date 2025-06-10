@@ -54,5 +54,5 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-Outputs:
+# Outputs:
   # Your outputs will go here
