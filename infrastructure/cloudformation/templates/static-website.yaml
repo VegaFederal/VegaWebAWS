@@ -2,9 +2,9 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: S3 and CloudFront resources for static website hosting
 
 Parameters:
-  ProjectName:
-    Type: String
-    Description: Name of the project
+  # ProjectName:
+  #   Type: String
+  #   Description: Name of the project
 
   Environment:
     Type: String
