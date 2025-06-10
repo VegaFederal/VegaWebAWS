@@ -1,14 +1,13 @@
 # Nested CloudFormation Templates
 
-This directory contains a set of nested CloudFormation templates for deploying a web application infrastructure.
+This directory contains a set of nested CloudFormation templates for deploying VegaWebAWS infrastructure.
 
 ## Template Structure
 
 - `main-template.yaml` - The main template that orchestrates all nested stacks
 - `templates/` - Directory containing all nested templates:
   - `security-groups.yaml` - Security group resources
-  - `static-website.yaml` - S3 bucket and CloudFront distribution for static website hosting
-  - `load-balancer.yaml` - Application Load Balancer resources
+  - Add more template descriptions as you create them
 
 ## Deployment
 
@@ -17,11 +16,11 @@ To deploy this stack:
 ```bash
 aws cloudformation deploy \
   --template-file main-template.yaml \
-  --stack-name my-web-app \
+  --stack-name VegaWebAWS \
   --parameter-overrides \
       Environment=dev \
-      VpcId=vpc-12345678 \
-      SubnetIds=subnet-12345678,subnet-87654321 \
+      VpcId=vpc-03de7ad5a4c7c1822 \
+      SubnetIds=subnet-02615277a84a5fcb4 \
   --capabilities CAPABILITY_IAM
 ```
 

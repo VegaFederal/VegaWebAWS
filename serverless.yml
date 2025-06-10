@@ -1,0 +1,35 @@
+service: VegaWebAWS
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  vpc:
+    securityGroupIds:
+      - !Ref ServerlessSecurityGroup
+    subnetIds:       - subnet-02615277a84a5fcb4
+
+functions:
+  hello:
+    handler: src/lambda/hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+
+resources:
+  Resources:
+    ServerlessSecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Security group for serverless functions
+        VpcId: vpc-03de7ad5a4c7c1822
+        SecurityGroupEgress:
+          - IpProtocol: -1
+            CidrIp: 0.0.0.0/0
+
+plugins:
+  - serverless-esbuild

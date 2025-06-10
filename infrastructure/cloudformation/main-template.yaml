@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Main CloudFormation template that orchestrates nested stacks for a web application
+Description: Deploying vega website
 
 Parameters:
   Environment:
@@ -13,18 +13,20 @@ Parameters:
   
   VpcId:
     Type: AWS::EC2::VPC::Id
+    Default: vpc-03de7ad5a4c7c1822
     Description: ID of the existing company VPC
   
   SubnetIds:
     Type: List<AWS::EC2::Subnet::Id>
-    Description: List of existing subnet IDs for deployment (minimum 2 recommended)
+    Default: subnet-02615277a84a5fcb4
+    Description: List of existing subnet IDs for deployment
 
 Resources:
   # Security Groups Stack
   SecurityGroupsStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/security-groups.yaml
+      TemplateURL: ./templates/security-groups.yaml
       Parameters:
         Environment: !Ref Environment
         VpcId: !Ref VpcId
@@ -32,52 +34,19 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # S3 and CloudFront Stack
+  # Add more nested stacks as needed
+
+    # Static Website Stack
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/static-website.yaml
+      TemplateURL: ./templates/static-website.yaml
       Parameters:
+        ProjectName: !Ref AWS::StackName
         Environment: !Ref Environment
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
-  # Load Balancer Stack
-  LoadBalancerStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/load-balancer.yaml
-      Parameters:
-        Environment: !Ref Environment
-        VpcId: !Ref VpcId
-        SubnetIds: !Join [',', !Ref SubnetIds]
-        WebServerSecurityGroupId: !GetAtt SecurityGroupsStack.Outputs.WebServerSecurityGroupId
       Tags:
         - Key: Environment
           Value: !Ref Environment
 
 Outputs:
-  WebServerSecurityGroupId:
-    Description: Security Group ID for web servers
-    Value: !GetAtt SecurityGroupsStack.Outputs.WebServerSecurityGroupId
-    Export:
-      Name: !Sub ${AWS::StackName}-WebServerSecurityGroupId
-
-  WebsiteBucketName:
-    Description: S3 Bucket for website content
-    Value: !GetAtt StaticWebsiteStack.Outputs.WebsiteBucketName
-    Export:
-      Name: !Sub ${AWS::StackName}-WebsiteBucketName
-
-  CloudFrontDistributionDomainName:
-    Description: CloudFront Distribution Domain Name
-    Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
-    Export:
-      Name: !Sub ${AWS::StackName}-CloudFrontDomainName
-      
-  LoadBalancerDnsName:
-    Description: DNS name of the Application Load Balancer
-    Value: !GetAtt LoadBalancerStack.Outputs.LoadBalancerDnsName
-    Export:
-      Name: !Sub ${AWS::StackName}-LoadBalancerDnsName
+  # Your outputs will go here

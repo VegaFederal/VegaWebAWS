@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Security Groups for web application infrastructure
+Description: Security Groups for VegaWebAWS
 
 Parameters:
   Environment:
