@@ -10,7 +10,13 @@ Parameters:
       - test
       - prod
     Description: The deployment environment
-  
+
+    ProjectName:
+      Type: String
+
+    TemplateBucket:
+      Type: String
+
   VpcId:
     Type: AWS::EC2::VPC::Id
     Default: vpc-03de7ad5a4c7c1822

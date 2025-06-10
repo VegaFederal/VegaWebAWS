@@ -87,7 +87,6 @@ jobs:
             VpcId=${{ env.VPC_ID }},
             SubnetIds=${{ env.SUBNET_IDS }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
-            AiModelId=${{ env.AI_MODEL }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
