@@ -2,6 +2,10 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Security Groups for VegaWebAWS
 
 Parameters:
+  ProjectName:
+    Type: String
+    Description: Name of the project
+
   Environment:
     Type: String
     Default: dev
