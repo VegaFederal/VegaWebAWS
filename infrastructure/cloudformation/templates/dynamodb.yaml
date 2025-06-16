@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for contacts
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - test
+      - prod
+    Description: The deployment environment
+
+Resources:
+  ContactsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${Environment}-contacts
+      KeySchema:
+        - AttributeName: lastName
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: lastName
+          AttributeType: S
+        - AttributeName: email
+          AttributeType: S
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: email-index
+          KeySchema:
+            - AttributeName: email
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+Outputs:
+  ContactsTableName:
+    Description: The name of the contacts DynamoDB table
+    Value: !Ref ContactsTable
+  ContactsTableArn:
+    Description: The ARN of the contacts DynamoDB table
+    Value: !GetAtt ContactsTable.Arn
