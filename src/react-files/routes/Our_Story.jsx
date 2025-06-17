@@ -12,10 +12,7 @@ import Footer from '../components/Footer';
 const Our_Story = () => {
     return (
         <>
-        <div class='flex bg-cover bg-primary h-45'>
-            <Navbar color_OurStory='text-secondary'/>
-        </div>
-        <section>
+        <section className="our-story">
             <div
             className="
                 bg-[url('./assets/OurStory_Banner.jpg')]   /* ← your image */
@@ -26,6 +23,9 @@ const Our_Story = () => {
                 z-[-1]
             "
             >
+        <div class='flex bg-cover bg-primary h-45'>
+            <Navbar color_story='text-secondary'/>
+        </div>
             <div className='flex items-end h-132 ml-10 gap-5 md:gap-5 md:ml-50 pb-10'>
                 <img src={Arrow} alt='' className=" object-contain w-[50px] mb-10 md:h-[134px] md:w-[82px]"/>
                     <div className='flex-col'>

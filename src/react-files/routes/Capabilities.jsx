@@ -28,7 +28,7 @@ const Capabilities = () => {
         >
         <header>
             <div>
-                <Navbar color_Capabilities='text-secondary'/>
+                <Navbar color_capabilities='text-secondary'/>
             </div>
         </header>
         {/* your content here */}
@@ -41,9 +41,9 @@ const Capabilities = () => {
                     <p className='max-w-x tracking-wide text-center text-white md:text-left text-[24px] pt-[40px]'>We don’t just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
                 </div>
         </div>
-        <div className='flex flex-col pt-5 space-y-10 md:space-x-10 ml-40 mt-30 md:flex-row md:space-y-0'>
-            <Link to='/contact'><button className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-red-500 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
-            <Link to='/pdf'><button className="text-white text-xl font-bold ml-[1100px] hover:text-red-500 h-[75px] w-[265px]"><img src={myImage6} alt='' className=" object-contain h-[60px] w-[72px]"/>Download Capabilities "Slick" Sheet</button></Link>
+        <div className='flex pt-5 space-y-10 md:space-x-10 ml-40 mt-30 md:flex-row md:space-y-0'>
+            <Link to='/contact'><button className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
+            <Link to='/pdf'><button className="flex text-white text-xl font-bold ml-[1100px] hover:text-secondary h-[75px] w-[265px]"><img src={myImage6} alt='' className=" object-contain h-[60px] w-[72px]"/>Download Capabilities "Slick" Sheet</button></Link>
         </div> 
         </div>
     </section>
@@ -160,29 +160,29 @@ const Capabilities = () => {
         </div>
     </section>
 
-    <section class="
-                bg-primary   /* ← your image */
-                bg-cover                        /* cover the entire area */
-                bg-center                       /* center it */
-                bg-no-repeat                    /* don’t tile it */
-                h-screen                        /* make the section full‑viewport height */
-                z-[-1]
-            ">
-            <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
-                <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-                <h3 class='text-[40px] text-rose-600 '>Midwestern Values. Global Impact.</h3>
-                <ul class='ml-[34px]'>
-                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
-                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
-                    <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
-                </ul>
-            </div>
-            <img src={stlSkyline} alt='' className="object-contain w-full"/>
-        </section>
-        <section>
-            <Footer></Footer>
-        </section>
+   <section class="
+                       bg-primary   /* ← your image */
+                       bg-cover                        /* cover the entire area */
+                       bg-center                       /* center it */
+                       bg-no-repeat                    /* don’t tile it */
+                       h-screen                        /* make the section full‑viewport height */
+                       z-[-1]
+                   ">
+                   <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
+                       <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
+                       <h3 class='text-[40px] text-rose-600 '>Midwestern Values. Global Impact.</h3>
+                       <ul class='ml-[34px]'>
+                           <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Vega calls St. Louis home — by choice.</li>
+                           <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Away from the Beltway, we bring a grounded, practical, and human-centered approach.</li>
+                           <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We believe in handshake deals, honest partnerships, and mission-first thinking.</li>
+                           <li class='text-white text-[24px] ml-[-35px]'>We meet our customers where they are — literally and figuratively.</li>
+                       </ul>
+                   </div>
+                   <img src={stlSkyline} alt='' className="object-contain w-full"/>
+               </section>
+               <section>
+                   <Footer></Footer>
+               </section>
     </>
     );
 }

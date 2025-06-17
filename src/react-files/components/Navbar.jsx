@@ -5,7 +5,9 @@ import './NavbarStyles.css'
 import myImage from '../assets/Logo.png';
 
 
-const Navbar = ({color_OurStory, color_Capabilities}) => {
+const Navbar = ({color_story, color_capabilities,color_contact, color_partner, color_career, color_about}) => {
+
+
     const[click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
 
@@ -14,19 +16,38 @@ const Navbar = ({color_OurStory, color_Capabilities}) => {
         <Link to='/'><img src={myImage} class="w-50"></img></Link>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li>
-                <Link to='/Capabilities'><p class={color_Capabilities}>Capabilities</p></Link>
+                <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
+
             </li>
             <li class='text-white font-bold'>
                 |
             </li>
             <li>
-                <Link to='/Our_Story'><p class={color_OurStory}>Our Story</p></Link>
+                <Link to='/Our_Story'><p class={color_story}>Our Story</p></Link>
             </li>
             <li class='text-white font-bold'>
                 |
             </li>
             <li>
-                <Link to='/Contact'>Contact Us</Link>
+                <Link to='/Contact'><p class={color_contact}>Contact Us</p></Link>
+            </li>
+            <li class='text-white font-bold'>
+                |
+            </li>
+            <li>
+                <Link to='/Partners'><p class={color_partner}>Our Partners</p></Link>
+            </li>
+            <li class='text-white font-bold'>
+                |
+            </li>
+            <li>
+                <Link to='/Careers'><p class={color_career}>Careers</p></Link>
+            </li>
+            <li class='text-white font-bold'>
+                |
+            </li>
+            <li>
+                <Link to='/About_Us'><p class={color_about}>About Us</p></Link>
             </li>
         </ul>
         <div className='hamburger' onClick={handleClick}>
