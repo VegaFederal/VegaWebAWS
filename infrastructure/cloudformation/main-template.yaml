@@ -77,7 +77,6 @@ Resources:
         Environment: !Ref Environment
         VpcId: !Ref VpcId
         SubnetIds: !Join [',', !Ref SubnetIds]
-        RouteTableId: !Ref RouteTableId
         DeploymentBucket: !Sub contact-page-deployment-${Environment}
       Tags:
         - Key: Environment
