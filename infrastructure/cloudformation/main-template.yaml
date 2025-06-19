@@ -65,6 +65,14 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
+  ContactPageStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/contact-page.yaml
+      Parameters:
+        Environment: !Ref Environment
+        LambdaCodeBucket: !Ref LambdaCodeBucket
+
 Outputs:
   # Your outputs will go here
   WebsiteBucketName:

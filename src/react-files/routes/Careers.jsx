@@ -3,10 +3,30 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import { FaDropbox } from 'react-icons/fa';
-
-
+import React, { useState } from 'react';
 
 const Careers = () => {
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        job: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('https://your-api-id.execute-api.region.amazonaws.com/prod/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form)
+        });
+        // handle response...
+    };
+
     return(
         <>
         <section className='partners'>
@@ -15,7 +35,7 @@ const Careers = () => {
             bg-[url('./assets/Capabilities_Banner.jpg')]   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
+            bg-no-repeat                    /* don't tile it */
             h-svh        /* make the section full‑viewport height */
             z-[-1]
         "
@@ -30,9 +50,9 @@ const Careers = () => {
                 <div className='flex-col bg-gray-400 w-[1000px] h-[1500px] mt-[1000px] rounded-2xl'>
                     <h1 className='text-white font-bold text-[48px] ml-[20px] mb-[50px]'>Application Form</h1>
                     <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Name</p>
-                    <input className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]'></input>
+                    <input className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]' name="name" onChange={handleChange}></input>
                     <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Email</p>
-                    <input className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]'></input>
+                    <input className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]' name="email" onChange={handleChange}></input>
                     <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'> Select Job</p>
                     <form className='ml-[20px]'>
                         <select className='bg-white w-[200px] h-[40px] rounded-xl border-1 mb-[10px]'>
@@ -43,7 +63,7 @@ const Careers = () => {
                         </select>
                     </form>
                     <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Message</p>
-                    <textarea className='bg-white rounded-xl resize-none w-[900px] h-[150px] text-[24px] border-1 ml-[20px] mb-[50px]'></textarea>
+                    <textarea className='bg-white rounded-xl resize-none w-[900px] h-[150px] text-[24px] border-1 ml-[20px] mb-[50px]' name="message" onChange={handleChange}></textarea>
                     <button className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white ml-[20px]'>Submit</button>
                     
 
@@ -58,7 +78,7 @@ const Careers = () => {
         bg-primary
         bg-cover                        /* cover the entire area */
         bg-center                       /* center it */
-        bg-no-repeat                    /* don’t tile it */
+        bg-no-repeat                    /* don't tile it */
         h-screen                        /* make the section full‑viewport height */
         z-[-1]
         "
@@ -70,7 +90,7 @@ const Careers = () => {
        bg-primary   /* ← your image */
        bg-cover                        /* cover the entire area */
        bg-center                       /* center it */
-       bg-no-repeat                    /* don’t tile it */
+       bg-no-repeat                    /* don't tile it */
        h-screen                        /* make the section full‑viewport height */
        z-[-1]
         ">

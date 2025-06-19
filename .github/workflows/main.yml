@@ -112,6 +112,28 @@ jobs:
         run: |
           CF_URL=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteUrl'].OutputValue" --output text)
           echo "Your website is available at: https://$CF_URL"
+
+      - name: Package Lambda function
+        run: |
+          cd src/lambda/contact-processor
+          zip -r contact-processor.zip .
+          aws s3 cp contact-processor.zip s3://$LAMBDA_CODE_BUCKET/
+
+      - name: Upload CloudFormation templates
+        run: |
+          aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
+
+      - name: Deploy CloudFormation stack
+        run: |
+          aws cloudformation deploy \
+            --template-file infrastructure/cloudformation/main-template.yaml \
+            --stack-name my-contact-page-stack \
+            --parameter-overrides \
+                Environment=dev \
+                TemplateBucket=$TEMPLATE_BUCKET \
+                LambdaCodeBucket=$LAMBDA_CODE_BUCKET \
+            --capabilities CAPABILITY_NAMED_IAM
+
   cleanup:
     if: github.event.inputs.action == 'cleanup'
     runs-on: ubuntu-latest
