@@ -14,6 +14,10 @@ Parameters:
   # ProjectName:
   #     Type: String
   #     Description: "Logical name/prefix for resources"
+  LambdaCodeBucket:
+    Type: String
+    Description: S3 bucket containing Lambda deployment packages
+
 
   TemplateBucket:
     Type: String
