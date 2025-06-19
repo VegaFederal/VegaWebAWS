@@ -72,10 +72,16 @@ Resources:
   ContactPageStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/contact-page.yaml
+      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/contact-page.yaml
       Parameters:
         Environment: !Ref Environment
-        LambdaCodeBucket: !Ref LambdaCodeBucket
+        VpcId: !Ref VpcId
+        SubnetIds: !Join [',', !Ref SubnetIds]
+        RouteTableId: !Ref RouteTableId
+        DeploymentBucket: !Sub contact-page-deployment-${Environment}
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
 
 Outputs:
   # Your outputs will go here
