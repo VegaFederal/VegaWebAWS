@@ -81,11 +81,12 @@ jobs:
         with:
           name: ${{ env.PROJECT_NAME }}
           template: infrastructure/cloudformation/main-template.yaml
-          parameter-overrides: >-
+          parameter-overrides: >
             Environment=dev,
             VpcId=${{ env.VPC_ID }},
             SubnetIds=${{ env.SUBNET_IDS }},
-            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            LambdaCodeBucket=${{ env.LAMBDA_CODE_BUCKET }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
