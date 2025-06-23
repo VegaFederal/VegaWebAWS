@@ -117,7 +117,7 @@ Resources:
   ContactProcessorFunction:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: !Sub contact-processor-${Environment}
+      FunctionName: !Sub vega-web-contact-processor-${Environment}
       Handler: index.handler
       Role: !GetAtt ContactProcessorRole.Arn
       Runtime: nodejs18.x
