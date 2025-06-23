@@ -115,9 +115,9 @@ Outputs:
     Export:
       Name: !Sub ${AWS::StackName}-ContactsTableName
 
-  ContactsTableArn:
-    Description: The ARN of the contacts DynamoDB table
-    Value: !GetAtt DynamoDBStack.Outputs.ContactsTableArn
+  # ContactsTableArn:
+  #   Description: The ARN of the contacts DynamoDB table
+  #   Value: !GetAtt DynamoDBStack.Outputs.ContactsTableArn
     
   DeploymentBucketName:
     Description: S3 bucket for deployment artifacts
