@@ -189,12 +189,12 @@ Resources:
       ParentId: !GetAtt ContactApi.RootResourceId
       PathPart: api
 
-  # UploadUrlResource:
-  #   Type: AWS::ApiGateway::Resource
-  #   Properties:
-  #     RestApiId: !Ref ContactApi
-  #     ParentId: !Ref ApiResource
-  #     PathPart: get-upload-url
+  UploadUrlResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ContactApi
+      ParentId: !Ref ApiResource
+      PathPart: get-upload-url
 
   SubmitContactResource:
     Type: AWS::ApiGateway::Resource
