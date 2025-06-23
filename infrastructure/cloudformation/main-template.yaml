@@ -34,6 +34,9 @@ Parameters:
     Default: subnet-02615277a84a5fcb4
     Description: List of existing subnet IDs for deployment
 
+Conditions:
+  HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
+
 Resources:
   # Security Groups Stack
   SecurityGroupsStack:
