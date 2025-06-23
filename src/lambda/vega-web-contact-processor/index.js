@@ -66,7 +66,6 @@ async function submitContactHandler(event) {
     // Create contact item
     const contactId = uuidv4();
     const contactItem = {
-      id: contactId,
       firstName: contact.firstName,
       lastName: contact.lastName,
       email: contact.email,

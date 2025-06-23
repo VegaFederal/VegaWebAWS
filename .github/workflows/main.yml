@@ -82,7 +82,8 @@ jobs:
       - name: Package Lambda function
         run: |
           cd src/lambda/vega-web-contact-processor
-          zip -r vega-web-contact-processor.zip index.js
+          npm install
+          zip -r vega-web-contact-processor.zip index.js node_modules package.json package-lock.json
           aws s3 cp vega-web-contact-processor.zip s3://${{ env.DEPLOYMENT_BUCKET }}/${{ env.ENVIRONMENT }}/lambda/
           cd ../../../
 
