@@ -55,6 +55,7 @@ jobs:
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
           echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
+
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
@@ -65,6 +66,13 @@ jobs:
 
             echo "Creating bucket: $TEMPLATE_BUCKET"
             aws s3 mb s3://$TEMPLATE_BUCKET
+
+      - name: Package Lambda function
+        run: |
+          cd src/lambda/contact-processor
+          zip -r contact-processor.zip index.js
+          aws s3 cp contact-processor.zip s3://${{ env.DEPLOYMENT_BUCKET }}/${{ env.ENVIRONMENT }}/lambda/
+          cd ../../../
 
       - name: Upload templates to S3
         run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/

@@ -1,0 +1,417 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Resources for Contact Page application
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - test
+      - prod
+    Description: The deployment environment
+  
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: ID of the VPC where Lambda function will run
+  
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: List of subnet IDs where Lambda function will run
+    
+  RouteTableId:
+    Type: String
+    Description: ID of the route table for the VPC endpoint
+    
+  DeploymentBucket:
+    Type: String
+    Default: ''
+    Description: Name of the deployment bucket created by GitHub action
+  
+
+
+Resources:
+  # DynamoDB Table for Contact Information
+  ContactsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub contact-info-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: email
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: EmailIndex
+          KeySchema:
+            - AttributeName: email
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  # # S3 Bucket for Resume Storage
+  # ResumeBucket:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     AccessControl: Private
+  #     BucketEncryption:
+  #       ServerSideEncryptionConfiguration:
+  #         - ServerSideEncryptionByDefault:
+  #             SSEAlgorithm: AES256
+  #     CorsConfiguration:
+  #       CorsRules:
+  #         - AllowedHeaders:
+  #             - '*'
+  #           AllowedMethods:
+  #             - PUT
+  #             - GET
+  #             - HEAD
+  #           AllowedOrigins:
+  #             - '*'
+  #           MaxAge: 3000
+  #     Tags:
+  #       - Key: Environment
+  #         Value: !Ref Environment
+
+  # Lambda IAM Role
+  ContactProcessorRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      Policies:
+        - PolicyName: ContactProcessorPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:Query
+                  - dynamodb:GetItem
+                Resource: 
+                  - !GetAtt ContactsTable.Arn
+                  - !Sub "${ContactsTable.Arn}/index/*"
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                # Resource: !Sub ${ResumeBucket.Arn}/*
+
+  # Lambda Function for Contact Processing
+  ContactProcessorFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub contact-processor-${Environment}
+      Handler: index.handler
+      Role: !GetAtt ContactProcessorRole.Arn
+      Runtime: nodejs18.x
+      Timeout: 30
+      MemorySize: 256
+      VpcConfig:
+        SecurityGroupIds:
+          - !Ref LambdaSecurityGroup
+        SubnetIds: !Ref SubnetIds
+      Environment:
+        Variables:
+          CONTACTS_TABLE: !Ref ContactsTable
+          # RESUME_BUCKET: !Ref ResumeBucket
+          CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
+      Code:
+        S3Bucket: !Ref DeploymentBucket
+        S3Key: !Sub ${Environment}/lambda/contact-processor.zip
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+          
+  # Security Group for Lambda
+  LambdaSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for Contact Processor Lambda function
+      VpcId: !Ref VpcId
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-lambda-sg
+        - Key: Environment
+          Value: !Ref Environment
+          
+  # VPC Endpoint for DynamoDB
+  DynamoDBEndpoint:
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action:
+              - 'dynamodb:*'
+            Resource: '*'
+      RouteTableIds:
+        - !Ref RouteTableId
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.dynamodb
+      VpcId: !Ref VpcId
+
+  # API Gateway for Lambda Integration
+  ContactApi:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: !Sub contact-api-${Environment}
+      Description: API for contact form processing
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+
+  # API Gateway Resources
+  ApiResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ContactApi
+      ParentId: !GetAtt ContactApi.RootResourceId
+      PathPart: api
+
+  # UploadUrlResource:
+  #   Type: AWS::ApiGateway::Resource
+  #   Properties:
+  #     RestApiId: !Ref ContactApi
+  #     ParentId: !Ref ApiResource
+  #     PathPart: get-upload-url
+
+  SubmitContactResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ContactApi
+      ParentId: !Ref ApiResource
+      PathPart: submit-contact
+      
+  SearchByEmailResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ContactApi
+      ParentId: !Ref ApiResource
+      PathPart: search-by-email
+
+  # API Gateway Methods
+  UploadUrlMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ContactApi
+      ResourceId: !Ref UploadUrlResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactProcessorFunction.Arn}/invocations
+
+  SubmitContactMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ContactApi
+      ResourceId: !Ref SubmitContactResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactProcessorFunction.Arn}/invocations
+        
+  SearchByEmailMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ContactApi
+      ResourceId: !Ref SearchByEmailResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactProcessorFunction.Arn}/invocations
+
+  # API Gateway Deployment
+  ApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - UploadUrlMethod
+      - SubmitContactMethod
+      - SearchByEmailMethod
+    Properties:
+      RestApiId: !Ref ContactApi
+      StageName: !Ref Environment
+
+  # Lambda Permission for API Gateway
+  ApiGatewayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ContactProcessorFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContactApi}/*
+
+  # CloudFront Distribution for API and Website
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          # S3 Origin for Website
+          - DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            Id: WebsiteOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          # # S3 Origin for Resumes
+          # - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+          #   Id: ResumeOrigin
+          #   S3OriginConfig:
+          #     OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          # API Gateway Origin
+          - DomainName: !Sub ${ContactApi}.execute-api.${AWS::Region}.amazonaws.com
+            Id: ApiOrigin
+            OriginPath: !Sub /${Environment}
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+        Enabled: true
+        DefaultRootObject: index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          TargetOriginId: WebsiteOrigin
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+        CacheBehaviors:
+          # API Path Behavior
+          - PathPattern: /api/*
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+              - PUT
+              - POST
+              - PATCH
+              - DELETE
+            TargetOriginId: ApiOrigin
+            ForwardedValues:
+              QueryString: true
+              Headers:
+                - Authorization
+                - Content-Type
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: https-only
+          # # Resume Path Behavior
+          # - PathPattern: /resumes/*
+          #   AllowedMethods:
+          #     - GET
+          #     - HEAD
+          #     - OPTIONS
+          #   TargetOriginId: ResumeOrigin
+          #   ForwardedValues:
+          #     QueryString: false
+          #     Cookies:
+          #       Forward: none
+          #   ViewerProtocolPolicy: https-only
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  CloudFrontOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub ${AWS::StackName} OAI
+
+  # S3 Bucket for Website Content
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+# DeploymentBucket is now a parameter, not a resource
+
+  # Bucket Policies
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: !Sub ${WebsiteBucket.Arn}/*
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+
+  # ResumeBucketPolicy:
+  #   Type: AWS::S3::BucketPolicy
+  #   Properties:
+  #     Bucket: !Ref ResumeBucket
+  #     PolicyDocument:
+  #       Statement:
+  #         - Action:
+  #             - s3:GetObject
+  #           Effect: Allow
+  #           Resource: !Sub ${ResumeBucket.Arn}/*
+  #           Principal:
+  #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+
+Outputs:
+  ContactsTableName:
+    Description: DynamoDB table for contact information
+    Value: !Ref ContactsTable
+
+  # ResumeBucketName:
+  #   Description: S3 bucket for resume storage
+  #   Value: !Ref ResumeBucket
+
+  WebsiteBucketName:
+    Description: S3 bucket for website content
+    Value: !Ref WebsiteBucket
+
+  DeploymentBucketName:
+    Description: S3 bucket for deployment artifacts
+    Value: !Ref DeploymentBucket
+
+  ApiEndpoint:
+    Description: API Gateway endpoint URL
+    Value: !Sub https://${ContactApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}
+
+  CloudFrontDistributionDomainName:
+    Description: CloudFront Distribution Domain Name
+    Value: !GetAtt CloudFrontDistribution.DomainName

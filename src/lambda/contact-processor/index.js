@@ -1,0 +1,112 @@
+const AWS = require('aws-sdk');
+const { v4: uuidv4 } = require('uuid');
+
+// Configure AWS SDK (timeouts, retries, etc. can be set if needed)
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+const s3 = new AWS.S3();
+
+const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
+const RESUME_BUCKET = process.env.RESUME_BUCKET;
+const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
+
+// Handler for generating a pre-signed S3 upload URL
+async function getUploadUrlHandler(event) {
+  try {
+    const body = JSON.parse(event.body);
+    const fileName = body.fileName;
+    const fileType = body.fileType;
+
+    if (!fileName || !fileType) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ error: 'fileName and fileType are required' }),
+      };
+    }
+
+    const fileKey = `resumes/${uuidv4()}-${fileName}`;
+    const presignedUrl = s3.getSignedUrl('putObject', {
+      Bucket: RESUME_BUCKET,
+      Key: fileKey,
+      ContentType: fileType,
+      Expires: 300,
+    });
+
+    const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ uploadUrl: presignedUrl, fileUrl }),
+    };
+  } catch (e) {
+    console.error('Error generating pre-signed URL:', e);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: 'Failed to generate upload URL' }),
+    };
+  }
+}
+
+// Handler for saving contact info to DynamoDB
+async function submitContactHandler(event) {
+  try {
+    const contact = JSON.parse(event.body);
+
+    // Validate required fields
+    if (!contact.firstName || !contact.lastName || !contact.email) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ error: 'First name, last name, and email are required' }),
+      };
+    }
+
+    // Create contact item
+    const contactId = uuidv4();
+    const contactItem = {
+      id: contactId,
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      email: contact.email,
+      phoneNumber: contact.phoneNumber,
+      createdAt: new Date().toISOString(),
+    };
+
+    // Save to DynamoDB
+    await dynamodb.put({
+      TableName: CONTACTS_TABLE,
+      Item: contactItem,
+    }).promise();
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ message: 'Contact information saved successfully', contactId }),
+    };
+  } catch (e) {
+    console.error('Error saving contact:', e);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: `Failed to save contact information: ${e.message}` }),
+    };
+  }
+}
+
+// Main Lambda handler
+exports.handler = async (event) => {
+  const path = event.path || '';
+  if (path === '/api/get-upload-url') {
+    return await getUploadUrlHandler(event);
+  } else if (path === '/api/submit-contact') {
+    return await submitContactHandler(event);
+  } else {
+    return {
+      statusCode: 404,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: 'Not found' }),
+    };
+  }
+};

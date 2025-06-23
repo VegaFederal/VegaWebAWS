@@ -19,6 +19,11 @@ Parameters:
     Type: String
     Description: S3 bucket containing CloudFormation templates
 
+  RouteTableId:
+    Type: String
+    Default: rtb-0bbaaa9146c12d706
+    Description: ID of the route table for the VPC endpoin
+
   VpcId:
     Type: AWS::EC2::VPC::Id
     Default: vpc-03de7ad5a4c7c1822
@@ -54,31 +59,77 @@ Resources:
       Tags:
         - Key: Environment
           Value: !Ref Environment
-  # DynamoDB Stack
-  DynamoDBStack:
+
+    # Contact Page Stack
+  ContactPageStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/dynamodb.yaml
+      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/contact-page.yaml
       Parameters:
         Environment: !Ref Environment
+        VpcId: !Ref VpcId
+        SubnetIds: !Join [',', !Ref SubnetIds]
+        RouteTableId: !Ref RouteTableId
+        DeploymentBucket: !Sub contact-page-deployment-${Environment}
       Tags:
         - Key: Environment
           Value: !Ref Environment
 
+  # # DynamoDB Stack
+  # DynamoDBStack:
+  #   Type: AWS::CloudFormation::Stack
+  #   Properties:
+  #     TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/dynamodb.yaml
+  #     Parameters:
+  #       Environment: !Ref Environment
+  #     Tags:
+  #       - Key: Environment
+  #         Value: !Ref Environment
+
 Outputs:
   # Your outputs will go here
+
+  WebServerSecurityGroupId:
+    Condition: HasVpcConfig
+    Description: Security Group ID for web servers
+    Value: !GetAtt SecurityGroupsStack.Outputs.WebServerSecurityGroupId
+    Export:
+      Name: !Sub ${AWS::StackName}-WebServerSecurityGroupId
+
   WebsiteBucketName:
     Description: S3 Bucket for website content
     Value: !GetAtt StaticWebsiteStack.Outputs.WebsiteBucketName
+    Export:
+      Name: !Sub ${AWS::StackName}-WebsiteBucketName
 
   WebsiteURL:
     Description: S3 Bucket for website content
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
     
   ContactsTableName:
-    Description: The name of the contacts DynamoDB table
-    Value: !GetAtt DynamoDBStack.Outputs.ContactsTableName
+    Description: DynamoDB table for contact information
+    Value: !GetAtt ContactPageStack.Outputs.ContactsTableName
+    Export:
+      Name: !Sub ${AWS::StackName}-ContactsTableName
 
   ContactsTableArn:
     Description: The ARN of the contacts DynamoDB table
     Value: !GetAtt DynamoDBStack.Outputs.ContactsTableArn
+    
+  DeploymentBucketName:
+    Description: S3 bucket for deployment artifacts
+    Value: !GetAtt ContactPageStack.Outputs.DeploymentBucketName
+    Export:
+      Name: !Sub ${AWS::StackName}-DeploymentBucketName
+
+  ApiEndpoint:
+    Description: API Gateway endpoint URL
+    Value: !GetAtt ContactPageStack.Outputs.ApiEndpoint
+    Export:
+      Name: !Sub ${AWS::StackName}-ApiEndpoint
+
+  CloudFrontDistributionDomainName:
+    Description: CloudFront Distribution Domain Name
+    Value: !GetAtt ContactPageStack.Outputs.CloudFrontDistributionDomainName
+    Export:
+      Name: !Sub ${AWS::StackName}-CloudFrontDomainName
