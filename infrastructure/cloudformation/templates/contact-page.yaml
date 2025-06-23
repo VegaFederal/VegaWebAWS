@@ -107,10 +107,10 @@ Resources:
                 Resource: 
                   - !GetAtt ContactsTable.Arn
                   - !Sub "${ContactsTable.Arn}/index/*"
-              - Effect: Allow
-                Action:
-                  - s3:PutObject
-                  - s3:GetObject
+              # - Effect: Allow
+              #   Action:
+              #     - s3:PutObject
+              #     - s3:GetObject
                 # Resource: !Sub ${ResumeBucket.Arn}/*
 
   # Lambda Function for Contact Processing
