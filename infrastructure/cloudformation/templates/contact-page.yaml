@@ -154,22 +154,22 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
           
-  # VPC Endpoint for DynamoDB
-  DynamoDBEndpoint:
-    Type: AWS::EC2::VPCEndpoint
-    Properties:
-      PolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-          - Effect: Allow
-            Principal: '*'
-            Action:
-              - 'dynamodb:*'
-            Resource: '*'
-      RouteTableIds:
-        - !Ref RouteTableId
-      ServiceName: !Sub com.amazonaws.${AWS::Region}.dynamodb
-      VpcId: !Ref VpcId
+  # # VPC Endpoint for DynamoDB
+  # DynamoDBEndpoint:
+  #   Type: AWS::EC2::VPCEndpoint
+  #   Properties:
+  #     PolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #         - Effect: Allow
+  #           Principal: '*'
+  #           Action:
+  #             - 'dynamodb:*'
+  #           Resource: '*'
+  #     RouteTableIds:
+  #       - !Ref RouteTableId
+  #     ServiceName: !Sub com.amazonaws.${AWS::Region}.dynamodb
+  #     VpcId: !Ref VpcId
 
   # API Gateway for Lambda Integration
   ContactApi:
