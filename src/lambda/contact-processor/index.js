@@ -6,7 +6,7 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 const s3 = new AWS.S3();
 
 const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
-const RESUME_BUCKET = process.env.RESUME_BUCKET;
+// const RESUME_BUCKET = process.env.RESUME_BUCKET;
 const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
 // Handler for generating a pre-signed S3 upload URL
@@ -70,7 +70,6 @@ async function submitContactHandler(event) {
       firstName: contact.firstName,
       lastName: contact.lastName,
       email: contact.email,
-      phoneNumber: contact.phoneNumber,
       createdAt: new Date().toISOString(),
     };
 

@@ -35,7 +35,7 @@ Resources:
   ContactsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub contact-info-${Environment}
+      TableName: !Sub vega-web-contact-table-dev-${Environment}
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: id
