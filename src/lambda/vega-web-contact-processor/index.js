@@ -14,44 +14,44 @@ const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
 const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
 // Handler for generating a pre-signed S3 upload URL
-async function getUploadUrlHandler(event) {
-  try {
-    const body = JSON.parse(event.body);
-    const fileName = body.fileName;
-    const fileType = body.fileType;
+// async function getUploadUrlHandler(event) {
+//   try {
+//     const body = JSON.parse(event.body);
+//     const fileName = body.fileName;
+//     const fileType = body.fileType;
 
-    if (!fileName || !fileType) {
-      return {
-        statusCode: 400,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        body: JSON.stringify({ error: 'fileName and fileType are required' }),
-      };
-    }
+//     if (!fileName || !fileType) {
+//       return {
+//         statusCode: 400,
+//         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+//         body: JSON.stringify({ error: 'fileName and fileType are required' }),
+//       };
+//     }
 
-    const fileKey = `resumes/${uuidv4()}-${fileName}`;
-    const command = new PutObjectCommand({
-      Bucket: RESUME_BUCKET,
-      Key: fileKey,
-      ContentType: fileType,
-    });
-    const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
+//     const fileKey = `resumes/${uuidv4()}-${fileName}`;
+//     const command = new PutObjectCommand({
+//       Bucket: RESUME_BUCKET,
+//       Key: fileKey,
+//       ContentType: fileType,
+//     });
+//     const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
-    const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
+//     const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
 
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ uploadUrl: presignedUrl, fileUrl }),
-    };
-  } catch (e) {
-    console.error('Error generating pre-signed URL:', e);
-    return {
-      statusCode: 500,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ error: 'Failed to generate upload URL' }),
-    };
-  }
-}
+//     return {
+//       statusCode: 200,
+//       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+//       body: JSON.stringify({ uploadUrl: presignedUrl, fileUrl }),
+//     };
+//   } catch (e) {
+//     console.error('Error generating pre-signed URL:', e);
+//     return {
+//       statusCode: 500,
+//       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+//       body: JSON.stringify({ error: 'Failed to generate upload URL' }),
+//     };
+//   }
+// }
 
 // Handler for saving contact info to DynamoDB
 async function submitContactHandler(event) {
@@ -101,7 +101,7 @@ async function submitContactHandler(event) {
 exports.handler = async (event) => {
   const path = event.path || '';
   if (path === '/api/get-upload-url') {
-    return await getUploadUrlHandler(event);
+    // return await getUploadUrlHandler(event);
   } else if (path === '/api/submit-contact') {
     return await submitContactHandler(event);
   } else {

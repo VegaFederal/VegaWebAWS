@@ -286,7 +286,7 @@ Resources:
           # API Gateway Origin
           - DomainName: !Sub ${ContactApi}.execute-api.${AWS::Region}.amazonaws.com
             Id: ApiOrigin
-            OriginPath: !Sub /${Environment}
+            # OriginPath: !Sub /${Environment}
             CustomOriginConfig:
               HTTPPort: 80
               HTTPSPort: 443
