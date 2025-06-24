@@ -27,8 +27,7 @@ const Careers = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          // Replace with your actual API endpoint
-          await axios.post('YOUR_API_GATEWAY_URL/api/submit-contact', formData);
+          await axios.post('https://7vdvmousl3.execute-api.us-east-1.amazonaws.com/dev/api/submit-contact', formData);
           alert('Application submitted!');
           setFormData({
             firstName: '',

@@ -175,7 +175,7 @@ Resources:
   ContactApi:
     Type: AWS::ApiGateway::RestApi
     Properties:
-      Name: !Sub contact-api-${Environment}
+      Name: !Sub vega-web-contact-api-${Environment}
       Description: API for contact form processing
       EndpointConfiguration:
         Types:
