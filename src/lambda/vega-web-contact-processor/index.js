@@ -70,6 +70,7 @@ async function submitContactHandler(event) {
     // Create contact item
     const contactId = uuidv4();
     const contactItem = {
+      id: contactId,
       firstName: contact.firstName,
       lastName: contact.lastName,
       email: contact.email,
@@ -100,9 +101,10 @@ async function submitContactHandler(event) {
 // Main Lambda handler
 exports.handler = async (event) => {
   const path = event.path || '';
-  if (path === '/api/get-upload-url') {
+  //if (path === '/api/get-upload-url') {
     // return await getUploadUrlHandler(event);
-  } else if (path === '/api/submit-contact') {
+  //} else 
+  if (path === '/api/submit-contact') {
     return await submitContactHandler(event);
   } else {
     return {
