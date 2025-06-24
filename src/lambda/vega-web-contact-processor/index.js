@@ -1,9 +1,13 @@
-const AWS = require('aws-sdk');
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 const { v4: uuidv4 } = require('uuid');
 
-// Configure AWS SDK (timeouts, retries, etc. can be set if needed)
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-const s3 = new AWS.S3();
+// Configure AWS SDK v3
+const dynamoClient = new DynamoDBClient({});
+const dynamodb = DynamoDBDocumentClient.from(dynamoClient);
+const s3 = new S3Client({});
 
 const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
 // const RESUME_BUCKET = process.env.RESUME_BUCKET;
@@ -25,12 +29,12 @@ async function getUploadUrlHandler(event) {
     }
 
     const fileKey = `resumes/${uuidv4()}-${fileName}`;
-    const presignedUrl = s3.getSignedUrl('putObject', {
+    const command = new PutObjectCommand({
       Bucket: RESUME_BUCKET,
       Key: fileKey,
       ContentType: fileType,
-      Expires: 300,
     });
+    const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
     const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
 
@@ -73,10 +77,10 @@ async function submitContactHandler(event) {
     };
 
     // Save to DynamoDB
-    await dynamodb.put({
+    await dynamodb.send(new PutCommand({
       TableName: CONTACTS_TABLE,
       Item: contactItem,
-    }).promise();
+    }));
 
     return {
       statusCode: 200,
