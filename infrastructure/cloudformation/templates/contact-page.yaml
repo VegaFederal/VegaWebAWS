@@ -134,7 +134,7 @@ Resources:
           CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
       Code:
         S3Bucket: !Ref DeploymentBucket
-        S3Key: !Sub ${Environment}/lambda/contact-processor.zip
+        S3Key: lambda/vega-web-contact-processor.zip
       Tags:
         - Key: Environment
           Value: !Ref Environment

@@ -73,7 +73,7 @@ Resources:
         VpcId: !Ref VpcId
         SubnetIds: !Join [',', !Ref SubnetIds]
         RouteTableId: !Ref RouteTableId
-        DeploymentBucket: !Sub contact-page-deployment-${Environment}
+        DeploymentBucket: !Ref TemplateBucket
       Tags:
         - Key: Environment
           Value: !Ref Environment
