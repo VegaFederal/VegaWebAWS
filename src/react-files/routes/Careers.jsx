@@ -12,10 +12,10 @@ const Careers = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        email: '',
-        job: 'Select',
-        message: ''
+        email: ''
       });
+    
+    const [isSubmitting, setIsSubmitting] = useState(false);
     
       const handleChange = (e) => {
         setFormData({
@@ -26,18 +26,23 @@ const Careers = () => {
     
       const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        
         try {
           await axios.post('https://7vdvmousl3.execute-api.us-east-1.amazonaws.com/dev/api/submit-contact', formData);
-          alert('Application submitted!');
+          alert('Application submitted successfully! We will contact you soon.');
+          
+          // Reset form
           setFormData({
             firstName: '',
             lastName: '',
-            email: '',
-            job: 'Select',
-            message: ''
+            email: ''
           });
         } catch (err) {
-          alert('Submission failed.');
+          console.error('Submission error:', err);
+          alert('Submission failed. Please try again.');
+        } finally {
+          setIsSubmitting(false);
         }
       };
     
@@ -61,8 +66,9 @@ const Careers = () => {
         </header>
         {/* your content here */}   
             <section className='flex justify-center items-center h-screen'>
-                <div className='flex-col bg-gray-400 w-[1000px] h-[1500px] mt-[1000px] rounded-2xl'>
-                    <h1 className='text-white font-bold text-[48px] ml-[20px] mb-[50px]'>Application Form</h1>
+                <div className='flex-col bg-gray-400 w-[1000px] h-[800px] mt-[1000px] rounded-2xl'>
+                    <h1 className='text-white font-bold text-[48px] ml-[20px] mb-[50px]'>Career Application</h1>
+                    
                     <form onSubmit={handleSubmit}>
                         <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>First Name</p>
                         <input
@@ -86,35 +92,19 @@ const Careers = () => {
                             type="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]'
-                            required
-                        />
-                        <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Select Job</p>
-                        <select
-                            name="job"
-                            value={formData.job}
-                            onChange={handleChange}
-                            className='bg-white w-[200px] h-[40px] rounded-xl border-1 mb-[10px] ml-[20px]'
-                            required
-                        >
-                            <option value="Select">Select</option>
-                            <option value="Job 1">Job 1</option>
-                            <option value="Job 2">Job 2</option>
-                            <option value="Job 3">Job 3</option>
-                        </select>
-                        <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Message</p>
-                        <textarea
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            className='bg-white rounded-xl resize-none w-[900px] h-[150px] text-[24px] border-1 ml-[20px] mb-[50px]'
+                            className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[50px]'
                             required
                         />
                         <button
                             type="submit"
-                            className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white ml-[20px]'
+                            disabled={isSubmitting}
+                            className={`px-9 py-5 text-2xl font-semibold text-white rounded-2xl ml-[20px] ${
+                              isSubmitting 
+                                ? 'bg-gray-400 cursor-not-allowed' 
+                                : 'bg-rose-600 hover:bg-red-700 hover:text-white'
+                            }`}
                         >
-                            Submit
+                            {isSubmitting ? 'Submitting...' : 'Submit Application'}
                         </button>
                     </form>
                 </div>  

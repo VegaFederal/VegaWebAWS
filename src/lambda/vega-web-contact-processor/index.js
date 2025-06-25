@@ -77,16 +77,39 @@ async function submitContactHandler(event) {
       createdAt: new Date().toISOString(),
     };
 
+    // Add additional fields for careers applications
+    if (contact.type === 'career-application') {
+      contactItem.type = 'career-application';
+      contactItem.job = contact.job || '';
+      contactItem.message = contact.message || '';
+      contactItem.timestamp = contact.timestamp || new Date().toISOString();
+    } else {
+      contactItem.type = 'contact-form';
+    }
+
+    // Add any other fields that might be present
+    if (contact.message) {
+      contactItem.message = contact.message;
+    }
+
     // Save to DynamoDB
     await dynamodb.send(new PutCommand({
       TableName: CONTACTS_TABLE,
       Item: contactItem,
     }));
 
+    const responseMessage = contact.type === 'career-application' 
+      ? 'Career application submitted successfully' 
+      : 'Contact information saved successfully';
+
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ message: 'Contact information saved successfully', contactId }),
+      body: JSON.stringify({ 
+        message: responseMessage, 
+        contactId,
+        type: contactItem.type 
+      }),
     };
   } catch (e) {
     console.error('Error saving contact:', e);
