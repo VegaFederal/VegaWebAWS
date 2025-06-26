@@ -127,11 +127,11 @@ Outputs:
     Export:
       Name: !Sub ${AWS::StackName}-DeploymentBucketName
 
-  ApiEndpointDomain:
-    Description: API Gateway endpoint URL
-    Value: !GetAtt ContactPageStack.Outputs.ApiEndpoint
-    Export:
-      Name: !Sub ${AWS::StackName}-ApiEndpoint
+  # ApiEndpointDomain:
+  #   Description: API Gateway endpoint URL
+  #   Value: !GetAtt ContactPageStack.Outputs.ApiEndpoint
+  #   Export:
+  #     Name: !Sub ${AWS::StackName}-ApiEndpoint
 
   CloudFrontDistributionDomainName:
     Description: CloudFront Distribution Domain Name
