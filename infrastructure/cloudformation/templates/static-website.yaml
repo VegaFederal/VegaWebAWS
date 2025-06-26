@@ -15,6 +15,10 @@ Parameters:
       - prod
     Description: The deployment environment
 
+  ApiEndpointDomain:
+    Type: String
+    Description: API Gateway endpoint URL
+
 Resources:
   # S3 Bucket for static assets
   WebsiteBucket:
