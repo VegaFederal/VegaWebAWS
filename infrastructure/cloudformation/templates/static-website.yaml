@@ -24,7 +24,7 @@ Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub "VegaWebAWS-${Environment}-static-website"
+      BucketName: !Sub "vegawebaws-${Environment}-static-website"
       AccessControl: Private
       BucketEncryption:
         ServerSideEncryptionConfiguration:
