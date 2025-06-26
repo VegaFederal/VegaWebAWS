@@ -73,7 +73,7 @@ Resources:
       TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
       Parameters:
         Environment: !Ref Environment
-        ApiEndpointDomain: !Ref ContactPageStack.Outputs.ApiEndpointDomain
+        ApiEndpointDomain: !GetAtt ContactPageStack.Outputs.ApiEndpointDomain
       Tags:
         - Key: Environment
           Value: !Ref Environment
