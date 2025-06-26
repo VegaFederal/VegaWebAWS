@@ -133,8 +133,8 @@ Outputs:
   #   Export:
   #     Name: !Sub ${AWS::StackName}-ApiEndpoint
 
-  CloudFrontDistributionDomainName:
-    Description: CloudFront Distribution Domain Name
-    Value: !GetAtt ContactPageStack.Outputs.CloudFrontDistributionDomainName
-    Export:
-      Name: !Sub ${AWS::StackName}-CloudFrontDomainName
+  # CloudFrontDistributionDomainName:
+  #   Description: CloudFront Distribution Domain Name
+  #   Value: !GetAtt ContactPageStack.Outputs.CloudFrontDistributionDomainName
+  #   Export:
+  #     Name: !Sub ${AWS::StackName}-CloudFrontDomainName
