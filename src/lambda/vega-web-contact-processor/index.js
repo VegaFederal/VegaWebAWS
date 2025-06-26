@@ -11,7 +11,7 @@ const s3 = new S3Client({});
 
 const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
 // const RESUME_BUCKET = process.env.RESUME_BUCKET;
-const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
+// const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
 // Handler for generating a pre-signed S3 upload URL
 // async function getUploadUrlHandler(event) {
