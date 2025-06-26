@@ -34,6 +34,10 @@ Parameters:
     Default: subnet-02615277a84a5fcb4
     Description: List of existing subnet IDs for deployment
 
+  CloudFrontDomain:
+    Type: String
+    Description: CloudFront Distribution Domain Name
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -62,6 +66,7 @@ Resources:
         SubnetIds: !Join [',', !Ref SubnetIds]
         RouteTableId: !Ref RouteTableId
         DeploymentBucket: !Ref TemplateBucket
+        CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
       Tags:
         - Key: Environment
           Value: !Ref Environment
