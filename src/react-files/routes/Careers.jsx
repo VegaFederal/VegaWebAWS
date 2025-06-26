@@ -29,7 +29,7 @@ const Careers = () => {
         setIsSubmitting(true);
         
         try {
-          await axios.post('https://7vdvmousl3.execute-api.us-east-1.amazonaws.com/api/submit-contact', formData);
+          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/submit-contact', formData);
           alert('Application submitted successfully! We will contact you soon.');
           
           // Reset form
