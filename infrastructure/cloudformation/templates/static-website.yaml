@@ -20,6 +20,7 @@ Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
+      BucketName: !Sub "${ProjectName}-${Environment}-static-website"
       AccessControl: Private
       BucketEncryption:
         ServerSideEncryptionConfiguration:
@@ -33,16 +34,30 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # CloudFront Distribution
+  # CloudFront Distribution for API and Website
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         Origins:
+          # S3 Origin for Website
           - DomainName: !GetAtt WebsiteBucket.RegionalDomainName
-            Id: S3Origin
+            Id: WebsiteOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          # # S3 Origin for Resumes
+          # - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+          #   Id: ResumeOrigin
+          #   S3OriginConfig:
+          #     OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          # API Gateway Origin
+          - DomainName: !Sub ${ContactApi}.execute-api.${AWS::Region}.amazonaws.com
+            Id: ApiOrigin
+            # OriginPath: !Sub /${Environment}
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
         Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:
@@ -50,12 +65,44 @@ Resources:
             - GET
             - HEAD
             - OPTIONS
-          TargetOriginId: S3Origin
+          TargetOriginId: WebsiteOrigin
           ForwardedValues:
             QueryString: false
             Cookies:
               Forward: none
           ViewerProtocolPolicy: redirect-to-https
+        CacheBehaviors:
+          # API Path Behavior
+          - PathPattern: /api/*
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+              - PUT
+              - POST
+              - PATCH
+              - DELETE
+            TargetOriginId: ApiOrigin
+            ForwardedValues:
+              QueryString: true
+              Headers:
+                - Authorization
+                - Content-Type
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: https-only
+          # # Resume Path Behavior
+          # - PathPattern: /resumes/*
+          #   AllowedMethods:
+          #     - GET
+          #     - HEAD
+          #     - OPTIONS
+          #   TargetOriginId: ResumeOrigin
+          #   ForwardedValues:
+          #     QueryString: false
+          #     Cookies:
+          #       Forward: none
+          #   ViewerProtocolPolicy: https-only
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
@@ -68,6 +115,7 @@ Resources:
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: !Sub ${AWS::StackName} OAI
+
 
   # Bucket Policy for CloudFront access
   WebsiteBucketPolicy:
