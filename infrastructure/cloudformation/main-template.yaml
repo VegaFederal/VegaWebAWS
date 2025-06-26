@@ -54,6 +54,18 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
+    # Static Website Stack
+  StaticWebsiteStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
+      Parameters:
+        Environment: !Ref Environment
+        ApiEndpointDomain: !GetAtt ContactPageStack.Outputs.ApiEndpointDomain
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
   # Add more nested stacks as needed
     # Contact Page Stack
   ContactPageStack:
@@ -67,18 +79,6 @@ Resources:
         RouteTableId: !Ref RouteTableId
         DeploymentBucket: !Ref TemplateBucket
         CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
-    # Static Website Stack
-  StaticWebsiteStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
-      Parameters:
-        Environment: !Ref Environment
-        ApiEndpointDomain: !GetAtt ContactPageStack.Outputs.ApiEndpointDomain
       Tags:
         - Key: Environment
           Value: !Ref Environment
