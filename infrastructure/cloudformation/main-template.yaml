@@ -127,7 +127,7 @@ Outputs:
     Export:
       Name: !Sub ${AWS::StackName}-DeploymentBucketName
 
-  ApiEndpoint:
+  ApiEndpointDomain:
     Description: API Gateway endpoint URL
     Value: !GetAtt ContactPageStack.Outputs.ApiEndpoint
     Export:
