@@ -25,11 +25,14 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "vegawebaws-${Environment}-cloudfront-logs"
-      AccessControl: Private
+      AccessControl: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-cloudfront-logs-bucket
