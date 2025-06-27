@@ -11,6 +11,10 @@ const s3 = new S3Client({});
 
 const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
 const ENVIRONMENT = process.env.ENVIRONMENT;
+
+console.log('ENVIRONMENT:', ENVIRONMENT);
+console.log('CONTACTS_TABLE:', CONTACTS_TABLE);
+
 // const RESUME_BUCKET = process.env.RESUME_BUCKET;
 // const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
@@ -58,9 +62,11 @@ const ENVIRONMENT = process.env.ENVIRONMENT;
 async function submitContactHandler(event) {
   try {
     const contact = JSON.parse(event.body);
+    console.log('Received contact:', contact);
 
     // Validate required fields
     if (!contact.firstName || !contact.lastName || !contact.email) {
+      console.error('Missing required fields:', contact);
       return {
         statusCode: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
@@ -79,6 +85,7 @@ async function submitContactHandler(event) {
     };
 
     // Save to DynamoDB
+    console.log('Saving contact to DynamoDB:', contactItem);
     await dynamodb.send(new PutCommand({
       TableName: CONTACTS_TABLE,
       Item: contactItem,
@@ -102,10 +109,12 @@ async function submitContactHandler(event) {
 // Main Lambda handler
 exports.handler = async (event) => {
   const path = event.path || '';
+  console.log('Received request for path:', path);
   //if (path === '/' + ENVIRONMENT + '/api/get-upload-url') {
     // return await getUploadUrlHandler(event);
   //} else 
-  if (path === '/' + ENVIRONMENT + '/api/submit-contact') {
+  if (path === '/api/submit-contact') {
+    console.log('Received request for submit-contact');
     return await submitContactHandler(event);
   } else {
     return {
