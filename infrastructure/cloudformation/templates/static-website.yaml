@@ -20,6 +20,22 @@ Parameters:
     Description: API Gateway endpoint URL
 
 Resources:
+  # S3 Bucket for CloudFront logs
+  CloudFrontLogsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "vegawebaws-${Environment}-cloudfront-logs"
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-cloudfront-logs-bucket
+        - Key: Environment
+          Value: !Ref Environment
+
   # S3 Bucket for static assets
   WebsiteBucket:
     Type: AWS::S3::Bucket
@@ -110,6 +126,10 @@ Resources:
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
+        Logging:
+          Bucket: !GetAtt CloudFrontLogsBucket.DomainName
+          IncludeCookies: false
+          Prefix: api-logs/
       Tags:
         - Key: Environment
           Value: !Ref Environment
