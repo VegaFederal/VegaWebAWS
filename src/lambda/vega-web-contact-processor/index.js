@@ -10,6 +10,7 @@ const dynamodb = DynamoDBDocumentClient.from(dynamoClient);
 const s3 = new S3Client({});
 
 const CONTACTS_TABLE = process.env.CONTACTS_TABLE;
+const ENVIRONMENT = process.env.ENVIRONMENT;
 // const RESUME_BUCKET = process.env.RESUME_BUCKET;
 // const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
@@ -101,10 +102,10 @@ async function submitContactHandler(event) {
 // Main Lambda handler
 exports.handler = async (event) => {
   const path = event.path || '';
-  //if (path === '/api/get-upload-url') {
+  //if (path === '/' + ENVIRONMENT + '/api/get-upload-url') {
     // return await getUploadUrlHandler(event);
   //} else 
-  if (path === '/api/submit-contact') {
+  if (path === '/' + ENVIRONMENT + '/api/submit-contact') {
     return await submitContactHandler(event);
   } else {
     return {

@@ -130,6 +130,7 @@ Resources:
       Environment:
         Variables:
           CONTACTS_TABLE: !Ref ContactsTable
+          ENVIRONMENT: !Sub ${Environment}
           # RESUME_BUCKET: !Ref ResumeBucket
           # CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
       Code:
