@@ -67,11 +67,11 @@ Resources:
             Id: WebsiteOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
-          # # S3 Origin for Resumes
-          # - DomainName: !GetAtt ResumeBucket.RegionalDomainName
-          #   Id: ResumeOrigin
-          #   S3OriginConfig:
-          #     OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          # S3 Origin for Resumes
+          - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+            Id: ResumeOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # API Gateway Origin
           - DomainName: !Sub ${ApiEndpointDomain}
             Id: ApiOrigin
@@ -113,18 +113,18 @@ Resources:
               Cookies:
                 Forward: none
             ViewerProtocolPolicy: https-only
-          # # Resume Path Behavior
-          # - PathPattern: /resumes/*
-          #   AllowedMethods:
-          #     - GET
-          #     - HEAD
-          #     - OPTIONS
-          #   TargetOriginId: ResumeOrigin
-          #   ForwardedValues:
-          #     QueryString: false
-          #     Cookies:
-          #       Forward: none
-          #   ViewerProtocolPolicy: https-only
+          # Resume Path Behavior
+          - PathPattern: /resumes/*
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            TargetOriginId: ResumeOrigin
+            ForwardedValues:
+              QueryString: false
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: https-only
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
