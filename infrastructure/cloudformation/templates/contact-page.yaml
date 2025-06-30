@@ -304,7 +304,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # # S3 Origin for Resumes
-          - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+          - DomainName: !Sub "${ResumeBucket}.s3.${AWS::Region}.amazonaws.com"
             Id: ResumeOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
