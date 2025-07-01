@@ -32,7 +32,21 @@ async function getUploadUrlHandler(event) {
         body: JSON.stringify({ error: 'fileName and fileType are required' }),
       };
     }
+    if (!fileName || !fileType) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ error: 'fileName and fileType are required' }),
+      };
+    }
 
+    const fileKey = `resumes/${uuidv4()}-${fileName}`;
+    const command = new PutObjectCommand({
+      Bucket: RESUME_BUCKET,
+      Key: fileKey,
+      ContentType: fileType,
+    });
+    const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
     const fileKey = `resumes/${uuidv4()}-${fileName}`;
     const command = new PutObjectCommand({
       Bucket: RESUME_BUCKET,
@@ -42,7 +56,22 @@ async function getUploadUrlHandler(event) {
     const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
     const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
+    const fileUrl = `https://${CLOUDFRONT_DOMAIN}/${fileKey}`;
 
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ uploadUrl: presignedUrl, fileUrl }),
+    };
+  } catch (e) {
+    console.error('Error generating pre-signed URL:', e);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: 'Failed to generate upload URL' }),
+    };
+  }
+}
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
@@ -110,6 +139,9 @@ async function submitContactHandler(event) {
 exports.handler = async (event) => {
   const path = event.path || '';
   console.log('Received request for path:', path);
+  if (path === '/' + ENVIRONMENT + '/api/get-upload-url') {
+    return await getUploadUrlHandler(event);
+  } else 
   if (path === '/' + ENVIRONMENT + '/api/get-upload-url') {
     return await getUploadUrlHandler(event);
   } else 
