@@ -214,8 +214,7 @@ Outputs:
   ResumeBucketName:
     Description: S3 bucket for resume storage
     Value: !Ref ResumeBucket
-    Export:
-      Name: ResumeBucketName
+
     
   CloudFrontDistributionDomainName:
     Description: CloudFront Distribution Domain Name
