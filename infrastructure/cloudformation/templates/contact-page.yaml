@@ -113,7 +113,7 @@ Resources:
                 Action:
                   - s3:PutObject
                   - s3:GetObject
-                Resource: !Sub ${ResumeBucketTask.Arn}/*
+                Resource: !Sub ${ResumeBucket.Arn}/*
 
   # Lambda Function for Contact Processing
   ContactProcessorFunction:
