@@ -56,7 +56,7 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-      # S3 Bucket for Resume Storage
+  # S3 Bucket for Resume Storage
   ResumeBucket:
     Type: AWS::S3::Bucket
     Properties:
