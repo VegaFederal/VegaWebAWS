@@ -107,11 +107,11 @@ Resources:
                 Resource: 
                   - !GetAtt ContactsTable.Arn
                   - !Sub "${ContactsTable.Arn}/index/*"
-              # - Effect: Allow
-              #   Action:
-              #     - s3:PutObject
-              #     - s3:GetObject
-                # Resource: !Sub ${ResumeBucket.Arn}/*
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                Resource: !Sub ${ResumeBucket.Arn}/*
 
   # Lambda Function for Contact Processing
   ContactProcessorFunction:
@@ -131,7 +131,7 @@ Resources:
         Variables:
           CONTACTS_TABLE: !Ref ContactsTable
           ENVIRONMENT: !Sub ${Environment}
-          # RESUME_BUCKET: !Ref ResumeBucket
+          RESUME_BUCKET: !Ref ResumeBucket
           # CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
       Code:
         S3Bucket: !Ref DeploymentBucket

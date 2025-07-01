@@ -56,6 +56,30 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
+      # S3 Bucket for Resume Storage
+  ResumeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - PUT
+              - GET
+              - HEAD
+            AllowedOrigins:
+              - '*'
+            MaxAge: 3000
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
   # CloudFront Distribution for API and Website
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
@@ -68,10 +92,10 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # # S3 Origin for Resumes
-          # - DomainName: !GetAtt ResumeBucket.RegionalDomainName
-          #   Id: ResumeOrigin
-          #   S3OriginConfig:
-          #     OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+            Id: ResumeOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # API Gateway Origin
           - DomainName: !Sub ${ApiEndpointDomain}
             Id: ApiOrigin
@@ -113,18 +137,18 @@ Resources:
               Cookies:
                 Forward: none
             ViewerProtocolPolicy: https-only
-          # # Resume Path Behavior
-          # - PathPattern: /resumes/*
-          #   AllowedMethods:
-          #     - GET
-          #     - HEAD
-          #     - OPTIONS
-          #   TargetOriginId: ResumeOrigin
-          #   ForwardedValues:
-          #     QueryString: false
-          #     Cookies:
-          #       Forward: none
-          #   ViewerProtocolPolicy: https-only
+          # Resume Path Behavior
+          - PathPattern: /resumes/*
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            TargetOriginId: ResumeOrigin
+            ForwardedValues:
+              QueryString: false
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: https-only
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
@@ -157,11 +181,28 @@ Resources:
             Principal:
               CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
+  ResumeBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ResumeBucket
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: !Sub ${ResumeBucket.Arn}/*
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+
 Outputs:
   WebsiteBucketName:
     Description: S3 Bucket for website content
     Value: !Ref WebsiteBucket
 
+  ResumeBucketName:
+    Description: S3 bucket for resume storage
+    Value: !Ref ResumeBucket
+    
   CloudFrontDistributionDomainName:
     Description: CloudFront Distribution Domain Name
     Value: !GetAtt CloudFrontDistribution.DomainName
