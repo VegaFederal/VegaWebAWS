@@ -202,7 +202,7 @@ Resources:
           - Action:
               - s3:GetObject
             Effect: Allow
-            Resource: !Sub ${ResumeBucket.Arn}/*
+            Resource: !Sub ${ResumeBucketTask.Arn}/*
             Principal:
               CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
