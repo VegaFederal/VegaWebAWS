@@ -28,9 +28,7 @@ Parameters:
     Default: ''
     Description: Name of the deployment bucket created by GitHub action
   
-  ImportedResumeBucket:
-    Type: String
-    Default: !ImportValue ResumeBucketName
+
   
 
 
@@ -115,7 +113,10 @@ Resources:
                 Action:
                   - s3:PutObject
                   - s3:GetObject
-                Resource: !Sub arn:aws:s3:::${ImportedResumeBucket}/*
+                Resource:
+                  Fn::Sub:
+                    - arn:aws:s3:::${ResumeBucket}/*
+                    - ResumeBucket: !ImportValue ResumeBucketName
 
   # Lambda Function for Contact Processing
   ContactProcessorFunction:
