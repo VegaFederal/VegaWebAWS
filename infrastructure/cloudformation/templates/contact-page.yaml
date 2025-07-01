@@ -443,6 +443,6 @@ Outputs:
     Description: API Gateway endpoint URL
     Value: !Sub https://${ContactApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}
 
-  CloudFrontDistributionDomainName:
-    Description: CloudFront Distribution Domain Name
-    Value: !GetAtt CloudFrontDistribution.DomainName
+  # CloudFrontDistributionDomainName:
+  #   Description: CloudFront Distribution Domain Name
+  #   Value: !GetAtt CloudFrontDistribution.DomainName
