@@ -56,29 +56,29 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # S3 Bucket for Resume Storage
-  ResumeBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
-      CorsConfiguration:
-        CorsRules:
-          - AllowedHeaders:
-              - '*'
-            AllowedMethods:
-              - PUT
-              - GET
-              - HEAD
-            AllowedOrigins:
-              - '*'
-            MaxAge: 3000
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
+  # # S3 Bucket for Resume Storage
+  # ResumeBucket:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     AccessControl: Private
+  #     BucketEncryption:
+  #       ServerSideEncryptionConfiguration:
+  #         - ServerSideEncryptionByDefault:
+  #             SSEAlgorithm: AES256
+  #     CorsConfiguration:
+  #       CorsRules:
+  #         - AllowedHeaders:
+  #             - '*'
+  #           AllowedMethods:
+  #             - PUT
+  #             - GET
+  #             - HEAD
+  #           AllowedOrigins:
+  #             - '*'
+  #           MaxAge: 3000
+  #     Tags:
+  #       - Key: Environment
+  #         Value: !Ref Environment
 
   # Lambda IAM Role
   ContactProcessorRole:
@@ -404,18 +404,18 @@ Resources:
   #           Principal:
   #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
-  ResumeBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref ResumeBucket
-      PolicyDocument:
-        Statement:
-          - Action:
-              - s3:GetObject
-            Effect: Allow
-            Resource: !Sub ${ResumeBucket.Arn}/*
-            Principal:
-              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+  # ResumeBucketPolicy:
+  #   Type: AWS::S3::BucketPolicy
+  #   Properties:
+  #     Bucket: !Ref ResumeBucket
+  #     PolicyDocument:
+  #       Statement:
+  #         - Action:
+  #             - s3:GetObject
+  #           Effect: Allow
+  #           Resource: !Sub ${ResumeBucket.Arn}/*
+  #           Principal:
+  #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
 Outputs:
   ContactsTableName:
