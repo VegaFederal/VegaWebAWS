@@ -424,13 +424,13 @@ Outputs:
     Description: DynamoDB table for contact information
     Value: !Ref ContactsTable
 
-  # ResumeBucketName:
-  #   Description: S3 bucket for resume storage
-  #   Value: !Ref ResumeBucket
+  ResumeBucketName:
+    Description: S3 bucket for resume storage
+    Value: !Ref ResumeBucket
 
-  # WebsiteBucketName:
-  #   Description: S3 bucket for website content
-  #   Value: !Ref WebsiteBucket
+  WebsiteBucketName:
+    Description: S3 bucket for website content
+    Value: !Ref WebsiteBucket
 
   DeploymentBucketName:
     Description: S3 bucket for deployment artifacts
