@@ -111,7 +111,7 @@ Resources:
                 Action:
                   - s3:PutObject
                   - s3:GetObject
-                Resource: !Sub ${ResumeBucket.Arn}/*
+                Resource: !Sub arn:aws:s3:::${ResumeBucket}/*
 
   # Lambda Function for Contact Processing
   ContactProcessorFunction:
@@ -413,7 +413,7 @@ Resources:
   #         - Action:
   #             - s3:GetObject
   #           Effect: Allow
-  #           Resource: !Sub ${ResumeBucket.Arn}/*
+  #           Resource: !Sub arn:aws:s3:::${ResumeBucket}/*
   #           Principal:
   #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
