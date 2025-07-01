@@ -131,7 +131,7 @@ Resources:
         Variables:
           CONTACTS_TABLE: !Ref ContactsTable
           RESUME_BUCKET: !Ref ResumeBucket
-          CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
+          # CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
       Code:
         S3Bucket: !Ref DeploymentBucket
         S3Key: lambda/vega-web-contact-processor.zip
@@ -304,7 +304,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # # S3 Origin for Resumes
-          - DomainName: !Sub "${ResumeBucket}.s3.${AWS::Region}.amazonaws.com"
+          - DomainName: !GetAtt ResumeBucket.RegionalDomainName
             Id: ResumeOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
@@ -374,34 +374,34 @@ Resources:
       CloudFrontOriginAccessIdentityConfig:
         Comment: !Sub ${AWS::StackName} OAI
 
-  # S3 Bucket for Website Content
-  WebsiteBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
+  # # S3 Bucket for Website Content
+  # WebsiteBucket:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     AccessControl: Private
+  #     BucketEncryption:
+  #       ServerSideEncryptionConfiguration:
+  #         - ServerSideEncryptionByDefault:
+  #             SSEAlgorithm: AES256
+  #     Tags:
+  #       - Key: Environment
+  #         Value: !Ref Environment
 
 # DeploymentBucket is now a parameter, not a resource
 
-  # Bucket Policies
-  WebsiteBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref WebsiteBucket
-      PolicyDocument:
-        Statement:
-          - Action:
-              - s3:GetObject
-            Effect: Allow
-            Resource: !Sub ${WebsiteBucket.Arn}/*
-            Principal:
-              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+  # # Bucket Policies
+  # WebsiteBucketPolicy:
+  #   Type: AWS::S3::BucketPolicy
+  #   Properties:
+  #     Bucket: !Ref WebsiteBucket
+  #     PolicyDocument:
+  #       Statement:
+  #         - Action:
+  #             - s3:GetObject
+  #           Effect: Allow
+  #           Resource: !Sub ${WebsiteBucket.Arn}/*
+  #           Principal:
+  #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
   ResumeBucketPolicy:
     Type: AWS::S3::BucketPolicy
