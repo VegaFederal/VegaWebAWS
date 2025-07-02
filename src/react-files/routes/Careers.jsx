@@ -15,6 +15,8 @@ const Careers = () => {
         email: ''
       });
     
+    const [resumeFile, setResumeFile] = useState(null);
+    
     const [isSubmitting, setIsSubmitting] = useState(false);
     
       const handleChange = (e) => {
@@ -24,12 +26,42 @@ const Careers = () => {
         });
       };
     
+      const handleFileChange = (e) => {
+        setResumeFile(e.target.files[0]);
+      };
+    
       const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         
         try {
-          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/submit-contact', formData);
+          let resumeUrl = null;
+
+          // 1. If a resume file is selected, upload it
+          if (resumeFile) {
+            // Step 1: Get pre-signed upload URL
+            const getUrlRes = await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/get-upload-url', {
+              fileName: resumeFile.name,
+              fileType: resumeFile.type
+            });
+            const { uploadUrl, fileUrl } = getUrlRes.data;
+
+            // Step 2: Upload the file to S3
+            await axios.put(uploadUrl, resumeFile, {
+              headers: {
+                'Content-Type': resumeFile.type
+              }
+            });
+
+            resumeUrl = fileUrl;
+          }
+
+          // 2. Submit contact info (and resumeUrl if present)
+          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/submit-contact', {
+            ...formData,
+            ...(resumeUrl ? { resumeUrl } : {})
+          });
+
           alert('Application submitted successfully! We will contact you soon.');
           
           // Reset form
@@ -38,6 +70,7 @@ const Careers = () => {
             lastName: '',
             email: ''
           });
+          setResumeFile(null);
         } catch (err) {
           console.error('Submission error:', err);
           alert('Submission failed. Please try again.');
@@ -92,8 +125,15 @@ const Careers = () => {
                             type="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[50px]'
+                            className='bg-white rounded-xl w-[500px] h-[50px] text-[24px] border-1 ml-[20px] mb-[10px]'
                             required
+                        />
+                        <p className='text-white font-bold text-[24px] ml-[20px] mb-[10px]'>Resume (PDF)</p>
+                        <input
+                            type="file"
+                            accept="application/pdf"
+                            onChange={handleFileChange}
+                            className='ml-[20px] mb-[30px]'
                         />
                         <button
                             type="submit"
