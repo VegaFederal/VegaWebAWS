@@ -18,7 +18,7 @@ console.log('CONTACTS_TABLE:', CONTACTS_TABLE);
 const RESUME_BUCKET = process.env.RESUME_BUCKET;
 // const CLOUDFRONT_DOMAIN = process.env.CLOUDFRONT_DOMAIN;
 
-Handler for generating a pre-signed S3 upload URL
+//Handler for generating a pre-signed S3 upload URL
 async function getUploadUrlHandler(event) {
   try {
     const body = JSON.parse(event.body);
