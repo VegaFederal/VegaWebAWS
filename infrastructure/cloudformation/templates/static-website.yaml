@@ -77,7 +77,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # API Gateway Origin
-          - DomainName: !Sub ${ApiEndpointDomain}
+          - DomainName: !Ref ApiEndpointDomain
             Id: ApiOrigin
             OriginPath: !Sub /${Environment}
             CustomOriginConfig:
