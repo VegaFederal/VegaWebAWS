@@ -129,18 +129,6 @@ Resources:
               Cookies:
                 Forward: none
             ViewerProtocolPolicy: https-only
-          # Resume Path Behavior
-          - PathPattern: /resumes/*
-            AllowedMethods:
-              - GET
-              - HEAD
-              - OPTIONS
-            TargetOriginId: ResumeOrigin
-            ForwardedValues:
-              QueryString: false
-              Cookies:
-                Forward: none
-            ViewerProtocolPolicy: https-only
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
