@@ -19,6 +19,10 @@ Parameters:
     Type: String
     Description: API Gateway endpoint URL
 
+  ResumeBucketName:
+    Type: String
+    Description: Resume Bucket
+
 Resources:
   # S3 Bucket for CloudFront logs
   CloudFrontLogsBucket:
@@ -56,30 +60,6 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # S3 Bucket for Resume Storage
-  ResumeBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
-      CorsConfiguration:
-        CorsRules:
-          - AllowedHeaders:
-              - '*'
-            AllowedMethods:
-              - PUT
-              - GET
-              - HEAD
-            AllowedOrigins:
-              - '*'
-            MaxAge: 3000
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
   # CloudFront Distribution for API and Website
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
@@ -92,7 +72,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
           # # S3 Origin for Resumes
-          - DomainName: !GetAtt ResumeBucket.RegionalDomainName
+          - DomainName: !Sub ${ResumeBucketName}.s3.${AWS::Region}.amazonaws.com
             Id: ResumeOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
@@ -196,13 +176,13 @@ Resources:
   ResumeBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref ResumeBucket
+      Bucket: !Ref ResumeBucketName
       PolicyDocument:
         Statement:
           - Action:
               - s3:GetObject
             Effect: Allow
-            Resource: !Sub ${ResumeBucket.Arn}/*
+            Resource: !Sub arn:aws:s3:::${ResumeBucketName}/*
             Principal:
               CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
@@ -213,7 +193,7 @@ Outputs:
 
   ResumeBucketName:
     Description: S3 bucket for resume storage
-    Value: !GetAtt ContactPageStack.Outputs.ResumeBucket
+    Value: !Ref ResumeBucketName
     Export:
       Name: !Sub ${AWS::StackName}-ResumeBucket
 

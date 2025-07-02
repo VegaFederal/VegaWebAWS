@@ -27,10 +27,6 @@ Parameters:
     Type: String
     Default: ''
     Description: Name of the deployment bucket created by GitHub action
-  
-
-  
-
 
 Resources:
   # DynamoDB Table for Contact Information
@@ -58,29 +54,29 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # # S3 Bucket for Resume Storage
-  # ResumeBucket:
-  #   Type: AWS::S3::Bucket
-  #   Properties:
-  #     AccessControl: Private
-  #     BucketEncryption:
-  #       ServerSideEncryptionConfiguration:
-  #         - ServerSideEncryptionByDefault:
-  #             SSEAlgorithm: AES256
-  #     CorsConfiguration:
-  #       CorsRules:
-  #         - AllowedHeaders:
-  #             - '*'
-  #           AllowedMethods:
-  #             - PUT
-  #             - GET
-  #             - HEAD
-  #           AllowedOrigins:
-  #             - '*'
-  #           MaxAge: 3000
-  #     Tags:
-  #       - Key: Environment
-  #         Value: !Ref Environment
+  # S3 Bucket for Resume Storage
+  ResumeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - PUT
+              - GET
+              - HEAD
+            AllowedOrigins:
+              - '*'
+            MaxAge: 3000
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
 
   # Lambda IAM Role
   ContactProcessorRole:
@@ -113,7 +109,7 @@ Resources:
                 Action:
                   - s3:PutObject
                   - s3:GetObject
-                Resource: !Sub ${ResumeBucketName.Arn}/*
+                Resource: !Sub ${ResumeBucket.Arn}/*
 
   # Lambda Function for Contact Processing
   ContactProcessorFunction:
@@ -133,7 +129,7 @@ Resources:
         Variables:
           CONTACTS_TABLE: !Ref ContactsTable
           ENVIRONMENT: !Sub ${Environment}
-          RESUME_BUCKET: !Ref ResumeBucketName
+          RESUME_BUCKET: !Ref ResumeBucket
           # CLOUDFRONT_DOMAIN: !GetAtt CloudFrontDistribution.DomainName
       Code:
         S3Bucket: !Ref DeploymentBucket
@@ -156,23 +152,6 @@ Resources:
           Value: !Sub ${AWS::StackName}-lambda-sg
         - Key: Environment
           Value: !Ref Environment
-          
-  # # VPC Endpoint for DynamoDB
-  # DynamoDBEndpoint:
-  #   Type: AWS::EC2::VPCEndpoint
-  #   Properties:
-  #     PolicyDocument:
-  #       Version: '2012-10-17'
-  #       Statement:
-  #         - Effect: Allow
-  #           Principal: '*'
-  #           Action:
-  #             - 'dynamodb:*'
-  #           Resource: '*'
-  #     RouteTableIds:
-  #       - !Ref RouteTableId
-  #     ServiceName: !Sub com.amazonaws.${AWS::Region}.dynamodb
-  #     VpcId: !Ref VpcId
 
   # API Gateway for Lambda Integration
   ContactApi:
@@ -377,60 +356,27 @@ Resources:
       CloudFrontOriginAccessIdentityConfig:
         Comment: !Sub ${AWS::StackName} OAI
 
-  # # S3 Bucket for Website Content
-  # WebsiteBucket:
-  #   Type: AWS::S3::Bucket
-  #   Properties:
-  #     AccessControl: Private
-  #     BucketEncryption:
-  #       ServerSideEncryptionConfiguration:
-  #         - ServerSideEncryptionByDefault:
-  #             SSEAlgorithm: AES256
-  #     Tags:
-  #       - Key: Environment
-  #         Value: !Ref Environment
-
-# DeploymentBucket is now a parameter, not a resource
-
-  # # Bucket Policies
-  # WebsiteBucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref WebsiteBucket
-  #     PolicyDocument:
-  #       Statement:
-  #         - Action:
-  #             - s3:GetObject
-  #           Effect: Allow
-  #           Resource: !Sub ${WebsiteBucket.Arn}/*
-  #           Principal:
-  #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
-
-  # ResumeBucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref ResumeBucket
-  #     PolicyDocument:
-  #       Statement:
-  #         - Action:
-  #             - s3:GetObject
-  #           Effect: Allow
-  #           Resource: !Sub arn:aws:s3:::${ResumeBucket}/*
-  #           Principal:
-  #             CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+  ResumeBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ResumeBucket
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: !Sub arn:aws:s3:::${ResumeBucket}/*
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
 Outputs:
   ContactsTableName:
     Description: DynamoDB table for contact information
     Value: !Ref ContactsTable
 
-  # ResumeBucketName:
-  #   Description: S3 bucket for resume storage
-  #   Value: !Ref ResumeBucket
-
-  # WebsiteBucketName:
-  #   Description: S3 bucket for website content
-  #   Value: !Ref WebsiteBucket
+  ResumeBucketName:
+    Description: S3 bucket for resume storage
+    Value: !Ref ResumeBucket
 
   DeploymentBucketName:
     Description: S3 bucket for deployment artifacts

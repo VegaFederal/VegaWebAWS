@@ -74,22 +74,12 @@ Resources:
       Parameters:
         Environment: !Ref Environment
         ApiEndpointDomain: !GetAtt ContactPageStack.Outputs.ApiEndpointDomain
+        ResumeBucketName: !GetAtt ContactPageStack.Outputs.ResumeBucketName
       Tags:
         - Key: Environment
           Value: !Ref Environment
 
 
-
-  # # DynamoDB Stack
-  # DynamoDBStack:
-  #   Type: AWS::CloudFormation::Stack
-  #   Properties:
-  #     TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/dynamodb.yaml
-  #     Parameters:
-  #       Environment: !Ref Environment
-  #     Tags:
-  #       - Key: Environment
-  #         Value: !Ref Environment
 
 Outputs:
   # Your outputs will go here
@@ -109,7 +99,7 @@ Outputs:
 
   ResumeBucketName:
     Description: S3 bucket for resume storage
-    Value: !GetAtt ContactPageStack.Outputs.ResumeBucketName
+    Value: !GetAtt ContactPageStack.Outputs.ResumeBucket.
     Export:
       Name: !Sub ${AWS::StackName}-ResumeBucketName
 
