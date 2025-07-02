@@ -386,6 +386,10 @@ Outputs:
     Description: API Gateway endpoint URL
     Value: !Sub https://${ContactApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}
 
+  ApiEndpointDomain:
+    Description: API Gateway domain name only
+    Value: !Sub ${ContactApi}.execute-api.${AWS::Region}.amazonaws.com
+
   # CloudFrontDistributionDomainName:
   #   Description: CloudFront Distribution Domain Name
   #   Value: !GetAtt CloudFrontDistribution.DomainName
