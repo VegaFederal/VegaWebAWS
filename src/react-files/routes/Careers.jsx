@@ -6,8 +6,7 @@ import { FaDropbox } from 'react-icons/fa';
 import axios from 'axios';
 import React, { useState } from 'react';
 
-// ADD: Set your API Gateway base URL here
-const API_BASE_URL = 'https://7vdvmousl3.execute-api.us-east-1.amazonaws.com/dev';
+
 
 const Careers = () => {
     const [formData, setFormData] = useState({
@@ -41,7 +40,7 @@ const Careers = () => {
           // 1. If a resume file is selected, upload it
           if (resumeFile) {
             // Step 1: Get pre-signed upload URL
-            const getUrlRes = await axios.post(`${API_BASE_URL}/api/get-upload-url`, {
+            const getUrlRes = await axios.post('https://d2hck2t4lrfp15.cloudfront.net/dev/api/get-upload-url', {
               fileName: resumeFile.name,
               fileType: resumeFile.type
             });
@@ -58,7 +57,7 @@ const Careers = () => {
           }
 
           // 2. Submit contact info (and resumeUrl if present)
-          await axios.post(`${API_BASE_URL}/api/submit-contact`, {
+          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/submit-contact', {
             ...formData,
             ...(resumeUrl ? { resumeUrl } : {})
           });
