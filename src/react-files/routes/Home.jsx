@@ -23,24 +23,13 @@ const Home = () => {
 
     <>
     <section className='hero'>
-        <div
-        className="
-            bg-[url('./assets/Homepage_Hero.jpg')]   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            h-screen                        /* make the section full‑viewport height */
-            z-[-1]
-        "
-        >
+        <div className="h-screen flex flex-col justify-end relative bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
             <header>
-                <div>
-                    <Navbar />
-                </div>
+                <Navbar />
             </header>
             {/* your content here */}
 
-            <div className="flex items-end gap-5 pl-5 h-[8.25rem]">
+            <div className="flex items-end gap-5 pl-5 mb-[6rem]">
             {/* 
                 - flex: enables flexbox layout
                 - items-end: aligns items to the bottom
