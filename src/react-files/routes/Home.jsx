@@ -41,32 +41,32 @@ const Home = () => {
         {/* your content here */}
 
         <div className="flex items-end gap-5 pl-5 h-[8.25rem]">
-  {/* 
-    - flex: enables flexbox layout
-    - items-end: aligns items to the bottom
-    - gap-5: 1.25rem gap between children
-    - pl-5: 1.25rem padding-left (instead of margin-left on the container)
-    - h-[8.25rem]: sets height to 132px in rem units
-  */}
-  <img 
-    src={Arrow} 
-    alt="Arrow pointing to headline" 
-    className="object-contain h-[8.375rem] w-[5.125rem]" 
-    /* 
-      - object-contain: keeps image aspect ratio
-      - h-[8.375rem]: 134px in rem
-      - w-[5.125rem]: 82px in rem
-    */
-  />
-  <div>
-    <h4 className="font-bold text-center text-white text-4xl md:text-left pb-5">
-      Your New North Star for Government Automation
-    </h4>
-    <p className="max-w-xl tracking-wide text-center text-white md:text-left text-2xl">
-      AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
-    </p>
-  </div>
-</div>
+        {/* 
+            - flex: enables flexbox layout
+            - items-end: aligns items to the bottom
+            - gap-5: 1.25rem gap between children
+            - pl-5: 1.25rem padding-left (instead of margin-left on the container)
+            - h-[8.25rem]: sets height to 132px in rem units
+        */}
+        <img 
+            src={Arrow} 
+            alt="Arrow pointing to headline" 
+            className="object-contain h-[8.375rem] w-[5.125rem]" 
+            /* 
+            - object-contain: keeps image aspect ratio
+            - h-[8.375rem]: 134px in rem
+            - w-[5.125rem]: 82px in rem
+            */
+        />
+            <div>
+                <h4 className="font-bold text-center text-white text-4xl md:text-left pb-5">
+                Your New North Star for Government Automation
+                </h4>
+                <p className="max-w-xl tracking-wide text-center text-white md:text-left text-2xl">
+                AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
+                </p>
+            </div>
+        </div>
         <div className='flex flex-col pt-5 space-y-4 md:space-x-3 ml-40 mt-30 md:flex-row md:space-y-0'>
             <Link to='/contact'><button className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
         </div> 
