@@ -1,6 +1,6 @@
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 const { v4: uuidv4 } = require('uuid');
 
@@ -108,6 +108,14 @@ async function submitContactHandler(event) {
       body: JSON.stringify({ error: `Failed to save contact information: ${e.message}` }),
     };
   }
+}
+
+async function getDownloadUrl(fileKey) {
+  const command = new GetObjectCommand({
+    Bucket: process.env.RESUME_BUCKET,
+    Key: fileKey,
+  });
+  return await getSignedUrl(s3, command, { expiresIn: 300 }); // 5 minutes
 }
 
 // Main Lambda handler
