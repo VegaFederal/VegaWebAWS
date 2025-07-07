@@ -57,7 +57,7 @@ const Careers = () => {
           }
 
           // 2. Submit contact info (and resumeUrl if present)
-          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/submit-contact', {
+          await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/saubmit-contact', {
             ...formData,
             ...(resumeUrl ? { resumeUrl } : {})
           });
