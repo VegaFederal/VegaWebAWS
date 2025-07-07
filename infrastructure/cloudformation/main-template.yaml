@@ -106,6 +106,10 @@ Outputs:
   WebsiteURL:
     Description: S3 Bucket for website content
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
+
+  CloudFrontDistributionId:
+    Description: CloudFront Distribution ID
+    Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionId
     
   ContactsTableName:
     Description: DynamoDB table for contact information
