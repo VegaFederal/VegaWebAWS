@@ -183,7 +183,7 @@ Outputs:
     Description: S3 bucket for resume storage
     Value: !Ref ResumeBucketName
     Export:
-      Name: !Sub ${AWS::StackName}-ResumeBucketName
+      Name: !Sub ${AWS::StackName}-ResumeBucket
 
     
   CloudFrontDistributionDomainName:
