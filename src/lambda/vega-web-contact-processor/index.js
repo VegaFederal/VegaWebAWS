@@ -118,15 +118,43 @@ async function getDownloadUrl(fileKey) {
   return await getSignedUrl(s3, command, { expiresIn: 300 }); // 5 minutes
 }
 
+async function getDownloadUrlHandler(event) {
+  try {
+    const { fileKey } = JSON.parse(event.body);
+    if (!fileKey) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ error: 'fileKey is required' }),
+      };
+    }
+    const presignedUrl = await getDownloadUrl(fileKey);
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ downloadUrl: presignedUrl }),
+    };
+  } catch (e) {
+    console.error('Error generating download URL:', e);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ error: 'Failed to generate download URL' }),
+    };
+  }
+}
+
 // Main Lambda handler
 exports.handler = async (event) => {
   const path = event.path || '';
   console.log('Received request for path:', path);
+
   if (path.endsWith('/api/get-upload-url')) {
     return await getUploadUrlHandler(event);
   } else if (path === '/api/submit-contact') {
-    console.log('Received request for submit-contact');
     return await submitContactHandler(event);
+  } else if (path.endsWith('/api/get-download-url')) {
+    return await getDownloadUrlHandler(event);
   } else {
     return {
       statusCode: 404,
