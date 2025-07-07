@@ -114,9 +114,12 @@ async function submitContactHandler(event) {
 exports.handler = async (event) => {
   const path = event.path || '';
   console.log('Received request for path:', path);
-  if (path === '/' + ENVIRONMENT + '/api/get-upload-url') {
+  if (path.endsWith('/api/get-upload-url')) {
     return await getUploadUrlHandler(event);
-  } else if (path === '/api/submit-contact') {
+  } else if (
+    path === '/' + ENVIRONMENT + '/api/submit-contact' ||
+    path === '/api/submit-contact'
+  ) {
     console.log('Received request for submit-contact');
     return await submitContactHandler(event);
   } else {
