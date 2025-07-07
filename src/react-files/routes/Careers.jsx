@@ -40,7 +40,7 @@ const Careers = () => {
           // 1. If a resume file is selected, upload it
           if (resumeFile) {
             // Step 1: Get pre-signed upload URL
-            const getUrlRes = await axios.post('https://d2hck2t4lrfp15.cloudfront.net/dev/api/get-upload-url', {
+            const getUrlRes = await axios.post('https://d2hck2t4lrfp15.cloudfront.net/api/get-upload-url', {
               fileName: resumeFile.name,
               fileType: resumeFile.type
             });
