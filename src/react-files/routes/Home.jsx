@@ -23,54 +23,57 @@ const Home = () => {
 
     <>
     <section className='hero'>
-        <div className="h-screen flex flex-col justify-end relative bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
-            <header>
-                <Navbar />
-            </header>
-            {/* your content here */}
+        <div className="relative w-full hero-lg-aspect">
+            <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
+                <header>
+                    <Navbar />
+                </header>
 
-            <div className="flex items-end gap-5 pl-5 mb-[6rem]">
-            {/* 
-                - flex: enables flexbox layout
-                - items-end: aligns items to the bottom
-                - gap-5: 1.25rem gap between children
-                - pl-5: 1.25rem padding-left (instead of margin-left on the container)
-                - h-[8.25rem]: sets height to 132px in rem units
-            */}
-            <img 
-                src={Arrow} 
-                alt="Arrow pointing to headline" 
-                className="object-contain h-[8.375rem] w-[5.125rem]" 
-                /* 
-                - object-contain: keeps image aspect ratio
-                - h-[8.375rem]: 134px in rem
-                - w-[5.125rem]: 82px in rem
-                */
-            />
-                <div>
-                    <h4 className="font-bold text-center text-white text-4xl md:text-left pb-5">
-                    Your New North Star for Government Automation
-                    </h4>
-                    <p className="max-w-xl tracking-wide text-center text-white md:text-left text-2xl">
-                    AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
-                    </p>
+                {/* your content here */}
+
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem]">
+                {/* 
+                    - flex: enables flexbox layout
+                    - items-end: aligns items to the bottom
+                    - gap-5: 1.25rem gap between children
+                    - pl-5: 1.25rem padding-left (instead of margin-left on the container)
+                    - h-[8.25rem]: sets height to 132px in rem units
+                */}
+                <img 
+                    src={Arrow} 
+                    alt="Arrow pointing to headline" 
+                    className="object-contain h-[5rem] md:h-[8.375rem] md:w-[5.125rem]" 
+                    /* 
+                    - object-contain: keeps image aspect ratio
+                    - h-[8.375rem]: 134px in rem
+                    - w-[5.125rem]: 82px in rem
+                    */
+                />
+                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">
+                        Your New North Star for Government Automation
+                        </h4>
+                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">
+                        AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
+                        </p>
+                    </div>
                 </div>
+                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-30 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
+                    <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-5 xl:text-2xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
+                </div> 
             </div>
-            <div className='flex flex-col pt-5 space-y-4 md:space-x-3 ml-40 mt-30 md:flex-row md:space-y-0'>
-                <Link to='/contact'><button className='px-9 py-5 text-2xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
-            </div> 
         </div>
     </section>
-    <section class='bg-white min-h-screen'>
-        <div class='flex flex-col md:flex-row items-center px-4 md:px-[100px] py-12'>
-            <img src={VOSB_Logo} alt='' className="object-contain h-70 w-70 mb-10 md:mb-[120px]"/>
-            <div class='mb-28 md:ml-10'>
-                <h2 class='text-3xl md:text-[42px] font-bold ml-15 md:ml-[165px] pt-20'>Who We Are</h2>
-                <h3 class='text-2xl md:text-[40px] text-secondary ml-15 md:ml-[165px] pt-15'>We've lived it.</h3>
-                <p class='ml-15 md:ml-[165px] text-primary text-lg md:text-[24px] pt-[70px]'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
-                <p class='ml-15 md:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
-                <p class='ml-15 md:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
-                <p class='ml-15 md:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
+    <section class='bg-white min-h-screen md:min-h-fit 2xl:h-screen'>
+        <div class='flex flex-col md:flex-row items-center px-4 md:px-[100px] py-12 pt-140 lg:pt-100 xl:pt-70'>
+            <img src={VOSB_Logo} alt='' className="object-contain h-50 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
+            <div class='mb-28 md:mb-0 xl:mb-15 lg:ml-10'>
+                <h2 class='text-2xl md:text-4xl font-bold ml-15 xl:ml-[165px] md:pt-0 pt-20'>Who We Are</h2>
+                <h3 class='text-2xl md:text-3xl text-secondary ml-15 xl:ml-[165px] md:pt-5 pt-15'>We've lived it.</h3>
+                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-[70px]'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
+                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
+                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
+                <p class='ml-15 xl:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
             </div>
         </div>
     </section>
@@ -79,15 +82,16 @@ const Home = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            min-h-screen                        /* make the section full‑viewport height */
+            h-screen
+            md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
         ">
-        <div class='flex flex-col md:flex-row items-center justify-center min-h-screen ml-10 md:ml-[50px] gap-10 md:gap-50'>
-            <h1 class=' text-white text-4xl md:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
+        <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-15 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4'>
+            <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
             <div class='flex flex-col'>
-                <p class='text-2xl md:text-[28px] text-white'>Your Partner in Automation  & Commercial Adaptation</p>
-                <p class='text-2xl md:text-[24px] text-white mt-[50px]'>We don’t sell one-size-fits-all platforms.</p>
-                <p class='text-2xl md:text-[24px] text-white font-bold mt-[30px]'>We build the right solution for the mission at hand.</p>
+                <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation  & Commercial Adaptation</p>
+                <p class='text-xl md:text-[24px] text-white mt-[50px]'>We don’t sell one-size-fits-all platforms.</p>
+                <p class='text-xl md:text-[24px] text-white font-bold mt-[30px]'>We build the right solution for the mission at hand.</p>
             </div>
         </div>
     </section>
@@ -98,26 +102,26 @@ const Home = () => {
             bg-no-repeat                    /* don’t tile it */
             py-16                        /* make the section full‑viewport height */
         ">
-        <div class='flex flex-col md:flex-row items-center h-fit md:gap-50 ml-20'>
-            <div class='flex-col ml-[-100px] md:ml-[300px] mt-20'>
-                <h6 class='text-primary text-[30px] font-bold mb-5'>No project is too complex. </h6>
-                <h6 class='text-primary text-[30px] font-bold'>No constraint is too real.</h6>
+        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-50'>
+            <div class='md:flex-col mr-5 md:ml-15 lg:ml-[10rem] 2xl:ml-[300px] md:mt-0 '>
+                <h6 class='text-primary text-2xl font-bold mb-5'>No project is too complex. </h6>
+                <h6 class='text-primary text-2xl font-bold'>No constraint is too real.</h6>
             </div> 
-            <img src={complexProblems} alt='' className="object-contain w-[400px] md:h-[336px] md:w-[508px] ml-5 md:ml-[100px] mt-20 md:mt-[120px]"/>
+            <img src={complexProblems} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[336px] 2xl:w-[508px] 2xl:ml-[100px] md:mt-0 2xl:mt-[120px]"/>
         </div>
-        <div class='flex flex-col-reverse md:flex-row items-center h-fit md:gap-20 md:ml-40'>
-            <img src={ThriveTech} alt='' className="object-contain w-[400px] md:h-[291px] md:w-[523px] ml-20 mt-20 md:ml-[100px] md:mt-[120px]"/>
-            <div class='flex-col ml-20 md:ml-[300px] mt-20'>
-                <h6 class='text-primary text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
-                <h6 class='text-primary text-[30px] font-bold'>where mission meets technology.</h6>
+        <div class='flex flex-col-reverse md:flex-row items-center h-fit 2xl:gap-20 2xl:ml-40 gap-35 xl:gap-0'>
+            <img src={ThriveTech} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[10rem] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+            <div class='flex-col ml-15 xl:ml-[300px] mt-20 md:mt-0'>
+                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
+                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>where mission meets technology.</h6>
             </div> 
         </div>
-        <div class='flex flex-col md:flex-row items-center h-fit md:gap-50 md:mr-75'>
-            <div class='flex-col ml-20 md:ml-[300px] mt-20'>
-                <h6 class='text-primary text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
-                <h6 class='text-primary text-[30px] font-bold'>and commercial adaptation.”</h6>
+        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-35 2xl:mr-75'>
+            <div class='flex-col 2xl:ml-[300px] ml-22 md:ml-15 lg:ml-[10rem] mt-10 '>
+                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
+                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>and commercial adaptation.”</h6>
             </div> 
-            <img src={PartnerAutomation} alt='' className="object-contain w-[400px] md:h-[316px] md:w-[473px] ml-[100px] mt-[120px]"/>
+            <img src={PartnerAutomation} alt='' className="object-contain w-[20rem] h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
         </div>
     </section>
     <section class="
@@ -125,31 +129,27 @@ const Home = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            py-16                       /* make the section full‑viewport height */
+            md:py-16                       /* make the section full‑viewport height */
         ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 lg:ml-[500px]'>
-            <h1 class='text-[48px] text-primary font-bold mt-[74px]'>How We Work:</h1>
-            <ul class='ml-[34px]'>
-                <li class='list-disc text-[32px] mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
-                <li class='list-disc text-[32px] mb-[24px]'>Tailored solutions, integrating the best of what you already have.</li>
-                <li class='list-disc text-[32px]'>Designed for today’s realities, not tomorrow’s promises.</li>
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px]'>
+            <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold mt-15 md:mt-[74px]'>How We Work:</h1>
+            <ul class='ml-10'>
+                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
+                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Tailored solutions, integrating the best of what you already have.</li>
+                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-15'>Designed for today’s realities, not tomorrow’s promises.</li>
             </ul>
         </div>
     </section>
     <section class="
-            bg-white   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-                                    /* make the section full‑viewport height */
+            bg-white
         ">
-        <div class='flex items-center ml-85'>
-            <h1 class='text-3xl md:text-[52px] font-bold text-secondary mt-[50px]'>"A handshake still means something to us here."</h1>
+        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full'>
+            <h1 class='text-3xl text-center lg:text-4xl font-bold text-secondary'>"A handshake still means something to us here."</h1>
         </div>
-        <div class='flex flex-col items-center bg-primary h-40 mt-[50px]'>
-            <h1 class='text-3xl md:text-[52px] font-bold text-white mt-15 md:mt-[35px]'>What We Deliver</h1>
+        <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15'>
+            <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
         </div>
-        <div class='flex flex-col items-center md:flex-row gap-10 mt-[50px]'>
+        <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] '>
             <Homepage_Cards image={AIAutomation} title='AI Automation' description_one='Automating the tasks that slow you down.' description_two=' Optimizing what matters'/>
             <Homepage_Cards image={msnReadSup} title='Mission Readiness Support' description_one='Ensuring technology truly serves the operator—and the warfighter.'/>
             <Homepage_Cards image={GeoIntData} title='Geospatial Intelligence & Data' description_one='Actionable insights.' description_two='Custom-built tools to enhance decision-making.'/>
@@ -164,10 +164,10 @@ const Home = () => {
             min-h-screen                        /* make the section full‑viewport height */
             z-[-1]
         ">
-        <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
-            <h1 class='text-[48px] text-primary font-bold mt-[100px]'>Why Vega?</h1>
-            <h3 class='text-[40px] text-secondary '>Because we’ve been you.</h3>
-            <h3 class='text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
+            <h1 class='text-4xl md:text-[48px] text-primary font-bold mt-[100px]'>Why Vega?</h1>
+            <h3 class='text-4xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
+            <h3 class='text-2xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
             <ul class='ml-[34px]'>
                 <li class='list-disc text-[24px] mb-[24px]'>Former government civilians — not career consultants.</li>
                 <li class='list-disc text-[24px] mb-[24px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
@@ -184,7 +184,7 @@ const Home = () => {
             h-screen                        /* make the section full‑viewport height */
             z-[-1]
         ">
-        <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
+        <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
             <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
             <h3 class='text-[40px] text-white '>Midwestern Values. Global Impact.</h3>
             <ul class='ml-[34px]'>

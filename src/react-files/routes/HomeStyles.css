@@ -1,0 +1,11 @@
+@media (min-width: 1024px) { /* Tailwind's lg breakpoint */
+  .hero-lg-aspect {
+    padding-top: 60.8%;
+  }
+}
+@media (max-width: 1023px) {
+  .hero-lg-aspect {
+    padding-top: 0;
+    min-height: 400px; /* or whatever you want for mobile */
+  }
+}
