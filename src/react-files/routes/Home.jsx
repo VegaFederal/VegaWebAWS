@@ -23,7 +23,7 @@ const Home = () => {
 
     <>
     <section className='hero'>
-        <div className="relative w-full hero-lg-aspect">
+        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <Navbar />
@@ -64,9 +64,9 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white min-h-screen md:min-h-fit 2xl:h-screen'>
-        <div class='flex flex-col md:flex-row items-center px-4 md:px-[100px] py-12 pt-140 lg:pt-100 xl:pt-70'>
-            <img src={VOSB_Logo} alt='' className="object-contain h-50 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
+    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
+            <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
             <div class='mb-28 md:mb-0 xl:mb-15 lg:ml-10'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-15 xl:ml-[165px] md:pt-0 pt-20'>Who We Are</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-15 xl:ml-[165px] md:pt-5 pt-15'>We've lived it.</h3>
@@ -85,8 +85,9 @@ const Home = () => {
             h-screen
             md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
+            sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-15 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4'>
+        <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-15 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
             <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
             <div class='flex flex-col'>
                 <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation  & Commercial Adaptation</p>
@@ -101,22 +102,23 @@ const Home = () => {
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
             py-16                        /* make the section full‑viewport height */
+            sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-50'>
+        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-50 '>
             <div class='md:flex-col mr-5 md:ml-15 lg:ml-[10rem] 2xl:ml-[300px] md:mt-0 '>
                 <h6 class='text-primary text-2xl font-bold mb-5'>No project is too complex. </h6>
                 <h6 class='text-primary text-2xl font-bold'>No constraint is too real.</h6>
             </div> 
             <img src={complexProblems} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[336px] 2xl:w-[508px] 2xl:ml-[100px] md:mt-0 2xl:mt-[120px]"/>
         </div>
-        <div class='flex flex-col-reverse md:flex-row items-center h-fit 2xl:gap-20 2xl:ml-40 gap-35 xl:gap-0'>
+        <div class='flex flex-col-reverse md:flex-row items-center h-fit 2xl:gap-20 2xl:ml-40 gap-35 xl:gap-0 overflow-x-hidden'>
             <img src={ThriveTech} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[10rem] 2xl:ml-[100px] 2xl:mt-[120px]"/>
             <div class='flex-col ml-15 xl:ml-[300px] mt-20 md:mt-0'>
                 <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
                 <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>where mission meets technology.</h6>
             </div> 
         </div>
-        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-35 2xl:mr-75'>
+        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-35 2xl:mr-75 overflow-x-hidden'>
             <div class='flex-col 2xl:ml-[300px] ml-22 md:ml-15 lg:ml-[10rem] mt-10 '>
                 <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
                 <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>and commercial adaptation.”</h6>
@@ -130,8 +132,9 @@ const Home = () => {
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
             md:py-16                       /* make the section full‑viewport height */
+            sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px]'>
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] '>
             <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold mt-15 md:mt-[74px]'>How We Work:</h1>
             <ul class='ml-10'>
                 <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
@@ -142,11 +145,12 @@ const Home = () => {
     </section>
     <section class="
             bg-white
+            sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full'>
+        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full '>
             <h1 class='text-3xl text-center lg:text-4xl font-bold text-secondary'>"A handshake still means something to us here."</h1>
         </div>
-        <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15'>
+        <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15 overflow-x-hidden'>
             <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
         </div>
         <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] '>
@@ -163,16 +167,17 @@ const Home = () => {
             bg-no-repeat                    /* don’t tile it */
             min-h-screen                        /* make the section full‑viewport height */
             z-[-1]
+            sm:overflow-x-visable overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
-            <h1 class='text-4xl md:text-[48px] text-primary font-bold mt-[100px]'>Why Vega?</h1>
-            <h3 class='text-4xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
-            <h3 class='text-2xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
+            <h1 class='text-3xl md:text-[48px] text-primary font-bold mt-[100px] pt-20 md:pt-0'>Why Vega?</h1>
+            <h3 class='text-3xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
+            <h3 class='text-xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
             <ul class='ml-[34px]'>
-                <li class='list-disc text-[24px] mb-[24px]'>Former government civilians — not career consultants.</li>
-                <li class='list-disc text-[24px] mb-[24px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                <li class='list-disc text-[24px] mb-[24px]'>We don’t pitch trendy tech.</li>
-                <li class='list-disc text-[24px]'>We deliver effective, tested solutions.</li>
+                <li class='list-disc text-xl mb-[24px]'>Former government civilians — not career consultants.</li>
+                <li class='list-disc text-xl mb-[24px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                <li class='list-disc text-xl mb-[24px]'>We don’t pitch trendy tech.</li>
+                <li class='list-disc text-xl'>We deliver effective, tested solutions.</li>
             </ul>
         </div>
     </section>
@@ -183,6 +188,7 @@ const Home = () => {
             bg-no-repeat                    /* don’t tile it */
             h-screen                        /* make the section full‑viewport height */
             z-[-1]
+            sm:overflow-x-visable overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
             <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
@@ -196,7 +202,7 @@ const Home = () => {
         </div>
         <img src={stlSkyline} alt='' className="object-contain w-full"/>
     </section>
-    <section>
+    <section classname='sm:overflow-x-visable overflow-x-hidden'>
         <Footer></Footer>
     </section>
     </>
