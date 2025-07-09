@@ -65,15 +65,15 @@ const Home = () => {
         </div>
     </section>
     <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
-        <div class='flex flex-col md:flex-row items-center px-4 pt-20 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
+        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
             <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-15 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-15 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
-                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
-                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
-                <p class='ml-15 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
-                <p class='ml-15 xl:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
+                <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
             </div>
         </div>
     </section>
@@ -87,7 +87,7 @@ const Home = () => {
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-15 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
+        <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
             <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
             <div class='flex flex-col'>
                 <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation  & Commercial Adaptation</p>
@@ -104,26 +104,28 @@ const Home = () => {
             py-16                        /* make the section full‑viewport height */
             sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-50 '>
-            <div class='md:flex-col mr-5 md:ml-15 lg:ml-[10rem] 2xl:ml-[300px] md:mt-0 '>
-                <h6 class='text-primary text-2xl font-bold mb-5'>No project is too complex. </h6>
-                <h6 class='text-primary text-2xl font-bold'>No constraint is too real.</h6>
-            </div> 
-            <img src={complexProblems} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[336px] 2xl:w-[508px] 2xl:ml-[100px] md:mt-0 2xl:mt-[120px]"/>
-        </div>
-        <div class='flex flex-col-reverse md:flex-row items-center h-fit 2xl:gap-20 2xl:ml-40 gap-35 xl:gap-0 overflow-x-hidden'>
-            <img src={ThriveTech} alt='' className="object-contain w-[20rem] h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[10rem] 2xl:ml-[100px] 2xl:mt-[120px]"/>
-            <div class='flex-col ml-15 xl:ml-[300px] mt-20 md:mt-0'>
-                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
-                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>where mission meets technology.</h6>
-            </div> 
-        </div>
-        <div class='flex flex-col md:flex-row items-center h-fit lg:gap-35 2xl:mr-75 overflow-x-hidden'>
-            <div class='flex-col 2xl:ml-[300px] ml-22 md:ml-15 lg:ml-[10rem] mt-10 '>
-                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
-                <h6 class='text-primary text-2xl 2xl:text-[30px] font-bold'>and commercial adaptation.”</h6>
-            </div> 
-            <img src={PartnerAutomation} alt='' className="object-contain w-[20rem] h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+        <div class=''>
+            <div class='flex md:flex-row items-center justify-center h-fit lg:gap-50'>
+                <div class='md:flex-col mr-5 md:ml-15 lg:ml-[10rem] 2xl:ml-[300px] md:mt-0 '>
+                    <h6 class='text-primary text-md md:text-xl font-bold mb-5'>No project is too complex. </h6>
+                    <h6 class='text-primary text-md md:text-xl font-bold'>No constraint is too real.</h6>
+                </div> 
+                <img src={complexProblems} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[336px] 2xl:w-[508px] 2xl:ml-[100px] md:mt-0 2xl:mt-[120px]"/>
+            </div>
+            <div class='flex flex-row items-center justify-center h-fit 2xl:gap-20 2xl:ml-40 xl:gap-0 overflow-x-hidden'>
+                <img src={ThriveTech} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[10rem] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+                <div class='flex-col ml-5 xl:ml-[300px] mt-0'>
+                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
+                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold'>where mission meets technology.</h6>
+                </div> 
+            </div>
+            <div class='flex flex-row items-center justify-center h-fit lg:gap-35 2xl:mr-75 overflow-x-hidden'>
+                <div class='2xl:ml-[300px] md:ml-15 ml-5 lg:ml-[10rem] mt-0 '>
+                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
+                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold'>and commercial adaptation.”</h6>
+                </div> 
+                <img src={PartnerAutomation} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+            </div>
         </div>
     </section>
     <section class="
