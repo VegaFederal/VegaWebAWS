@@ -31,7 +31,7 @@ const Home = () => {
 
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[20rem]">
                 {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -42,7 +42,7 @@ const Home = () => {
                 <img 
                     src={Arrow} 
                     alt="Arrow pointing to headline" 
-                    className="object-contain h-[5rem] md:h-[8.375rem] md:w-[5.125rem]" 
+                    className="object-contain h-[5rem] xl:mb-4 md:h-[7.5rem] md:w-[5.125rem]" 
                     /* 
                     - object-contain: keeps image aspect ratio
                     - h-[8.375rem]: 134px in rem
@@ -50,16 +50,16 @@ const Home = () => {
                     */
                 />
                     <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
                         Your New North Star for Government Automation
                         </h4>
-                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">
+                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">
                         AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
                         </p>
                     </div>
                 </div>
                 <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-30 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
-                    <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-5 xl:text-2xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
+                    <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
                 </div> 
             </div>
         </div>
