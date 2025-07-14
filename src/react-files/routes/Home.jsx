@@ -23,7 +23,7 @@ const Home = () => {
 
     <>
     <section className='hero'>
-        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden">
+        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <Navbar />
@@ -31,7 +31,7 @@ const Home = () => {
 
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[20rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem] lg:mt-[23rem]">
                 {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -64,7 +64,7 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
+    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visible overflow-x-hidden'>
         <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
             <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10'>
@@ -85,7 +85,7 @@ const Home = () => {
             h-screen
             md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
-            sm:overflow-x-visable overflow-x-hidden
+            sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
             <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
@@ -96,35 +96,31 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class="
-            bg-white   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            py-16                        /* make the section full‑viewport height */
-            sm:overflow-x-visable overflow-x-hidden
-        ">
-        <div class=''>
-            <div class='flex md:flex-row items-center justify-center h-fit lg:gap-50'>
-                <div class='md:flex-col mr-5 md:ml-15 lg:ml-[10rem] 2xl:ml-[300px] md:mt-0 '>
-                    <h6 class='text-primary text-md md:text-xl font-bold mb-5'>No project is too complex. </h6>
-                    <h6 class='text-primary text-md md:text-xl font-bold'>No constraint is too real.</h6>
-                </div> 
-                <img src={complexProblems} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[336px] 2xl:w-[508px] 2xl:ml-[100px] md:mt-0 2xl:mt-[120px]"/>
+    <section className="bg-white py-16 w-full">
+        <div className="flex flex-col gap-y-12 w-full">
+            {/* Row 1: Image left, text right */}
+            <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
+            <img src={complexProblems} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[336px]" />
+            <div className="flex flex-col items-center md:items-start">
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-left">No project is too complex.</h6>
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-left">No constraint is too real.</h6>
             </div>
-            <div class='flex flex-row items-center justify-center h-fit 2xl:gap-20 2xl:ml-40 xl:gap-0 overflow-x-hidden'>
-                <img src={ThriveTech} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[10rem] 2xl:ml-[100px] 2xl:mt-[120px]"/>
-                <div class='flex-col ml-5 xl:ml-[300px] mt-0'>
-                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-5'>We thrive in the nuances </h6>
-                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold'>where mission meets technology.</h6>
-                </div> 
             </div>
-            <div class='flex flex-row items-center justify-center h-fit lg:gap-35 2xl:mr-75 overflow-x-hidden'>
-                <div class='2xl:ml-[300px] md:ml-15 ml-5 lg:ml-[10rem] mt-0 '>
-                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-5'>“We are your partner in automation</h6>
-                    <h6 class='text-primary text-md md:text-xl 2xl:text-[30px] font-bold'>and commercial adaptation.”</h6>
-                </div> 
-                <img src={PartnerAutomation} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+            {/* Row 2: Image right, text left */}
+            <div className="flex flex-col md:flex-row-reverse items-center justify-center md:gap-20 lg:gap-60">
+            <img src={ThriveTech} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[291px]" />
+            <div className="flex flex-col items-center md:items-end">
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-right">We thrive in the nuances</h6>
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-right">where mission meets technology.</h6>
+            </div>
+            </div>
+            {/* Row 3: Image left, text right */}
+            <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
+            <img src={PartnerAutomation} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px]" />
+            <div className="flex flex-col items-center md:items-start">
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-left">“We are your partner in automation</h6>
+                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-left">and commercial adaptation.”</h6>
+            </div>
             </div>
         </div>
     </section>
@@ -134,7 +130,7 @@ const Home = () => {
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
             md:py-16                       /* make the section full‑viewport height */
-            sm:overflow-x-visable overflow-x-hidden
+            sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] '>
             <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold mt-15 md:mt-[74px]'>How We Work:</h1>
@@ -147,7 +143,7 @@ const Home = () => {
     </section>
     <section class="
             bg-white
-            sm:overflow-x-visable overflow-x-hidden
+            sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full '>
             <h1 class='text-3xl text-center lg:text-4xl font-bold text-secondary'>"A handshake still means something to us here."</h1>
@@ -169,7 +165,7 @@ const Home = () => {
             bg-no-repeat                    /* don’t tile it */
             min-h-screen                        /* make the section full‑viewport height */
             z-[-1]
-            sm:overflow-x-visable overflow-x-hidden
+            sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
             <h1 class='text-3xl md:text-[48px] text-primary font-bold mt-[100px] pt-20 md:pt-0'>Why Vega?</h1>
@@ -190,7 +186,7 @@ const Home = () => {
             bg-no-repeat                    /* don’t tile it */
             h-screen                        /* make the section full‑viewport height */
             z-[-1]
-            sm:overflow-x-visable overflow-x-hidden
+            sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
             <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
@@ -204,7 +200,7 @@ const Home = () => {
         </div>
         <img src={stlSkyline} alt='' className="object-contain w-full"/>
     </section>
-    <section classname='sm:overflow-x-visable overflow-x-hidden'>
+    <section classname='sm:overflow-x-visible overflow-x-hidden'>
         <Footer></Footer>
     </section>
     </>
