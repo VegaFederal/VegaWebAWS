@@ -40,18 +40,18 @@ const Partners = () => {
         "
         >
             
-            <h4 className='font-bold text-center text-white text-4xl md:text-left pb-[50px]'>Our Partners</h4>
-            <div className='flex pt-[25px]'>    
-                <img src={myImage} alt='' className=" object-contain h-[160px] w-[386px]"/> 
-                <img src={myImage2} alt='' className=" object-contain h-[174px] w-[376px]"/>
+            <h4 className='font-bold text-center text-white text-4xl md:text-left mb-5'>Our Partners</h4>
+            <div className='flex'>    
+                <img src={myImage} alt='' className="object-contain h-20 w-30 md:h-50 md:w-20 lg:w-40 lg:mb-[120px] 2xl:w-80"/> 
+                <img src={myImage2} alt='' className="object-contain h-20 w-30 md:h-50 md:w-20 lg:w-40 lg:mb-[120px] 2xl:w-80"/>
             </div>
                 
-            <h4 className='font-bold text-center text-white text-4xl md:text-left pb-[50px]'>Our Customers</h4>
+            <h4 className='font-bold text-center text-white text-4xl md:text-left mb-5'>Our Customers</h4>
                     
-            <div className='flex pt-[25px]'>     
-                <img src={myImage4} alt='' className=" object-contain h-[196px] w-[196px]"/> 
-                <img src={myImage3} alt='' className=" object-contain h-[207px] w-[207px]"/>
-                <img src={myImage5} alt='' className=" object-contain h-[209px] w-[209px]"/>
+            <div className='flex '>     
+                <img src={myImage4} alt='' className="object-contain h-20 w-30 md:h-50 md:w-20 lg:w-40 lg:mb-[120px] 2xl:w-80"/> 
+                <img src={myImage3} alt='' className="object-contain h-20 w-30 md:h-50 md:w-20 lg:w-40 lg:mb-[120px] 2xl:w-80"/>
+                <img src={myImage5} alt='' className="object-contain h-20 w-30 md:h-50 md:w-20 lg:w-40 lg:mb-[120px] 2xl:w-80"/>
             </div>
         </div>
         
@@ -63,26 +63,27 @@ const Partners = () => {
         
     </section>
     <section class="
-       bg-primary   /* ← your image */
-       bg-cover                        /* cover the entire area */
-       bg-center                       /* center it */
-       bg-no-repeat                    /* don’t tile it */
-       h-screen                        /* make the section full‑viewport height */
-       z-[-1]
-        ">
-        <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
-            <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-            <h3 class='text-[40px] text-rose-600 '>Midwestern Values. Global Impact.</h3>
-            <ul class='ml-[34px]'>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Vega calls St. Louis home — by choice.</li>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Away from the Beltway, we bring a grounded, practical, and human-centered approach.</li>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We believe in handshake deals, honest partnerships, and mission-first thinking.</li>
-                <li class='text-white text-[24px] ml-[-35px]'>We meet our customers where they are — literally and figuratively.</li>
-            </ul>
+                bg-primary   /* ← your image */
+                bg-cover                        /* cover the entire area */
+                bg-center                       /* center it */
+                bg-no-repeat                    /* don’t tile it */
+                h-screen                        /* make the section full‑viewport height */
+                z-[-1]
+                sm:overflow-x-visable overflow-x-hidden
+            ">
+            <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+                <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
+                <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
+                <ul class='ml-[34px]'>
+                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
+                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                    <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                    <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
+                </ul>
             </div>
-                <img src={stlSkyline} alt='' className="object-contain w-full"/>
-            </section>
-        <section>
+            <img src={stlSkyline} alt='' className="object-contain w-full"/>
+        </section>
+        <section classname='sm:overflow-x-visable overflow-x-hidden'>
             <Footer></Footer>
         </section>
     </>

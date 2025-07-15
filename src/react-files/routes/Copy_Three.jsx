@@ -64,41 +64,48 @@ const Copy_Three = () => {
         </div>
     </section>
 
-    <section className='bg-white bg-cover bg-center h-screen'>
-        <div class='flex items-center  h-screen w-screen'>
-                    <div class='flex-col ml-[165px] text-nowrap w-screen'>
-                        <h1 class='text-[48px] font-bold pt-[70px] '>Our Super Team</h1>
-                        <h3 class='text-[40px] text-rose-600 pt-[70px] '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
-                        <p class='text-slate-900 text-[24px] pt-[50px]'>With deep roots in government acquisition and mission readiness, we tailor every solution
+    <section class="
+            bg-white   /* ← your image */
+            bg-cover                        /* cover the entire area */
+            bg-center                       /* center it */
+            bg-no-repeat                    /* don’t tile it */
+            md:py-16                       /* make the section full‑viewport height */
+            sm:overflow-x-visable overflow-x-hidden
+        ">
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] '>
+                    
+                        <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold mt-15 md:mt-[74px]'>Our Super Team</h1>
+                        <h3 class='text-2xl md:text-3xl text-secondary  md:pt-5 pt-5'>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
+                        <p class=' text-primary text-lg md:text-[24px] md:pt-5 pt-5'>With deep roots in government acquisition and mission readiness, we tailor every solution
                          to the unique environment of our customers.</p>
-                        <p class='text-slate-900 text-[24px] pt-[50px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>
-                        <p class='text-slate-900 text-[48px] pt-[50px] font-bold'>“Mission success isn’t optional — it’s expected. So is our commitment.”</p>
-                    </div>
+                        <p class='  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We understand the responsibility behind every task, every dollar, and every decision.</p>
+                        <p class='  text-primary text-[48px] md:text-[24px] md:pt-5 pt-5 font-bold'>“Mission success isn’t optional — it’s expected. So is our commitment.”</p>
                 </div>
     </section>
     <section class="
-       bg-primary   /* ← your image */
-       bg-cover                        /* cover the entire area */
-       bg-center                       /* center it */
-       bg-no-repeat                    /* don’t tile it */
-       h-screen                        /* make the section full‑viewport height */
-       z-[-1]
-        ">
-        <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
-            <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-            <h3 class='text-[40px] text-rose-600 '>Midwestern Values. Global Impact.</h3>
-            <ul class='ml-[34px]'>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Vega calls St. Louis home — by choice.</li>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Away from the Beltway, we bring a grounded, practical, and human-centered approach.</li>
-               <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We believe in handshake deals, honest partnerships, and mission-first thinking.</li>
-                <li class='text-white text-[24px] ml-[-35px]'>We meet our customers where they are — literally and figuratively.</li>
-            </ul>
-            </div>
+                    bg-primary   /* ← your image */
+                    bg-cover                        /* cover the entire area */
+                    bg-center                       /* center it */
+                    bg-no-repeat                    /* don’t tile it */
+                    h-screen                        /* make the section full‑viewport height */
+                    z-[-1]
+                    sm:overflow-x-visable overflow-x-hidden
+                ">
+                <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+                    <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
+                    <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
+                    <ul class='ml-[34px]'>
+                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
+                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                        <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
+                    </ul>
+                </div>
                 <img src={stlSkyline} alt='' className="object-contain w-full"/>
             </section>
-        <section>
-            <Footer></Footer>
-        </section>
+            <section classname='sm:overflow-x-visable overflow-x-hidden'>
+                <Footer></Footer>
+            </section>
     </>
     )
 }
