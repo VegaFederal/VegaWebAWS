@@ -3,7 +3,6 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import { FaDropbox } from 'react-icons/fa';
-import axios from 'axios';
 import React, { useState } from 'react';
 
 
