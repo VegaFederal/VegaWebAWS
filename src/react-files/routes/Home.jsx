@@ -194,7 +194,7 @@ const Home = () => {
         ">
         <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
             <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-            <h3 class='text-[40px] text-white '>Midwestern Values. Global Impact.</h3>
+            <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
             <ul class='ml-[34px]'>
                 <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
                 <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>

@@ -13,145 +13,151 @@ const Our_Story = () => {
     return (
         <>
         <section className="our-story">
-            <div
-            className="
-                bg-[url('./assets/OurStory_Banner.jpg')]   /* ← your image */
-                bg-cover                        /* cover the entire area */
-                bg-center                       /* center it */
-                bg-no-repeat                    /* don’t tile it */
-                                  /* make the section full‑viewport height */
-                z-[-1]
-            "
-            >
-        <div class='flex bg-cover bg-primary h-45'>
-            <Navbar color_story='text-secondary'/>
-        </div>
-            <div className='flex items-end h-132 ml-10 gap-5 md:gap-5 md:ml-50 pb-10'>
-                <img src={Arrow} alt='' className=" object-contain w-[50px] mb-10 md:h-[134px] md:w-[82px]"/>
-                    <div className='flex-col'>
-                        <h4 className='font-bold text-white text-2xl md:text-4xl md:text-left pb-5'>Our Story</h4>
-                        <p className='tracking-wide text-xl md:text-2xl text-white md:text-left mb-8'>Born inside the mission. Built to serve it better.
-                        </p>
+            <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden">
+                <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/OurStory_Banner.jpg')] bg-cover bg-center bg-no-repeat">
+                    <header>
+                        <Navbar color_story='text-secondary'/>
+                    </header>
+                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem]">
+                        <img 
+                            src={Arrow} 
+                            alt="Arrow pointing to headline" 
+                            className="object-contain h-[5rem] md:h-[8.375rem] md:w-[5.125rem]" 
+                            /* 
+                            - object-contain: keeps image aspect ratio
+                            - h-[8.375rem]: 134px in rem
+                            - w-[5.125rem]: 82px in rem
+                            */
+                        />
+                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
+                            <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Our Story</h4>
+                            <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
+                            </p>
+                        </div>
                     </div>
-            </div>
-            </div>
-        </section>
-        <section class="
-            bg-gray-100   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            py-16                       /* make the section full‑viewport height */
-        ">
-            <div class='flex flex-col items-center'>
-                <p class='max-w-68/100 text-xl lg:text-2xl text-primary mt-[50px]'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
-                <p class='max-w-68/100 text-xl lg:text-2xl text-primary mt-[50px]'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
-                <p class='max-w-68/100 text-xl lg:text-2xl text-primary mt-[50px]'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
+                </div>
             </div>
         </section>
-        <section className="py-20 bg-white">
+        <section class='bg-gray-100  sm:overflow-x-visable overflow-x-hidden'>
+            <div class='flex flex-col justify-items-center md:mb-0 xl:mb-15 lg:ml-10'>
+                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
+                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
+                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
+            </div>
+        </section>
+        <section className="py-20 bg-white sm:overflow-x-visable overflow-x-hidden">
         <div className="flex justify-center">
             <div className="max-w-70/100 mx-auto text-left space-y-8 px-4">
-                <h1 className="text-5xl font-bold pb-15">
+                <h1 class=' text-primary text-3xl lg:text-[52px] font-bold'>
                     So, they created Vega.
                 </h1>
-                <p className="text-xl lg:text-2xl text-primary">
+                <p class='text-xl md:text-[28px] text-primary'>
                     A company dedicated to building adaptable, automation-focused solutions grounded in real-world mission needs — not buzzwords.
                 </p>
-                <p className="text-xl lg:text-2xl text-primary">
+                <p class='text-xl md:text-[24px] text-primary mt-[50px]'>
                     From their earliest projects together at the National Geospatial-Intelligence Agency to today’s partnerships with agencies across the government, Ryan and Themba have stayed true to a simple principle: 
                 </p>
-                <p className="text-xl lg:text-2xl text-primary">
+                <p class='text-xl md:text-[24px] text-primary mt-[50px]'>
                     Empathy and expertise, together, deliver results.
                 </p>
             </div>
         </div>
         </section>
-        <section className="
-                bg-[url('./assets/OurStory_VegaStarImage.jpg')]   /* ← your image */
-                bg-cover                        /* cover the entire area */
-                bg-center                       /* center it */
-                bg-no-repeat                    /* don’t tile it */
-                md:h-screen                  /* make the section full‑viewport height */
-                z-[-1]
-            ">
-            <div className="flex justify-center">
+        <section class="
+            bg-[url('./assets/OurStory_VegaStarImage.jpg')]   /* ← your image */
+            bg-cover                        /* cover the entire area */
+            bg-center                       /* center it */
+            bg-no-repeat                    /* don’t tile it */
+            h-screen
+            md:h-auto                       /* make the section full‑viewport height */
+            z-[-1]
+            sm:overflow-x-visable overflow-x-hidden
+        ">
+            <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
                 <div className="max-w-70/100 mx-auto text-left space-y-8 px-4">
-                    <h1 className="text-5xl font-bold pb-10 pt-30 text-white">
+                    <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>
                         Why Vega?
                     </h1>
-                    <h3 className="text-[40px] font-bold pb-10 text-secondary">
+                    <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5'>
                     The name Vega wasn’t an accident.
                     </h3>
-                    <p className="text-xl lg:text-2xl text-white">
+                    <p class='text-xl md:text-[28px] text-white'>
                         Vega, the <span class='font-bold'>fifth-brightest star </span> in the night sky, has served as a guiding light for centuries. In the coming millennia, it will become the North Star, once again leading navigators and explorers.                    </p>
-                    <p className="text-xl lg:text-2xl text-white">
+                    <p class='text-xl md:text-[24px] text-white mt-[50px]'>
                     Vega Federal reflects this spirit.
                     </p>
-                    <p className="text-xl lg:text-2xl text-white">
+                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
                     A trusted partner.
                     </p>
-                    <p className="text-xl lg:text-2xl text-white">
+                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
                     A fixed point.
                     </p>
-                    <p className="text-xl lg:text-2xl text-white">
+                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
                     A guide through the evolving landscape of defense and intelligence automation.
                     </p>
-                    <p className="text-xl lg:text-2xl text-white font-bold pt-10 pb-10">
+                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
                     We don’t just work for the mission — we’ve lived it.                    
                     </p>
                 </div>
             </div>
         </section>
-        <section class='bg-white bg-cover bg-center h-auto'>
+        <section class="
+            bg-white   /* ← your image */
+            bg-cover                        /* cover the entire area */
+            bg-center                       /* center it */
+            bg-no-repeat                    /* don’t tile it */
+            py-16                        /* make the section full‑viewport height */
+            sm:overflow-x-visable overflow-x-hidden
+        ">
             <div class='flex justify-center'>
                 <div className="max-w-70/100 mx-auto text-left space-y-8 px-4 pt-20">
-                <h1 class='text-5xl font-bold text-primary'>The Founders</h1>
+                <h1 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h1>
                 <div class='flex flex-col md:flex-row gap-30'>
-                    <img src={RyanPHeadshot} alt='' className="object-contain w-[400px] md:w-[396px] mt-20 md:mt-[100px]"/>
+                    <img src={RyanPHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col'>
-                        <h3 class='text-[40px] font-bold text-secondary'>Ryan Phillips</h3>
-                        <p class='font-bold text-2xl pt-20'>Co-Founder | Veteran | Technologist | Mission Partner</p>
-                        <p class='text-2xl pt-10'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator’s mindset.</p>
-                        <p class='text-2xl pt-10'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
+                        <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Veteran | Technologist | Mission Partner</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator’s mindset.</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
                     </div>
                 </div>
                 <div class='flex flex-col md:flex-row-reverse gap-30 mt-20'>
-                    <img src={ThembaHHeadshot} alt='' className="object-contain w-[400px] md:w-[396px]"/>
+                    <img src={ThembaHHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col pb-30'>
-                        <h3 class='text-[40px] font-bold text-secondary'>Themba Hinke</h3>
-                        <p class='font-bold text-2xl pt-20'>Co-Founder | Systems Architect | Trusted Government Partner</p>
-                        <p class='text-2xl pt-10'>Themba is a seasoned technical leader with two decades of experience delivering mission-critical systems to the Department of Defense and Intelligence Community. His expertise in platform engineering, modernization, and secure system design has made him a trusted advisor to senior government leaders.</p>
-                        <p class='text-2xl pt-10'>At Vega, Themba ensures that every solution meets the highest technical and mission-readiness standards.</p>
-                        <p class='text-2xl pt-10 font-bold'>“We didn’t start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
+                        <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Themba Hinke</h3>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Systems Architect | Trusted Government Partner</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Themba is a seasoned technical leader with two decades of experience delivering mission-critical systems to the Department of Defense and Intelligence Community. His expertise in platform engineering, modernization, and secure system design has made him a trusted advisor to senior government leaders.</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, Themba ensures that every solution meets the highest technical and mission-readiness standards.</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>“We didn’t start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
                     </div>
                 </div>
                 </div>
             </div>
         </section>
             <section class="
-                    bg-primary   /* ← your image */
-                    bg-cover                        /* cover the entire area */
-                    bg-center                       /* center it */
-                    bg-no-repeat                    /* don’t tile it */
-                    h-screen                        /* make the section full‑viewport height */
-                    z-[-1]
-                ">
-                <div class='flex flex-col items-left gap-15 ml-30 xl:ml-[500px] '>
-                    <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-                    <h3 class='text-[40px] text-white '>Midwestern Values. Global Impact.</h3>
-                    <ul class='ml-[34px]'>
-                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Vega calls St. Louis home — by choice.</li>
-                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Away from the Beltway, we bring a grounded, practical, and human-centered approach.</li>
-                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We believe in handshake deals, honest partnerships, and mission-first thinking.</li>
-                        <li class='text-white text-[24px] ml-[-35px]'>We meet our customers where they are — literally and figuratively.</li>
-                    </ul>
-                </div>
-                <img src={stlSkyline} alt='' className="object-contain w-full"/>
-            </section>
-            <section>
-                <Footer></Footer>
-            </section>
+                        bg-primary   /* ← your image */
+                        bg-cover                        /* cover the entire area */
+                        bg-center                       /* center it */
+                        bg-no-repeat                    /* don’t tile it */
+                        h-screen                        /* make the section full‑viewport height */
+                        z-[-1]
+                        sm:overflow-x-visable overflow-x-hidden
+                    ">
+                    <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+                        <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
+                        <h3 class='text-[40px] text-secondary '>Midwestern Values. Global Impact.</h3>
+                        <ul class='ml-[34px]'>
+                            <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
+                            <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                            <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                            <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
+                        </ul>
+                    </div>
+                    <img src={stlSkyline} alt='' className="object-contain w-full"/>
+                </section>
+                <section classname='sm:overflow-x-visable overflow-x-hidden'>
+                    <Footer></Footer>
+                </section>
         </>
         
     )
