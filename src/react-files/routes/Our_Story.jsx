@@ -30,8 +30,8 @@ const Our_Story = () => {
                             */
                         />
                         <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
-                            <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Our Story</h4>
-                            <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
+                            <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">Our Story</h4>
+                            <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
                             </p>
                         </div>
                     </div>
@@ -141,11 +141,11 @@ const Our_Story = () => {
                         bg-no-repeat                    /* don’t tile it */
                         h-screen                        /* make the section full‑viewport height */
                         z-[-1]
-                        sm:overflow-x-visable overflow-x-hidden
+                        sm:overflow-x-visible overflow-x-hidden
                     ">
                     <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
                         <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-                        <h3 class='text-[40px] text-secondary '>Midwestern Values. Global Impact.</h3>
+                        <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
                         <ul class='ml-[34px]'>
                             <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
                             <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
@@ -155,7 +155,7 @@ const Our_Story = () => {
                     </div>
                     <img src={stlSkyline} alt='' className="object-contain w-full"/>
                 </section>
-                <section classname='sm:overflow-x-visable overflow-x-hidden'>
+                <section classname='sm:overflow-x-visible overflow-x-hidden'>
                     <Footer></Footer>
                 </section>
         </>

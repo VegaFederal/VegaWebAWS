@@ -16,7 +16,7 @@ const Capabilities = () => {
     return(
     <>
     <section className='capabilities'>
-        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden">
+        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Capabilities_Banner.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <div>
@@ -25,7 +25,7 @@ const Capabilities = () => {
                 </header>
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem] lg:mt-[23rem]">
                     {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -33,9 +33,10 @@ const Capabilities = () => {
                     - pl-5: 1.25rem padding-left (instead of margin-left on the container)
                     - h-[8.25rem]: sets height to 132px in rem units
                     */}
-                    <img src={Arrow} 
+                    <img 
+                        src={Arrow} 
                         alt="Arrow pointing to headline" 
-                        className="object-contain h-[5rem] md:h-[8.375rem] md:w-[5.125rem]" 
+                        className="object-contain h-[5rem] xl:mb-4 md:h-[7.5rem] md:w-[5.125rem]" 
                         /* 
                         - object-contain: keeps image aspect ratio
                         - h-[8.375rem]: 134px in rem
@@ -44,16 +45,16 @@ const Capabilities = () => {
                     />
 
                     <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">Purpose-Built
                             Automation. Mission—Ready Solutions.</h4>
-                        <p className="max-w-md md:max-w-[58rem] text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">At Vega, we specialize in delivering
+                        <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">At Vega, we specialize in delivering
                             automation, AI, and technologysolutions tailored to the realities of government missions. We don’t just deploy software — we solve
                             complex challenges with precision, empathy, and mission-first execution.</p>
                     
                     </div>
                 </div>
                     <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-30 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
-                        <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-5 xl:text-2xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
+                        <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
                 </div> 
             </div>
         </div>
@@ -167,29 +168,29 @@ const Capabilities = () => {
 
    
        <section class="
-               bg-primary   /* ← your image */
-               bg-cover                        /* cover the entire area */
-               bg-center                       /* center it */
-               bg-no-repeat                    /* don’t tile it */
-               h-screen                        /* make the section full‑viewport height */
-               z-[-1]
-               sm:overflow-x-visable overflow-x-hidden
-           ">
-           <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
-               <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-               <h3 class='text-[40px] text-secondary '>Midwestern Values. Global Impact.</h3>
-               <ul class='ml-[34px]'>
-                   <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
-                   <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                   <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
-                   <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
-               </ul>
-           </div>
-           <img src={stlSkyline} alt='' className="object-contain w-full"/>
-       </section>
-               <section classname='sm:overflow-x-visable overflow-x-hidden'>
-                       <Footer></Footer>
-                   </section>
+                   bg-primary   /* ← your image */
+                   bg-cover                        /* cover the entire area */
+                   bg-center                       /* center it */
+                   bg-no-repeat                    /* don’t tile it */
+                   h-screen                        /* make the section full‑viewport height */
+                   z-[-1]
+                   sm:overflow-x-visible overflow-x-hidden
+               ">
+               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+                   <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
+                   <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
+                   <ul class='ml-[34px]'>
+                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
+                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                       <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
+                   </ul>
+               </div>
+               <img src={stlSkyline} alt='' className="object-contain w-full"/>
+           </section>
+           <section classname='sm:overflow-x-visible overflow-x-hidden'>
+               <Footer></Footer>
+           </section>
     </>
     );
 }
