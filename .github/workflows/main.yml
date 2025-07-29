@@ -59,9 +59,9 @@ jobs:
       - name: Set environment variables
         run: |
           ENVIRONMENT="${{ github.event.inputs.environment || 'dev' }}"
-          STACK_NAME="contact-page-${ENVIRONMENT}"
-          TEMPLATE_BUCKET="contact-page-templates-${ENVIRONMENT}"
-          DEPLOYMENT_BUCKET="contact-page-deployment-${ENVIRONMENT}"
+          STACK_NAME="admin-page-${ENVIRONMENT}"
+          TEMPLATE_BUCKET="admin-page-templates-${ENVIRONMENT}"
+          DEPLOYMENT_BUCKET="admin-page-deployment-${ENVIRONMENT}"
           
           echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
