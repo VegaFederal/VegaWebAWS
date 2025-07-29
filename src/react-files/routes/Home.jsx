@@ -146,7 +146,7 @@ const Home = () => {
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full '>
-            <h1 class='text-3xl text-center lg:text-4xl font-bold text-secondary'>"A handshake still means something to us here."</h1>
+            <h1 class='text-9xl text-center lg:text-7xl font-extrabold text-secondary '>"A handshake still means something to us here."</h1>
         </div>
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15 overflow-x-hidden'>
             <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
@@ -192,10 +192,10 @@ const Home = () => {
             <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
             <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
             <ul class='ml-[34px]'>
-                <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
-                <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
-                <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
+                <li class='text-white text-[24px] mb-[24px] ml-[-35px] font-bold'>Former government civilians — not career consultants.</li>
+                <li class='text-white text-[24px] mb-[24px] ml-[-35px] font-bold'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
+                <li class='text-white text-[24px] mb-[24px] ml-[-35px] font-bold'>We don’t pitch trendy tech.</li>
+                <li class='text-white text-[24px] ml-[-35px] font-bold'>We deliver effective, tested solutions.</li>
             </ul>
         </div>
         <img src={stlSkyline} alt='' className="object-contain w-full"/>
