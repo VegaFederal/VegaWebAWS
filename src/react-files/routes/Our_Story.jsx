@@ -13,7 +13,7 @@ const Our_Story = () => {
     return (
         <>
         <section className="our-story">
-            <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden">
+            <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden ">
                 <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/OurStory_Banner.jpg')] bg-cover bg-center bg-no-repeat">
                     <header>
                         <Navbar color_story='text-secondary'/>
