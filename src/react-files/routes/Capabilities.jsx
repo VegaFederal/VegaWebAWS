@@ -43,7 +43,7 @@ const Capabilities = () => {
                         */
                     />
 
-                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
+                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
                             Automation. Mission—Ready Solutions.</h4>
                         <p className="max-w-md md:max-w-[58rem] text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">At Vega, we specialize in delivering
