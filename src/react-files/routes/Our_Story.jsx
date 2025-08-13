@@ -39,10 +39,10 @@ const Our_Story = () => {
             </div>
         </section>
         <section class='bg-gray-100  sm:overflow-x-visable overflow-x-hidden'>
-            <div class='flex flex-col items-center md:mb-0 xl:mb-15  '>
-                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
-                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
-                <p class='max-w-68/100 ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
+            <div class='flex flex-col items-center md:mb-0 xl:mb-15'>
+                <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
+                <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
+                <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
             </div>
         </section>
         <section className="py-20 bg-white sm:overflow-x-visable overflow-x-hidden">
@@ -112,7 +112,7 @@ const Our_Story = () => {
             <div class='flex justify-center'>
                 <div className="flex  flex-col items-center max-w-70/100 mx-auto text-left space-y-8 px-4 pt-20">
                 <h1 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h1>
-                <div class='flex flex-col items-center gap-30'>
+                <div class='flex flex-col xl:flex-row items-center gap-30'>
                     <img src={RyanPHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col'>
                         <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
@@ -121,7 +121,7 @@ const Our_Story = () => {
                         <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
                     </div>
                 </div>
-                <div class='flex flex-col items-center gap-30 mt-20'>
+                <div class='flex flex-col xl:flex-row-reverse items-center gap-30 mt-20'>
                     <img src={ThembaHHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col pb-30'>
                         <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Themba Hinke</h3>
