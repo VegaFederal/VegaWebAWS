@@ -41,7 +41,7 @@ const About_concept = () => {
                         <div className='flex justify-center mb-[50px]'>
                             <h1 className='text-white text-5xl font-bold'>Our Team</h1>
                         </div>
-                        <div className='flex flex-col items-center mb-[50px]'>
+                        <div className='flex flex-col items-center mb-[80px]'>
                             <h3 className='text-white text-3xl font-bold'>Answers to these questions are below: </h3>
                             <p className='text-white text-2xl'>Where did you go to High School? (the “quintessential” STL question)</p>
                             <p className='text-white text-2xl'>What's something you are surprisingly good at that has nothing to do with tech?</p>
@@ -57,10 +57,27 @@ const About_concept = () => {
                             <h1 className='text-white text-5xl font-bold mr-[320px]'>Themba</h1>
                             <h1 className='text-white text-5xl font-bold'>Brent</h1>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
                             <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
                             <h3 className='text-secondary text-3xl'>Senior Software Engineer</h3>
+                        </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={dan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
@@ -72,10 +89,27 @@ const About_concept = () => {
                             <h1 className='text-white text-5xl font-bold mr-[390px]'>Blas</h1>
                             <h1 className='text-white text-5xl font-bold'>Katy</h1>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h3 className='text-secondary text-3xl mr-[200px]'>Senior Software Engineer</h3>
                             <h3 className='text-secondary text-3xl mr-[250px]'>Software Engineer</h3>
                             <h3 className='text-secondary text-3xl pr-[20px]'>Senior UX Designer</h3>
+                        </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={krista} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
@@ -87,19 +121,43 @@ const About_concept = () => {
                             <h1 className='text-white text-5xl font-bold mr-[360px]'>Chris</h1>
                             <h1 className='text-white text-5xl font-bold'>Mark</h1>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h3 className='text-secondary text-3xl mr-[200px] pl-[70px]'>Operations Leader</h3>
                             <h3 className='text-secondary text-3xl mr-[140px]'>Director of Defense Health</h3>
                             <h3 className='text-secondary text-3xl'>Chief Technology Officer</h3>
                         </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                        </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center pb-[20px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h1 className='text-white text-5xl font-bold'>Owen</h1>
                         </div>
-                        <div className='flex justify-center pb-[200px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h3 className='text-secondary text-3xl'>Software Engineer</h3>
+                        </div>
+                        <div className='flex justify-center pb-[200px]'>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'> Point One </li>
+                                <li className='text-white text-xl'> Point Two </li>
+                                <li className='text-white text-xl'> Point Three </li>
+                            </ul>
                         </div>
 
                     </div>
