@@ -16,6 +16,7 @@ import Copy_Six from './routes/Copy_Six.jsx'
 import Copy_Seven from './routes/Copy_Seven.jsx'
 import Copy_Eight from './routes/Copy_Eight.jsx'
 import Careers_Main from './routes/Careers_Main.jsx'
+import About_concept from './routes/About_concept.jsx'
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       <Route path="/Partners" element={<Partners/>}></Route>
       <Route path="/Careers" element={<Careers_Main/>}></Route>
       <Route path="/Careers_Two" element={<Careers/>}></Route>
-      <Route path="/About_Us" element={<About_Us/>}></Route>
+      <Route path="/About_concept" element={<About_concept/>}></Route>
       <Route path="/Copy" element={<Copy/>}></Route>
       <Route path="/Copy_Two" element={<Copy_Two/>}></Route>
       <Route path="Copy_Three" element={<Copy_Three/>}></Route>
