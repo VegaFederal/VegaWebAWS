@@ -52,39 +52,57 @@ const About_concept = () => {
                             <img src={themba} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={brent} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
+                        <div className='flex justify-center mb-[20px]'>
                             <h1 className='text-white text-5xl font-bold mr-[320px]'>Ryan</h1>
                             <h1 className='text-white text-5xl font-bold mr-[320px]'>Themba</h1>
                             <h1 className='text-white text-5xl font-bold'>Brent</h1>
+                        </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
+                            <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
+                            <h3 className='text-secondary text-3xl'>Senior Software Engineer</h3>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={dan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={blas} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={katy} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
-                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Dan</h1>
-                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Blas</h1>
+                        <div className='flex justify-center mb-[20px]'>
+                            <h1 className='text-white text-5xl font-bold mr-[390px]'>Dan</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[390px]'>Blas</h1>
                             <h1 className='text-white text-5xl font-bold'>Katy</h1>
+                        </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <h3 className='text-secondary text-3xl mr-[200px]'>Senior Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[250px]'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl pr-[20px]'>Senior UX Designer</h3>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={krista} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={chris} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={mark} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center mb-[100px]'>
-                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Krista</h1>
-                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Chris</h1>
+                        <div className='flex justify-center mb-[20px]'>
+                            <h1 className='text-white text-5xl font-bold mr-[360px]'>Krista</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[360px]'>Chris</h1>
                             <h1 className='text-white text-5xl font-bold'>Mark</h1>
+                        </div>
+                        <div className='flex justify-center mb-[100px]'>
+                            <h3 className='text-secondary text-3xl mr-[200px] pl-[70px]'>Operations Leader</h3>
+                            <h3 className='text-secondary text-3xl mr-[140px]'>Director of Defense Health</h3>
+                            <h3 className='text-secondary text-3xl'>Chief Technology Officer</h3>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center pb-[200px]'>
+                        <div className='flex justify-center pb-[20px]'>
                             <h1 className='text-white text-5xl font-bold'>Owen</h1>
                         </div>
-                    </div>
+                        <div className='flex justify-center pb-[200px]'>
+                            <h3 className='text-secondary text-3xl'>Software Engineer</h3>
+                        </div>
 
+                    </div>
                 </div>
             </section>
             <section className='
