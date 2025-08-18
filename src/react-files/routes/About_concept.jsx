@@ -37,23 +37,50 @@ const About_concept = () => {
                         </div>
                     </header>
                     <div className='flex-col items-center'>
-                        <div className='flex justify-center mb-[100px]'>
+                        <div className='flex justify-center mb-[50px]'>
+                            <h1 className='text-white text-5xl font-bold'>Our Team</h1>
+                        </div>
+                        <div className='flex flex-col items-center mb-[50px]'>
+                            <h3 className='text-white text-3xl font-bold'>Answers to these questions are below: </h3>
+                            <p className='text-white text-2xl'>Where did you go to High School? (the “quintessential” STL question)</p>
+                            <p className='text-white text-2xl'>What's something you are surprisingly good at that has nothing to do with tech?</p>
+                            <p className='text-white text-2xl'>Wnat’s the coolest thing you’ve automated in your personal life?</p>
+                        </div>
+                        <div className='flex justify-center mb-[40px]'>
                             <img src={ryan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={themba} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={brent} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Ryan</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Themba</h1>
+                            <h1 className='text-white text-5xl font-bold'>Brent</h1>
+                        </div>
+                        <div className='flex justify-center mb-[40px]'>
                             <img src={dan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={blas} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={katy} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Dan</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Blas</h1>
+                            <h1 className='text-white text-5xl font-bold'>Katy</h1>
+                        </div>
+                        <div className='flex justify-center mb-[40px]'>
                             <img src={krista} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={chris} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={mark} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center'>
+                        <div className='flex justify-center mb-[100px]'>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Krista</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[320px]'>Chris</h1>
+                            <h1 className='text-white text-5xl font-bold'>Mark</h1>
+                        </div>
+                        <div className='flex justify-center mb-[40px]'>
                             <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
+                        </div>
+                        <div className='flex justify-center pb-[50px]'>
+                            <h1 className='text-white text-5xl font-bold'>Owen</h1>
                         </div>
                     </div>
 
