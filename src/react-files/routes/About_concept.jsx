@@ -15,6 +15,7 @@ import krista from '../assets/About_us/Krista.png'
 import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
+import map from '../assets/About_us/map.png'
 
 
 const About_concept = () => {
@@ -79,13 +80,27 @@ const About_concept = () => {
                         <div className='flex justify-center mb-[40px]'>
                             <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
-                        <div className='flex justify-center pb-[50px]'>
+                        <div className='flex justify-center pb-[200px]'>
                             <h1 className='text-white text-5xl font-bold'>Owen</h1>
                         </div>
                     </div>
 
                 </div>
             </section>
+            <section className='
+                    bg-primary
+                    bg-cover
+                    bg-center
+                    bg-no-repeat
+                     h-fit
+                    z-[-1]'>
+                        <div className='flex flex-col items-center'>
+                            <h1 className='text-white text-5xl font-bold mb-[100px]'>
+                                What's our favorite vacation spot?
+                            </h1>
+                            <img src={map} alt='' className='h-screen w-screen'></img>
+                        </div>
+                    </section>
         </>
     )
 }
