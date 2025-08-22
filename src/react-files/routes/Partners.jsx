@@ -69,7 +69,7 @@ const Partners = () => {
                 bg-no-repeat                    /* don’t tile it */
                 h-screen                        /* make the section full‑viewport height */
                 z-[-1]
-                sm:overflow-x-visable overflow-x-hidden
+                sm:overflow-x-visible overflow-x-hidden
             ">
             <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
                 <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
@@ -83,7 +83,7 @@ const Partners = () => {
             </div>
             <img src={stlSkyline} alt='' className="object-contain w-full"/>
         </section>
-        <section classname='sm:overflow-x-visable overflow-x-hidden'>
+        <section classname='sm:overflow-x-visible overflow-x-hidden'>
             <Footer></Footer>
         </section>
     </>

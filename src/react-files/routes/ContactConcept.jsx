@@ -24,7 +24,7 @@ const ContactConcept = () => {
             </header>
             {/* your content here */}
             <div className='flex items-center justify-center h-screen'>
-                <div className='flex-col justify-items-center w-[600px] bg-white rounded-2xl border-4 border-amber-600'>
+                <div className='flex-col justify-items-center w-[600px] bg-white rounded-2xl'>
                     <h4 className='font-bold text-center text-rose-600 text-4xl md:text-left'>Contact us!</h4>
                     <ul className='flex-col justify-items-start '>
                         <li className='font-bold text-black text-2xl mt-[10px]'>Name</li>
@@ -49,11 +49,11 @@ const ContactConcept = () => {
                 bg-no-repeat                    /* don’t tile it */
                 h-screen                        /* make the section full‑viewport height */
                 z-[-1]
-                sm:overflow-x-visable overflow-x-hidden
+                sm:overflow-x-visible overflow-x-hidden
             ">
             <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
                 <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-                <h3 class='text-[40px] text-secondary '>Midwestern Values. Global Impact.</h3>
+                <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
                 <ul class='ml-[34px]'>
                     <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
                     <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
@@ -63,7 +63,7 @@ const ContactConcept = () => {
             </div>
             <img src={stlSkyline} alt='' className="object-contain w-full"/>
         </section>
-        <section classname='sm:overflow-x-visable overflow-x-hidden'>
+        <section classname='sm:overflow-x-visible overflow-x-hidden'>
             <Footer></Footer>
         </section>
         </>
