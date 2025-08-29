@@ -50,7 +50,7 @@ const Capabilities = () => {
 
                             Automation. Mission—Ready Solutions.</h4>
                         <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">At Vega, we specialize in delivering
-                            automation, AI, and technologysolutions tailored to the realities of government missions. We don’t just deploy software — we solve
+                            automation, AI, and technologysolutions tailored to the realities of government missions. We don't just deploy software — we solve
                             complex challenges with precision, empathy, and mission-first execution.</p>
                     
                     </div>
@@ -62,9 +62,9 @@ const Capabilities = () => {
         </div>
     </section>
 
-    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
-        <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
-            <img src={myImage2} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
+    <section class='bg-white min-h-fit h-fit md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-30 md:px-[100px] lg:pt-20 xl:pt-30 '>
+            <img src={myImage2} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Delivering Insights Through Location.</h3>
@@ -84,16 +84,16 @@ const Capabilities = () => {
             bg-white
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            h-screen
-            md:h-auto                       /* make the section full‑viewport height */
+            bg-no-repeat                    /* don't tile it */
+            h-fit
+            md:h-fit                       /* make the section full-viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
             
         ">
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4'>
-            <div class='md:mb-0 xl:mb-15 2xl:ml-[6.25rem]'>
-                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mobile Application Development</h1>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4 '>
+            <div class='md:mb-0 xl:mb- 2xl:ml-[6.25rem]'>
+                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-0'>Mobile Application Development</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Mobile. Performance. Security.</h3>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega crafts mobile applications that deliver high performance in the field or at headquarters.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>From concept through deployment, our team builds custom mobile tools that align to your mission objectives and operational realities.</p>
@@ -103,12 +103,12 @@ const Capabilities = () => {
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>App Store support, optimization, and compliance.</li>
                 </ul>
             </div>
-            <img src={myImage3} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px]"/>
+            <img src={myImage3} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px]"/>
         </div>
     </section>
 
-    <section class=' bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-30 md:pt-10 md:px-[100px] lg:pt-50 xl:pt-60'>
+    <section class=' bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-30 md:pt-10 md:px-[100px] lg:pt-50 xl:pt-60 '>
             <img src={myImage4} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px] "/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10 2xl:ml-[10rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Business Process Automation (BPA)</h1>
@@ -128,13 +128,13 @@ const Capabilities = () => {
             bg-white
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            h-screen
-            md:h-auto                       /* make the section full‑viewport height */
+            bg-no-repeat                    /* don't tile it */
+            h-fit
+            md:h-auto                       /* make the section full-viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 '>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-5 '>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Optimizing Infrastructure. Enabling Scale.</h3>
@@ -147,7 +147,7 @@ const Capabilities = () => {
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Designed to reduce downtime and enhance mission flexibility.</li>
                 </ul>
             </div>
-            <img src={myImage5} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px] "/>
+            <img src={myImage5} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px] "/>
         </div>
     </section>  
 
@@ -155,16 +155,16 @@ const Capabilities = () => {
             bg-white   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-                                    /* make the section full‑viewport height */
+            bg-no-repeat                    /* don't tile it */
+                                    /* make the section full-viewport height */
         ">
-        <div class='flex items-center h-screen'>
+        <div class='flex items-center h-screen '>
             <div class='flex flex-col items-center justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem]  '>
                 <h1 class='text-3xl md:text-[48px] text-primary font-bold mt-[100px] pt-20 md:pt-0'>Our Approuch</h1>
-                <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
-                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
+                <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn't just automate—we adapt, optimize, and integrate.</h3>
+                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers.</p>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>
-                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>“Mission success isn’t optional — it’s expected. So is our commitment.”</p>
+                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>“Mission success isn't optional — it's expected. So is our commitment.”</p>
             </div>
         </div>
     </section>
@@ -174,18 +174,18 @@ const Capabilities = () => {
                    bg-primary   /* ← your image */
                    bg-cover                        /* cover the entire area */
                    bg-center                       /* center it */
-                   bg-no-repeat                    /* don’t tile it */
-                   h-screen                        /* make the section full‑viewport height */
+                   bg-no-repeat                    /* don't tile it */
+                   h-screen                        /* make the section full-viewport height */
                    z-[-1]
                    sm:overflow-x-visible overflow-x-hidden
                ">
-               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px]'>
                    <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
                    <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
                    <ul class='ml-[34px]'>
                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
                        <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don't pitch trendy tech.</li>
                        <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
                    </ul>
                </div>

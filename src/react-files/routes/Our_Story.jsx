@@ -44,7 +44,7 @@ const Our_Story = () => {
             <div class='flex flex-col items-center md:mb-0 xl:mb-15'>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
-                <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
+                <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn't — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
             </div>
         </section>
         <section className="py-20 bg-white sm:overflow-x-visable overflow-x-hidden">
@@ -57,7 +57,7 @@ const Our_Story = () => {
                     A company dedicated to building adaptable, automation-focused solutions grounded in real-world mission needs — not buzzwords.
                 </p>
                 <p class='text-xl md:text-[24px] text-primary mt-[50px]'>
-                    From their earliest projects together at the National Geospatial-Intelligence Agency to today’s partnerships with agencies across the government, Ryan and Themba have stayed true to a simple principle: 
+                    From their earliest projects together at the National Geospatial-Intelligence Agency to today's partnerships with agencies across the government, Ryan and Themba have stayed true to a simple principle: 
                 </p>
                 <p class='text-xl md:text-[24px] text-primary mt-[50px]'>
                     Empathy and expertise, together, deliver results.
@@ -69,9 +69,9 @@ const Our_Story = () => {
             bg-[url('./assets/OurStory_VegaStarImage.jpg')]   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
+            bg-no-repeat                    /* don't tile it */
             h-screen
-            md:h-auto                       /* make the section full‑viewport height */
+            md:h-auto                       /* make the section full-viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
         ">
@@ -81,7 +81,7 @@ const Our_Story = () => {
                         Why Vega?
                     </h1>
                     <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5'>
-                    The name Vega wasn’t an accident.
+                    The name Vega wasn't an accident.
                     </h3>
                     <p class='text-xl md:text-[28px] text-white'>
                         Vega, the <span class='font-bold'>fifth-brightest star </span> in the night sky, has served as a guiding light for centuries. In the coming millennia, it will become the North Star, once again leading navigators and explorers.                    </p>
@@ -98,7 +98,7 @@ const Our_Story = () => {
                     A guide through the evolving landscape of defense and intelligence automation.
                     </p>
                     <p class='text-xl md:text-[24px] text-white mt-[30px]'>
-                    We don’t just work for the mission — we’ve lived it.                    
+                    We don't just work for the mission — we've lived it.                    
                     </p>
                 </div>
             </div>
@@ -107,8 +107,8 @@ const Our_Story = () => {
             bg-white   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            py-16                        /* make the section full‑viewport height */
+            bg-no-repeat                    /* don't tile it */
+            py-16                        /* make the section full-viewport height */
             sm:overflow-x-visable overflow-x-hidden
         ">
             <div class='flex justify-center'>
@@ -119,7 +119,7 @@ const Our_Story = () => {
                     <div class='flex flex-col'>
                         <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Veteran | Technologist | Mission Partner</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator’s mindset.</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator's mindset.</p>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ const Our_Story = () => {
                         <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Systems Architect | Trusted Government Partner</p>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Themba is a seasoned technical leader with two decades of experience delivering mission-critical systems to the Department of Defense and Intelligence Community. His expertise in platform engineering, modernization, and secure system design has made him a trusted advisor to senior government leaders.</p>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, Themba ensures that every solution meets the highest technical and mission-readiness standards.</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>“We didn’t start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
+                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>“We didn't start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
                     </div>
                 </div>
                 </div>
@@ -140,8 +140,8 @@ const Our_Story = () => {
                         bg-primary   /* ← your image */
                         bg-cover                        /* cover the entire area */
                         bg-center                       /* center it */
-                        bg-no-repeat                    /* don’t tile it */
-                        h-screen                        /* make the section full‑viewport height */
+                        bg-no-repeat                    /* don't tile it */
+                        h-screen                        /* make the section full-viewport height */
                         z-[-1]
                         sm:overflow-x-visible overflow-x-hidden
                     ">
@@ -151,7 +151,7 @@ const Our_Story = () => {
                         <ul class='ml-[34px]'>
                             <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
                             <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                            <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
+                            <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don't pitch trendy tech.</li>
                             <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
                         </ul>
                     </div>
