@@ -3,6 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ '*' ]
+    branches-ignore: [ main ]
   pull_request:
     types: [closed]
     branches: [ main ]
@@ -88,7 +89,7 @@ jobs:
           fi
 
   deploy:
-    if: github.event_name == 'push' || github.event.inputs.action != 'cleanup'
+    if: (github.event_name == 'push') || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main') || (github.event.inputs.action != 'cleanup')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
