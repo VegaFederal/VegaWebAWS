@@ -2,6 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
+    branches: [ '*' ]
+  pull_request:
+    types: [closed]
     branches: [ main ]
   workflow_dispatch:
     inputs:
@@ -24,8 +27,68 @@ jobs:
       - name: Run tests
         run: echo "Running tests"
 
+  cleanup-merged-branch:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+
+      - name: Read configuration
+        run: |
+          CONFIG_FILE="config/project-config.json"
+          PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
+          echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
+
+      - name: Set cleanup variables
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+          STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
+
+      - name: Get bucket names
+        run: |
+          TEMPLATE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Parameters[?ParameterKey=='TemplateBucket'].ParameterValue" --output text 2>/dev/null || echo "")
+          WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text 2>/dev/null || echo "")
+          echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
+          echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
+
+      - name: Empty S3 buckets
+        run: |
+          if [ ! -z "${{ env.WEBSITE_BUCKET }}" ]; then
+            echo "Emptying website bucket: ${{ env.WEBSITE_BUCKET }}"
+            aws s3 rm s3://${{ env.WEBSITE_BUCKET }} --recursive
+          fi
+          if [ ! -z "${{ env.TEMPLATE_BUCKET }}" ]; then
+            echo "Emptying template bucket: ${{ env.TEMPLATE_BUCKET }}"
+            aws s3 rm s3://${{ env.TEMPLATE_BUCKET }} --recursive
+          fi
+
+      - name: Delete CloudFormation stack
+        run: |
+          if aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} 2>/dev/null; then
+            echo "Deleting stack: ${{ env.STACK_NAME }}"
+            aws cloudformation delete-stack --stack-name ${{ env.STACK_NAME }}
+            aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
+          fi
+
+      - name: Delete template bucket
+        run: |
+          if [ ! -z "${{ env.TEMPLATE_BUCKET }}" ]; then
+            echo "Deleting template bucket: ${{ env.TEMPLATE_BUCKET }}"
+            aws s3 rb s3://${{ env.TEMPLATE_BUCKET }} --force || true
+          fi
+
   deploy:
-    if: github.event.inputs.action != 'cleanup'
+    if: github.event_name == 'push' || github.event.inputs.action != 'cleanup'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,22 +121,24 @@ jobs:
 
       - name: Set environment variables
         run: |
-          ENVIRONMENT="${{ github.event.inputs.environment || 'dev' }}"
-          STACK_NAME="contact-page-${ENVIRONMENT}"
-          TEMPLATE_BUCKET="contact-page-templates-${ENVIRONMENT}"
-          DEPLOYMENT_BUCKET="contact-page-deployment-${ENVIRONMENT}"
+          # Extract branch name and sanitize for AWS resource naming
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
           
+          # Use branch name as environment
+          ENVIRONMENT="$BRANCH_SAFE"
+          STACK_NAME="${PROJECT_NAME}-${ENVIRONMENT}"
+          
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
-          echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
-          echo "DEPLOYMENT_BUCKET=$DEPLOYMENT_BUCKET" >> $GITHUB_ENV
 
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
             # Convert project name to lowercase and replace invalid characters
             PROJECT_NAME_LOWER=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
-            TEMPLATE_BUCKET="${PROJECT_NAME_LOWER}-templates-${TIMESTAMP}"
+            TEMPLATE_BUCKET="${PROJECT_NAME_LOWER}-${ENVIRONMENT}-templates-${TIMESTAMP}"
             echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
 
             echo "Creating bucket: $TEMPLATE_BUCKET"
@@ -100,10 +165,10 @@ jobs:
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: ${{ env.PROJECT_NAME }}
+          name: ${{ env.STACK_NAME }}
           template: infrastructure/cloudformation/main-template.yaml
           parameter-overrides: >-
-            Environment=dev,
+            Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
             SubnetIds=${{ env.SUBNET_IDS }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }}
@@ -126,17 +191,18 @@ jobs:
 
       - name: Upload website files
         run: |
-          BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text)
+          BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text)
           aws s3 sync src/dist/ s3://$BUCKET_NAME/
 
       - name: Invalidate CloudFront cache
         run: |
-          DISTRIBUTION_ID=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" --output text)
+          DISTRIBUTION_ID=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" --output text)
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
 
       - name: Get CloudFront URL
         run: |
-          CF_URL=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteUrl'].OutputValue" --output text)
+          CF_URL=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteUrl'].OutputValue" --output text)
+          echo "Branch: ${{ env.BRANCH_NAME }} deployed as environment: ${{ env.ENVIRONMENT }}"
           echo "Your website is available at: https://$CF_URL"
   cleanup:
     if: github.event.inputs.action == 'cleanup'
