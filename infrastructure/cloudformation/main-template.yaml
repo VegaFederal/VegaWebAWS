@@ -38,7 +38,7 @@ Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
 Resources:
-  # Security Groups Stack
+  # Security Groups Stack.
   SecurityGroupsStack:
     Type: AWS::CloudFormation::Stack
     Properties:
