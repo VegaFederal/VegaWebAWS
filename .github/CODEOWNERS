@@ -1,0 +1,8 @@
+# Global code owners - any one of these users can approve
+* @ykatyneale275 @amarklopervega @VegaRyan
+
+# Infrastructure changes - specific owner required
+infrastructure/ @marklopervega
+
+# Lambda code - specific owner required
+src/lambda/ @marklopervega
