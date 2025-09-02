@@ -9,10 +9,6 @@ Parameters:
   Environment:
     Type: String
     Default: dev
-    AllowedValues:
-      - dev
-      - test
-      - prod
     Description: The deployment environment
   
   VpcId:
