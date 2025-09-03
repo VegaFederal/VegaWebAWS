@@ -63,14 +63,20 @@ jobs:
 
       - name: Empty S3 buckets
         run: |
-          if [ ! -z "${{ env.WEBSITE_BUCKET }}" ]; then
-            echo "Emptying website bucket: ${{ env.WEBSITE_BUCKET }}"
-            aws s3 rm s3://${{ env.WEBSITE_BUCKET }} --recursive
-          fi
-          if [ ! -z "${{ env.TEMPLATE_BUCKET }}" ]; then
-            echo "Emptying template bucket: ${{ env.TEMPLATE_BUCKET }}"
-            aws s3 rm s3://${{ env.TEMPLATE_BUCKET }} --recursive
-          fi
+          # Get all bucket names from the stack
+          RESUME_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='ResumeBucketName'].OutputValue" --output text 2>/dev/null || echo "")
+          CLOUDFRONT_LOGS_BUCKET="vegawebaws-${BRANCH_SAFE}-cloudfront-logs"
+          
+          # Empty all buckets
+          for bucket in "${{ env.WEBSITE_BUCKET }}" "$RESUME_BUCKET" "$CLOUDFRONT_LOGS_BUCKET" "${{ env.TEMPLATE_BUCKET }}"; do
+            if [ ! -z "$bucket" ] && aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
+              echo "Emptying bucket: $bucket"
+              aws s3 rm s3://$bucket --recursive || true
+              # Also delete any versioned objects
+              aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' --output json)" 2>/dev/null || true
+              aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' --output json)" 2>/dev/null || true
+            fi
+          done
 
       - name: Delete CloudFormation stack
         run: |
