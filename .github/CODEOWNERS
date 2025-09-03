@@ -1,5 +1,5 @@
 # Global code owners - any one of these users can approve
-* @ykatyneale275 @amarklopervega @VegaRyan
+* @ykatyneale275 @marklopervega @VegaRyan
 
 # Infrastructure changes - specific owner required
 infrastructure/ @marklopervega
