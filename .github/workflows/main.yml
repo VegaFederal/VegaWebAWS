@@ -77,7 +77,22 @@ jobs:
           if aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} 2>/dev/null; then
             echo "Deleting stack: ${{ env.STACK_NAME }}"
             aws cloudformation delete-stack --stack-name ${{ env.STACK_NAME }}
+            
+            echo "Waiting for stack deletion..."
             aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
+            
+            # Check for any remaining nested stacks and force delete them
+            NESTED_STACKS=("${STACK_NAME}-SecurityGroupsStack-*" "${STACK_NAME}-ContactPageStack-*" "${STACK_NAME}-StaticWebsiteStack-*")
+            
+            for pattern in "${NESTED_STACKS[@]}"; do
+              for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '${pattern%%-*}')].StackName" --output text 2>/dev/null || echo ""); do
+                if [ ! -z "$stack" ] && aws cloudformation describe-stacks --stack-name "$stack" 2>/dev/null; then
+                  echo "Force deleting nested stack: $stack"
+                  aws cloudformation delete-stack --stack-name "$stack"
+                  aws cloudformation wait stack-delete-complete --stack-name "$stack" || true
+                fi
+              done
+            done
           fi
 
       - name: Delete template bucket
