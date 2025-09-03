@@ -62,19 +62,25 @@ jobs:
           echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
 
       - name: Empty S3 buckets
+        continue-on-error: true
         run: |
           # Get all bucket names from the stack
           RESUME_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='ResumeBucketName'].OutputValue" --output text 2>/dev/null || echo "")
           CLOUDFRONT_LOGS_BUCKET="vegawebaws-${BRANCH_SAFE}-cloudfront-logs"
           
-          # Empty all buckets
+          # Empty all buckets with fault tolerance
           for bucket in "${{ env.WEBSITE_BUCKET }}" "$RESUME_BUCKET" "$CLOUDFRONT_LOGS_BUCKET" "${{ env.TEMPLATE_BUCKET }}"; do
-            if [ ! -z "$bucket" ] && aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
-              echo "Emptying bucket: $bucket"
-              aws s3 rm s3://$bucket --recursive || true
-              # Also delete any versioned objects
-              aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' --output json)" 2>/dev/null || true
-              aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' --output json)" 2>/dev/null || true
+            if [ ! -z "$bucket" ]; then
+              echo "Checking bucket: $bucket"
+              if aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
+                echo "Emptying bucket: $bucket"
+                aws s3 rm s3://$bucket --recursive 2>/dev/null || echo "Failed to empty $bucket, continuing..."
+                # Also delete any versioned objects
+                aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' --output json 2>/dev/null || echo '{"Objects":[]}')" 2>/dev/null || echo "Failed to delete versions in $bucket, continuing..."
+                aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' --output json 2>/dev/null || echo '{"Objects":[]}')" 2>/dev/null || echo "Failed to delete markers in $bucket, continuing..."
+              else
+                echo "Bucket $bucket not found or not accessible, skipping..."
+              fi
             fi
           done
 
@@ -250,17 +256,24 @@ jobs:
           PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
 
+      - name: Set cleanup variables
+        run: |
+          # For manual cleanup, ask user which stack to delete
+          echo "Available stacks:"
+          aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '${{ env.PROJECT_NAME }}-')].StackName" --output table
+          
+          # Default to main if no specific branch provided
+          STACK_NAME="${{ env.PROJECT_NAME }}-main"
+          echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
+          
       - name: Get bucket names
         run: |
           # Get the template bucket name
-          TEMPLATE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Parameters[?ParameterKey=='TemplateBucket'].ParameterValue" --output text || echo "")
+          TEMPLATE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Parameters[?ParameterKey=='TemplateBucket'].ParameterValue" --output text || echo "")
           echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
 
           # Get the website bucket name
-          WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text || echo "")
-          if [ -z "$WEBSITE_BUCKET" ]; then
-            WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.PROJECT_NAME }}-storage --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text || echo "")
-          fi
+          WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text || echo "")
           echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
 
       - name: Empty S3 buckets
@@ -278,23 +291,25 @@ jobs:
           fi
       - name: Delete CloudFormation stacks
         run: |
-          # Delete main stack
-          echo "Deleting main stack: ${{ env.PROJECT_NAME }}"
-          aws cloudformation delete-stack --stack-name ${{ env.PROJECT_NAME }}
+          # Delete specified stack
+          echo "Deleting stack: ${{ env.STACK_NAME }}"
+          aws cloudformation delete-stack --stack-name ${{ env.STACK_NAME }}
 
-          # Wait for main stack deletion
-          echo "Waiting for main stack deletion..."
-          aws cloudformation wait stack-delete-complete --stack-name ${{ env.PROJECT_NAME }} || true
+          # Wait for stack deletion
+          echo "Waiting for stack deletion..."
+          aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
 
           # Check for any remaining nested stacks
-          NESTED_STACKS=("${{ env.PROJECT_NAME }}-cdn" "${{ env.PROJECT_NAME }}-api" "${{ env.PROJECT_NAME }}-compute" "${{ env.PROJECT_NAME }}-storage")
-
-          for stack in "${NESTED_STACKS[@]}"; do
-            if aws cloudformation describe-stacks --stack-name $stack 2>/dev/null; then
-              echo "Deleting nested stack: $stack"
-              aws cloudformation delete-stack --stack-name $stack
-              aws cloudformation wait stack-delete-complete --stack-name $stack || true
-            fi
+          NESTED_STACKS=("${{ env.STACK_NAME }}-SecurityGroupsStack-*" "${{ env.STACK_NAME }}-ContactPageStack-*" "${{ env.STACK_NAME }}-StaticWebsiteStack-*")
+          
+          for pattern in "${NESTED_STACKS[@]}"; do
+            for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '${pattern%%-*}')].StackName" --output text 2>/dev/null || echo ""); do
+              if [ ! -z "$stack" ] && aws cloudformation describe-stacks --stack-name "$stack" 2>/dev/null; then
+                echo "Force deleting nested stack: $stack"
+                aws cloudformation delete-stack --stack-name "$stack"
+                aws cloudformation wait stack-delete-complete --stack-name "$stack" || true
+              fi
+            done
           done
 
       - name: Delete template bucket
