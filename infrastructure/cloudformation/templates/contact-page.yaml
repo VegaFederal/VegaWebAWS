@@ -53,6 +53,7 @@ Resources:
   # S3 Bucket for Resume Storage
   ResumeBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
     Properties:
       AccessControl: Private
       BucketEncryption:

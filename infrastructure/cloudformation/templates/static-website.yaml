@@ -23,6 +23,7 @@ Resources:
   # S3 Bucket for CloudFront logs
   CloudFrontLogsBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
     Properties:
       BucketName: !Sub "vegawebaws-${Environment}-cloudfront-logs"
       BucketEncryption:
@@ -41,6 +42,7 @@ Resources:
   # S3 Bucket for static assets
   WebsiteBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
     Properties:
       BucketName: !Sub "vegawebaws-${Environment}-static-website"
       AccessControl: Private
@@ -157,18 +159,7 @@ Resources:
             Principal:
               CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 
-  ResumeBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref ResumeBucketName
-      PolicyDocument:
-        Statement:
-          - Action:
-              - s3:GetObject
-            Effect: Allow
-            Resource: !Sub arn:aws:s3:::${ResumeBucketName}/*
-            Principal:
-              CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
+
 
 Outputs:
   WebsiteBucketName:
