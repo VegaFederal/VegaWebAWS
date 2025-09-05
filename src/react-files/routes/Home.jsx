@@ -64,8 +64,8 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visible overflow-x-hidden'>
-        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
+    <section class='bg-white sm:overflow-x-visible overflow-x-hidden'>
+        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-10'>
             <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
@@ -96,7 +96,7 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section className="bg-white py-16 w-full">
+    <section className="bg-white py-10 w-full">
         <div className="flex flex-col gap-y-12 w-full">
             {/* Row 1: Image left, text right */}
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
