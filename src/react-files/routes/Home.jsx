@@ -78,7 +78,7 @@ const Home = () => {
         </div>
     </section>
     <section class="
-            bg-[url('./assets/Homepage_first_banner.jpg')]
+            bg-[url('./assets/Homepage_first_banner.png')]
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
