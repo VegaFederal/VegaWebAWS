@@ -82,14 +82,15 @@ const Home = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            py-20
+            py-35
             z-[-1]
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col md:flex-row md:items-center justify-center ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
             <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
             <div class='flex flex-col'>
-                <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation  & Commercial Adaptation</p>
+                <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation &<br/>Commercial Adaptation</p>
+                
                 <p class='text-xl md:text-[24px] text-white mt-[50px]'>We don't sell one-size-fits-all platforms.</p>
                 <p class='text-xl md:text-[24px] text-white font-bold mt-[30px]'>We build the right solution for the mission at hand.</p>
             </div>
