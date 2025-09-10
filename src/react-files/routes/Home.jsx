@@ -64,10 +64,10 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visible overflow-x-hidden'>
-        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
+    <section class='bg-white sm:overflow-x-visible overflow-x-hidden'>
+        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
             <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
-            <div class='md:mb-0 xl:mb-15 lg:ml-10'>
+            <div class='md:mb-0 pb-20 lg:ml-10'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
                 <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
