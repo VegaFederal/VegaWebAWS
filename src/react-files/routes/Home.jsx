@@ -96,7 +96,7 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section className="bg-white py-16 w-full">
+    <section className="bg-white py-20 w-full">
         <div className="flex flex-col gap-y-12 w-full">
             {/* Row 1: Image left, text right */}
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
@@ -129,15 +129,15 @@ const Home = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            md:py-16                       /* make the section full‑viewport height */
+            py-10                     /* make the section full‑viewport height */
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] '>
-            <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold mt-15 md:mt-[74px]'>How We Work:</h1>
+            <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold pt-0'>How We Work:</h1>
             <ul class='ml-10'>
                 <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
                 <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Tailored solutions, integrating the best of what you already have.</li>
-                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-15'>Designed for today’s realities, not tomorrow’s promises.</li>
+                <li class='list-disc text-xl md:text-2xl lg:text-3xl'>Designed for today’s realities, not tomorrow’s promises.</li>
             </ul>
         </div>
     </section>
@@ -145,13 +145,13 @@ const Home = () => {
             bg-white
             sm:overflow-x-visible overflow-x-hidden
         ">
-        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full '>
+        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full'>
             <h1 class='text-9xl text-center lg:text-7xl font-extrabold text-secondary '>"A handshake still means something to us here."</h1>
         </div>
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15 overflow-x-hidden'>
             <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
         </div>
-        <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] '>
+        <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px]'>
             <Homepage_Cards image={AIAutomation} title='AI Automation' description_one='Automating the tasks that slow you down.' description_two=' Optimizing what matters'/>
             <Homepage_Cards image={msnReadSup} title='Mission Readiness Support' description_one='Ensuring technology truly serves the operator—and the warfighter.'/>
             <Homepage_Cards image={GeoIntData} title='Geospatial Intelligence & Data' description_one='Actionable insights.' description_two='Custom-built tools to enhance decision-making.'/>
@@ -160,15 +160,14 @@ const Home = () => {
     </section>
     <section class="
             bg-white   /* ← your image */
-            bg-cover                        /* cover the entire area */
+            bg-cover            /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            min-h-screen                        /* make the section full‑viewport height */
-            z-[-1]
+            py-20                   /* make the section full‑viewport height */
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
-            <h1 class='text-3xl md:text-[48px] text-primary font-bold mt-[100px] pt-20 md:pt-0'>Why Vega?</h1>
+            <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Why Vega?</h1>
             <h3 class='text-3xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
             <h3 class='text-xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
             <ul class='ml-[34px]'>
