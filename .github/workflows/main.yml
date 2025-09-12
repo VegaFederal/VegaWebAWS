@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches-ignore: [ main ]
+    branches: [ '*' ]
   pull_request:
     types: [closed]
     branches: [ main ]
@@ -56,6 +56,8 @@ jobs:
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
           BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
           STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
+          echo "Cleaning up branch: $BRANCH_NAME (sanitized: $BRANCH_SAFE)"
+          echo "Target stack: $STACK_NAME"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           echo "BRANCH_SAFE=$BRANCH_SAFE" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
@@ -101,10 +103,10 @@ jobs:
             aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
             
             # Check for any remaining nested stacks and force delete them
-            NESTED_STACKS=("${{ env.STACK_NAME }}-SecurityGroupsStack-*" "${{ env.STACK_NAME }}-ContactPageStack-*" "${{ env.STACK_NAME }}-StaticWebsiteStack-*")
+            NESTED_STACK_PREFIXES=("${{ env.STACK_NAME }}-SecurityGroupsStack" "${{ env.STACK_NAME }}-ContactPageStack" "${{ env.STACK_NAME }}-StaticWebsiteStack")
             
-            for pattern in "${NESTED_STACKS[@]}"; do
-              for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '${pattern%%-*}')].StackName" --output text 2>/dev/null || echo ""); do
+            for prefix in "${NESTED_STACK_PREFIXES[@]}"; do
+              for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '$prefix')].StackName" --output text 2>/dev/null || echo ""); do
                 if [ ! -z "$stack" ] && aws cloudformation describe-stacks --stack-name "$stack" 2>/dev/null; then
                   echo "Force deleting nested stack: $stack"
                   aws cloudformation delete-stack --stack-name "$stack"
@@ -122,7 +124,7 @@ jobs:
           fi
 
   deploy:
-    if: (github.event_name == 'push' && github.event.commits[0] != null) || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main') || (github.event.inputs.action != 'cleanup')
+    if: (github.event_name == 'push' && github.event.commits[0] != null) || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main') || (github.event.inputs.action == 'deploy')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
