@@ -13,11 +13,12 @@ const Our_Story = () => {
     return (
         <>
         <section className="">
-            <div className="md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden ">
-                <div className="md:absolute md:top-0 md:left-0 md:w-full  flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-contain bg-no-repeat">
-                    <header>
+            <div className="md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
+                <header>
                         <Navbar color_story='text-secondary'/>
                     </header>
+                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col mt-[100px] bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat">
+                    
                     <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] pt-50 mb-13 md:mb-80">
                         <img 
                             src={Arrow} 
@@ -40,8 +41,8 @@ const Our_Story = () => {
                 </div>
             </div>
         </section>
-        <section class='bg-gray-100 h-[700px] sm:overflow-x-visable overflow-x-hidden'>
-            <div class='flex flex-col items-center md:mb-0 xl:mb-15'>
+        <section class='bg-gray-100 sm:overflow-x-visable overflow-x-hidden'>
+            <div class='flex flex-col items-center md:mb-0'>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
