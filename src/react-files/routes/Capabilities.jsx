@@ -81,7 +81,7 @@ const Capabilities = () => {
     </section>
 
     <section class="
-            bg-white
+            bg-[#F2F2F7]
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
@@ -125,7 +125,7 @@ const Capabilities = () => {
     </section>  
 
     <section class="
-            bg-white
+            bg-[#F2F2F7]
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
