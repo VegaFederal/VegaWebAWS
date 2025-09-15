@@ -48,13 +48,11 @@ const Careers_Main = () => {
             <h1 className='text-white text-6xl'>Job One</h1>
             <p className='text-white text-3xl max-w-[1350px] mt-[50px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt modi, doloremque dolore perferendis est totam aperiam mollitia
                  quibusdam labore illo nemo tempore facere autem aliquam sapiente accusamus minus velit possimus!</p>
-            <button className='bg-white w-[200px] h-[100px] rounded-2xl mt-[100px] font-bold text-2xl text-black'>Apply</button>
         </div>
         <div className='flex-col justify-items-center bg-gray-600 w-[1400px] h-[500px] rounded-2xl mt-[30px]'>
             <h1 className='text-white text-6xl'>Job Two</h1>
             <p className='text-white text-3xl max-w-[1350px] mt-[50px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt modi, doloremque dolore perferendis est totam aperiam mollitia 
                 quibusdam labore illo nemo tempore facere autem aliquam sapiente accusamus minus velit possimus!</p>
-            <button className='bg-white w-[200px] h-[100px] rounded-2xl mt-[100px] font-bold text-2xl text-black'>Apply</button>
         </div>
 
 
