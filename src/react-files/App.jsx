@@ -5,7 +5,6 @@ import Capabilities from './routes/Capabilities.jsx'
 import Our_Story from './routes/Our_Story.jsx'
 import ContactConcept from './routes/ContactConcept.jsx'
 import Partners from './routes/Partners.jsx'
-import Careers from './routes/Careers.jsx'
 import About_Us from './routes/About_Us.jsx'
 import Copy from './routes/Copy.jsx'
 import Copy_Two from './routes/Copy_Two.jsx'
@@ -29,7 +28,6 @@ function App() {
       <Route path="/Contact"element={<ContactConcept/>}/>
       <Route path="/Partners" element={<Partners/>}></Route>
       <Route path="/Careers" element={<Careers_Main/>}></Route>
-      <Route path="/Careers_Two" element={<Careers/>}></Route>
       <Route path="/About_concept" element={<About_concept/>}></Route>
       <Route path="/Copy" element={<Copy/>}></Route>
       <Route path="/Copy_Two" element={<Copy_Two/>}></Route>
