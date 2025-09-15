@@ -158,7 +158,11 @@ jobs:
       - name: Set environment variables
         run: |
           # Extract branch name and sanitize for AWS resource naming
-          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BRANCH_NAME="${{ github.event.pull_request.base.ref }}"
+          else
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          fi
           BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
           
           # Use branch name as environment
