@@ -14,12 +14,12 @@ const Our_Story = () => {
         <>
         <section className="">
             <div className="md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
-                <header>
+                
+                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat">
+                    <header>
                         <Navbar color_story='text-secondary'/>
                     </header>
-                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col mt-[100px] bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat">
-                    
-                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] pt-50 mb-13 md:mb-80">
+                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-100 ">
                         <img 
                             src={Arrow} 
                             alt="Arrow pointing to headline" 
@@ -31,7 +31,7 @@ const Our_Story = () => {
                             */
                         />
 
-                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] ml-5'>
+                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] ml-5 '>
                             <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold  text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Our Story</h4>
                             <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
 
