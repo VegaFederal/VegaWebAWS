@@ -13,13 +13,13 @@ const Our_Story = () => {
     return (
         <>
         <section className="">
-            <div className="md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
-                
-                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat">
-                    <header>
+            <div className=" md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
+                <header className=''>
                         <Navbar color_story='text-secondary'/>
                     </header>
-                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-100 ">
+                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat mt-[100px]">
+                    
+                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-115 pb-12 ">
                         <img 
                             src={Arrow} 
                             alt="Arrow pointing to headline" 
