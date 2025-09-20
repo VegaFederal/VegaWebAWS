@@ -127,17 +127,17 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl'>Chief Technology Officer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                            <ul className='flex flex-col items-center mr-[200px]'>
+                                <li className='text-white text-xl'>Parkway South High School</li>
+                                <li className='text-white text-xl'>I am really great at putting together a costume</li>
+                                <li className='text-white text-xl'>Regular Coca Cola</li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
-                            <ul className='flex flex-col items-center'>
+                            <ul className='flex flex-col items-center mr-[100px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
