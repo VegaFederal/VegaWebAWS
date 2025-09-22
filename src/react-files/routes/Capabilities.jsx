@@ -158,9 +158,9 @@ const Capabilities = () => {
             bg-no-repeat                    /* don’t tile it */
                                     /* make the section full‑viewport height */
         ">
-        <div class='flex items-center h-screen'>
-            <div class='flex flex-col items-center justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem]  '>
-                <h1 class='text-3xl md:text-[48px] text-primary font-bold mt-[100px] pt-20 md:pt-0'>Our Approuch</h1>
+        <div class='flex items-center '>
+            <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16'>
+                <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approuch</h1>
                 <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>

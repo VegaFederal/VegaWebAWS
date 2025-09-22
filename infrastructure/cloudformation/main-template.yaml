@@ -46,31 +46,13 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # Add more nested stacks as needed
-    # Contact Page Stack
-  ContactPageStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: !Sub https://s3.${AWS::Region}.amazonaws.com/${TemplateBucket}/templates/contact-page.yaml
-      Parameters:
-        Environment: !Ref Environment
-        VpcId: !Ref VpcId
-        SubnetIds: !Join [',', !Ref SubnetIds]
-        RouteTableId: !Ref RouteTableId
-        DeploymentBucket: !Ref TemplateBucket
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
-    # Static Website Stack
+  # Static Website Stack
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
       Parameters:
         Environment: !Ref Environment
-        ApiEndpointDomain: !GetAtt ContactPageStack.Outputs.ApiEndpointDomain
-        ResumeBucketName: !GetAtt ContactPageStack.Outputs.ResumeBucketName
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -93,12 +75,6 @@ Outputs:
     Export:
       Name: !Sub ${AWS::StackName}-WebsiteBucketName
 
-  ResumeBucketName:
-    Description: S3 bucket for resume storage
-    Value: !GetAtt ContactPageStack.Outputs.ResumeBucketName
-    Export:
-      Name: !Sub ${AWS::StackName}-ResumeBucketName
-
   WebsiteURL:
     Description: S3 Bucket for website content
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
@@ -106,28 +82,6 @@ Outputs:
   CloudFrontDistributionId:
     Description: CloudFront Distribution ID
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionId
-    
-  ContactsTableName:
-    Description: DynamoDB table for contact information
-    Value: !GetAtt ContactPageStack.Outputs.ContactsTableName
-    Export:
-      Name: !Sub ${AWS::StackName}-ContactsTableName
-
-  # ContactsTableArn:
-  #   Description: The ARN of the contacts DynamoDB table
-  #   Value: !GetAtt DynamoDBStack.Outputs.ContactsTableArn
-    
-  DeploymentBucketName:
-    Description: S3 bucket for deployment artifacts
-    Value: !GetAtt ContactPageStack.Outputs.DeploymentBucketName
-    Export:
-      Name: !Sub ${AWS::StackName}-DeploymentBucketName
-
-  ApiEndpointDomain:
-    Description: API Gateway endpoint URL
-    Value: !GetAtt ContactPageStack.Outputs.ApiEndpoint
-    Export:
-      Name: !Sub ${AWS::StackName}-ApiEndpoint
 
   # CloudFrontDistributionDomainName:
   #   Description: CloudFront Distribution Domain Name

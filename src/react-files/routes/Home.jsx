@@ -51,7 +51,7 @@ const Home = () => {
                 />
                     <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
-                        Your New North Star for Government Automation
+                        Automate Your Mission
                         </h4>
                         <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">
                         AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
@@ -146,7 +146,7 @@ const Home = () => {
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full'>
-            <h1 class='text-9xl text-center lg:text-7xl font-extrabold text-secondary '>"A handshake still means something to us here."</h1>
+            <h1 class='text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl  text-center  font-extrabold text-secondary '>"A handshake still means something to us here."</h1>
         </div>
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15 overflow-x-hidden'>
             <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
