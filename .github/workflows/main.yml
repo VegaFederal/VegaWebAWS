@@ -103,7 +103,7 @@ jobs:
             aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
             
             # Check for any remaining nested stacks and force delete them
-            NESTED_STACKS=("${{ env.STACK_NAME }}-SecurityGroupsStack-*" "${{ env.STACK_NAME }}-StaticWebsiteStack-*")
+            NESTED_STACK_PREFIXES=("${{ env.STACK_NAME }}-SecurityGroupsStack" "${{ env.STACK_NAME }}-ContactPageStack" "${{ env.STACK_NAME }}-StaticWebsiteStack")
             
             for prefix in "${NESTED_STACK_PREFIXES[@]}"; do
               for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '$prefix')].StackName" --output text 2>/dev/null || echo ""); do
