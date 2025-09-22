@@ -12,13 +12,14 @@ import Footer from '../components/Footer';
 const Our_Story = () => {
     return (
         <>
-        <section className="our-story border-4">
-            <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden ">
-                <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/OurStory_Banner.jpg')] bg-cover bg-center bg-no-repeat">
-                    <header>
+        <section className="">
+            <div className=" md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
+                <header className=''>
                         <Navbar color_story='text-secondary'/>
                     </header>
-                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem] mb-13 md:mb-80">
+                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat mt-[100px]">
+                    
+                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-115 pb-12 ">
                         <img 
                             src={Arrow} 
                             alt="Arrow pointing to headline" 
@@ -30,7 +31,7 @@ const Our_Story = () => {
                             */
                         />
 
-                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] ml-5'>
+                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] ml-5 '>
                             <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold  text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Our Story</h4>
                             <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
 
@@ -40,8 +41,8 @@ const Our_Story = () => {
                 </div>
             </div>
         </section>
-        <section class='bg-gray-100  sm:overflow-x-visable overflow-x-hidden'>
-            <div class='flex flex-col items-center md:mb-0 xl:mb-15'>
+        <section class='bg-gray-100 sm:overflow-x-visable overflow-x-hidden'>
+            <div class='flex flex-col items-center md:mb-0'>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Vega was founded by two former government civilians who shared a simple, but powerful belief: <span class='font-bold'>there had to be a better way.</span></p>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>Having served as operators, engineers, program managers, and mission enablers within the Department of Defense and the Intelligence Community, Ryan Phillips and Themba Hinke lived the complexity, the urgency, and the responsibility of delivering technology to the warfighter.</p>
                 <p class='max-w-68/100 ml-5  text-primary text-lg md:text-[24px] pt-5'>They knew what most contractors didn’t — the stakes are too high, and the challenges too real, for cookie-cutter solutions.</p>
