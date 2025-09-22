@@ -11,14 +11,6 @@ Parameters:
     Default: dev
     Description: The deployment environment
 
-  ApiEndpointDomain:
-    Type: String
-    Description: API Gateway endpoint URL
-
-  ResumeBucketName:
-    Type: String
-    Description: Resume Bucket
-
 Resources:
   # S3 Bucket for CloudFront logs
   CloudFrontLogsBucket:
@@ -58,7 +50,7 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # CloudFront Distribution for API and Website
+  # CloudFront Distribution for Website
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -69,19 +61,6 @@ Resources:
             Id: WebsiteOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
-          # # S3 Origin for Resumes
-          - DomainName: !Sub ${ResumeBucketName}.s3.${AWS::Region}.amazonaws.com
-            Id: ResumeOrigin
-            S3OriginConfig:
-              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
-          # API Gateway Origin
-          - DomainName: !Ref ApiEndpointDomain
-            Id: ApiOrigin
-            OriginPath: !Sub /${Environment}
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
         Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:
@@ -95,38 +74,6 @@ Resources:
             Cookies:
               Forward: none
           ViewerProtocolPolicy: redirect-to-https
-        CacheBehaviors:
-          # API Path Behavior
-          - PathPattern: /api/*
-            AllowedMethods:
-              - GET
-              - HEAD
-              - OPTIONS
-              - PUT
-              - POST
-              - PATCH
-              - DELETE
-            TargetOriginId: ApiOrigin
-            ForwardedValues:
-              QueryString: true
-              Headers:
-                - Authorization
-                - Content-Type
-              Cookies:
-                Forward: none
-            ViewerProtocolPolicy: https-only
-          # Resume Path Behavior
-          - PathPattern: /resumes/*
-            AllowedMethods:
-              - GET
-              - HEAD
-              - OPTIONS
-            TargetOriginId: ResumeOrigin
-            ForwardedValues:
-              QueryString: false
-              Cookies:
-                Forward: none
-            ViewerProtocolPolicy: https-only
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
@@ -165,13 +112,6 @@ Outputs:
   WebsiteBucketName:
     Description: S3 Bucket for website content
     Value: !Ref WebsiteBucket
-
-  ResumeBucketName:
-    Description: S3 bucket for resume storage
-    Value: !Ref ResumeBucketName
-    Export:
-      Name: !Sub ${AWS::StackName}-ResumeBucket
-
     
   CloudFrontDistributionDomainName:
     Description: CloudFront Distribution Domain Name
