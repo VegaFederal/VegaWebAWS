@@ -294,10 +294,10 @@ jobs:
             echo "Waiting for stack deletion..."
             aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }} || true
             
-            NESTED_STACKS=("${{ env.STACK_NAME }}-SecurityGroupsStack-*" "${{ env.STACK_NAME }}-StaticWebsiteStack-*")
+            NESTED_STACK_PREFIXES=("${{ env.STACK_NAME }}-SecurityGroupsStack" "${{ env.STACK_NAME }}-ContactPageStack" "${{ env.STACK_NAME }}-StaticWebsiteStack")
             
-            for pattern in "${NESTED_STACKS[@]}"; do
-              for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '${pattern%%-*}')].StackName" --output text 2>/dev/null || echo ""); do
+            for prefix in "${NESTED_STACK_PREFIXES[@]}"; do
+              for stack in $(aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --query "StackSummaries[?starts_with(StackName, '$prefix')].StackName" --output text 2>/dev/null || echo ""); do
                 if [ ! -z "$stack" ] && aws cloudformation describe-stacks --stack-name "$stack" 2>/dev/null; then
                   echo "Force deleting nested stack: $stack"
                   aws cloudformation delete-stack --stack-name "$stack"
