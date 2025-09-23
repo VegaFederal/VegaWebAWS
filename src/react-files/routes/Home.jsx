@@ -97,7 +97,7 @@ const Home = () => {
         </div>
     </section>
     <section className="bg-white py-20 w-full">
-        <div className="flex flex-col gap-y-12 w-full">
+        <div className="flex flex-col gap-y-8 w-full">
             {/* Row 1: Image left, text right */}
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
             <img src={complexProblems} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[336px]" />
