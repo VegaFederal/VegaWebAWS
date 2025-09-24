@@ -133,9 +133,9 @@ const About_concept = () => {
                                 <li className='text-white text-xl'>Regular Coca Cola</li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'> Boone High in Boone, IA</li>
+                                <li className='text-white text-xl'> Keeping plants alive(sort of).</li>
+                                <li className='text-white text-xl'> Coffee, lots of Coffee </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[100px]'>
                                 <li className='text-white text-xl'> Point One </li>
