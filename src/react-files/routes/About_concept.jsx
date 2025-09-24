@@ -101,9 +101,9 @@ const About_concept = () => {
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'>The Fulton School</li>
+                                <li className='text-white text-xl'>Soccer</li>
+                                <li className='text-white text-xl'>Completing projects</li>
                             </ul>
                             <ul className='flex flex-col items-center'>
                                 <li className='text-white text-xl'> Point One </li>
