@@ -15,6 +15,7 @@ import krista from '../assets/About_us/Krista.png'
 import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
+import robbie from '../assets/About_us/Robbie.png'
 import map from '../assets/About_us/map.png'
 
 
@@ -144,19 +145,27 @@ const About_concept = () => {
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
-                            <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
+                            <img src={owen} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
+                            <img src={robbie} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h1 className='text-white text-5xl font-bold'>Owen</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[350px]'>Owen</h1>
+                            <h1 className='text-white text-5xl font-bold'>Robbie</h1>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h3 className='text-secondary text-3xl'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[350px]'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[100px]'>Filler</h3>
                         </div>
                         <div className='flex justify-center pb-[200px]'>
-                            <ul className='flex flex-col items-center'>
+                            <ul className='flex flex-col items-center mr-[350px] ml-[50px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'>Home school</li>
+                                <li className='text-white text-xl'>Learning board games</li>
+                                <li className='text-white text-xl max-w-[200px] text-center'>Doing something that is interesting</li>
                             </ul>
                         </div>
 
