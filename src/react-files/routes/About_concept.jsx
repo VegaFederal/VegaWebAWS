@@ -95,20 +95,20 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl pr-[20px]'>Senior UX Designer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[400px]'>
+                            <ul className='flex flex-col items-center mr-[400px] ml-[80px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[400px]'>
+                            <ul className='flex flex-col items-center mr-[330px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
                             <ul className='flex flex-col items-center'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'>The Principia HS</li>
+                                <li className='text-white text-xl'>Professional abstract painter</li>
+                                <li className='text-white text-xl'>Organic "Fizz" Energy Drink</li>
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
