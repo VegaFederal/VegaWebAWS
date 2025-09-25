@@ -3,7 +3,6 @@ import {Routes, Route} from 'react-router-dom'
 import Home from './routes/Home.jsx'
 import Capabilities from './routes/Capabilities.jsx'
 import Our_Story from './routes/Our_Story.jsx'
-import ContactConcept from './routes/ContactConcept.jsx'
 import Partners from './routes/Partners.jsx'
 import About_Us from './routes/About_Us.jsx'
 import Copy from './routes/Copy.jsx'
@@ -25,7 +24,6 @@ function App() {
       <Route path="/" element={<Home />}/>
       <Route path="/Capabilities" element={<Capabilities />}/>
       <Route path="/Our_Story" element={<Our_Story/>}/>
-      <Route path="/Contact"element={<ContactConcept/>}/>
       <Route path="/Partners" element={<Partners/>}></Route>
       <Route path="/Careers" element={<Careers_Main/>}></Route>
       <Route path="/About_concept" element={<About_concept/>}></Route>
