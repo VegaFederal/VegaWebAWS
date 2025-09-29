@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
+import VOSB_Logo_2 from '../assets/VOSB_Logo_2.png';
 import VOSB_Logo from '../assets/VOSB_Logo.png';
 import complexProblems from '../assets/Homepage_Image_ComplexProblems.jpg'
 import ThriveTech from '../assets/Homepage_ThriveTech.jpg'
@@ -31,15 +32,17 @@ const Home = () => {
 
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25.2rem] lg:mt-[25rem]">
+                <div className="flex items-center pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25.2rem] lg:mt-[20rem]">
                 {/* 
                     - flex: enables flexbox layout
-                    - items-end: aligns items to the bottom
+                    - items-center: centers items vertically
                     - gap-5: 1.25rem gap between children
                     - pl-5: 1.25rem padding-left (instead of margin-left on the container)
                     - h-[8.25rem]: sets height to 132px in rem units
                 */}
-                <img 
+                    <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain h-[6rem] w-[6rem] md:h-[8rem] md:w-[8rem] opacity-100 brightness-100 contrast-100 md:pb-3"/>
+
+                    <img 
                     src={Arrow} 
                     alt="Arrow pointing to headline" 
                     className="object-contain h-[5rem] xl:mb-4 md:h-[7.5rem] md:w-[5.125rem]" 
