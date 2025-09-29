@@ -14,6 +14,8 @@ import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import './HomeStyles.css'
 import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
+import PDF_Icon from '../assets/PDF_Download_Icon.png'
+import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 
 
 
@@ -58,8 +60,13 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-30 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
-                    <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
+                <div className='flex justify-center md:justify-start md:pl-30 pb-50 md:space-x-3 md:flex-row md:space-y-0 xl:pl-40'>
+                    <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
+                        <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-[#001837] hover:bg-[#001225] hover:text-white'>
+                            <img src={PDF_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
+                            Download Capabilities Slack Sheet
+                        </button>
+                    </a>
                 </div> 
             </div>
         </div>
