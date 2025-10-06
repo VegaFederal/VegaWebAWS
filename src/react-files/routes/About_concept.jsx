@@ -96,9 +96,9 @@ const About_concept = () => {
                         </div>
                         <div className='flex justify-center mb-[100px]'>
                             <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'> Rosary High School </li>
+                                <li className='text-white text-xl'> DIY games </li>
+                                <li className='text-white text-xl'> Sleep and a fun problem </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
                                 <li className='text-white text-xl'>The Fulton School</li>
