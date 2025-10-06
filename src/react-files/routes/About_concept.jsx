@@ -63,20 +63,20 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl'>Senior Software Engineer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[250px]'>
+                            <ul className='flex flex-col items-center mr-[200px] ml-[100px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[250px]'>
+                            <ul className='flex flex-col items-center mr-[150px]'>
                                 <li className='text-white text-xl'>Stanley-Boyd High (WI)</li>
                                 <li className='text-white text-xl'> Cut flower farming </li>
                                 <li className='text-white text-xl max-w-100 text-center'> Complex, impossible challenges, especially government bureaucracy. </li>
                             </ul>
                             <ul className='flex flex-col items-center'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'>Woodbury HS, Woodbury MN</li>
+                                <li className='text-white text-xl'>Setting my shooting range on fire</li>
+                                <li className='text-white text-xl'>Caffeine and Adderall</li>
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
@@ -127,20 +127,20 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl'>Chief Technology Officer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[200px]'>
+                            <ul className='flex flex-col items-center mr-[250px]'>
                                 <li className='text-white text-xl'>Parkway South High School</li>
                                 <li className='text-white text-xl'>I am really great at putting together a costume</li>
                                 <li className='text-white text-xl'>Regular Coca Cola</li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[400px]'>
+                            <ul className='flex flex-col items-center mr-[300px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[100px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                            <ul className='flex flex-col items-center mr-[50px]'>
+                                <li className='text-white text-xl'>Pike Central (Petersburg IN)</li>
+                                <li className='text-white text-xl'>Coaching Athletes</li>
+                                <li className='text-white text-xl'>Steak & Eggs</li>
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
