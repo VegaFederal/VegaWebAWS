@@ -30,6 +30,7 @@ const About_concept = () => {
                     bg-no-repeat
                      h-fit
                     z-[-1]
+                    
                 '
                 >
                     <header>
@@ -37,7 +38,7 @@ const About_concept = () => {
                             <Navbar color_about="text-secondary"/>
                         </div>
                     </header>
-                    <div className='flex-col items-center'>
+                    <div className='flex-col items-center pt-30'>
                         <div className='flex justify-center mb-[50px]'>
                             <h1 className='text-white text-5xl font-bold'>Our Team</h1>
                         </div>
