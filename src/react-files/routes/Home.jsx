@@ -14,6 +14,7 @@ import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import './HomeStyles.css'
 import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
+import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 
 
 
@@ -66,7 +67,7 @@ const Home = () => {
     </section>
     <section class='bg-white sm:overflow-x-visible overflow-x-hidden'>
         <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
-            <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
+            <img src={ArmyNavy_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 pb-20 lg:ml-10'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
