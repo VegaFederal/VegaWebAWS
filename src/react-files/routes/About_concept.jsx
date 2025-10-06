@@ -153,8 +153,8 @@ const About_concept = () => {
                             <h1 className='text-white text-5xl font-bold'>Robbie</h1>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h3 className='text-secondary text-3xl mr-[350px]'>Software Engineer</h3>
-                            <h3 className='text-secondary text-3xl mr-[100px]'>Filler</h3>
+                            <h3 className='text-secondary text-3xl mr-[250px]'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[30px]'>Intern Engineer</h3>
                         </div>
                         <div className='flex justify-center pb-[200px]'>
                             <ul className='flex flex-col items-center mr-[350px] ml-[50px]'>
