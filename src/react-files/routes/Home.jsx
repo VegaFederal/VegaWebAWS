@@ -14,6 +14,7 @@ import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import './HomeStyles.css'
 import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
+import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 
 
 
@@ -22,7 +23,7 @@ const Home = () => {
   return (
 
     <>
-    <section className='hero'>
+    <section className='hero pt-20'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
@@ -58,7 +59,7 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-30 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
+                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-55 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
                     <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
                 </div> 
             </div>
@@ -66,7 +67,7 @@ const Home = () => {
     </section>
     <section class='bg-white sm:overflow-x-visible overflow-x-hidden'>
         <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
-            <img src={VOSB_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-60 lg:mb-[120px] 2xl:w-80"/>
+            <img src={ArmyNavy_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 pb-20 lg:ml-10'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
