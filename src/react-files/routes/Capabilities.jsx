@@ -19,7 +19,7 @@ const Capabilities = () => {
     <>
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Capabilities_Banner.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className="mt-23.5 md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Capabilities_Banner.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
@@ -71,7 +71,7 @@ const Capabilities = () => {
 
     <section class='bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-30 md:px-[100px] lg:pt-50 xl:pt-70 '>
-            <img src={myImage2} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
+            <img src={myImage2} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Delivering Insights Through Location.</h3>
@@ -167,7 +167,7 @@ const Capabilities = () => {
         ">
         <div class='flex items-center '>
             <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16'>
-                <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approuch</h1>
+                <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approach</h1>
                 <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>

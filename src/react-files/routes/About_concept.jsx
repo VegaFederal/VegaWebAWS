@@ -15,6 +15,7 @@ import krista from '../assets/About_us/Krista.png'
 import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
+import robbie from '../assets/About_us/Robbie.png'
 import map from '../assets/About_us/map.png'
 
 
@@ -30,6 +31,7 @@ const About_concept = () => {
                     bg-no-repeat
                      h-fit
                     z-[-1]
+                    
                 '
                 >
                     <header>
@@ -37,15 +39,15 @@ const About_concept = () => {
                             <Navbar color_about="text-secondary"/>
                         </div>
                     </header>
-                    <div className='flex-col items-center'>
-                        <div className='flex justify-center mb-[50px]'>
-                            <h1 className='text-white text-5xl font-bold'>Our Team</h1>
+                    <div className='flex flex-col items-center pt-30'>
+                        <div className='flex justify-center mb-[50px] px-4'>
+                            <h1 className='text-white text-3xl md:text-5xl font-bold text-center'>Our Team</h1>
                         </div>
-                        <div className='flex flex-col items-center mb-[80px]'>
-                            <h3 className='text-white text-3xl font-bold'>Answers to these questions are below: </h3>
-                            <p className='text-white text-2xl'>Where did you go to High School? (the “quintessential” STL question)</p>
-                            <p className='text-white text-2xl'>What's something you are surprisingly good at that has nothing to do with tech?</p>
-                            <p className='text-white text-2xl'>What is your productivity fuel?</p>
+                        <div className='flex flex-col items-center mb-[80px] px-4'>
+                            <h3 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h3>
+                            <p className='text-white text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
+                            <p className='text-white text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
+                            <p className='text-white text-base md:text-2xl text-center'>What is your productivity fuel?</p>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={ryan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
@@ -96,14 +98,14 @@ const About_concept = () => {
                         </div>
                         <div className='flex justify-center mb-[100px]'>
                             <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'> Rosary High School </li>
+                                <li className='text-white text-xl'> DIY games </li>
+                                <li className='text-white text-xl'> Sleep and a fun problem </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'>The Fulton School</li>
+                                <li className='text-white text-xl'>Soccer</li>
+                                <li className='text-white text-xl'>Completing projects</li>
                             </ul>
                             <ul className='flex flex-col items-center'>
                                 <li className='text-white text-xl'> Point One </li>
@@ -144,19 +146,27 @@ const About_concept = () => {
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
-                            <img src={owen} alt='' className='w-[377px] h-[377px]'></img>
+                            <img src={owen} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
+                            <img src={robbie} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h1 className='text-white text-5xl font-bold'>Owen</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[350px]'>Owen</h1>
+                            <h1 className='text-white text-5xl font-bold'>Robbie</h1>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h3 className='text-secondary text-3xl'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[250px]'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[30px]'>Intern Engineer</h3>
                         </div>
                         <div className='flex justify-center pb-[200px]'>
-                            <ul className='flex flex-col items-center'>
+                            <ul className='flex flex-col items-center mr-[350px] ml-[50px]'>
                                 <li className='text-white text-xl'> Point One </li>
                                 <li className='text-white text-xl'> Point Two </li>
                                 <li className='text-white text-xl'> Point Three </li>
+                            </ul>
+                            <ul className='flex flex-col items-center'>
+                                <li className='text-white text-xl'>Home school</li>
+                                <li className='text-white text-xl'>Learning board games</li>
+                                <li className='text-white text-xl max-w-[200px] text-center'>Doing something that is interesting</li>
                             </ul>
                         </div>
 
