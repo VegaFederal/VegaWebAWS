@@ -60,9 +60,9 @@ const About_concept = () => {
                             <h1 className='text-white text-5xl font-bold'>Brent</h1>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
-                            <h3 className='text-secondary text-3xl mr-[150px]'>Co-Founder & Co-Owner</h3>
-                            <h3 className='text-secondary text-3xl'>Senior Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[100px] ml-[100px]'>Founder & CEO</h3>
+                            <h3 className='text-secondary text-3xl mr-[100px]'>Co-Founder & Chief Growth Officer</h3>
+                            <h3 className='text-secondary text-3xl'>Director of Cloud Engineering</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
                             <ul className='flex flex-col items-center mr-[200px] ml-[100px]'>
