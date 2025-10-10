@@ -57,9 +57,9 @@ const Capabilities = () => {
                     
                     </div>
                 </div>
-                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-20 md:pt-0  md:flex-row md:space-y-0 lg:pl-50'>
+                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-20 md:pt-10  md:flex-row md:space-y-0 lg:pl-50'>
                         <a href={Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
-                            <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>
+                            <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slack_Icon} alt="PDF Icon" className="h-10 mr-2 inline" />
                                 Download Capabilities Slack Sheet
                             </button>
