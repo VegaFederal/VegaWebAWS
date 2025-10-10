@@ -13,7 +13,7 @@ const Our_Story = () => {
     return (
         <>
         <section className="">
-            <div className=" md:overflow-y-hidden overflow-y-visable md:overflow-x-visable overflow-x-hidden h-185 bg-primary">
+            <div className="overflow-hidden h-185 bg-primary">
                 <header className=''>
                         <Navbar color_story='text-secondary'/>
                     </header>
@@ -23,7 +23,7 @@ const Our_Story = () => {
                         <img 
                             src={Arrow} 
                             alt="Arrow pointing to headline" 
-                            className="object-contain h-[5rem] md:h-[8.375rem] md:w-[5.125rem]" 
+                            className="object-contain h-[8.375rem] w-[5.125rem]" 
                             /* 
                             - object-contain: keeps image aspect ratio
                             - h-[8.375rem]: 134px in rem
@@ -31,9 +31,9 @@ const Our_Story = () => {
                             */
                         />
 
-                        <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] ml-5 '>
-                            <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold  text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Our Story</h4>
-                            <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-2xl md:text-[1.25rem]">Born inside the mission. Built to serve it better.
+                        <div className='h-[7.5rem] ml-5'>
+                            <h4 className="font-bold text-white text-left text-4xl pb-2">Our Story</h4>
+                            <p className="max-w-xl text-white text-left text-2xl">Born inside the mission. Built to serve it better.
 
                             </p>
                         </div>
