@@ -71,9 +71,9 @@ const About_concept = () => {
                                 <li className='text-white text-xl'> Winning </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[150px]'>
-                                <li className='text-white text-xl'>Stanley-Boyd High (WI)</li>
-                                <li className='text-white text-xl'> Cut flower farming </li>
-                                <li className='text-white text-xl max-w-100 text-center'> Complex, impossible challenges, especially government bureaucracy. </li>
+                                <li className='text-vega-pink text-xl'>Stanley-Boyd High (WI)</li>
+                                <li className='text-vega-pink text-xl'> Cut flower farming </li>
+                                <li className='text-vega-pink text-xl max-w-100 text-center'> Complex, impossible challenges, especially government bureaucracy. </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[50px]'>
                                 <li className='text-white text-xl'>Woodbury HS, Woodbury MN</li>
@@ -97,15 +97,15 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl pr-[20px]'>Senior UX Designer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'> Rosary High School </li>
-                                <li className='text-white text-xl'> DIY games </li>
-                                <li className='text-white text-xl'> Sleep and a fun problem </li>
+                            <ul className='flex flex-col items-center mr-[300px]'>
+                                <li className='text-vega-pink text-xl'> Rosary High School </li>
+                                <li className='text-vega-pink text-xl'> DIY games </li>
+                                <li className='text-vega-pink text-xl'> Sleep and a fun problem </li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[400px]'>
-                                <li className='text-white text-xl'>The Fulton School</li>
-                                <li className='text-white text-xl'>Soccer</li>
-                                <li className='text-white text-xl'>Completing projects</li>
+                            <ul className='flex flex-col items-center mr-[350px]'>
+                                <li className='text-vega-pink text-xl'>The Fulton School</li>
+                                <li className='text-vega-pink text-xl'>Soccer</li>
+                                <li className='text-vega-pink text-xl'>Completing projects</li>
                             </ul>
                             <ul className='flex flex-col items-center'>
                                 <li className='text-white text-xl'>The Principia HS</li>
@@ -130,9 +130,9 @@ const About_concept = () => {
                         </div>
                         <div className='flex justify-center mb-[100px]'>
                             <ul className='flex flex-col items-center mr-[250px]'>
-                                <li className='text-white text-xl'>Parkway South High School</li>
-                                <li className='text-white text-xl'>I am really great at putting together a costume</li>
-                                <li className='text-white text-xl'>Regular Coca Cola</li>
+                                <li className='text-vega-pink text-xl'>Parkway South High School</li>
+                                <li className='text-vega-pink text-xl'>I am really great at putting together a costume</li>
+                                <li className='text-vega-pink text-xl'>Regular Coca Cola</li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[400px]'>
                                 <li className='text-white text-xl'> Boone High in Boone, IA</li>
@@ -140,9 +140,9 @@ const About_concept = () => {
                                 <li className='text-white text-xl'> Coffee, lots of Coffee </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[50px]'>
-                                <li className='text-white text-xl'>Pike Central (Petersburg IN)</li>
-                                <li className='text-white text-xl'>Coaching Athletes</li>
-                                <li className='text-white text-xl'>Steak & Eggs</li>
+                                <li className='text-vega-pink text-xl'>Pike Central (Petersburg IN)</li>
+                                <li className='text-vega-pink text-xl'>Coaching Athletes</li>
+                                <li className='text-vega-pink text-xl'>Steak & Eggs</li>
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
