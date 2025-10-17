@@ -17,6 +17,7 @@ import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
 import robbie from '../assets/About_us/Robbie.png'
 import map from '../assets/About_us/map.png'
+import ryanE from '../assets/About_us/Ryan_E_Photo.png'
 
 
 const About_concept = () => {
@@ -147,26 +148,34 @@ const About_concept = () => {
                         </div>
                         <div className='flex justify-center mb-[40px]'>
                             <img src={owen} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
-                            <img src={robbie} alt='' className='w-[377px] h-[377px]'></img>
+                            <img src={robbie} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
+                            <img src={ryanE} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h1 className='text-white text-5xl font-bold mr-[350px]'>Owen</h1>
-                            <h1 className='text-white text-5xl font-bold'>Robbie</h1>
+                            <h1 className='text-white text-5xl font-bold pr-5 mr-[350px]'>Owen</h1>
+                            <h1 className='text-white text-5xl font-bold mr-[350px]'>Robbie</h1>
+                            <h1 className='text-white text-5xl font-bold'>Ryan E.</h1>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
-                            <h3 className='text-secondary text-3xl mr-[250px]'>Software Engineer</h3>
-                            <h3 className='text-secondary text-3xl mr-[30px]'>Intern Engineer</h3>
+                            <h3 className='text-secondary text-3xl pr-5 mr-[275px]'>Software Engineer</h3>
+                            <h3 className='text-secondary text-3xl mr-[275px]'>Intern Engineer</h3>
+                            <h3 className='text-secondary text-3xl pr-[20px]'>Software Engineer</h3>
                         </div>
                         <div className='flex justify-center pb-[200px]'>
-                            <ul className='flex flex-col items-center mr-[200px] ml-[0px]'>
+                            <ul className='flex flex-col items-center mr-[250px]'>
                                 <li className='text-white text-xl'>Valley Park High School</li>
                                 <li className='text-white text-xl text-center max-w-90'>I am a massive fan of Chess (playing for 18 years!)</li>
                                 <li className='text-white text-xl text-center max-w-90'>A healthy mix between solving interesting problems & Pure Leaf's sweet tea!</li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[100px]'>
+                            <ul className='flex flex-col items-center mr-[200px]'>
                                 <li className='text-white text-xl'>Home school</li>
                                 <li className='text-white text-xl'>Learning board games</li>
                                 <li className='text-white text-xl max-w-[200px] text-center'>Doing something that is interesting</li>
+                            </ul>
+                            <ul className='flex flex-col items-center mr-[50px]'>
+                                <li className='text-white text-xl'>Christian Brothers College High School</li>
+                                <li className='text-white text-xl'>Trail running</li>
+                                <li className='text-white text-xl max-w-[200px] text-center'>Coffee</li>
                             </ul>
                         </div>
 
