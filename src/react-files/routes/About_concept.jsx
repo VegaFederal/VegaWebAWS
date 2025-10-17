@@ -17,6 +17,10 @@ import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
 import robbie from '../assets/About_us/Robbie.png'
 import map from '../assets/About_us/map.png'
+import vetLogo from '../assets/Vet_logo_1.png'
+import vetLogo2 from '../assets/Vet_logo_2.png'
+import vetArmy from '../assets/Vet_logo_Army.png'
+
 
 
 const About_concept = () => {
@@ -50,9 +54,23 @@ const About_concept = () => {
                             <p className='text-white text-base md:text-2xl text-center'>What is your productivity fuel?</p>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
-                            <img src={ryan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
-                            <img src={themba} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
-                            <img src={brent} alt='' className='w-[377px] h-[377px]'></img>
+                            {/* First Row - Ryan, Themba, Brent */}
+                            <div className='relative mr-[100px]'>
+                                <img src={ryan} alt='' className='w-[377px] h-[377px]'></img>
+                                <img src={vetArmy} alt='' className='absolute top-[5px] right-[5px] w-[65px] h-[81px]'></img>
+                            </div>
+                            
+                            {/* Themba - Navy logo */}
+                            <div className='relative mr-[100px]'>
+                                <img src={themba} alt='' className='w-[377px] h-[377px]'></img>
+                                <img src={vetLogo2} alt='' className='absolute top-[5px] right-[5px] w-[65px] h-[65px]'></img>
+                            </div>
+                            
+                            {/* Brent - Air Force logo */}
+                            <div className='relative'>
+                                <img src={brent} alt='' className='w-[377px] h-[377px]'></img>
+                                <img src={vetLogo} alt='' className='absolute top-[5px] right-[5px] w-[65px] h-[66px]'></img>
+                            </div>
                         </div>
                         <div className='flex justify-center mb-[20px]'>
                             <h1 className='text-white text-5xl font-bold mr-[320px]'>Ryan</h1>
@@ -82,7 +100,12 @@ const About_concept = () => {
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
-                            <img src={dan} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
+                            {/* Second Row - Dan, Blas, Katy */}
+                            <div className='relative mr-[100px]'>
+                                <img src={dan} alt='' className='w-[377px] h-[377px]'></img>
+                                <img src={vetArmy} alt='' className='absolute top-[5px] right-[5px] w-[65px] h-[81px]'></img>
+                            </div>
+                            
                             <img src={blas} alt='' className='w-[377px] h-[377px] mr-[100px]'></img>
                             <img src={katy} alt='' className='w-[377px] h-[377px]'></img>
                         </div>
