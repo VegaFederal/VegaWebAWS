@@ -52,16 +52,16 @@ const Home = () => {
                     */
                 />
                     <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem]'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1.5rem] lg:text-left xl:text-3xl text-5xl md:pb-2">
                         Automate Your Mission
                         </h4>
-                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">
+                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-xl xl:text-xl md:text-[1.25rem]">
                         AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
                         </p>
                     </div>
                 </div>
 
-                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 md:space-x-3 md:flex-row md:space-y-0 lg:pl-50'>
+                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 md:space-x-3 md:flex-row md:space-y-0 lg:pl-50 mt-[20px]'>
                     <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
                 </div>
                 <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-80 mt-20 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
