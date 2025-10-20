@@ -49,7 +49,7 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                     |
                 </li>
                 <li>
-                    <Link to='/About_concept'><p class={color_about}>Vega Team</p></Link>
+                    <Link to='/About_Updated'><p class={color_about}>Vega Team</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
