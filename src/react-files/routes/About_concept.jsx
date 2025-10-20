@@ -65,17 +65,17 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl'>Senior Software Engineer</h3>
                         </div>
                         <div className='flex justify-center mb-[100px]'>
-                            <ul className='flex flex-col items-center mr-[200px] ml-[100px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                            <ul className='flex flex-col items-center mr-[300px]'>
+                                <li className='text-white text-xl'> Aquinas Mercy High School </li>
+                                <li className='text-white text-xl'> Inventing Dance Moves </li>
+                                <li className='text-white text-xl'> Winning </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[150px]'>
                                 <li className='text-white text-xl'>Stanley-Boyd High (WI)</li>
                                 <li className='text-white text-xl'> Cut flower farming </li>
                                 <li className='text-white text-xl max-w-100 text-center'> Complex, impossible challenges, especially government bureaucracy. </li>
                             </ul>
-                            <ul className='flex flex-col items-center'>
+                            <ul className='flex flex-col items-center mr-[50px]'>
                                 <li className='text-white text-xl'>Woodbury HS, Woodbury MN</li>
                                 <li className='text-white text-xl'>Setting my shooting range on fire</li>
                                 <li className='text-white text-xl'>Caffeine and Adderall</li>
@@ -108,9 +108,9 @@ const About_concept = () => {
                                 <li className='text-white text-xl'>Completing projects</li>
                             </ul>
                             <ul className='flex flex-col items-center'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                                <li className='text-white text-xl'>The Principia HS</li>
+                                <li className='text-white text-xl'>Professional abstract painter</li>
+                                <li className='text-white text-xl'>Organic "Fizz" Energy Drink</li>
                             </ul>
                         </div>
                         <div className='flex justify-center mb-[40px]'>
@@ -134,10 +134,10 @@ const About_concept = () => {
                                 <li className='text-white text-xl'>I am really great at putting together a costume</li>
                                 <li className='text-white text-xl'>Regular Coca Cola</li>
                             </ul>
-                            <ul className='flex flex-col items-center mr-[300px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                            <ul className='flex flex-col items-center mr-[400px]'>
+                                <li className='text-white text-xl'> Boone High in Boone, IA</li>
+                                <li className='text-white text-xl'> Keeping plants alive(sort of).</li>
+                                <li className='text-white text-xl'> Coffee, lots of Coffee </li>
                             </ul>
                             <ul className='flex flex-col items-center mr-[50px]'>
                                 <li className='text-white text-xl'>Pike Central (Petersburg IN)</li>
@@ -158,12 +158,12 @@ const About_concept = () => {
                             <h3 className='text-secondary text-3xl mr-[30px]'>Intern Engineer</h3>
                         </div>
                         <div className='flex justify-center pb-[200px]'>
-                            <ul className='flex flex-col items-center mr-[350px] ml-[50px]'>
-                                <li className='text-white text-xl'> Point One </li>
-                                <li className='text-white text-xl'> Point Two </li>
-                                <li className='text-white text-xl'> Point Three </li>
+                            <ul className='flex flex-col items-center mr-[200px] ml-[0px]'>
+                                <li className='text-white text-xl'>Valley Park High School</li>
+                                <li className='text-white text-xl text-center max-w-90'>I am a massive fan of Chess (playing for 18 years!)</li>
+                                <li className='text-white text-xl text-center max-w-90'>A healthy mix between solving interesting problems & Pure Leaf's sweet tea!</li>
                             </ul>
-                            <ul className='flex flex-col items-center'>
+                            <ul className='flex flex-col items-center mr-[100px]'>
                                 <li className='text-white text-xl'>Home school</li>
                                 <li className='text-white text-xl'>Learning board games</li>
                                 <li className='text-white text-xl max-w-[200px] text-center'>Doing something that is interesting</li>
