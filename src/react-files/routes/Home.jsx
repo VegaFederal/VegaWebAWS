@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
 import VOSB_Logo from '../assets/VOSB_Logo.png';
+import VOSB_Logo_2 from '../assets/vosb-white-1.png';
 import complexProblems from '../assets/Homepage_Image_ComplexProblems.jpg'
 import ThriveTech from '../assets/Homepage_ThriveTech.jpg'
 import PartnerAutomation from '../assets/Homepage_PartnerAutomation.jpg'
@@ -23,16 +24,16 @@ const Home = () => {
   return (
 
     <>
-    <section className='hero pt-20'>
-        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
+    <section className='hero pt-22'>
+        <div className="relative w-full hero-lg-aspect h-screen md:h-auto md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
+            <div className="md:absolute md:top-0 md:left-0 md:w-full h-226 flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <Navbar />
                 </header>
 
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25.2rem] lg:mt-[25rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25.2rem] lg:mt-[13rem]">
                 {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -50,7 +51,7 @@ const Home = () => {
                     - w-[5.125rem]: 82px in rem
                     */
                 />
-                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem]'>
+                    <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem]'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
                         Automate Your Mission
                         </h4>
@@ -59,9 +60,12 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-55 md:space-x-3 pt-25 md:flex-row md:space-y-0 lg:pl-50'>
+
+                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 md:space-x-3 md:flex-row md:space-y-0 lg:pl-50'>
                     <Link to='/contact'><button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-600 hover:bg-red-700 hover:text-white'>Let's Talk</button></Link>
-                </div> 
+                </div>
+                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-80 mt-20 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+
             </div>
         </div>
     </section>
