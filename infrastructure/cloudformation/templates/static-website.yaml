@@ -77,6 +77,13 @@ Resources:
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
         Logging:
           Bucket: !GetAtt CloudFrontLogsBucket.DomainName
           IncludeCookies: false
