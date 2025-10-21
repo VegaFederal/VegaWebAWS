@@ -193,10 +193,10 @@ const About_Updated = () => {
                         </div>
                         
                         <div className='flex flex-col items-center mb-[80px] px-4'>
-                            <h3 className='text-vega-pink text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h3>
-                            <p className='text-vega-pink text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
-                            <p className='text-vega-pink text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
-                            <p className='text-vega-pink text-base md:text-2xl text-center'>What is your productivity fuel?</p>
+                            <h3 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h3>
+                            <p className='text-white text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
+                            <p className='text-white text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
+                            <p className='text-white text-base md:text-2xl text-center'>What is your productivity fuel?</p>
                         </div>
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
@@ -232,7 +232,7 @@ const About_Updated = () => {
                                     {/* Details */}
                                     <ul className='flex flex-col items-center space-y-2'>
                                         {member.details.map((detail, index) => (
-                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
+                                            <li key={index} className='text-vega-pink text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
                                             </li>
                                         ))}
@@ -243,6 +243,7 @@ const About_Updated = () => {
                     </div>
                 </div>
             </section>
+
         </>
     )
 }
