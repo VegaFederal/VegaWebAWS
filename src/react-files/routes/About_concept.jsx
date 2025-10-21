@@ -19,7 +19,7 @@ import robbie from '../assets/About_us/Robbie.png'
 import map from '../assets/About_us/map.png'
 import vetLogo from '../assets/Vet_logo_1.png'
 import vetLogo2 from '../assets/Vet_logo_2.png'
-import vetArmy from '../assets/Vet_logo_Army.png'
+import vetArmy from '../assets/Vet_logo_army.png'
 
 
 
