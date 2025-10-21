@@ -232,7 +232,7 @@ const About_Updated = () => {
                                     {/* Details */}
                                     <ul className='flex flex-col items-center space-y-2'>
                                         {member.details.map((detail, index) => (
-                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
+                                            <li key={index} className='text-vega-pink text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
                                             </li>
                                         ))}
@@ -243,23 +243,7 @@ const About_Updated = () => {
                     </div>
                 </div>
             </section>
-            
-            {/* Vacation Spot Section */}
-            <section className='
-                bg-primary
-                bg-cover
-                bg-center
-                bg-no-repeat
-                h-fit
-                z-[-1]
-            '>
-                <div className='flex flex-col items-center'>
-                    <h1 className='text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-[100px] text-center px-4'>
-                        What's our favorite vacation spot?
-                    </h1>
-                    <img src={map} alt='' className='h-screen w-screen object-cover'/>
-                </div>
-            </section>
+
         </>
     )
 }
