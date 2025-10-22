@@ -37,12 +37,6 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                     |
                 </li>
                 <li>
-                    <Link to='/Partners'><p class={color_partner}>Our Partners</p></Link>
-                </li>
-                <li class='text-white font-bold'>
-                    |
-                </li>
-                <li>
                     <Link to='/Careers'><p class={color_career}>Careers</p></Link>
                 </li>
                 <li class='text-white font-bold'>
