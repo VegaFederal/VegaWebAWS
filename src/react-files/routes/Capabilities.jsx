@@ -186,7 +186,7 @@ const Capabilities = () => {
                    z-[-1]
                    sm:overflow-x-visible overflow-x-hidden
                ">
-               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] '>
+               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] mr-[10px]'>
                    <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
                    <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
                    <ul class='ml-[34px]'>
