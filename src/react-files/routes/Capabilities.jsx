@@ -17,7 +17,7 @@ import Slack_Sheet from '../assets/Vega Slick Sheet (1) (1).pdf'
 const Capabilities = () => {
     return(
     <>
-    <section className='capabilities'>
+    <section className='capabilities '>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="mt-23.5 md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
@@ -48,7 +48,7 @@ const Capabilities = () => {
 
 
                     <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
 
                             Automation. Mission—Ready Solutions.</h4>
                         <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">At Vega, we specialize in delivering
@@ -57,7 +57,7 @@ const Capabilities = () => {
                     
                     </div>
                 </div>
-                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-20 md:pt-10  md:flex-row md:space-y-0 lg:pl-50'>
+                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-45 md:pt-10  md:flex-row md:space-y-0 lg:pl-45'>
                         <a href={Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slack_Icon} alt="PDF Icon" className="h-10 mr-2 inline" />
@@ -167,7 +167,7 @@ const Capabilities = () => {
         ">
         <div class='flex items-center '>
             <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16'>
-                <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approach</h1>
+                <h1 class='text-2xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approach</h1>
                 <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>
