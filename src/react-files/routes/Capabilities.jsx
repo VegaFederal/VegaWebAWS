@@ -17,7 +17,7 @@ import Slack_Sheet from '../assets/Vega Slick Sheet (1) (1).pdf'
 const Capabilities = () => {
     return(
     <>
-    <section className='capabilities '>
+    <section className='capabilities pr-[5px]'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="mt-23.5 md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
