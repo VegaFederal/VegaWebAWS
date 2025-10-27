@@ -17,7 +17,7 @@ import Slack_Sheet from '../assets/Vega Slick Sheet (1) (1).pdf'
 const Capabilities = () => {
     return(
     <>
-    <section className='capabilities pr-[5px]'>
+    <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="mt-23.5 md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
@@ -166,7 +166,7 @@ const Capabilities = () => {
                                     /* make the section full‑viewport height */
         ">
         <div class='flex items-center '>
-            <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16'>
+            <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16 mr-[10px]'>
                 <h1 class='text-2xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approach</h1>
                 <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
                 <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
