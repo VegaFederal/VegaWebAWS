@@ -57,7 +57,7 @@ const Capabilities = () => {
                     
                     </div>
                 </div>
-                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-50 md:pt-10  md:flex-row md:space-y-0 lg:pl-45'>
+                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-10  md:flex-row md:space-y-0 lg:pl-45'>
                         <a href={Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slack_Icon} alt="PDF Icon" className="h-10 mr-2 inline" />
@@ -98,7 +98,7 @@ const Capabilities = () => {
             sm:overflow-x-visable overflow-x-hidden
             
         ">
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4'>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4'>
             <div class='md:mb-0 xl:mb-15 2xl:ml-[6.25rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mobile Application Development</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Mobile. Performance. Security.</h3>
@@ -114,7 +114,7 @@ const Capabilities = () => {
         </div>
     </section>
 
-    <section class=' bg-white min-h-screen h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
+    <section class=' bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-screen sm:overflow-x-visable overflow-x-hidden'>
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-30 md:pt-10 md:px-[100px] lg:pt-50 xl:pt-60'>
             <img src={myImage4} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px] "/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10 2xl:ml-[10rem]'>
@@ -141,7 +141,7 @@ const Capabilities = () => {
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
         ">
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-screen ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 '>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 '>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Optimizing Infrastructure. Enabling Scale.</h3>
