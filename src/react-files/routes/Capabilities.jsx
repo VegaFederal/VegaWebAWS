@@ -19,7 +19,7 @@ const Capabilities = () => {
     <>
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="mt-23.5 md:absolute md:top-0 md:left-0 md:w-full 2xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
@@ -27,7 +27,7 @@ const Capabilities = () => {
                 </header>
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25rem] lg:mt-[23rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-62 md:mt-[13rem] lg:mt-[16.5rem]">
                     {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom

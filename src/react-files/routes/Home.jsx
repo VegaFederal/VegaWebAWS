@@ -35,7 +35,7 @@ const Home = () => {
 
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[25.2rem] lg:mt-[13rem]">
+                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[rem] lg:mt-[13rem]">
                 {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
