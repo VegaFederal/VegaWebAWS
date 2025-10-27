@@ -92,7 +92,7 @@ const Capabilities = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            h-screen
+            h-fit
             md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
@@ -136,7 +136,7 @@ const Capabilities = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            h-screen
+            h-fit
             md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
