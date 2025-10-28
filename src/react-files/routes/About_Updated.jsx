@@ -16,6 +16,7 @@ import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
 import robbie from '../assets/About_us/Robbie.png'
+import joseph from '../assets/About_us/Joseph_K.png'
 import map from '../assets/About_us/map.png'
 // import vetLogo from '../assets/Vet_logo_1.png' // Air Force
 // import vetLogo2 from '../assets/Vet_logo_2.png' // Navy
@@ -165,6 +166,19 @@ const About_Updated = () => {
                 "Home school",
                 "Learning board games",
                 "Doing something that is interesting"
+            ]
+        },
+        {
+            id: 12,
+            name: "Joseph K.",
+            title: "Software Engineer",
+            image: joseph,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Filler",
+                "Filler",
+                "Filler"
             ]
         }
     ];
