@@ -38,7 +38,7 @@ const Capabilities = () => {
                     <img 
                         src={Arrow} 
                         alt="Arrow pointing to headline" 
-                        className="object-contain h-[5rem] xl:mb-4 md:h-[7.5rem] md:w-[5.125rem]" 
+                        className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
                         /* 
                         - object-contain: keeps image aspect ratio
                         - h-[8.375rem]: 134px in rem
@@ -49,15 +49,14 @@ const Capabilities = () => {
 
                     <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
-
-                            Automation. Mission—Ready Solutions.</h4>
-                        <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">At Vega, we specialize in delivering
-                            automation, AI, and technologysolutions tailored to the realities of government missions. We don’t just deploy software — we solve
-                            complex challenges with precision, empathy, and mission-first execution.</p>
-                    
+                            Automation.</h4>
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-10">Mission—Ready Solutions.</h4>
+                        <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">At Vega, we specialize in delivering
+                            automation, AI, and technologysolutions tailored to the realities of government missions. </p>
+                        <p className="max-w-md md:max-w-200 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">We don’t just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
                     </div>
                 </div>
-                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-10  md:flex-row md:space-y-0 lg:pl-45'>
+                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-25  md:flex-row md:space-y-0 lg:pl-45'>
                         <a href={Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slack_Icon} alt="PDF Icon" className="h-10 mr-2 inline" />
