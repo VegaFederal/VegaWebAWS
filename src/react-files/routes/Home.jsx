@@ -54,23 +54,24 @@ const Home = () => {
                     */
                 />
                     <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem]'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1.5rem] lg:text-left xl:text-3xl text-5xl md:pb-2">
                         Automate Your Mission
                         </h4>
-                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">
+                        <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-xl xl:text-xl md:text-[1.25rem]">
                         AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-center md:justify-start pb-20 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-40'>
+
+                <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 md:space-x-3 md:flex-row md:space-y-0 lg:pl-50 mt-[20px]'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                         <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-[#001837] hover:bg-[#001225] hover:text-white'>
                             <img src={PDF_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
                             Download Capabilities Slack Sheet
                         </button>
-                    </a>
-                </div> 
-                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-80 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+                    </a> 
+                </div>
+                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-80 mt-20 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
 
             </div>
         </div>
