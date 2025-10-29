@@ -16,6 +16,7 @@ import './HomeStyles.css'
 import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
 import PDF_Icon from '../assets/PDF_Download_Icon.png'
+import Slack_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 
@@ -26,7 +27,7 @@ const Home = () => {
   return (
 
     <>
-    <section className='hero pt-22'>
+    <section className='hero pt-23.5'>
         <div className="relative w-full hero-lg-aspect h-screen md:h-auto md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full h-228 flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
                 <header>
@@ -54,7 +55,7 @@ const Home = () => {
                     */
                 />
                     <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem]'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-3xl md:text-2xl md:pb-2">
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-[1rem] lg:text-left xl:text-4xl md:text-2xl md:pb-2">
                         Automate Your Mission
                         </h4>
                         <p className="max-w-md md:max-w-xl text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">
@@ -62,10 +63,10 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-center md:justify-start pb-20 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-40'>
+                <div className='flex justify-center md:justify-start pb-20 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
-                        <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-[#001837] hover:bg-[#001225] hover:text-white'>
-                            <img src={PDF_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
+                        <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-secondary hover:bg-red-600 hover:text-white'>
+                            <img src={Slack_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
                             Download Capabilities Slack Sheet
                         </button>
                     </a>
