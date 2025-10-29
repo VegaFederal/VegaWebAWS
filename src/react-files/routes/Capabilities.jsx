@@ -140,8 +140,9 @@ const Capabilities = () => {
             md:h-auto                       /* make the section full‑viewport height */
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
+            border-4
         ">
-        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 '>
+        <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
                 <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h1>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Optimizing Infrastructure. Enabling Scale.</h3>
