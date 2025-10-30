@@ -1,0 +1,11 @@
+{
+  "projectName": "VegaWebAWS",
+  "description": "Production deployment configuration",
+  "infraType": "cf",
+  "applicationType": "serverless",
+  "awsRegion": "us-east-1",
+  "vpcId": "vpc-PRODUCTION-ACCOUNT-VPC-ID",
+  "subnetIds": "subnet-PRODUCTION-ACCOUNT-SUBNET-ID",
+  "githubRepo": "https://github.com/VegaFederal/VegaWebAWS.git",
+  "environment": "production"
+}

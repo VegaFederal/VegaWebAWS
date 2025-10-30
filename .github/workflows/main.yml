@@ -237,14 +237,14 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PROD_AWS_REGION || 'us-east-1' }}
 
       - name: Read configuration
         id: config
         run: |
-          CONFIG_FILE="config/project-config.json"
+          CONFIG_FILE="config/production-config.json"
           PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
           SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
