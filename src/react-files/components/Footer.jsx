@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function Footer(){
     return (
-        <section class='bg-primary bg-cover bg-center lg:h-screen xl:h-fit'>
+        <section class='bg-primary bg-cover bg-center lg:h-screen xl:h-fit pl-[10px] mr-[10px]'>
 
             <div class='flex flex-col pt-40 lg:ml-[10rem] xl:ml-[100px] gap-5'>
 
