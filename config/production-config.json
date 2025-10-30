@@ -4,7 +4,7 @@
   "infraType": "cf",
   "applicationType": "serverless",
   "awsRegion": "us-east-1",
-  "vpcId": "vpc-12345678901234567",
+  "vpcId": "vpc-03d0b258d48f85428",
   "subnetIds": "subnet-01839862bfd123ade",
   "githubRepo": "https://github.com/VegaFederal/VegaWebAWS.git",
   "environment": "production"
