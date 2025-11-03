@@ -194,11 +194,11 @@ const Home = () => {
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
             bg-no-repeat                    /* don’t tile it */
-            sm:h-screen h-170                        /* make the section full‑viewport height */
+            sm:h-screen h-180                        /* make the section full‑viewport height */
             z-[-1]
             sm:overflow-x-visible overflow-x-hidden
         ">
-        <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] mx-[5px] md:mx-0'>
+        <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px]'>
             <h5 class='text-3xl sm:text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
             <h3 class='text-2xl sm:text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
             <ul class='ml-[34px]'>
