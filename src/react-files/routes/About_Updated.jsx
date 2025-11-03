@@ -36,7 +36,7 @@ const About_Updated = () => {
                 "Aquinas Mercy High School",
                 "Inventing Dance Moves",
                 "Winning"
-            ]
+            ] 
         },
         {
             id: 2,
