@@ -178,7 +178,7 @@ const Home = () => {
             sm:overflow-x-visible overflow-x-hidden
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
-            <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Why Vega?</h1>
+            <h1 class='text-3xl md:text-[48px] text-primary font-bold pt-20 md:pt-0'>Why Vega?</h1>
             <h3 class='text-3xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
             <h3 class='text-xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
             <ul class='ml-[34px]'>
