@@ -69,7 +69,7 @@ const Home = () => {
                         </button>
                     </a>
                 </div> 
-                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-50 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
 
             </div>
         </div>
