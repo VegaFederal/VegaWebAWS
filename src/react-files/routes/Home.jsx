@@ -56,7 +56,7 @@ const Home = () => {
                     />
 
 
-                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
+                    <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Automate Your Mission</h4>
                         <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.</p>
                     </div>
