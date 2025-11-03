@@ -142,7 +142,7 @@ const Home = () => {
             py-10                     /* make the section full‑viewport height */
             sm:overflow-x-visible overflow-x-hidden
         ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] mx-[5px] md:mx-0'>
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 sm:ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] mx-[5px] md:mx-0'>
             <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold pt-0'>How We Work:</h1>
             <ul class='ml-10'>
                 <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
@@ -178,7 +178,7 @@ const Home = () => {
             sm:overflow-x-visible overflow-x-hidden
             px-[5px] md:px-0
         ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
+        <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
             <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Why Vega?</h1>
             <h3 class='text-3xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
             <h3 class='text-xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
