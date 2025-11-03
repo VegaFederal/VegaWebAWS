@@ -176,7 +176,6 @@ const Home = () => {
             bg-no-repeat                    /* don't tile it */
             py-20                   /* make the section full‑viewport height */
             sm:overflow-x-visible overflow-x-hidden
-            px-[5px] md:px-0
         ">
         <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
             <h1 class='text-3xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Why Vega?</h1>
