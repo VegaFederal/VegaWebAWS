@@ -61,7 +61,7 @@ const Home = () => {
                         <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.</p>
                     </div>
                 </div>
-                <div className='flex md:justify-start pt-10 md:pt-0 pb-10 sm:pb-20 pl-15 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45 mx-[5px] md:mx-0'>
+                <div className='flex md:justify-start pt-20 sm:pt-10 md:pt-0 pb-10 sm:pb-20 pl-15 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45 mx-[5px] md:mx-0'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                         <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-secondary hover:bg-red-600 hover:text-white'>
                             <img src={Slack_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
