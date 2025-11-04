@@ -15,6 +15,7 @@ import Copy_Seven from './routes/Copy_Seven.jsx'
 import Copy_Eight from './routes/Copy_Eight.jsx'
 import Careers_Main from './routes/Careers_Main.jsx'
 import About_Updated from './routes/About_Updated.jsx'
+import About_concept from './routes/About_concept.jsx'
 
 function App() {
 
