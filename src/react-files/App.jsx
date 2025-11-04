@@ -27,6 +27,7 @@ function App() {
       <Route path="/Partners" element={<Partners/>}></Route>
       <Route path="/Careers" element={<Careers_Main/>}></Route>
       <Route path="/About" element={<About_Updated/>}></Route>
+      <Route path="About2" element={<About_concept/>}></Route>
       <Route path="/Copy" element={<Copy/>}></Route>
       <Route path="/Copy_Two" element={<Copy_Two/>}></Route>
       <Route path="Copy_Three" element={<Copy_Three/>}></Route>
