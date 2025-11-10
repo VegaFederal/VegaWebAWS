@@ -16,12 +16,12 @@
 
 .header img {
     transition: all 0.3s ease; /* Smooth logo transition */
-    width: 120px; /* Default logo width */
+    width: 105px; /* Default logo width */
     height: auto;
 }
 
 .header img:hover {
-    width: 130px;
+    width: 115px;
 }
 
 .nav-menu {
