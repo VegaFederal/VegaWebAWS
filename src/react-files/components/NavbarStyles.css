@@ -2,31 +2,25 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 90px; /* Default height */
+    height: 60px; /* Default height */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.5rem; /* Default padding */
+    padding: 1rem 3.5rem; /* Default padding */
     z-index: 1000;
-    background-color: primary; /* Your color with opacity */
+    background-color: white; /* Your color with opacity */
     backdrop-filter: blur(10px);
     transition: all 0.3s ease; /* Smooth transition */
 }
 
 .header img {
     transition: all 0.3s ease; /* Smooth logo transition */
-    width: 180px; /* Default logo width */
+    width: 120px; /* Default logo width */
     height: auto;
 }
 
-.header.scrolled {
-    height: 60px; /* Shrunk height */
-    padding: 1rem 3.5rem; /* Reduced padding */
-    background-color: primary; /* Slightly more opaque when scrolled */
-}
-
-.header.scrolled img {
-    width: 120px; /* Smaller logo width when scrolled */
+.header img:hover {
+    width: 130px;
 }
 
 .nav-menu {
@@ -43,12 +37,11 @@
     transition: font-size 0.3s ease; /* Smooth text transition */
 }
 
-.header.scrolled .nav-menu a {
-    font-size: 0.9rem; /* Smaller text when scrolled */
-}
-
 .hamburger {
     display: none;
+}
+.changeColor:hover {
+    color: red;
 }
 
 @media screen and (max-width:1280px) {
@@ -56,7 +49,7 @@
         position: fixed;
         top: 0;
         width: 100%;
-        height: 90px;
+        height: 60px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -71,15 +64,6 @@
         transition: all 0.3s ease;
         width: 160px; /* Default logo width for medium screens */
         height: auto;
-    }
-    
-    .header.scrolled {
-        height: 60px;
-        padding: 1rem 3.5rem;
-    }
-    
-    .header.scrolled img {
-        width: 100px; /* Smaller logo width when scrolled on medium screens */
     }
     
     .nav-menu.active {
@@ -103,10 +87,7 @@
         font-weight: semi-bold;
         transition: font-size 0.3s ease;
     }
-    
-    .header.scrolled .nav-menu a {
-        font-size: 1rem;
-    }
+
 }
 
 @media screen and (max-width:1024px) {
