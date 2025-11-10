@@ -60,7 +60,7 @@ const Capabilities = () => {
                         <a href={Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slack_Icon} alt="PDF Icon" className="h-10 mr-2 inline" />
-                                Download Capabilities Slack Sheet
+                                Download Capabilities Slick Sheet
                             </button>
                         </a>
                 </div> 
