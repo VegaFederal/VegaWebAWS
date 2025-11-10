@@ -9,12 +9,7 @@ const Careers_Main = () => {
         <>
             {/* Smaller height navbar for careers page */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm" style={{ height: '40px' }}>
-                <div style={{ 
-                    transform: 'scale(0.8)', 
-                    transformOrigin: 'top left',
-                    width: '125%', // Compensate for the scale reduction
-                    height: '125%' // Compensate for the scale reduction
-                }}>
+                <div>
                     <Navbar color_career='text-secondary'/>
                 </div>
             </header>
