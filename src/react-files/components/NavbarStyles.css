@@ -11,6 +11,7 @@
     background-color: white; /* Your color with opacity */
     backdrop-filter: blur(10px);
     transition: all 0.3s ease; /* Smooth transition */
+    border-bottom: 2px solid  #001837;
 }
 
 .header img {
