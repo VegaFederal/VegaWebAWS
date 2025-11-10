@@ -16,6 +16,7 @@ import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
 import robbie from '../assets/About_us/Robbie.png'
+import joseph from '../assets/About_us/Joseph_K.png'
 import map from '../assets/About_us/map.png'
 // import vetLogo from '../assets/Vet_logo_1.png' // Air Force
 // import vetLogo2 from '../assets/Vet_logo_2.png' // Navy
@@ -35,7 +36,7 @@ const About_Updated = () => {
                 "Aquinas Mercy High School",
                 "Inventing Dance Moves",
                 "Winning"
-            ]
+            ] 
         },
         {
             id: 2,
@@ -166,6 +167,19 @@ const About_Updated = () => {
                 "Learning board games",
                 "Doing something that is interesting"
             ]
+        },
+        {
+            id: 12,
+            name: "Joseph K.",
+            title: "Software Engineer",
+            image: joseph,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Filler",
+                "Filler",
+                "Filler"
+            ]
         }
     ];
 
@@ -232,7 +246,7 @@ const About_Updated = () => {
                                     {/* Details */}
                                     <ul className='flex flex-col items-center space-y-2'>
                                         {member.details.map((detail, index) => (
-                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
+                                            <li key={index} className='text-vega-pink text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
                                             </li>
                                         ))}
@@ -243,23 +257,7 @@ const About_Updated = () => {
                     </div>
                 </div>
             </section>
-            
-            {/* Vacation Spot Section */}
-            <section className='
-                bg-primary
-                bg-cover
-                bg-center
-                bg-no-repeat
-                h-fit
-                z-[-1]
-            '>
-                <div className='flex flex-col items-center'>
-                    <h1 className='text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-[100px] text-center px-4'>
-                        What's our favorite vacation spot?
-                    </h1>
-                    <img src={map} alt='' className='h-screen w-screen object-cover'/>
-                </div>
-            </section>
+
         </>
     )
 }
