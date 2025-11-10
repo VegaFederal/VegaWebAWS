@@ -176,9 +176,9 @@ const About_Updated = () => {
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "Filler",
-                "Filler",
-                "Filler"
+                "",
+                "",
+                ""
             ]
         }
     ];
