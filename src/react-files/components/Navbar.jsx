@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import './NavbarStyles.css'
-import myImage from '../assets/Logo.png';
+import myImage from '../assets/vega_logo_blue.png';
 
 const Navbar = ({color_story, color_capabilities,color_contact, color_partner, color_career, color_about}) => {
     const[click, setClick] = useState(false);
@@ -10,39 +10,31 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     
     const handleClick = () => setClick(!click);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const isScrolled = window.scrollY > 50; // Change 50 to adjust when it shrinks
-            setScrolled(isScrolled);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    
 
     return (
-        <div className={`header ${scrolled ? 'scrolled bg-primary' : 'bg-primary'}`}>
+        <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             <Link to='/'><img src={myImage} class="w-45 pb-3"></img></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li>
+                <li class='text-primary'>
                     <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
                 </li>
-                <li class='text-white font-bold'>
+                <li class='text-primary font-bold'>
                     |
                 </li>
-                <li>
-                    <Link to='/Our_Story'><p class={color_story}>Our Story</p></Link>
+                <li class='text-primary'>
+                    <Link to='/Our_Story' class='text-primary'><p class={color_story}>Our Story</p></Link>
                 </li>
-                <li class='text-white font-bold'>
+                <li class='text-primary font-bold'>
                     |
                 </li>
-                <li>
+                <li class='text-primary'>
                     <Link to='/Careers'><p class={color_career}>Careers</p></Link>
                 </li>
-                <li class='text-white font-bold'>
+                <li class='text-primary font-bold'>
                     |
                 </li>
-                <li>
+                <li class='text-primary'>
                     <Link to='/About'><p class={color_about}>Vega Team</p></Link>
                 </li>
             </ul>
