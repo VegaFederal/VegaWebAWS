@@ -15,6 +15,7 @@ on:
         type: choice
         options:
           - deploy
+          - deploy-production
           - cleanup
       branch:
         description: 'Branch to cleanup (for cleanup action only)'
@@ -225,6 +226,97 @@ jobs:
           CF_URL=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteUrl'].OutputValue" --output text)
           echo "Branch: ${{ env.BRANCH_NAME }} deployed as environment: ${{ env.ENVIRONMENT }}"
           echo "Your website is available at: https://$CF_URL"
+
+  deploy-production:
+    if: github.event.inputs.action == 'deploy-production' || (github.ref == 'refs/heads/production' && github.event_name == 'push')
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PROD_AWS_REGION || 'us-east-1' }}
+
+      - name: Read configuration
+        id: config
+        run: |
+          CONFIG_FILE="config/production-config.json"
+          PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
+          VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
+          SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
+          AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
+
+          echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
+          echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
+          echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
+          echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
+
+      - name: Set production environment variables
+        run: |
+          STACK_NAME="VegaProductionStack"
+          ENVIRONMENT="production"
+          
+          echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
+          echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
+
+      - name: Create template bucket
+        run: |
+            TIMESTAMP=$(date +%s)
+            PROJECT_NAME_LOWER=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
+            TEMPLATE_BUCKET="${PROJECT_NAME_LOWER}-production-templates-${TIMESTAMP}"
+            echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
+
+            echo "Creating bucket: $TEMPLATE_BUCKET"
+            aws s3 mb s3://$TEMPLATE_BUCKET
+
+      - name: Upload templates to S3
+        run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
+
+      - name: Deploy CloudFormation stack
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: ${{ env.STACK_NAME }}
+          template: infrastructure/cloudformation/main-template.yaml
+          parameter-overrides: >-
+            Environment=${{ env.ENVIRONMENT }},
+            VpcId=${{ env.VPC_ID }},
+            SubnetIds=${{ env.SUBNET_IDS }},
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+          no-fail-on-empty-changeset: "1"
+          capabilities: "CAPABILITY_NAMED_IAM"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./src
+      
+      - name: Build website
+        run: npm run build
+        working-directory: ./src
+
+      - name: Upload website files
+        run: |
+          BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text)
+          aws s3 sync src/dist/ s3://$BUCKET_NAME/
+
+      - name: Invalidate CloudFront cache
+        run: |
+          DISTRIBUTION_ID=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" --output text)
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+      - name: Get CloudFront URL
+        run: |
+          CF_URL=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteUrl'].OutputValue" --output text)
+          echo "Production deployment completed!"
+          echo "Your production website is available at: https://$CF_URL"
   cleanup:
     if: github.event.inputs.action == 'cleanup'
     runs-on: ubuntu-latest
