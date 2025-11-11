@@ -228,7 +228,7 @@ jobs:
           echo "Your website is available at: https://$CF_URL"
 
   deploy-production:
-    if: github.event.inputs.action == 'deploy-production'
+    if: github.event.inputs.action == 'deploy-production' || (github.ref == 'refs/heads/production' && github.event_name == 'push')
     runs-on: ubuntu-latest
     environment: production
     steps:
