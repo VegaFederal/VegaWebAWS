@@ -16,30 +16,30 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             <Link to='/'><img src={myImage} class="w-45 pb-3"></img></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li class='text-primary'>
+                <li>
                     <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
                 </li>
-                <li class='text-primary font-bold'>
+                <li class='text-white lg:text-primary font-bold'>
                     |
                 </li>
-                <li class='text-primary'>
+                <li>
                     <Link to='/Our_Story' class='text-primary'><p class={color_story}>Our Story</p></Link>
                 </li>
-                <li class='text-primary font-bold'>
+                <li class='text-white lg:text-primary font-bold'>
                     |
                 </li>
-                <li class='text-primary'>
+                <li>
                     <Link to='/Careers'><p class={color_career}>Careers</p></Link>
                 </li>
-                <li class='text-primary font-bold'>
+                <li class='text-white lg:text-primary font-bold'>
                     |
                 </li>
-                <li class='text-primary'>
+                <li>
                     <Link to='/About'><p class={color_about}>Vega Team</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
-                {click ? (<FaTimes size={20} style={{color:'#fff'}} />) : (<FaBars size={20} style={{color: '#fff'}}/>)}
+                {click ? (<FaTimes size={20} style={{color:'#fff'}} />) : (<FaBars size={20} style={{color: '#001837'}}/>)}
             </div>
         </div>
     )

@@ -9,6 +9,15 @@
 a {
   color: #001837;
 }
+
+
+@media screen and (max-width:1024px) {
+  a {
+    color: #fff;
+  }
+}
+
+
 a:hover{
   color: #DD004A;
 }

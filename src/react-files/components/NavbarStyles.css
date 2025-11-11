@@ -9,7 +9,7 @@
     padding: 1rem 3.5rem; /* Default padding */
     z-index: 1000;
     background-color: white; /* Your color with opacity */
-    backdrop-filter: blur(10px);
+    
     transition: all 0.3s ease; /* Smooth transition */
     border-bottom: 1px solid  #001837;
 }
@@ -54,16 +54,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 3.5rem;
+        padding: 1rem 3.5rem;
         z-index: 1000;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: #fff;
         backdrop-filter: blur(10px);
         transition: all 0.3s ease; /* Smooth transition */
     }
     
     .header img {
         transition: all 0.3s ease;
-        width: 160px; /* Default logo width for medium screens */
+        width: 105px; /* Default logo width for medium screens */
         height: auto;
     }
     
@@ -108,7 +108,7 @@
         height: 100vh;
         transition: 0.3s;
         z-index: -1;
-        background: rgba(0,0,0, .9);
+        background-color: rgba(0, 0, 0, 0.7);
         z-index: 1;
     }
 
