@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
 import VOSB_Logo from '../assets/VOSB_Logo.png';
-import VOSB_Logo_2 from '../assets/vosb-white-1.png';
+import VOSB_Logo_2 from '../assets/veterans_logo_new.png';
 import complexProblems from '../assets/Homepage_Image_ComplexProblems.jpg'
 import ThriveTech from '../assets/Homepage_ThriveTech.jpg'
 import PartnerAutomation from '../assets/Homepage_PartnerAutomation.jpg'
