@@ -17,10 +17,11 @@ import mark from '../assets/About_us/Mark.png'
 import owen from '../assets/About_us/Owen.png'
 import robbie from '../assets/About_us/Robbie.png'
 import joseph from '../assets/About_us/Joseph_K.png'
+import RyanE from '../assets/About_us/Ryan_E.png'
+import Jessica from '../assets/About_us/Jessica.png'
 import map from '../assets/About_us/map.png'
-// import vetLogo from '../assets/Vet_logo_1.png' // Air Force
-// import vetLogo2 from '../assets/Vet_logo_2.png' // Navy
-// import vetArmy from '../assets/Vet_logo_Army.png' // Army
+import vetNavy from '../assets/About_us/US_Navy.png' // Navy
+import vetArmy from '../assets/About_us/US_Army.png' // Army
 
 const About_Updated = () => {
     // Team member data - easy to add more people
@@ -28,9 +29,9 @@ const About_Updated = () => {
         {
             id: 1,
             name: "Ryan",
-            title: "Co-Founder & Co-Owner",
+            title: "Founder & CEO",
             image: ryan,
-            veteranLogo: null,
+            veteranLogo: vetArmy,
             veteranLogoSize: null,
             details: [
                 "Aquinas Mercy High School",
@@ -41,9 +42,9 @@ const About_Updated = () => {
         {
             id: 2,
             name: "Themba",
-            title: "Co-Founder & Co-Owner",
+            title: "Co-Founder & Chief Growth Officer",
             image: themba,
-            veteranLogo: null,
+            veteranLogo: vetNavy,
             veteranLogoSize: null,
             details: [
                 "Stanley-Boyd High (WI)",
@@ -53,23 +54,62 @@ const About_Updated = () => {
         },
         {
             id: 3,
-            name: "Brent",
-            title: "Senior Software Engineer",
-            image: brent,
+            name: "Mark",
+            title: "Director of Cloud Engineering",
+            image: mark,
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "Woodbury HS, Woodbury MN",
-                "Setting my shooting range on fire",
-                "Caffeine and Adderall"
+                "Pike Central (Petersburg IN)",
+                "Coaching Athletes",
+                "Steak & Eggs"
             ]
         },
         {
             id: 4,
+            name: "Chris",
+            title: "Director of Defense Health",
+            image: chris,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Boone High in Boone, IA",
+                "Keeping plants alive(sort of).",
+                "Coffee, lots of Coffee"
+            ]
+        },
+        {
+            id: 5,
+            name: "Krista",
+            title: "Operations Leader",
+            image: krista,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Parkway South High School",
+                "I am really great at putting together a costume",
+                "Regular Coca Cola"
+            ]
+        },
+        {
+            id: 6,
+            name: "Jessica",
+            title: "Director of Recruitment",
+            image: Jessica,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Parkway Central High School",
+                "Writing",
+                "I try to spend my days helping others"
+            ]
+        },
+        {
+            id: 7,
             name: "Dan",
             title: "Senior Software Engineer",
             image: dan,
-            veteranLogo: null,
+            veteranLogo: vetArmy,
             veteranLogoSize: null,
             details: [
                 "Rosary High School",
@@ -78,16 +118,16 @@ const About_Updated = () => {
             ]
         },
         {
-            id: 5,
-            name: "Blas",
-            title: "Software Engineer",
-            image: blas,
+            id: 8,
+            name: "Ryan E.",
+            title: "Senior Software Engineer",
+            image: RyanE,
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "The Fulton School",
-                "Soccer",
-                "Completing projects"
+                "Christian Brothers College HS (CBC)",
+                "Trail running",
+                "Coffee"
             ]
         },
         {
@@ -104,46 +144,20 @@ const About_Updated = () => {
             ]
         },
         {
-            id: 7,
-            name: "Krista",
-            title: "Operations Leader",
-            image: krista,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Parkway South High School",
-                "I am really great at putting together a costume",
-                "Regular Coca Cola"
-            ]
-        },
-        {
-            id: 8,
-            name: "Chris",
-            title: "Director of Defense Health",
-            image: chris,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Boone High in Boone, IA",
-                "Keeping plants alive(sort of).",
-                "Coffee, lots of Coffee"
-            ]
-        },
-        {
             id: 9,
-            name: "Mark",
-            title: "Chief Technology Officer",
-            image: mark,
+            name: "Joseph K.",
+            title: "Software Engineer",
+            image: joseph,
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "Pike Central (Petersburg IN)",
-                "Coaching Athletes",
-                "Steak & Eggs"
+                "",
+                "",
+                ""
             ]
         },
         {
-            id: 10,
+            id: 11,
             name: "Owen",
             title: "Software Engineer",
             image: owen,
@@ -156,7 +170,20 @@ const About_Updated = () => {
             ]
         },
         {
-            id: 11,
+            id: 12,
+            name: "Blas",
+            title: "Software Engineer",
+            image: blas,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "The Fulton School",
+                "Soccer",
+                "Completing projects"
+            ]
+        },
+        {
+            id: 13,
             name: "Robbie",
             title: "Intern Engineer",
             image: robbie,
@@ -166,19 +193,6 @@ const About_Updated = () => {
                 "Home school",
                 "Learning board games",
                 "Doing something that is interesting"
-            ]
-        },
-        {
-            id: 12,
-            name: "Joseph K.",
-            title: "Software Engineer",
-            image: joseph,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Filler",
-                "Filler",
-                "Filler"
             ]
         }
     ];
