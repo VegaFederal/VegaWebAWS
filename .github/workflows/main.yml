@@ -249,11 +249,17 @@ jobs:
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
           SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
           AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
+          DOMAIN_NAME=$(jq -r '.domainName // ""' $CONFIG_FILE)
+          CERTIFICATE_ARN=$(jq -r '.certificateArn // ""' $CONFIG_FILE)
+          CREATE_HOSTED_ZONE=$(jq -r '.createHostedZone // "false"' $CONFIG_FILE)
 
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
           echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
+          echo "DOMAIN_NAME=$DOMAIN_NAME" >> $GITHUB_ENV
+          echo "CERTIFICATE_ARN=$CERTIFICATE_ARN" >> $GITHUB_ENV
+          echo "CREATE_HOSTED_ZONE=$CREATE_HOSTED_ZONE" >> $GITHUB_ENV
 
       - name: Set production environment variables
         run: |
@@ -285,7 +291,10 @@ jobs:
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
             SubnetIds=${{ env.SUBNET_IDS }},
-            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            DomainName=${{ env.DOMAIN_NAME }},
+            CertificateArn=${{ env.CERTIFICATE_ARN }},
+            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
