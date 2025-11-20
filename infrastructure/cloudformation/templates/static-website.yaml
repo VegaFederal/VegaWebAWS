@@ -70,11 +70,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-      NotificationConfiguration:
-        CloudWatchConfigurations:
-          - Event: s3:ObjectCreated:*
-            CloudWatchConfiguration:
-              LogGroupName: !Sub "/aws/s3/${AWS::StackName}"
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-website-bucket
