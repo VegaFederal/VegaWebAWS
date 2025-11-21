@@ -100,7 +100,7 @@ Resources:
             Cookies:
               Forward: none
           ViewerProtocolPolicy: redirect-to-https
-          ResponseHeadersPolicy: !Ref SecurityHeadersPolicy
+          ResponseHeadersPolicyId: !Ref SecurityHeadersPolicy
         PriceClass: PriceClass_100
         Aliases: !If
           - HasCustomDomain
