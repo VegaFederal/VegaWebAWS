@@ -226,6 +226,7 @@ Resources:
         SampledRequestsEnabled: true
         CloudWatchMetricsEnabled: true
         MetricName: !Sub "${AWS::StackName}-WebACL"
+      Tags: []
 
   # Route 53 Hosted Zone
   HostedZone:
