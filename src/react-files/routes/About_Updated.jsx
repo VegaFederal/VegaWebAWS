@@ -228,7 +228,7 @@ const About_Updated = () => {
                         </div>
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-7xl'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-8xl'>
                             {teamMembers.map((member) => (
                                 <div key={member.id} className='flex flex-col items-center'>
                                     {/* Image with veteran logo overlay */}
