@@ -15,7 +15,7 @@ const Careers_Main = () => {
             </header>
 
             {/* Full page iframe with adjusted margin */}
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: '-30px' }}>
                 <iframe 
                     src="https://www.careers-page.com/vega" 
                     style={{
