@@ -106,60 +106,12 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section className="bg-white py-20 w-full px-[5px] md:px-0">
-        <div className="flex flex-col gap-y-8 w-full">
-            {/* Row 1: Image left, text right */}
-            <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
-            <img src={complexProblems} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[336px]" />
-            <div className="flex flex-col items-center md:items-start mx-[5px] md:mx-0">
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-left">No project is too complex.</h6>
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-left">No constraint is too real.</h6>
-            </div>
-            </div>
-            {/* Row 2: Image right, text left */}
-            <div className="flex flex-col md:flex-row-reverse items-center justify-center md:gap-20 lg:gap-60">
-            <img src={ThriveTech} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[291px]" />
-            <div className="flex flex-col items-center md:items-end mx-[5px] md:mx-0">
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-right">We thrive in the nuances</h6>
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-right">where mission meets technology.</h6>
-            </div>
-            </div>
-            {/* Row 3: Image left, text right */}
-            <div className="flex flex-col md:flex-row items-center justify-center md:gap-20 lg:gap-60">
-            <img src={PartnerAutomation} alt="" className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:w-[400px] 2xl:h-[316px]" />
-            <div className="flex flex-col items-center md:items-start mx-[5px] md:mx-0">
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold mb-2 text-center md:text-left">"We are your partner in automation</h6>
-                <h6 className="text-primary text-md md:text-xl 2xl:text-[30px] font-bold text-center md:text-left">and commercial adaptation."</h6>
-            </div>
-            </div>
-        </div>
-    </section>
-    <section class="
-            bg-gray-100   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            py-10                     /* make the section full‑viewport height */
-            sm:overflow-x-visible overflow-x-hidden
-        ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 sm:ml-20 max-w-[22rem] md:max-w-full lg:ml-[10rem] 2xl:ml-[500px] mx-[5px] md:mx-0'>
-            <h1 class='text-2xl md:text-3xl lg:text-4xl text-primary font-bold pt-0'>How We Work:</h1>
-            <ul class='ml-10'>
-                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Small, <span class='font-bold'>elite Tiger Teams</span> — not seat-fillers.</li>
-                <li class='list-disc text-xl md:text-2xl lg:text-3xl mb-[24px]'>Tailored solutions, integrating the best of what you already have.</li>
-                <li class='list-disc text-xl md:text-2xl lg:text-3xl'>Designed for today’s realities, not tomorrow’s promises.</li>
-            </ul>
-        </div>
-    </section>
     <section class="
             bg-white
             sm:overflow-x-visible overflow-x-hidden
             px-[5px] md:px-0
         ">
-        <div class='flex items-center justify-center h-30 md:h-10 lg:h-15 md:pt-10 lg:pt-15 md:max-w-full mx-[5px] md:mx-0'>
-            <h1 class='text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl  text-center  font-extrabold text-secondary '>"A handshake still means something to us here."</h1>
-        </div>
-        <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30 md:mt-10 lg:mt-15 overflow-x-hidden mx-[5px] md:mx-0'>
+        <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30  overflow-x-hidden mx-[5px] md:mx-0'>
             <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
         </div>
         <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] mx-[5px] md:mx-0'>
@@ -188,27 +140,6 @@ const Home = () => {
                 <li class='list-disc text-xl'>We deliver effective, tested solutions.</li>
             </ul>
         </div>
-    </section>
-    <section class="
-            bg-primary   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            sm:h-screen h-180                        /* make the section full‑viewport height */
-            z-[-1]
-            sm:overflow-x-visible overflow-x-hidden
-        ">
-        <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px]'>
-            <h5 class='text-3xl sm:text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-            <h3 class='text-2xl sm:text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
-            <ul class='ml-[34px]'>
-                <li class='text-white text-xl sm:text-[24px] mb-[24px] ml-[-35px] font-bold'>Former government civilians — not career consultants.</li>
-                <li class='text-white text-xl sm:text-[24px] mb-[24px] ml-[-35px] font-bold'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                <li class='text-white text-xl sm:text-[24px] mb-[24px] ml-[-35px] font-bold'>We don’t pitch trendy tech.</li>
-                <li class='text-white text-xl sm:text-[24px] ml-[-35px] font-bold'>We deliver effective, tested solutions.</li>
-            </ul>
-        </div>
-        <img src={stlSkyline} alt='' className="object-contain w-full"/>
     </section>
     <section classname='sm:overflow-x-visible overflow-x-hidden'>
         <Footer></Footer>
