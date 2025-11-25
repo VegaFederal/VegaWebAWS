@@ -13,17 +13,17 @@ const Our_Story = () => {
     return (
         <>
         <section className="">
-            <div className="overflow-hidden h-185 bg-primary">
+            <div className="overflow-hidden h-screen bg-primary">
                 <header className=''>
                         <Navbar color_story='text-secondary'/>
                     </header>
-                <div className="md:absolute md:top-0 md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story-bg.png')] bg-cover bg-no-repeat mt-[100px]">
+                <div className="md:absolute md:top-0 h-screen md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story_Hero_New.png')] bg-cover bg-no-repeat">
                     
-                    <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-115 pb-12 ">
+                    <div className="flex items-start pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-55">
                         <img 
                             src={Arrow} 
                             alt="Arrow pointing to headline" 
-                            className="object-contain h-[8.375rem] w-[5.125rem]" 
+                            className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]"
                             /* 
                             - object-contain: keeps image aspect ratio
                             - h-[8.375rem]: 134px in rem

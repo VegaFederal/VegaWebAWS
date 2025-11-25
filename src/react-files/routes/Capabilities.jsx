@@ -1,10 +1,10 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/Capabilities_GeoAppDev.jpg';
-import myImage3 from '../assets/Capabilities_MobileAppDev.jpg';
-import myImage4 from '../assets/Capabilities_BPA.png';
-import myImage5 from '../assets/Capabilities_PlatformEnt.jpg';
+import myImage2 from '../assets/1_Geospatial_Application.png';
+import myImage3 from '../assets/2_Mobile_Development.png';
+import myImage4 from '../assets/3_Business_Process_BPA.png';
+import myImage5 from '../assets/4_Enterprise Platform.png';
 import myImage6 from '../assets/PDF_Download_Icon.png';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
@@ -19,7 +19,7 @@ const Capabilities = () => {
     <>
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Capabilities_Hero_New.png')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
