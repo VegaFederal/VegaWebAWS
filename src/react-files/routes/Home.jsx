@@ -76,13 +76,20 @@ const Home = () => {
         </div>
     </section>
     <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
-            <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px]'>
+            <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
                 <img src={Mission_statement} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
-                <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem]'>
-                    <h1 class='text-2xl md:text-6xl font-bold ml-5  md:pt-0 pt-10'>Mission Statement</h1>
-                    <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-10 pt-5'>Vega Federal Solutions specializes in automation solutions for the Intelligence Community. Founded by former NGA insiders, we deliver geospatial intelligence applications, AI driven system integration, and human-centered design that enhances mission performance.</p>
-                    <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-10 pt-5'>We understand the operational realities of intelligence work. Our automation solutions work within your security constraints, integrate with existing systems, and keep humans in control of critical decisions.</p>
-                    <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5  md:pt-10 pt-5'>Mission-aligned results. Built by insiders that understand the stakes.</h3>
+                <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
+                    <h1 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h1>
+                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
+                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
+                    <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5 mb-5'>Our Mission</h3>
+                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-7'>To empower federal agencies with secure, scalable, and future-ready solutions that enhance mission execution and protect national interests. We focus on technologies and automation that optimize workflows, accelerate modernization, and build operational resilience.</p>
+                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-3'>Our mission is grounded in three principles:</p>
+                    <ul>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Trust — Partnerships built on integrity and transparency.</li>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Security — Solutions that safeguard systems, data, and critical infrastructure.</li>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Impact — Measurable outcomes that improve efficiency and mission readiness.</li>
+                    </ul>
                 </div>
             </div>
         </section>
