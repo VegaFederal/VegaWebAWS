@@ -7,10 +7,10 @@ import VOSB_Logo_2 from '../assets/veterans_logo_new.png';
 import complexProblems from '../assets/Homepage_Image_ComplexProblems.jpg'
 import ThriveTech from '../assets/Homepage_ThriveTech.jpg'
 import PartnerAutomation from '../assets/Homepage_PartnerAutomation.jpg'
-import msnReadSup from '../assets/Homepage_MsnReadSup.jpg'
-import tigerTeam from '../assets/Homepage_TigerTeam.jpg'
-import GeoIntData from '../assets/Homepage_GeoIntData.jpg'
-import AIAutomation from '../assets/Homepage_AI Automation.jpg'
+import msnReadSup from '../assets/Home_card_2.png'
+import tigerTeam from '../assets/Home_card_4.png'
+import GeoIntData from '../assets/Home_card_3.png'
+import AIAutomation from '../assets/Home_card_1.png'
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import './HomeStyles.css'
 import Homepage_Cards from '../components/Homepage_Cards';
@@ -19,6 +19,7 @@ import PDF_Icon from '../assets/PDF_Download_Icon.png'
 import Slack_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
+import Mission_statement from '../assets/Mission_statement.png'
 
 
 
@@ -74,71 +75,50 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white sm:overflow-x-visible overflow-x-hidden px-[5px] md:px-0'>
-        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
-            <img src={ArmyNavy_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
-            <div class='md:mb-0 pb-20 lg:ml-10'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5 xl:ml-[165px] md:pt-0 pt-10'>Who We Are</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5'>We've lived it.</h3>
-                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
-                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
-                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
-                <p class='ml-5 xl:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
+    <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
+            <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
+                <img src={Mission_statement} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
+                <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
+                    <h1 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h1>
+                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
+                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
+                    <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5 mb-5'>Our Mission</h3>
+                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-7'>To empower federal agencies with secure, scalable, and future-ready solutions that enhance mission execution and protect national interests. We focus on technologies and automation that optimize workflows, accelerate modernization, and build operational resilience.</p>
+                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-3'>Our mission is grounded in three principles:</p>
+                    <ul>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Trust — Partnerships built on integrity and transparency.</li>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Security — Solutions that safeguard systems, data, and critical infrastructure.</li>
+                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Impact — Measurable outcomes that improve efficiency and mission readiness.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="
-            bg-[url('./assets/Homepage_first_banner.png')]
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-            py-35
-            z-[-1]
-            sm:overflow-x-visible overflow-x-hidden
-        ">
-        <div class='flex flex-col md:flex-row md:items-center justify-center ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 mx-[5px] md:mx-0'>
-            <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>Mission First. <span class='text-secondary'>Always.</span></h1>
-            <div class='flex flex-col'>
-                <p class='text-xl md:text-[28px] text-white'>Your Partner in Automation &<br/>Commercial Adaptation</p>
-                
-                <p class='text-xl md:text-[24px] text-white mt-[50px]'>We don't sell one-size-fits-all platforms.</p>
-                <p class='text-xl md:text-[24px] text-white font-bold mt-[30px]'>We build the right solution for the mission at hand.</p>
-            </div>
-        </div>
-    </section>
+        </section>
     <section class="
             bg-white
             sm:overflow-x-visible overflow-x-hidden
             px-[5px] md:px-0
         ">
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30  overflow-x-hidden mx-[5px] md:mx-0'>
-            <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>What We Deliver</h1>
+            <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>Core Capabilities</h1>
         </div>
         <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] mx-[5px] md:mx-0'>
-            <Homepage_Cards image={AIAutomation} title='AI Automation' description_one='Automating the tasks that slow you down.' description_two=' Optimizing what matters'/>
-            <Homepage_Cards image={msnReadSup} title='Mission Readiness Support' description_one='Ensuring technology truly serves the operator—and the warfighter.'/>
-            <Homepage_Cards image={GeoIntData} title='Geospatial Intelligence & Data' description_one='Actionable insights.' description_two='Custom-built tools to enhance decision-making.'/>
-            <Homepage_Cards image={tigerTeam} title='Tiger Team Engagement' description_one='Expert-led engagements from concept to deployment.' description_two='Every time.'/>
+            <Homepage_Cards image={AIAutomation} title='Geospatial Application Development & Intelligence Visualization' description_one='Mission-ready geospatial tools and visualizations that help analysts interpret, act, and deliver insight at speed..'/>
+            <Homepage_Cards image={msnReadSup} title='AI & Machine Learning Integration' description_one='Applied AI and machine learning that enhance intelligence workflows and speed decision-making—without adding complexity.'/>
+            <Homepage_Cards image={GeoIntData} title='Mission-Critical  UX Design' description_one='Human-centered design for classified systems—clarity, usability, and confidence in high-stakes environments.'/>
+            <Homepage_Cards image={tigerTeam} title='Cloud Infrastructure & DevSecOps' description_one='Secure, scalable cloud and DevSecOps pipelines engineered for mission tempo and IC compliance.'/>
         </div>
     </section>
-    <section class="
-            bg-white   /* ← your image */
-            bg-cover            /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don't tile it */
-            py-20                   /* make the section full‑viewport height */
-            sm:overflow-x-visible overflow-x-hidden
-        ">
-        <div class='flex flex-col items-left gap-5 md:gap-15 ml-10 md:ml-30 lg:ml-[10rem] 2xl:ml-[500px] '>
-            <h1 class='text-3xl md:text-[48px] text-primary font-bold pt-20 md:pt-0'>Why Vega?</h1>
-            <h3 class='text-3xl md:text-[40px] text-secondary '>Because we’ve been you.</h3>
-            <h3 class='text-xl md:text-[24px] text-primary mt-[15px] font-bold'>We understand the weight behind every acquisition, every dollar, every decision.</h3>
-            <ul class='ml-[34px]'>
-                <li class='list-disc text-xl mb-[24px]'>Former government civilians — not career consultants.</li>
-                <li class='list-disc text-xl mb-[24px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                <li class='list-disc text-xl mb-[24px]'>We don’t pitch trendy tech.</li>
-                <li class='list-disc text-xl'>We deliver effective, tested solutions.</li>
-            </ul>
+    <section class='bg-white sm:overflow-x-visible overflow-x-hidden px-[5px] md:px-0 pt-10'>
+        <h2 class='text-white text-2xl md:text-4xl font-bold pt-5 pb-5 bg-primary w-full text-center'>Who We Are</h2>
+        <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
+            <img src={ArmyNavy_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
+            <div class='md:mb-0 pb-20 lg:ml-10'>
+                <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5 pb-20'>We've lived it.</h3>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>We knew there was a better way — practical, agile, mission-first.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] pt-5'>Vega brings together automation, AI, and deep domain expertise to unlock efficiency and readiness.</p>
+                <p class='ml-5 xl:ml-[165px] text-primary text-lg font-bold md:text-[24px] pt-5'>No hype. Just solutions that work, today.</p>
+            </div>
         </div>
     </section>
     <section classname='sm:overflow-x-visible overflow-x-hidden'>
