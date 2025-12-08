@@ -4,11 +4,13 @@ import Capabilities from './routes/Capabilities.jsx'
 import Our_Story from './routes/Our_Story.jsx'
 import Careers_Main from './routes/Careers_Main.jsx'
 import About_Updated from './routes/About_Updated.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/Capabilities" element={<Capabilities />}/>

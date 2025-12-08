@@ -260,7 +260,7 @@ const About_Updated = () => {
                                     {/* Details */}
                                     <ul className='flex flex-col items-center space-y-2'>
                                         {member.details.map((detail, index) => (
-                                            <li key={index} className='text-vega-pink text-lg md:text-xl text-center max-w-[300px]'>
+                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
                                             </li>
                                         ))}
@@ -270,6 +270,9 @@ const About_Updated = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section classname='sm:overflow-x-visible overflow-x-hidden'>
+                <Footer></Footer>
             </section>
 
         </>
