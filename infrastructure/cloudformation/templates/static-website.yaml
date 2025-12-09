@@ -252,6 +252,10 @@ Outputs:
   WebsiteBucketName:
     Description: S3 Bucket for website content
     Value: !Ref WebsiteBucket
+
+  CloudFrontLogsBucketName:
+    Description: S3 Bucket for CloudFront logs
+    Value: !Ref CloudFrontLogsBucket
     
   CloudFrontDistributionDomainName:
     Description: CloudFront Distribution Domain Name
