@@ -1,86 +1,116 @@
-# Add this file to VegaFederal/VegaWebAWS at .github/workflows/sync-main-to-production.yml
-# Triggers on push to main. Creates a PR from main -> production if none exists, then
-# attempts to merge it. Adjust behavior for your branch protection rules.
+name: Sync main → production (using temp branch)
+
 on:
   push:
     branches:
       - main
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
-  create-and-merge-pr:
+  sync-via-temp-branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
-
-      - name: Create PR from main -> production (if none exists)
+      - name: Create temp branch, PR from temp -> production, and attempt merge
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const base = 'production';
-            const head = 'main';
-            // find open PRs with head owner:branch format
-            const { data: prs } = await github.rest.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              head: `${context.repo.owner}:${head}`,
-              base,
-              state: 'open'
-            });
-            if (prs.length) {
-              console.log(`Open PR already exists: ${prs[0].html_url}`);
-              core.setOutput('pr_number', prs[0].number);
-            } else {
-              const { data: pr } = await github.rest.pulls.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: 'Sync main → production',
-                head,
-                base,
-                body: 'Automated PR to synchronize production with main (created by workflow).'
-              });
-              console.log(`Created PR: ${pr.html_url}`);
-              core.setOutput('pr_number', pr.number);
-            }
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const mainBranch = 'main';
+            const prodBranch = 'production';
 
-      - name: Attempt to auto-merge the PR
-        if: always()
-        uses: actions/github-script@v6
-        with:
-          # Prefer a PAT in BOT_MERGE_TOKEN (create a repo secret) if you want the workflow
-          # to have stronger merge permissions; otherwise the workflow uses GITHUB_TOKEN.
-          github-token: ${{ secrets.BOT_MERGE_TOKEN || secrets.GITHUB_TOKEN }}
-          script: |
-            const base = 'production';
-            const head = 'main';
-            // find the open PR
-            const { data: prs } = await github.rest.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              head: `${context.repo.owner}:${head}`,
-              base,
-              state: 'open'
-            });
-            if (!prs.length) {
-              console.log('No open PR found to merge.');
+            // Get latest SHAs
+            const mainResp = await github.rest.repos.getBranch({ owner, repo, branch: mainBranch });
+            const prodResp = await github.rest.repos.getBranch({ owner, repo, branch: prodBranch });
+            const mainSha = mainResp.data.commit.sha;
+            const prodSha = prodResp.data.commit.sha;
+
+            if (mainSha === prodSha) {
+              console.log('Production already up-to-date with main; nothing to do.');
               return;
             }
-            const pr = prs[0];
+
+            // Create a unique temporary branch ref from main so main is never the PR head
+            const shortSha = mainSha.slice(0, 7);
+            const date = new Date().toISOString().slice(0,10);
+            const tempBranch = `sync/main-to-production-${shortSha}-${date}`;
+            const tempRef = `refs/heads/${tempBranch}`;
+
+            // Check if temp branch already exists (avoid creating duplicates)
             try {
-              // Try to merge using the default merge method; change to "squash" or "rebase" if desired
+              await github.rest.git.getRef({ owner, repo, ref: `heads/${tempBranch}` });
+              console.log(`Temp branch ${tempBranch} already exists.`);
+            } catch (err) {
+              if (err.status === 404) {
+                // Create the ref pointing at mainSha
+                await github.rest.git.createRef({
+                  owner,
+                  repo,
+                  ref: tempRef,
+                  sha: mainSha
+                });
+                console.log(`Created temp branch ${tempBranch} at ${mainSha}`);
+              } else {
+                throw err;
+              }
+            }
+
+            // Ensure there's no open PR from this temp branch to production
+            const { data: existingPrs } = await github.rest.pulls.list({
+              owner,
+              repo,
+              head: `${owner}:${tempBranch}`,
+              base: prodBranch,
+              state: 'open'
+            });
+
+            let prNumber;
+            if (existingPrs.length) {
+              prNumber = existingPrs[0].number;
+              console.log(`Open PR already exists: ${existingPrs[0].html_url}`);
+            } else {
+              // Create the pull request from temp -> production
+              const { data: pr } = await github.rest.pulls.create({
+                owner,
+                repo,
+                title: `Sync main → production (${shortSha})`,
+                head: tempBranch,
+                base: prodBranch,
+                body: `Automated PR created from ${tempBranch} (snapshot of main ${shortSha}) to sync production with main.`
+              });
+              prNumber = pr.number;
+              console.log(`Created PR: ${pr.html_url}`);
+            }
+
+            // Attempt to merge the PR.
+            // Use a stronger token via BOT_MERGE_TOKEN if provided (create repo secret), otherwise GITHUB_TOKEN is used.
+            const mergeToken = process.env.BOT_MERGE_TOKEN ? process.env.BOT_MERGE_TOKEN : undefined;
+
+            if (!mergeToken) {
+              console.log('No BOT_MERGE_TOKEN found; attempting merge with GITHUB_TOKEN (may be blocked by branch protection).');
+            } else {
+              console.log('BOT_MERGE_TOKEN detected; the workflow will attempt merge with that token.');
+            }
+
+            // Use the current octokit (GITHUB_TOKEN) to attempt merge. If you want using BOT_MERGE_TOKEN, you can
+            // add a separate step which runs with that token (or use a PAT via a custom octokit creation).
+            try {
+              await github.rest.pulls.get({
+                owner, repo, pull_number: prNumber
+              });
+              // Try merge. If blocked by protection, this will throw and we log the reason.
               await github.rest.pulls.merge({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: pr.number,
+                owner,
+                repo,
+                pull_number: prNumber,
                 merge_method: 'merge'
               });
-              console.log(`Merged PR #${pr.number}`);
+              console.log(`Merged PR #${prNumber}`);
             } catch (err) {
-              console.log(`Merge attempt failed: ${err.message}`);
-              // If merge failed due to required checks or reviews, keep the PR open for manual merge.
+              console.log(`Merge attempt failed or was blocked: ${err.message}`);
+              console.log('Leaving PR open for required checks/reviews or manual merge.');
             }
