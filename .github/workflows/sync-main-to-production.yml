@@ -1,4 +1,4 @@
-name: Sync main → production (using temp branch)
+name: "Sync main -> production (using temp branch)"
 
 on:
   push:
@@ -77,7 +77,7 @@ jobs:
               const { data: pr } = await github.rest.pulls.create({
                 owner,
                 repo,
-                title: `Sync main → production (${shortSha})`,
+                title: `Sync main -> production (${shortSha})`,
                 head: tempBranch,
                 base: prodBranch,
                 body: `Automated PR created from ${tempBranch} (snapshot of main ${shortSha}) to sync production with main.`
@@ -88,21 +88,14 @@ jobs:
 
             // Attempt to merge the PR.
             // Use a stronger token via BOT_MERGE_TOKEN if provided (create repo secret), otherwise GITHUB_TOKEN is used.
-            const mergeToken = process.env.BOT_MERGE_TOKEN ? process.env.BOT_MERGE_TOKEN : undefined;
-
-            if (!mergeToken) {
+            if (!process.env.BOT_MERGE_TOKEN) {
               console.log('No BOT_MERGE_TOKEN found; attempting merge with GITHUB_TOKEN (may be blocked by branch protection).');
             } else {
-              console.log('BOT_MERGE_TOKEN detected; the workflow will attempt merge with that token.');
+              console.log('BOT_MERGE_TOKEN detected; the workflow will attempt merge with that token if implemented in a separate step.');
             }
 
-            // Use the current octokit (GITHUB_TOKEN) to attempt merge. If you want using BOT_MERGE_TOKEN, you can
-            // add a separate step which runs with that token (or use a PAT via a custom octokit creation).
             try {
-              await github.rest.pulls.get({
-                owner, repo, pull_number: prNumber
-              });
-              // Try merge. If blocked by protection, this will throw and we log the reason.
+              // Try merge with the current token (GITHUB_TOKEN).
               await github.rest.pulls.merge({
                 owner,
                 repo,
