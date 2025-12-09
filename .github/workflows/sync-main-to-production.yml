@@ -1,0 +1,86 @@
+# Add this file to VegaFederal/VegaWebAWS at .github/workflows/sync-main-to-production.yml
+# Triggers on push to main. Creates a PR from main -> production if none exists, then
+# attempts to merge it. Adjust behavior for your branch protection rules.
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-and-merge-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Create PR from main -> production (if none exists)
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const base = 'production';
+            const head = 'main';
+            // find open PRs with head owner:branch format
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${head}`,
+              base,
+              state: 'open'
+            });
+            if (prs.length) {
+              console.log(`Open PR already exists: ${prs[0].html_url}`);
+              core.setOutput('pr_number', prs[0].number);
+            } else {
+              const { data: pr } = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Sync main → production',
+                head,
+                base,
+                body: 'Automated PR to synchronize production with main (created by workflow).'
+              });
+              console.log(`Created PR: ${pr.html_url}`);
+              core.setOutput('pr_number', pr.number);
+            }
+
+      - name: Attempt to auto-merge the PR
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          # Prefer a PAT in BOT_MERGE_TOKEN (create a repo secret) if you want the workflow
+          # to have stronger merge permissions; otherwise the workflow uses GITHUB_TOKEN.
+          github-token: ${{ secrets.BOT_MERGE_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const base = 'production';
+            const head = 'main';
+            // find the open PR
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${head}`,
+              base,
+              state: 'open'
+            });
+            if (!prs.length) {
+              console.log('No open PR found to merge.');
+              return;
+            }
+            const pr = prs[0];
+            try {
+              // Try to merge using the default merge method; change to "squash" or "rebase" if desired
+              await github.rest.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                merge_method: 'merge'
+              });
+              console.log(`Merged PR #${pr.number}`);
+            } catch (err) {
+              console.log(`Merge attempt failed: ${err.message}`);
+              // If merge failed due to required checks or reviews, keep the PR open for manual merge.
+            }
