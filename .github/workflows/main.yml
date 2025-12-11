@@ -55,7 +55,7 @@ jobs:
       - name: Set cleanup variables
         run: |
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
           echo "Cleaning up branch: $BRANCH_NAME (sanitized: $BRANCH_SAFE)"
           echo "Target stack: $STACK_NAME"
@@ -67,11 +67,9 @@ jobs:
         run: |
           TEMPLATE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Parameters[?ParameterKey=='TemplateBucket'].ParameterValue" --output text 2>/dev/null || echo "")
           WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text 2>/dev/null || echo "")
-          RESUME_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='ResumeBucketName'].OutputValue" --output text 2>/dev/null || echo "")
-          CLOUDFRONT_LOGS_BUCKET="vegawebaws-${{ env.BRANCH_SAFE }}-cloudfront-logs"
+          CLOUDFRONT_LOGS_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='CloudFrontLogsBucketName'].OutputValue" --output text 2>/dev/null || echo "")
           echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
           echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
-          echo "RESUME_BUCKET=$RESUME_BUCKET" >> $GITHUB_ENV
           echo "CLOUDFRONT_LOGS_BUCKET=$CLOUDFRONT_LOGS_BUCKET" >> $GITHUB_ENV
 
       - name: Empty S3 buckets
@@ -79,7 +77,7 @@ jobs:
         run: |
           
           # Empty all buckets with fault tolerance
-          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.RESUME_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET }}" "${{ env.TEMPLATE_BUCKET }}"; do
+          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET }}" "${{ env.TEMPLATE_BUCKET }}"; do
             if [ ! -z "$bucket" ]; then
               echo "Checking bucket: $bucket"
               if aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
@@ -160,7 +158,7 @@ jobs:
         run: |
           # Extract branch name and sanitize for AWS resource naming
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           
           # Use branch name as environment
           ENVIRONMENT="$BRANCH_SAFE"
@@ -249,11 +247,17 @@ jobs:
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
           SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
           AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
+          DOMAIN_NAME=$(jq -r '.domainName // ""' $CONFIG_FILE)
+          CERTIFICATE_ARN=$(jq -r '.certificateArn // ""' $CONFIG_FILE)
+          CREATE_HOSTED_ZONE=$(jq -r '.createHostedZone // "false"' $CONFIG_FILE)
 
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
           echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
+          echo "DOMAIN_NAME=$DOMAIN_NAME" >> $GITHUB_ENV
+          echo "CERTIFICATE_ARN=$CERTIFICATE_ARN" >> $GITHUB_ENV
+          echo "CREATE_HOSTED_ZONE=$CREATE_HOSTED_ZONE" >> $GITHUB_ENV
 
       - name: Set production environment variables
         run: |
@@ -285,7 +289,10 @@ jobs:
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
             SubnetIds=${{ env.SUBNET_IDS }},
-            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            DomainName=${{ env.DOMAIN_NAME }},
+            CertificateArn=${{ env.CERTIFICATE_ARN }},
+            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
@@ -345,7 +352,7 @@ jobs:
       - name: Set cleanup variables
         run: |
           BRANCH_NAME="${{ github.event.inputs.branch || 'main' }}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           echo "BRANCH_SAFE=$BRANCH_SAFE" >> $GITHUB_ENV
@@ -355,16 +362,15 @@ jobs:
         run: |
           TEMPLATE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Parameters[?ParameterKey=='TemplateBucket'].ParameterValue" --output text 2>/dev/null || echo "")
           WEBSITE_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" --output text 2>/dev/null || echo "")
+          CLOUDFRONT_LOGS_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='CloudFrontLogsBucketName'].OutputValue" --output text 2>/dev/null || echo "")
           echo "TEMPLATE_BUCKET=$TEMPLATE_BUCKET" >> $GITHUB_ENV
           echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
+          echo "CLOUDFRONT_LOGS_BUCKET=$CLOUDFRONT_LOGS_BUCKET" >> $GITHUB_ENV
 
       - name: Empty S3 buckets
         continue-on-error: true
         run: |
-          RESUME_BUCKET=$(aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} --query "Stacks[0].Outputs[?OutputKey=='ResumeBucketName'].OutputValue" --output text 2>/dev/null || echo "")
-          CLOUDFRONT_LOGS_BUCKET="vegawebaws-${{ env.BRANCH_SAFE }}-cloudfront-logs"
-          
-          for bucket in "${{ env.WEBSITE_BUCKET }}" "$RESUME_BUCKET" "$CLOUDFRONT_LOGS_BUCKET" "${{ env.TEMPLATE_BUCKET }}"; do
+          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET}}" "${{ env.TEMPLATE_BUCKET }}"; do
             if [ ! -z "$bucket" ]; then
               echo "Checking bucket: $bucket"
               if aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then

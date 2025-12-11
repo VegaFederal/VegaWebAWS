@@ -30,6 +30,22 @@ Parameters:
     Default: subnet-02615277a84a5fcb4
     Description: List of existing subnet IDs for deployment
 
+  DomainName:
+    Type: String
+    Default: ""
+    Description: Custom domain name (e.g., example.com)
+
+  CertificateArn:
+    Type: String
+    Default: ""
+    Description: ACM Certificate ARN for HTTPS
+
+  CreateHostedZone:
+    Type: String
+    Default: "false"
+    AllowedValues: ["true", "false"]
+    Description: Create Route 53 hosted zone for domain
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -53,6 +69,9 @@ Resources:
       TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
       Parameters:
         Environment: !Ref Environment
+        DomainName: !Ref DomainName
+        CertificateArn: !Ref CertificateArn
+        CreateHostedZone: !Ref CreateHostedZone
       Tags:
         - Key: Environment
           Value: !Ref Environment

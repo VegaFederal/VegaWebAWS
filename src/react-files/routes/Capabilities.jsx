@@ -1,10 +1,10 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/Capabilities_GeoAppDev.jpg';
-import myImage3 from '../assets/Capabilities_MobileAppDev.jpg';
-import myImage4 from '../assets/Capabilities_BPA.png';
-import myImage5 from '../assets/Capabilities_PlatformEnt.jpg';
+import myImage2 from '../assets/1_Geospatial_Application.png';
+import myImage3 from '../assets/2_Mobile_Development.png';
+import myImage4 from '../assets/3_Business_Process_BPA.png';
+import myImage5 from '../assets/4_Enterprise Platform.png';
 import myImage6 from '../assets/PDF_Download_Icon.png';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
@@ -19,7 +19,7 @@ const Capabilities = () => {
     <>
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Capabilities_Hero_New.png')] bg-cover bg-center bg-no-repeat">
                 <header>
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
@@ -158,46 +158,7 @@ const Capabilities = () => {
         </div>
     </section>  
 
-    <section class="
-            bg-white   /* ← your image */
-            bg-cover                        /* cover the entire area */
-            bg-center                       /* center it */
-            bg-no-repeat                    /* don’t tile it */
-                                    /* make the section full‑viewport height */
-        ">
-        <div class='flex items-center '>
-            <div class='flex flex-col items-baseline justify-items-center gap-5 md:gap-15 ml-15 md:ml-30 lg:ml-[12rem] pt-16 pb-16 mr-[10px]'>
-                <h1 class='text-2xl md:text-[48px] text-primary font-bold  pt-20 md:pt-0'>Our Approach</h1>
-                <h3 class='text-3xl md:text-[40px] text-secondary '>Vega doesn’t just automate—we adapt, optimize, and integrate.</h3>
-                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>With deep roots in government acquisition and mission readiness, we tailor every solution to the unique environment of our customers. </p>
-                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>We understand the responsibility behind every task, every dollar, and every decision.</p>
-                <p class='text-xl md:text-[24px] text-primary mt-[15px]'>“Mission success isn’t optional — it’s expected. So is our commitment.”</p>
-            </div>
-        </div>
-    </section>
 
-   
-       <section class="
-                   bg-primary   /* ← your image */
-                   bg-cover                        /* cover the entire area */
-                   bg-center                       /* center it */
-                   bg-no-repeat                    /* don’t tile it */
-                   h-screen                        /* make the section full‑viewport height */
-                   z-[-1]
-                   sm:overflow-x-visible overflow-x-hidden
-               ">
-               <div class='flex flex-col items-left gap-15 ml-15 md:ml-30 2xl:ml-[500px] mr-[10px]'>
-                   <h5 class='text-[48px] text-white font-bold mt-[100px]'>Our Roots.</h5>
-                   <h3 class='text-[40px] text-secondary  '>Midwestern Values. Global Impact.</h3>
-                   <ul class='ml-[34px]'>
-                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Former government civilians — not career consultants.</li>
-                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>Deep knowledge of acquisition, readiness, and warfighter needs.</li>
-                       <li class='text-white text-[24px] mb-[24px] ml-[-35px]'>We don’t pitch trendy tech.</li>
-                       <li class='text-white text-[24px] ml-[-35px]'>We deliver effective, tested solutions.</li>
-                   </ul>
-               </div>
-               <img src={stlSkyline} alt='' className="object-contain w-full"/>
-           </section>
            <section classname='sm:overflow-x-visible overflow-x-hidden'>
                <Footer></Footer>
            </section>

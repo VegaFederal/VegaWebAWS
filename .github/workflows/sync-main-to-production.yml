@@ -1,0 +1,109 @@
+name: "Sync main -> production (using temp branch)"
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-via-temp-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create temp branch, PR from temp -> production, and attempt merge
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const mainBranch = 'main';
+            const prodBranch = 'production';
+
+            // Get latest SHAs
+            const mainResp = await github.rest.repos.getBranch({ owner, repo, branch: mainBranch });
+            const prodResp = await github.rest.repos.getBranch({ owner, repo, branch: prodBranch });
+            const mainSha = mainResp.data.commit.sha;
+            const prodSha = prodResp.data.commit.sha;
+
+            if (mainSha === prodSha) {
+              console.log('Production already up-to-date with main; nothing to do.');
+              return;
+            }
+
+            // Create a unique temporary branch ref from main so main is never the PR head
+            const shortSha = mainSha.slice(0, 7);
+            const date = new Date().toISOString().slice(0,10);
+            const tempBranch = `sync/main-to-production-${shortSha}-${date}`;
+            const tempRef = `refs/heads/${tempBranch}`;
+
+            // Check if temp branch already exists (avoid creating duplicates)
+            try {
+              await github.rest.git.getRef({ owner, repo, ref: `heads/${tempBranch}` });
+              console.log(`Temp branch ${tempBranch} already exists.`);
+            } catch (err) {
+              if (err.status === 404) {
+                // Create the ref pointing at mainSha
+                await github.rest.git.createRef({
+                  owner,
+                  repo,
+                  ref: tempRef,
+                  sha: mainSha
+                });
+                console.log(`Created temp branch ${tempBranch} at ${mainSha}`);
+              } else {
+                throw err;
+              }
+            }
+
+            // Ensure there's no open PR from this temp branch to production
+            const { data: existingPrs } = await github.rest.pulls.list({
+              owner,
+              repo,
+              head: `${owner}:${tempBranch}`,
+              base: prodBranch,
+              state: 'open'
+            });
+
+            let prNumber;
+            if (existingPrs.length) {
+              prNumber = existingPrs[0].number;
+              console.log(`Open PR already exists: ${existingPrs[0].html_url}`);
+            } else {
+              // Create the pull request from temp -> production
+              const { data: pr } = await github.rest.pulls.create({
+                owner,
+                repo,
+                title: `Sync main -> production (${shortSha})`,
+                head: tempBranch,
+                base: prodBranch,
+                body: `Automated PR created from ${tempBranch} (snapshot of main ${shortSha}) to sync production with main.`
+              });
+              prNumber = pr.number;
+              console.log(`Created PR: ${pr.html_url}`);
+            }
+
+            // Attempt to merge the PR.
+            // Use a stronger token via BOT_MERGE_TOKEN if provided (create repo secret), otherwise GITHUB_TOKEN is used.
+            if (!process.env.BOT_MERGE_TOKEN) {
+              console.log('No BOT_MERGE_TOKEN found; attempting merge with GITHUB_TOKEN (may be blocked by branch protection).');
+            } else {
+              console.log('BOT_MERGE_TOKEN detected; the workflow will attempt merge with that token if implemented in a separate step.');
+            }
+
+            try {
+              // Try merge with the current token (GITHUB_TOKEN).
+              await github.rest.pulls.merge({
+                owner,
+                repo,
+                pull_number: prNumber,
+                merge_method: 'merge'
+              });
+              console.log(`Merged PR #${prNumber}`);
+            } catch (err) {
+              console.log(`Merge attempt failed or was blocked: ${err.message}`);
+              console.log('Leaving PR open for required checks/reviews or manual merge.');
+            }
