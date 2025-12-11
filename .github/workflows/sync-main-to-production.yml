@@ -86,24 +86,4 @@ jobs:
               console.log(`Created PR: ${pr.html_url}`);
             }
 
-            // Attempt to merge the PR.
-            // Use a stronger token via BOT_MERGE_TOKEN if provided (create repo secret), otherwise GITHUB_TOKEN is used.
-            if (!process.env.BOT_MERGE_TOKEN) {
-              console.log('No BOT_MERGE_TOKEN found; attempting merge with GITHUB_TOKEN (may be blocked by branch protection).');
-            } else {
-              console.log('BOT_MERGE_TOKEN detected; the workflow will attempt merge with that token if implemented in a separate step.');
-            }
-
-            try {
-              // Try merge with the current token (GITHUB_TOKEN).
-              await github.rest.pulls.merge({
-                owner,
-                repo,
-                pull_number: prNumber,
-                merge_method: 'merge'
-              });
-              console.log(`Merged PR #${prNumber}`);
-            } catch (err) {
-              console.log(`Merge attempt failed or was blocked: ${err.message}`);
-              console.log('Leaving PR open for required checks/reviews or manual merge.');
-            }
+            console.log(`PR #${prNumber} created and ready for review/manual merge.`);
