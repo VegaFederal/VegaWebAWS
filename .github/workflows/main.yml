@@ -55,7 +55,7 @@ jobs:
       - name: Set cleanup variables
         run: |
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
           echo "Cleaning up branch: $BRANCH_NAME (sanitized: $BRANCH_SAFE)"
           echo "Target stack: $STACK_NAME"
@@ -158,7 +158,7 @@ jobs:
         run: |
           # Extract branch name and sanitize for AWS resource naming
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           
           # Use branch name as environment
           ENVIRONMENT="$BRANCH_SAFE"
@@ -352,7 +352,7 @@ jobs:
       - name: Set cleanup variables
         run: |
           BRANCH_NAME="${{ github.event.inputs.branch || 'main' }}"
-          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-10)
+          BRANCH_SAFE=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g' | cut -c1-20)
           STACK_NAME="${PROJECT_NAME}-${BRANCH_SAFE}"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           echo "BRANCH_SAFE=$BRANCH_SAFE" >> $GITHUB_ENV
