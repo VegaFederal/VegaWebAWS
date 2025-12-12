@@ -6,7 +6,6 @@
   "awsRegion": "us-east-1",
   "vpcId": "vpc-03d0b258d48f85428",
   "subnetIds": "subnet-0bfc75f544486f0c4",
-  "domainName": "vegafederal.com",
   "createHostedZone": "true",
   "githubRepo": "https://github.com/VegaFederal/VegaWebAWS.git",
   "environment": "production"
