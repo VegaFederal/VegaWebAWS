@@ -15,7 +15,7 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     return (
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             
-            <Link to='/'><img src={myImage} class="w-45 pb-3"></img></Link>
+            <Link to='/'><img src={myImage} alt='Vega Federal logo' class="w-45 pb-3"></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary'>
