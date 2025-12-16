@@ -18,26 +18,16 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
             <Link to='/'><img src={myImage} class="w-45 pb-3"></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li class='text-primary'>
+                <li class='text-primary nav-item'>
                     <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
-                    
                 </li>
-                <li class='text-primary font-bold'>
-                    |
-                </li>
-                <li class='text-primary'>
+                <li class='text-primary nav-item'>
                     <Link to='/Our_Story' class='text-primary'><p class={color_story}>Our Story</p></Link>
                 </li>
-                <li class='text-primary font-bold'>
-                    |
-                </li>
-                <li class='text-primary'>
+                <li class='text-primary nav-item'>
                     <Link to='/Careers'><p class={color_career}>Careers</p></Link>
                 </li>
-                <li class='text-primary font-bold'>
-                    |
-                </li>
-                <li class='text-primary'>
+                <li class='text-primary nav-item'>
                     <Link to='/About'><p class={color_about}>Vega Team</p></Link>
                 </li>
             </ul>
