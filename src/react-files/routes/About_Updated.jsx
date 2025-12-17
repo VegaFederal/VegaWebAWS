@@ -221,7 +221,7 @@ const About_Updated = () => {
                         </div>
                         
                         <div className='flex flex-col items-center mb-[80px] px-4'>
-                            <h3 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h3>
+                            <h2 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h2>
                             <p className='text-white text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
                             <p className='text-white text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
                             <p className='text-white text-base md:text-2xl text-center'>What is your productivity fuel?</p>

@@ -72,7 +72,7 @@ const Capabilities = () => {
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px] lg:pt-30 xl:pt-40 '>
             <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
-                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h1>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Delivering Insights Through Location.</h3>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We build geospatial applications and data services that support critical missions across the National System for Geospatial-Intelligence (NSG) and beyond.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>From scalable platforms to targeted data solutions, Vega helps operators analyze, interpret, and act on complex geospatial data — seamlessly integrated into existing mission environments.</p>
@@ -99,7 +99,7 @@ const Capabilities = () => {
         ">
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 2xl:ml-[6.25rem]'>
-                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mobile Application Development</h1>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mobile Application Development</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Mobile. Performance. Security.</h3>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega crafts mobile applications that deliver high performance in the field or at headquarters.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>From concept through deployment, our team builds custom mobile tools that align to your mission objectives and operational realities.</p>
@@ -117,7 +117,7 @@ const Capabilities = () => {
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-20 md:pt-10 md:px-[100px] lg:pt-20 xl:pt-30'>
             <img src={myImage4} alt='A sleek digital flowchart with interconnected nodes and labels glows in neon pink and blue.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px] "/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10 2xl:ml-[10rem]'>
-                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Business Process Automation (BPA)</h1>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Business Process Automation (BPA)</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Automation. That Works Where You Do.</h3>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We design and implement business process automation tools that simplify complex workflows, eliminate manual tasks, and enable operators to focus on what matters most — the mission.</p> 
                 <ul>
@@ -143,7 +143,7 @@ const Capabilities = () => {
         ">
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
-                <h1 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h1>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Optimizing Infrastructure. Enabling Scale.</h3>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega delivers resilient platforms and enterprise services that meet mission demands while respecting government realities.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We specialize in hybrid-cloud, on-premise, and secure environments, optimizing your infrastructure without disrupting operations.</p>
