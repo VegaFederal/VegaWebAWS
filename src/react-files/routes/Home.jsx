@@ -47,7 +47,7 @@ const Home = () => {
                     */}
                     <img 
                         src={Arrow} 
-                        alt="Arrow pointing to Mission Statement on the right" 
+                        alt="" 
                         className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
                         /* 
                         - object-contain: keeps image aspect ratio
@@ -65,12 +65,12 @@ const Home = () => {
                 <div className='flex md:justify-start pt-20 sm:pt-10 md:pt-0 pb-10 sm:pb-20 pl-15 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45 mx-[5px] md:mx-0'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                         <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-secondary hover:bg-red-600 hover:text-white'>
-                            <img src={Slack_Icon} alt="Button to download Capabilities Slick Sheet" className=" h-10 mr-2 inline" />
+                            <img src={Slack_Icon} alt="" className=" h-10 mr-2 inline" />
                             Download Capabilities Slick Sheet
                         </button>
                     </a>
                 </div> 
-                <img src={VOSB_Logo_2} alt='Vega is a veteran‑owned small business' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+                <img src={VOSB_Logo_2} alt='Certified Veteran-Owned Small Business (VOSB) logo' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
 
             </div>
         </div>
@@ -111,7 +111,7 @@ const Home = () => {
     <section class='bg-white sm:overflow-x-visible overflow-x-hidden px-[5px] md:px-0 pt-10'>
         <h2 class='text-white text-2xl md:text-4xl font-bold pt-5 pb-5 bg-primary w-full text-center'>Who We Are</h2>
         <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
-            <img src={ArmyNavy_Logo} alt='Army and Navy logos' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
+            <img src={ArmyNavy_Logo} alt='Logos for the Army and Navy' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 pb-20 lg:ml-10'>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5 pb-20'>We've lived it.</h3>
                 <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
