@@ -15,30 +15,30 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     return (
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             
-            <Link to='/'><img src={myImage} class="w-45 pb-3"></img></Link>
+            <Link to='/' onClick={() => document.activeElement?.blur()}><img src={myImage} class="w-45 pb-3" alt="Vega Federal Logo"></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary'>
-                    <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
+                    <Link to='/Capabilities' onClick={() => document.activeElement?.blur()}><p class={color_capabilities}>Capabilities</p></Link>
                     
                 </li>
                 <li class='text-primary font-bold'>
                     |
                 </li>
                 <li class='text-primary'>
-                    <Link to='/Our_Story' class='text-primary'><p class={color_story}>Our Story</p></Link>
+                    <Link to='/Our_Story' class='text-primary' onClick={() => document.activeElement?.blur()}><p class={color_story}>Our Story</p></Link>
                 </li>
                 <li class='text-primary font-bold'>
                     |
                 </li>
                 <li class='text-primary'>
-                    <Link to='/Careers'><p class={color_career}>Careers</p></Link>
+                    <Link to='/Careers' onClick={() => document.activeElement?.blur()}><p class={color_career}>Careers</p></Link>
                 </li>
                 <li class='text-primary font-bold'>
                     |
                 </li>
                 <li class='text-primary'>
-                    <Link to='/About'><p class={color_about}>Vega Team</p></Link>
+                    <Link to='/About' onClick={() => document.activeElement?.blur()}><p class={color_about}>Vega Team</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>

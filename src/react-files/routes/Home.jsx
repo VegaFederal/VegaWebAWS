@@ -20,14 +20,14 @@ import Slack_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Mission_statement from '../assets/Mission_statement.png'
-
+import SkipLink from '../components/SkipLink'
 
 
 
 const Home = () => {
   return (
-
     <>
+    <SkipLink />
     <section className='hero'>
         <div className="relative w-full hero-lg-aspect h-fit md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className="md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero_New.png')] bg-cover bg-center bg-no-repeat">
@@ -35,8 +35,7 @@ const Home = () => {
                     <Navbar />
                 </header>
 
-                {/* your content here */}
-
+                {/* Skip target - content right after navbar */}
                 <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[rem] lg:mt-[13rem]">
                 {/* 
                     - flex: enables flexbox layout
@@ -49,15 +48,10 @@ const Home = () => {
                         src={Arrow} 
                         alt="Arrow pointing to headline" 
                         className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
-                        /* 
-                        - object-contain: keeps image aspect ratio
-                        - h-[8.375rem]: 134px in rem
-                        - w-[5.125rem]: 82px in rem
-                        */
                     />
 
 
-                    <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
+                    <div id="after-navbar" tabIndex={-1} className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Automate Your Mission</h4>
                         <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.</p>
                     </div>
