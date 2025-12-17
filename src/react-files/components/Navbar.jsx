@@ -42,6 +42,7 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
+                <label>Hamburger menu icon</label>
                 {click ? (<FaTimes size={20} style={{color:'#fff'}} />) : (<FaBars size={20} style={{color: '#fff'}}/>)}
             </div>
             
