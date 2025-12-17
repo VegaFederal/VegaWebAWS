@@ -19,6 +19,7 @@ import robbie from '../assets/About_us/Robbie.png'
 import joseph from '../assets/About_us/Joseph_K.png'
 import RyanE from '../assets/About_us/Ryan_E.png'
 import Jessica from '../assets/About_us/Jessica.png'
+import Kyle from '../assets/About_us/Kyle.png'
 import map from '../assets/About_us/map.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
@@ -193,6 +194,19 @@ const About_Updated = () => {
                 "Home school",
                 "Learning board games",
                 "Doing something that is interesting"
+            ]
+        },
+        {
+            id: 14,
+            name: "Kyle",
+            title: "Senior Geospatial Data Engineer",
+            image: Kyle,
+            veteranLogo: vetArmy,
+            veteranLogoSize: null,
+            details: [
+                "A Catholic school in southern Louisiana",
+                "I have been a clarinetist for nearly 15 years.",
+                "Celsius, Monster, Alani, and Crunchwraps"
             ]
         }
     ];
