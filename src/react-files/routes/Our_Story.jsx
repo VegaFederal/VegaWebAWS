@@ -22,7 +22,7 @@ const Our_Story = () => {
                     <div className="flex items-start pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-55">
                         <img 
                             src={Arrow} 
-                            alt="Arrow pointing to headline" 
+                            alt="" 
                             className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]"
                             /* 
                             - object-contain: keeps image aspect ratio
@@ -53,7 +53,7 @@ const Our_Story = () => {
                 <div className="flex  flex-col items-center max-w-70/100 mx-auto text-left space-y-8 px-4 pt-20">
                 <h1 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h1>
                 <div class='flex flex-col xl:flex-row items-center gap-30'>
-                    <img src={RyanPHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+                    <img src={RyanPHeadshot} alt='Headshot of Ryan Phillips' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col'>
                         <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Veteran | Technologist | Mission Partner</p>
@@ -62,7 +62,7 @@ const Our_Story = () => {
                     </div>
                 </div>
                 <div class='flex flex-col xl:flex-row-reverse items-center gap-30 mt-20'>
-                    <img src={ThembaHHeadshot} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
+                    <img src={ThembaHHeadshot} alt='Headshot of Themba Hinke' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col pb-30'>
                         <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Themba Hinke</h3>
                         <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Systems Architect | Trusted Government Partner</p>
