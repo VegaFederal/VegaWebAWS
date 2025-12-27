@@ -32,7 +32,7 @@ const Our_Story = () => {
                         />
 
                         <div className='h-[7.5rem] ml-5'>
-                            <h4 className="font-bold text-white text-left text-4xl pb-2">Our Story</h4>
+                            <h1 className="font-bold text-white text-left text-4xl pb-2">Our Story</h1>
                             <p className="max-w-xl text-white text-left text-2xl">Born inside the mission. Built to serve it better.
 
                             </p>
@@ -51,7 +51,7 @@ const Our_Story = () => {
         ">
             <div class='flex justify-center'>
                 <div className="flex  flex-col items-center max-w-70/100 mx-auto text-left space-y-8 px-4 pt-20">
-                <h1 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h1>
+                <h2 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h2>
                 <div class='flex flex-col xl:flex-row items-center gap-30'>
                     <img src={RyanPHeadshot} alt='Headshot of Ryan Phillips' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
                     <div class='flex flex-col'>
@@ -86,9 +86,9 @@ const Our_Story = () => {
         ">
             <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
                 <div className="max-w-70/100 mx-auto text-left space-y-8 px-4">
-                    <h1 class=' text-white text-3xl lg:text-[52px] font-bold'>
+                    <h2 class=' text-white text-3xl lg:text-[52px] font-bold'>
                         Why Vega?
-                    </h1>
+                    </h2>
                     <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5'>
                     The name Vega wasn’t an accident.
                     </h3>
