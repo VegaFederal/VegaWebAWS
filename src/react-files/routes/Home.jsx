@@ -58,7 +58,7 @@ const Home = () => {
 
 
                     <div className='h-[4.75rem] md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Automate Your Mission</h4>
+                        <h1 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Automate Your Mission</h1>
                         <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes.</p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const Home = () => {
             <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
                 <img src={Mission_statement} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
                 <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
-                    <h1 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h1>
+                    <h2 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h2>
                     <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
                     <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
                     <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5 mb-5'>Our Mission</h3>
@@ -99,7 +99,7 @@ const Home = () => {
             px-[5px] md:px-0
         ">
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30  overflow-x-hidden mx-[5px] md:mx-0'>
-            <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>Core Capabilities</h1>
+            <h2 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>Core Capabilities</h2>
         </div>
         <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] mx-[5px] md:mx-0'>
             <Homepage_Cards image={AIAutomation} title='Geospatial Application Development & Intelligence Visualization' description_one='Mission-ready geospatial tools and visualizations that help analysts interpret, act, and deliver insight at speed..'/>
