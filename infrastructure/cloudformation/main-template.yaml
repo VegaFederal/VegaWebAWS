@@ -102,6 +102,11 @@ Outputs:
     Description: CloudFront Distribution ID
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionId
 
+  CloudFrontLogsBucketName:
+    Description: S3 Bucket for CloudFront logs
+    Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontLogsBucketName
+    Export:
+      Name: !Sub ${AWS::StackName}-CloudFrontLogsBucketName
   # CloudFrontDistributionDomainName:
   #   Description: CloudFront Distribution Domain Name
   #   Value: !GetAtt ContactPageStack.Outputs.CloudFrontDistributionDomainName
