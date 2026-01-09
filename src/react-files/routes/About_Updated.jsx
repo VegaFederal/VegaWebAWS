@@ -19,6 +19,7 @@ import robbie from '../assets/About_us/Robbie.png'
 import joseph from '../assets/About_us/Joseph_K.png'
 import RyanE from '../assets/About_us/Ryan_E.png'
 import Jessica from '../assets/About_us/Jessica.png'
+import Kyle from '../assets/About_us/Kyle.png'
 import map from '../assets/About_us/map.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
@@ -195,6 +196,19 @@ const About_Updated = () => {
                 "Learning board games",
                 "Doing something that is interesting"
             ]
+        },
+        {
+            id: 14,
+            name: "Kyle",
+            title: "Senior Geospatial Data Engineer",
+            image: Kyle,
+            veteranLogo: vetArmy,
+            veteranLogoSize: null,
+            details: [
+                "A Catholic school in southern Louisiana",
+                "I have been a clarinetist for nearly 15 years.",
+                "Celsius, Monster, Alani, and Crunchwraps"
+            ]
         }
     ];
 
@@ -223,14 +237,14 @@ const About_Updated = () => {
                         </div>
                         
                         <div className='flex flex-col items-center mb-[80px] px-4'>
-                            <h3 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h3>
+                            <h2 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h2>
                             <p className='text-white text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
                             <p className='text-white text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
                             <p className='text-white text-base md:text-2xl text-center'>What is your productivity fuel?</p>
                         </div>
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-7xl'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-8xl'>
                             {teamMembers.map((member) => (
                                 <div key={member.id} className='flex flex-col items-center'>
                                     {/* Image with veteran logo overlay */}

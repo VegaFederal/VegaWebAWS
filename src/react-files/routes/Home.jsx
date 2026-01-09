@@ -46,7 +46,7 @@ const Home = () => {
                     */}
                     <img 
                         src={Arrow} 
-                        alt="Arrow pointing to headline" 
+                        alt="" 
                         className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
                     />
 
@@ -59,21 +59,21 @@ const Home = () => {
                 <div className='flex md:justify-start pt-20 sm:pt-10 md:pt-0 pb-10 sm:pb-20 pl-15 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45 mx-[5px] md:mx-0'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
                         <button className='py-2 px-3 md:px-7 md:py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl md:text-xl text-sm font-semibold text-white rounded-2xl bg-secondary hover:bg-red-600 hover:text-white'>
-                            <img src={Slack_Icon} alt="PDF Icon" className=" h-10 mr-2 inline" />
+                            <img src={Slack_Icon} alt="" className=" h-10 mr-2 inline" />
                             Download Capabilities Slick Sheet
                         </button>
                     </a>
                 </div> 
-                <img src={VOSB_Logo_2} alt='VOSB Logo' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+                <img src={VOSB_Logo_2} alt='Certified Veteran-Owned Small Business (VOSB) logo' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
 
             </div>
         </div>
     </section>
     <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
             <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
-                <img src={Mission_statement} alt='' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
+                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
                 <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
-                    <h1 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h1>
+                    <h2 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h2>
                     <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
                     <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
                     <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5 mb-5'>Our Mission</h3>
@@ -93,7 +93,7 @@ const Home = () => {
             px-[5px] md:px-0
         ">
         <div class='flex flex-col items-center bg-primary h-20 md:h-30 lg:h-30  overflow-x-hidden mx-[5px] md:mx-0'>
-            <h1 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>Core Capabilities</h1>
+            <h2 class='text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-5 md:mt-10'>Core Capabilities</h2>
         </div>
         <div class='flex flex-col items-center md:flex-row gap-10 md:gap-1 lg:gap-5 md:mt-5 mt-[50px] mx-[5px] md:mx-0'>
             <Homepage_Cards image={AIAutomation} title='Geospatial Application Development & Intelligence Visualization' description_one='Mission-ready geospatial tools and visualizations that help analysts interpret, act, and deliver insight at speed..'/>
@@ -105,7 +105,7 @@ const Home = () => {
     <section class='bg-white sm:overflow-x-visible overflow-x-hidden px-[5px] md:px-0 pt-10'>
         <h2 class='text-white text-2xl md:text-4xl font-bold pt-5 pb-5 bg-primary w-full text-center'>Who We Are</h2>
         <div class='flex flex-col md:flex-row items-center px-4 pt-5 md:pt-10 md:px-[100px] lg:pt-10 xl:pt-20'>
-            <img src={ArmyNavy_Logo} alt='' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
+            <img src={ArmyNavy_Logo} alt='Logos for the Army and Navy' className="object-contain h-40 w-50 md:h-70 md:w-40 lg:w-80 lg:mb-[120px] 2xl:w-80"/>
             <div class='md:mb-0 pb-20 lg:ml-10'>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5 xl:ml-[165px] md:pt-5 pt-5 pb-20'>We've lived it.</h3>
                 <p class='ml-5 xl:ml-[165px] text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega was founded by former government civilians who saw firsthand the challenges of delivering automation to the warfighter.</p>
