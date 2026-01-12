@@ -1,0 +1,21 @@
+/* Banner Section */
+/* Shared utilities (bg colors, text colors) imported globally in index.css */
+
+.banner-section {
+  padding: 2rem 0;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .banner-section {
+    padding: 3rem 0;
+  }
+}
+
+.banner-title {
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  /* Font size handled by typography.css (h2) */
+}
+

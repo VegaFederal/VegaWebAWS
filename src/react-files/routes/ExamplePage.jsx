@@ -1,0 +1,130 @@
+import React from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import {
+  HeroSection,
+  TwoColumnSection,
+  BannerSection,
+  GridCardSection,
+  CenteredContentSection
+} from '../components/sections'
+import Mission_statement from '../assets/Mission_statement.png'
+import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
+import Homepage_Hero from '../assets/rawImage.jpg'
+import VOSB_Logo from '../assets/veterans_logo_new.png'
+import './ExamplePage.css'
+
+/**
+ * ExamplePage - Demonstrates how to use section components
+ * 
+ * This is an example of how to create a new page using the template system.
+ * Simply import the sections you need and compose your page.
+ * All typography and utilities are handled globally.
+ */
+const ExamplePage = () => {
+  return (
+    <div className="example-page">
+      {/* Navbar */}
+      <header>
+        <Navbar />
+      </header>
+
+      {/* Hero Section */}
+      <HeroSection
+        backgroundImage={Homepage_Hero}
+        backgroundColor=""
+        imageOpacity={0.6}
+        imageBlur="2px"
+        title="Automate Your Mission"
+        subtitle="AI-powered solutions. Mission-aligned results. Built by insiders who understand the stakes."
+        logoSize="180px"
+        logoImage={VOSB_Logo}
+        logoAlt="Certified Veteran-Owned Small Business (VOSB) logo"
+        ctaText="View Our Capabilities"
+        ctaLink="/Capabilities"
+        height="85vh"
+      />
+
+      {/* Two-Column Section */}
+      <TwoColumnSection
+        image={Mission_statement}
+        imageAlt="Mission statement"
+        imageFirst={true}
+        content={
+          <div>
+            <h2>Overview</h2>
+            <p>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
+            <p>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
+          </div>
+        }
+        bgColor="bg-white"
+      />
+
+      {/* Banner Section */}
+      <BannerSection
+        title="Core Capabilities"
+        bgColor="bg-primary"
+        textColor="text-white"
+      />
+
+      {/* Grid Card Section */}
+      <GridCardSection
+        cards={[
+          <div key="1" style={{ background: '#f2f2f7', padding: '2rem', borderRadius: '8px', textAlign: 'center' }}>
+            <h3>Capability 1</h3>
+            <p>Description of capability</p>
+          </div>,
+          <div key="2" style={{ background: '#f2f2f7', padding: '2rem', borderRadius: '8px', textAlign: 'center' }}>
+            <h3>Capability 2</h3>
+            <p>Description of capability</p>
+          </div>,
+          <div key="3" style={{ background: '#f2f2f7', padding: '2rem', borderRadius: '8px', textAlign: 'center' }}>
+            <h3>Capability 3</h3>
+            <p>Description of capability</p>
+          </div>,
+          <div key="4" style={{ background: '#f2f2f7', padding: '2rem', borderRadius: '8px', textAlign: 'center' }}>
+            <h3>Capability 4</h3>
+            <p>Description of capability</p>
+          </div>
+        ]}
+        columns={{ mobile: 1, tablet: 2, desktop: 4 }}
+        bgColor="bg-white"
+      />
+
+      {/* Centered Content Section */}
+      <CenteredContentSection
+        content={
+          <div>
+            <h2 style={{ textAlign: 'center' }}>Our Mission</h2>
+            <p style={{ textAlign: 'center' }}>To empower federal agencies with secure, scalable, and future-ready solutions.</p>
+          </div>
+        }
+        bgColor="bg-white"
+        maxWidth="default"
+      />
+
+      {/* Reversed Two-Column Section */}
+      <TwoColumnSection
+        image={ArmyNavy_Logo}
+        imageAlt="Army and Navy logos"
+        imageFirst={false}
+        content={
+          <div>
+            <h3 style={{ color: '#DD004A' }}>We've lived it.</h3>
+            <p>Vega was founded by former government civilians who saw firsthand the challenges.</p>
+            <p>We knew there was a better way — practical, agile, mission-first.</p>
+          </div>
+        }
+        bgColor="bg-white"
+      />
+
+      {/* Footer */}
+      <section className="footer-section">
+        <Footer />
+      </section>
+    </div>
+  )
+}
+
+export default ExamplePage
+
