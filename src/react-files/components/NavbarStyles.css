@@ -73,6 +73,9 @@
         width: 160px; /* Default logo width for medium screens */
         height: auto;
     }
+    .header img:hover {
+    width: 175px;
+    }
     
     .nav-menu.active {
         left: 0;
@@ -91,7 +94,7 @@
     }
 
     .nav-menu li.nav-item:not(:last-child) {
-        border-right: 2px solid #001837;
+        border-right: 2px solid #fff;
         padding-right: 1rem;
     }
 

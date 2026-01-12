@@ -19,16 +19,16 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary nav-item'>
-                    <Link to='/Capabilities'><p class={color_capabilities}>Capabilities</p></Link>
+                    <Link to='/Capabilities'><p class={color_capabilities} className='text-white xl:text-primary'>Capabilities</p></Link>
+                </li>
+                <li class='text-white nav-item'>
+                    <Link to='/Our_Story'><p class={color_story} className='text-white xl:text-primary'>Our Story</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
-                    <Link to='/Our_Story' class='text-primary'><p class={color_story}>Our Story</p></Link>
+                    <Link to='/Careers'><p class={color_career} className='text-white xl:text-primary'>Careers</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
-                    <Link to='/Careers'><p class={color_career}>Careers</p></Link>
-                </li>
-                <li class='text-primary nav-item'>
-                    <Link to='/About'><p class={color_about}>Vega Team</p></Link>
+                    <Link to='/About'><p class={color_about} className='text-white xl:text-primary'>Vega Team</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
