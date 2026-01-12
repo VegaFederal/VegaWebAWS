@@ -213,14 +213,14 @@ const About_Updated = () => {
         {
             id: 15,
             name: "Brian",
-            title: "",
+            title: "Filler",
             image: Brian,
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "",
-                "",
-                ""
+                "Lexington High School in Lexington, MA.",
+                "I'm surprisingly good at \"la erre vibrante\".",
+                "Double espresso with oat milk."
             ]
         }
     ];
