@@ -24,6 +24,15 @@
     width: 115px;
 }
 
+.desktop-image {
+    display: block;
+    z-index: 1; 
+}
+
+.mobile-image {
+    display: none;
+}
+
 .nav-menu {
     display: flex;
 }
@@ -52,6 +61,14 @@
     color: red;
 }
 
+.nav-item {
+    color: #001837;
+}
+
+.nav-item:hover {
+    color: red;
+}
+
 @media screen and (max-width:1280px) {
     .header {
         position: fixed;
@@ -75,6 +92,14 @@
     }
     .header img:hover {
     width: 175px;
+    }
+
+    .desktop-image {
+        display: none;
+    }
+
+    .mobile-image {
+        display: block;
     }
     
     .nav-menu.active {
@@ -102,6 +127,10 @@
         font-size: 1.25rem;
         font-weight: semi-bold;
         transition: font-size 0.3s ease;
+    }
+
+    .nav-item {
+        color: white;
     }
 
 }
@@ -143,4 +172,5 @@
     .nav-menu a {
         font-size: 2rem;
     }
+    
 }

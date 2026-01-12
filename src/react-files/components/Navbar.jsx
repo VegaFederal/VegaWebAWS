@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {Link, ScrollRestoration} from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import './NavbarStyles.css'
-import myImage from '../assets/vega_logo_blue.png';
+import Logo_Blue from '../assets/vega_logo_blue.png';
+import Logo_White from '../assets/vega_logo_white.png';
 
 const Navbar = ({color_story, color_capabilities,color_contact, color_partner, color_career, color_about}) => {
     const[click, setClick] = useState(false);
@@ -15,20 +16,21 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     return (
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             
-            <Link to='/'><img src={myImage} alt='Vega Federal logo' class="w-45 pb-3"></img></Link>
+            <Link to='/'><img src={Logo_White} alt='Vega Federal logo' class="w-45 pb-3"className='mobile-image'></img>
+                         <img src={Logo_Blue} alt='Vega Federal logo' class="w-45 pb-3 " className='desktop-image'></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary nav-item'>
-                    <Link to='/Capabilities'><p class={color_capabilities} className='text-white xl:text-primary'>Capabilities</p></Link>
+                    <Link to='/Capabilities'><p class={color_capabilities} className='nav-item'>Capabilities</p></Link>
                 </li>
                 <li class='text-white nav-item'>
-                    <Link to='/Our_Story'><p class={color_story} className='text-white xl:text-primary'>Our Story</p></Link>
+                    <Link to='/Our_Story'><p class={color_story} className='nav-item'>Our Story</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
-                    <Link to='/Careers'><p class={color_career} className='text-white xl:text-primary'>Careers</p></Link>
+                    <Link to='/Careers'><p class={color_career} className='nav-item'>Careers</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
-                    <Link to='/About'><p class={color_about} className='text-white xl:text-primary'>Vega Team</p></Link>
+                    <Link to='/About'><p class={color_about} className='nav-item'>Vega Team</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
