@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {
@@ -6,11 +6,14 @@ import {
   TwoColumnSection,
   BannerSection,
   GridCardSection,
-  CenteredContentSection
+  CenteredContentSection,
+  ParallaxSection
 } from '../components/sections'
 import Mission_statement from '../assets/Mission_statement.png'
+import Mission_statement_2 from '../assets/StandingAroundWhiteboard.jpg'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Homepage_Hero from '../assets/rawImage.jpg'
+import Homepage_first_banner from '../assets/Homepage_first_banner.png'
 import VOSB_Logo from '../assets/veterans_logo_new.png'
 import './ExamplePage.css'
 
@@ -22,6 +25,32 @@ import './ExamplePage.css'
  * All typography and utilities are handled globally.
  */
 const ExamplePage = () => {
+  const parallaxWrapperRef = useRef(null)
+  const [lineVisible, setLineVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLineVisible(true)
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    if (parallaxWrapperRef.current) {
+      observer.observe(parallaxWrapperRef.current)
+    }
+
+    return () => {
+      if (parallaxWrapperRef.current) {
+        observer.unobserve(parallaxWrapperRef.current)
+      }
+    }
+  }, [])
+
   return (
     <div className="example-page">
       {/* Navbar */}
@@ -47,25 +76,45 @@ const ExamplePage = () => {
 
       {/* Two-Column Section */}
       <TwoColumnSection
-        image={Mission_statement}
+        image={Mission_statement_2}
         imageAlt="Mission statement"
-        imageFirst={true}
+        imageFirst={false}
         content={
           <div>
-            <h2>Overview</h2>
+            <h2 style={{ marginBottom: '2rem' }}><span style={{ fontWeight: 'normal' }}>Operating</span><br />With Purpose</h2>
+            <div style={{ 
+                width: '60px', 
+                height: '3px', 
+                backgroundColor: '#DD004A',
+                marginBottom: '2rem'
+              }}></div>
             <p>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
-            <p>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
+            {/* <p>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p> */}
           </div>
         }
         bgColor="bg-white"
       />
 
-      {/* Banner Section */}
+      {/* Parallax Section */}
+      <div ref={parallaxWrapperRef} className={`example-parallax-wrapper ${lineVisible ? 'animate-line' : ''}`}>
+        <div className="example-parallax-vertical-line"></div>
+        <ParallaxSection
+          backgroundImage={Homepage_first_banner}
+          title={<h2 style={{ marginBottom: '2rem' }}><span style={{ fontWeight: 'normal' }}>Our Mission</span><br />Is Your Mission</h2>}
+          content="With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance."
+          overlayOpacity={0.5}
+          imageBlur={0}
+          height="70vh"
+          parallaxSpeed={0.5}
+        />
+      </div>
+
+      {/* Banner Section
       <BannerSection
         title="Core Capabilities"
         bgColor="bg-primary"
         textColor="text-white"
-      />
+      /> */}
 
       {/* Grid Card Section */}
       <GridCardSection

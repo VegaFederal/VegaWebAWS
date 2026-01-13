@@ -9,4 +9,5 @@ export { default as TwoColumnSection } from './TwoColumnSection'
 export { default as CenteredContentSection } from './CenteredContentSection'
 export { default as BannerSection } from './BannerSection'
 export { default as GridCardSection } from './GridCardSection'
+export { default as ParallaxSection } from './ParallaxSection'
 

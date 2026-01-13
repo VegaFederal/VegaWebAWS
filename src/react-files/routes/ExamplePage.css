@@ -12,3 +12,42 @@
   margin-top: 5rem;  /* Adjust this value to increase/decrease spacing */
 }
 
+/* Parallax Section Vertical Line - Example Page Only */
+.example-parallax-wrapper {
+  position: relative;
+}
+
+.example-parallax-vertical-line {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background-color: #DD004A;
+  z-index: 10;
+  pointer-events: none;
+  transition: height 1s ease-out;
+}
+
+.example-parallax-wrapper.animate-line .example-parallax-vertical-line {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .example-parallax-vertical-line {
+    left: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .example-parallax-vertical-line {
+    left: calc(-2rem + max(0px, (100vw - 6rem - 1200px) / 2));
+  }
+}
+
+@media (min-width: 1280px) {
+  .example-parallax-vertical-line {
+    left: calc(-3rem + max(0px, (100vw - 8rem - 1200px) / 2));
+  }
+}
+

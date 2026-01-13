@@ -23,6 +23,8 @@
   grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: center;
+  max-width: 1200px; /* or whatever width you prefer */
+  margin: 0 auto; /* centers the grid */
 }
 
 @media (min-width: 768px) {
@@ -59,11 +61,11 @@
 }
 
 .two-column-reversed .two-column-content {
-  order: 2;
+  order: 1;
 }
 
 .two-column-reversed .two-column-image {
-  order: 1;
+  order: 2;
 }
 
 .two-column-image img {
