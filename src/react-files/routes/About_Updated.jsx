@@ -213,7 +213,7 @@ const About_Updated = () => {
         {
             id: 15,
             name: "Brian",
-            title: "Filler",
+            title: "Director, Solutions Architecture & Delivery",
             image: Brian,
             veteranLogo: null,
             veteranLogoSize: null,
