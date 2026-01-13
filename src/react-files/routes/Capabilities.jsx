@@ -12,11 +12,13 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import Slack_Icon from '../assets/White_Slack_Icon.png'
 import Slack_Sheet from '../assets/Vega Slick Sheet (1) (1).pdf'
+import SkipLink from '../components/SkipLink'
 
 
 const Capabilities = () => {
     return(
     <>
+    <SkipLink />
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
             <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Capabilities_Hero_New.png')] bg-cover bg-center bg-no-repeat">
@@ -47,13 +49,13 @@ const Capabilities = () => {
                     />
 
 
-                    <div className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
-                        <h1 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
-                            Automation.</h1>
-                        <h1 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-10">Mission—Ready Solutions.</h1>
+                    <div id="after-navbar" tabIndex={-1} className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
+                            Automation.</h4>
+                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-10">Mission—Ready Solutions.</h4>
                         <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">At Vega, we specialize in delivering
                             automation, AI, and technology solutions tailored to the realities of government missions. </p>
-                        <p className="max-w-sm md:max-w-140 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">We don’t just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
+                        <p className="max-w-sm md:max-w-140 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">We don't just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
                     </div>
                 </div>
                     <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-40  md:flex-row md:space-y-0 lg:pl-45'>
@@ -68,6 +70,7 @@ const Capabilities = () => {
         </div>
     </section>
 
+    <main id="main-content" tabIndex={-1}>
     <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px] lg:pt-30 xl:pt-40 '>
             <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
@@ -162,6 +165,7 @@ const Capabilities = () => {
            <section classname='sm:overflow-x-visible overflow-x-hidden'>
                <Footer></Footer>
            </section>
+    </main>
     </>
     );
 }
