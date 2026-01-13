@@ -6,12 +6,14 @@ import ThembaHHeadshot from '../assets/OurStory_ThembaHeadshot.jpg'
 import RyanPHeadshot from '../assets/OurStory_RPhilipHeadshot.jpg'
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import Footer from '../components/Footer';
-
+import SkipLink from '../components/SkipLink'
 
 
 const Our_Story = () => {
     return (
         <>
+        <SkipLink />
+        {/* Skip link as first element */}
         <section className="">
             <div className="overflow-hidden h-screen bg-primary">
                 <header className=''>
@@ -31,8 +33,8 @@ const Our_Story = () => {
                             */
                         />
 
-                        <div className='h-[7.5rem] ml-5'>
-                            <h1 className="font-bold text-white text-left text-4xl pb-2">Our Story</h1>
+                        <div id="after-navbar" tabIndex={-1} className='h-[7.5rem] ml-5'>
+                            <h4 className="font-bold text-white text-left text-4xl pb-2">Our Story</h4>
                             <p className="max-w-xl text-white text-left text-2xl">Born inside the mission. Built to serve it better.
 
                             </p>
