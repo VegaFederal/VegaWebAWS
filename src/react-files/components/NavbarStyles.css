@@ -69,6 +69,10 @@
     color: red;
 }
 
+.home {
+     display: none;
+}
+
 @media screen and (max-width:1280px) {
     .header {
         position: fixed;
@@ -133,6 +137,8 @@
         color: white;
     }
 
+    
+
 }
 
 @media screen and (max-width:1024px) {
@@ -171,6 +177,10 @@
 
     .nav-menu a {
         font-size: 2rem;
+    }
+
+    .home {
+        display: block;
     }
     
 }

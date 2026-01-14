@@ -20,6 +20,7 @@ import joseph from '../assets/About_us/Joseph_K.png'
 import RyanE from '../assets/About_us/Ryan_E.png'
 import Jessica from '../assets/About_us/Jessica.png'
 import Kyle from '../assets/About_us/Kyle.png'
+import Brian from '../assets/About_us/Brian.png'
 import map from '../assets/About_us/map.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
@@ -208,6 +209,19 @@ const About_Updated = () => {
                 "A Catholic school in southern Louisiana",
                 "I have been a clarinetist for nearly 15 years.",
                 "Celsius, Monster, Alani, and Crunchwraps"
+            ]
+        },
+        {
+            id: 15,
+            name: "Brian",
+            title: "Director, Solutions Architecture & Delivery",
+            image: Brian,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Lexington High School in Lexington, MA.",
+                "I'm surprisingly good at \"la erre vibrante\".",
+                "Double espresso with oat milk."
             ]
         }
     ];
