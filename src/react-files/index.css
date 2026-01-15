@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./components/typography.css";
 @import "./components/sections/shared/utilities.css";
 
 @theme {

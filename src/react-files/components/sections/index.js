@@ -10,4 +10,7 @@ export { default as CenteredContentSection } from './CenteredContentSection'
 export { default as BannerSection } from './BannerSection'
 export { default as GridCardSection } from './GridCardSection'
 export { default as ParallaxSection } from './ParallaxSection'
+export { default as CarouselSection } from './CarouselSection'
+export { default as LinkedPanelsSection } from './LinkedPanelsSection'
+
 

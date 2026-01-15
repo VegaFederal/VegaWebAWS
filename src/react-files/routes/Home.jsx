@@ -26,7 +26,6 @@ import Mission_statement from '../assets/Mission_statement.png'
 
 const Home = () => {
   return (
-
     <>
     <section className='hero'>
         <div className="relative w-full hero-lg-aspect h-fit md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
