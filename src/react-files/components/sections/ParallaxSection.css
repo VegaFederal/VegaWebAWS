@@ -1,0 +1,103 @@
+/* Parallax Section - Parallax scrolling effect with text overlay */
+/* Shared utilities (page-container) imported globally in index.css */
+
+.parallax-section {
+  position: relative;
+  width: 100%;
+  min-height: var(--section-height, 60vh);
+  height: var(--section-height, 60vh);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.parallax-background {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  transition: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--overlay-opacity, 0.4));
+  z-index: 1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: left;
+  color: #ffffff;
+  padding-bottom: 2rem;
+  padding-top: 0;
+}
+
+.parallax-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.parallax-inner-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.parallax-title {
+  margin-bottom: 1.5rem;
+}
+
+.parallax-title h2 {
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Font size handled by typography.css */
+}
+
+.parallax-text {
+  color: #ffffff;
+}
+
+.parallax-text p {
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  /* Font size handled by typography.css */
+}
+
+@media (min-width: 768px) {
+  .parallax-content {
+    padding-bottom: 3rem;
+    padding-top: 0;
+  }
+  
+  .parallax-title {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .parallax-content {
+    padding-bottom: 4rem;
+    padding-top: 0;
+  }
+}
+
