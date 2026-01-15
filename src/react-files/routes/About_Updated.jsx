@@ -20,9 +20,11 @@ import joseph from '../assets/About_us/Joseph_K.png'
 import RyanE from '../assets/About_us/Ryan_E.png'
 import Jessica from '../assets/About_us/Jessica.png'
 import Kyle from '../assets/About_us/Kyle.png'
+import Brian from '../assets/About_us/Brian.png'
 import map from '../assets/About_us/map.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
+import SkipLink from '../components/SkipLink'
 
 const About_Updated = () => {
     // Team member data - easy to add more people
@@ -208,11 +210,25 @@ const About_Updated = () => {
                 "I have been a clarinetist for nearly 15 years.",
                 "Celsius, Monster, Alani, and Crunchwraps"
             ]
+        },
+        {
+            id: 15,
+            name: "Brian",
+            title: "Director, Solutions Architecture & Delivery",
+            image: Brian,
+            veteranLogo: null,
+            veteranLogoSize: null,
+            details: [
+                "Lexington High School in Lexington, MA.",
+                "I'm surprisingly good at \"la erre vibrante\".",
+                "Double espresso with oat milk."
+            ]
         }
     ];
 
     return(
         <>
+        <SkipLink />
             <section className='about_concept'>
                 <div className='
                     bg-primary
@@ -228,7 +244,7 @@ const About_Updated = () => {
                         </div>
                     </header>
                     
-                    <div className='flex flex-col items-center pt-30'>
+                    <div id="after-navbar" tabIndex={-1} className='flex flex-col items-center pt-30'>
                         {/* Header Section */}
                         <div className='flex justify-center mb-[50px] px-4'>
                             <h1 className='text-white text-3xl md:text-5xl font-bold text-center'>Our Team</h1>
