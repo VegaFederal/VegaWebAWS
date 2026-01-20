@@ -71,7 +71,7 @@ const Home = () => {
     </section>
     <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
             <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
-                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
+                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-full max-w-[40vw] h-auto 2xl:ml-[0px] "/> 
                 <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
                     <h2 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h2>
                     <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
