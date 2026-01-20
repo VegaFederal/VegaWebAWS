@@ -173,14 +173,31 @@ const Capabilities = () => {
     </section>  
 
     <section class='bg-white sm:overflow-x-visable overflow-x-hidden'>
-        <div class='flex flex-col items-center px-4 pt-10 md:pt-20 md:pb-20 md:px-[100px] w-full'>
-            <div class='md:mb-0 xl:mb-15 w-full'>
+        <div class='flex flex-col md:items-center xl:items-start items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] px-4 pt-10 md:pt-20 md:pb-20'>
+            <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem] w-full'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Recent Federal Contracting Activity</h2>
-                <ul>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Missile Defense Agency SHIELD IDIQ —</span> Major contract position, ceiling of $151B, enabling rapid delivery of innovative defense capabilities.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>UI/UX Modernization Initiatives —</span> Supporting federal programs with intuitive, mission-ready interfaces for operators.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Geospatial & Automation Projects —</span> Driving multi-sensor integration and workflow automation across intelligence and defense missions.</li>
-                </ul>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Missile Defense Agency SHIELD IDIQ —</span> Major contract position, ceiling of $151B, enabling rapid delivery of innovative defense capabilities.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>UI/UX Modernization Initiatives —</span> Supporting federal programs with intuitive, mission-ready interfaces for operators.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Geospatial & Automation Projects —</span> Driving multi-sensor integration and workflow automation across intelligence and defense missions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class='bg-[#F2F2F7] sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] px-4 pt-10 md:pt-20 md:pb-20'>
+            <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Why Choose Vega?</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Because When the Mission Matters, Experience Matters.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>At Vega, we’ve walked in your shoes. We know the gravity behind every acquisition, every dollar, and every decision. That’s why we build solutions that work on day one—and keep working when the stakes are highest.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Real Experience, Not Theory</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Our team is made up of former government civilians—not career consultants. We understand the mission because we’ve lived it.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Mission‑First Expertise</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We bring deep knowledge of acquisition, readiness, and warfighter needs. We know what slows teams down—and what accelerates them.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Proven, Practical Solutions</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We don’t chase trends or pitch flashy tech. We deliver automation and engineering that are effective, tested, and built to last.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>A Partner Who Truly Understands</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Because when the mission matters, you need more than a vendor.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>You need a partner who understands the people, the pressure, and the purpose behind every requirement.</p>
             </div>
         </div>
     </section>
