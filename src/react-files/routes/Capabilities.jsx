@@ -75,16 +75,18 @@ const Capabilities = () => {
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px] lg:pt-30 xl:pt-40 '>
             <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Delivering Insights Through Location.</h3>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We build geospatial applications and data services that support critical missions across the National System for Geospatial-Intelligence (NSG) and beyond.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>From scalable platforms to targeted data solutions, Vega helps operators analyze, interpret, and act on complex geospatial data — seamlessly integrated into existing mission environments.</p>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Automation, Application Integration & Machine Learning</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>At Vega, we believe automation is the key to accelerating federal missions. By reducing manual effort, improving accuracy, and connecting the right data to the right people, our solutions let operators focus on what matters most. We integrate applications, workflows, and analytics seamlessly, combining thoughtful engineering with practical automation to enable faster, better-informed decisions.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Mission-enabling and mission-critical geospatial capabilities.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Custom-built applications and data services.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Designed for multi-domain, multi-platform environments.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Enabling smarter decisions and operational advantage.</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Workflow automation tailored to mission processes</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Application integration across secure, highly regulated environments</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Machine learning pipelines that turn complex data into actionable insights</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Test automation that improves reliability and reduces repetitive work</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Data visualization and dashboards for intuitive, actionable information</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>User-centered analytics and mission-specific operational insights</li>
                 </ul>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Mission Impact:</span> Agencies operate with greater speed, accuracy, and confidence, leveraging automation to deliver mission-critical outcomes faster and more reliably.</p>
             </div>
         </div>
     </section>
@@ -102,17 +104,22 @@ const Capabilities = () => {
         ">
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[1.5rem] gap-10 md: px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 2xl:ml-[6.25rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mobile Application Development</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Mobile. Performance. Security.</h3>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega crafts mobile applications that deliver high performance in the field or at headquarters.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>From concept through deployment, our team builds custom mobile tools that align to your mission objectives and operational realities.</p>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Cloud, DevOps & DevSecOps Modernization</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega modernizes federal IT environments with a practical, mission-focused approach. We help agencies move to secure, scalable cloud architectures without adding complexity, enabling faster delivery and stronger operational resilience.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Full lifecycle development — design to sustainment.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Secure, high-performance apps tailored to your mission.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>App Store support, optimization, and compliance.</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Infrastructure as Code (Ansible, Terraform, CloudFormation, ARM, CDK)</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Multi-cloud engineering (AWS, Azure, Google Cloud, IBM, Oracle, OpenStack)</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>CI/CD pipelines to streamline delivery and reduce manual effort</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>DevSecOps pipelines with security built in from the start</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Containerization and orchestration on modern platforms</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Monitoring, logging, and automated system health checks</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Configuration management for consistent environments</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Secure, reliable application deployment and scaling</li>
                 </ul>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Mission Impact:</span> Modernized legacy systems, reduced operational risk, and faster delivery of critical capabilities — all with solutions built to last.</p>
             </div>
-            <img src={myImage3} alt='A helmeted figure in a dark, high-tech environment uses a smartphone amid glowing holographic screens and digital maps.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px]"/>
+            <img src={myImage3} alt='A helmeted figure in a dark, high-tech environment uses a smartphone amid glowing holographic screens and digital maps.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px]"/>
         </div>
     </section>
 
@@ -120,15 +127,17 @@ const Capabilities = () => {
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-20 md:pt-10 md:px-[100px] lg:pt-20 xl:pt-30'>
             <img src={myImage4} alt='A sleek digital flowchart with interconnected nodes and labels glows in neon pink and blue.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px] "/>
             <div class='md:mb-0 xl:mb-15 lg:ml-10 2xl:ml-[10rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Business Process Automation (BPA)</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Automation. That Works Where You Do.</h3>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We design and implement business process automation tools that simplify complex workflows, eliminate manual tasks, and enable operators to focus on what matters most — the mission.</p> 
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Engineering & Multi-Sensor Processing</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega’s geospatial expertise is a differentiator, helping defense and intelligence partners turn complex sensor data into actionable insights for real-time operations.</p> 
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Streamlined workflows across departments.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Reduced repetitive tasks and operational friction.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Integration of disconnected systems for seamless operations.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Built for reliability, accuracy, and measurable impact.</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Geospatial application development for mission workflows</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Modernization of legacy GEOINT systems for improved speed and usability</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Common Operating Picture (COP) development for shared situational awareness</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Mission-ready situational awareness tools</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Multi-sensor data processing: vector, raster, photogrammetry, LIDAR, RADAR</li>
                 </ul>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Mission Impact:</span> Supports DoD, IC, and homeland defense by delivering clear, actionable intelligence and situational awareness.</p>
             </div>
         </div>
     </section>  
@@ -146,20 +155,52 @@ const Capabilities = () => {
         ">
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Platform & Enterprise Services</h2>
-                <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Optimizing Infrastructure. Enabling Scale.</h3>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega delivers resilient platforms and enterprise services that meet mission demands while respecting government realities.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>We specialize in hybrid-cloud, on-premise, and secure environments, optimizing your infrastructure without disrupting operations.</p>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>User Experience (UX) & Front-End Engineering</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega ensures mission systems are intuitive, efficient, and operator-ready by combining UX research, human-centered design, and modern front-end engineering. These capabilities directly complement automation and integration initiatives, making workflows seamless.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Hybrid-cloud integration & optimization.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Enterprise-grade application deployment & sustainment.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Infrastructure management, monitoring, and optimization.</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Designed to reduce downtime and enhance mission flexibility.</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>UX research, workflow analysis, and human-centered design</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Modern UI design and component-based development</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Front-end engineering (React, Angular, Vue)</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Accessibility-compliant interfaces (Section 508 / WCAG)</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Responsive, mobile-ready UI development</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Modernization of legacy operator tools and workflows</li>
                 </ul>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Mission Impact:</span> Interfaces are intuitive, efficient, and built for real-world operational use — reducing friction and increasing mission effectiveness.</p>
             </div>
-            <img src={myImage5} alt='A futuristic, neon-lit visualization shows layered digital platforms and interconnected data blocks floating in a high-tech network.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] 2xl:w-[400px] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px] "/>
+            <img src={myImage5} alt='A futuristic, neon-lit visualization shows layered digital platforms and interconnected data blocks floating in a high-tech network.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px] "/>
         </div>
     </section>  
+
+    <section class='bg-white sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col md:items-center xl:items-start items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] px-4 pt-10 md:pt-20 md:pb-20'>
+            <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem] w-full'>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Recent Federal Contracting Activity</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Missile Defense Agency SHIELD IDIQ —</span> Major contract position, ceiling of $151B, enabling rapid delivery of innovative defense capabilities.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>UI/UX Modernization Initiatives —</span> Supporting federal programs with intuitive, mission-ready interfaces for operators.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Geospatial & Automation Projects —</span> Driving multi-sensor integration and workflow automation across intelligence and defense missions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class='bg-[#F2F2F7] sm:overflow-x-visable overflow-x-hidden'>
+        <div class='flex flex-col md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] px-4 pt-10 md:pt-20 md:pb-20'>
+            <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Why Choose Vega?</h2>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Because When the Mission Matters, Experience Matters.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>At Vega, we’ve walked in your shoes. We know the gravity behind every acquisition, every dollar, and every decision. That’s why we build solutions that work on day one—and keep working when the stakes are highest.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Real Experience, Not Theory</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Our team is made up of former government civilians—not career consultants. We understand the mission because we’ve lived it.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Mission‑First Expertise</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We bring deep knowledge of acquisition, readiness, and warfighter needs. We know what slows teams down—and what accelerates them.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Proven, Practical Solutions</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We don’t chase trends or pitch flashy tech. We deliver automation and engineering that are effective, tested, and built to last.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>A Partner Who Truly Understands</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Because when the mission matters, you need more than a vendor.</p>
+                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>You need a partner who understands the people, the pressure, and the purpose behind every requirement.</p>
+            </div>
+        </div>
+    </section>
 
 
            <section classname='sm:overflow-x-visible overflow-x-hidden'>
