@@ -21,6 +21,9 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary nav-item'>
+                    <Link to='/'><p className='nav-item home'>Home</p></Link>
+                </li>
+                <li class='text-primary nav-item'>
                     <Link to='/Capabilities'><p class={color_capabilities} className='nav-item'>Capabilities</p></Link>
                 </li>
                 <li class='text-white nav-item'>
