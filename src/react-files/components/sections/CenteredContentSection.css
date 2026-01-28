@@ -1,0 +1,33 @@
+/* Centered Content Section */
+/* Shared utilities (container) imported globally in index.css */
+
+.centered-content-section {
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .centered-content-section {
+    padding: 5rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .centered-content-section {
+    padding: 6rem 0;
+  }
+}
+
+.centered-content-wrapper {
+  margin: 0 auto;
+  max-width: 56rem; /* max-w-4xl equivalent */
+}
+
+.centered-content-wrapper.narrow {
+  max-width: 48rem; /* max-w-3xl equivalent */
+}
+
+.centered-content-wrapper.wide {
+  max-width: 64rem; /* max-w-5xl equivalent */
+}
+
