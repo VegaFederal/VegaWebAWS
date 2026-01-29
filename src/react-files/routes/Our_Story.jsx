@@ -97,7 +97,7 @@ const Our_Story = () => {
                     <p class='text-xl md:text-[28px] text-white'>
                         Vega, the <span class='font-bold'>fifth-brightest star </span> in the night sky, has served as a guiding light for centuries. In the coming millennia, it will become the North Star, once again leading navigators and explorers.                    </p>
                     <p class='text-xl md:text-[24px] text-white mt-[50px]'>
-                    Vega Federal reflects this spirit.
+                    Vega reflects this spirit.
                     </p>
                     <p class='text-xl md:text-[24px] text-white mt-[30px]'>
                     A trusted partner.
