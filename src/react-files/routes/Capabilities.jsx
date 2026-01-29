@@ -9,10 +9,9 @@ import myImage6 from '../assets/PDF_Download_Icon.png';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
 import Slick_Sheet from '../assets/Vega Slick Sheet.pdf'
-
+import SkipLink from '../components/SkipLink'
 
 const Capabilities = () => {
     return(
