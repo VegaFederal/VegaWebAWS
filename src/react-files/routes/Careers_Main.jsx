@@ -26,7 +26,7 @@ const Careers_Main = () => {
                             height: 'calc(100vh - 20px)', 
                             border: 'none'
                         }}
-                        title="Vega Federal Careers Portal"
+                        title="Vega Careers Portal"
                     />
                 </div>
                 </main>
