@@ -51,6 +51,13 @@ a {
   background: rgba(255,255,255, .2);
 }
 
+.footer-link {
+  color: white;
+  transition: color 0.3s ease;
+    color: #DD004A;
+  }
+}
+
 /* Skip to main content link - hidden until focused */
 .skip-link {
   position: fixed;
