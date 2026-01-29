@@ -17,7 +17,7 @@ export default function Footer(){
                 <p className='text-xl text-white'>T-REX Innovation Center</p>
                 <p className='text-xl text-white'>911 Washington Ave, Suite 412</p>
                 <p className='text-xl text-white'>St. Louis, MO 63101</p>
-                <Link to='mailto:Info@vegafederal.com' className='footer-link' style={{color: 'white'}}>Info@vegafederal.com</Link>
+                <Link to='mailto:Info@vegafederal.com' className='footer-link'>Info@vegafederal.com</Link>
             </div>
         </section>
         </>
