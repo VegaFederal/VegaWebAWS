@@ -71,12 +71,12 @@ const Capabilities = () => {
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px] lg:pt-30 xl:pt-40 '>
             <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Automation, Application Integration & Machine Learning</h2>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Automation & Machine Learning</h2>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>At Vega, we believe automation is the key to accelerating federal missions. By reducing manual effort, improving accuracy, and connecting the right data to the right people, our solutions let operators focus on what matters most. We integrate applications, workflows, and analytics seamlessly, combining thoughtful engineering with practical automation to enable faster, better-informed decisions.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Workflow automation tailored to mission processes</li>
-                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Application integration across secure, highly regulated environments</li>
+                    <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Quantifiable benefits: time savings percentages, cost reduction estimates, accuracy improvements</li>
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Machine learning pipelines that turn complex data into actionable insights</li>
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Test automation that improves reliability and reduces repetitive work</li>
                     <li class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Data visualization and dashboards for intuitive, actionable information</li>
@@ -151,7 +151,7 @@ const Capabilities = () => {
         ">
         <div class='flex flex-col lg:flex-row xl:flex-row md:flex-col  md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] gap-10  px-4 pt-10'>
             <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>User Experience (UX) & Front-End Engineering</h2>
+                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Mission Focused User Experience</h2>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega ensures mission systems are intuitive, efficient, and operator-ready by combining UX research, human-centered design, and modern front-end engineering. These capabilities directly complement automation and integration initiatives, making workflows seamless.</p>
                 <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'><span class='font-semibold'>Capabilities include:</span></p>
                 <ul>
@@ -178,26 +178,6 @@ const Capabilities = () => {
             </div>
         </div>
     </section>
-
-    <section class='bg-[#F2F2F7] sm:overflow-x-visable overflow-x-hidden'>
-        <div class='flex flex-col md:items-center items-center min-h-fit ml-5 md:ml-[50px] lg:pl-[2rem] px-4 pt-10 md:pt-20 md:pb-20'>
-            <div class='md:mb-0 xl:mb-15 lg:ml-0 2xl:ml-[6rem]'>
-                <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Why Choose Vega?</h2>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Because When the Mission Matters, Experience Matters.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>At Vega, we’ve walked in your shoes. We know the gravity behind every acquisition, every dollar, and every decision. That’s why we build solutions that work on day one—and keep working when the stakes are highest.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Real Experience, Not Theory</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Our team is made up of former government civilians—not career consultants. We understand the mission because we’ve lived it.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Mission‑First Expertise</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We bring deep knowledge of acquisition, readiness, and warfighter needs. We know what slows teams down—and what accelerates them.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>Proven, Practical Solutions</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>We don’t chase trends or pitch flashy tech. We deliver automation and engineering that are effective, tested, and built to last.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5 font-semibold'>A Partner Who Truly Understands</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>Because when the mission matters, you need more than a vendor.</p>
-                <p class='ml-5  text-primary text-lg md:text-[24px] md:pt-2 pt-2'>You need a partner who understands the people, the pressure, and the purpose behind every requirement.</p>
-            </div>
-        </div>
-    </section>
-
 
            <section classname='sm:overflow-x-visible overflow-x-hidden'>
                <Footer></Footer>
