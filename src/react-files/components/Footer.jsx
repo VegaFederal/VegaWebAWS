@@ -10,7 +10,7 @@ export default function Footer(){
             <img src={stlSkyline} alt='' className="object-contain w-full"/>
             <div className='flex flex-col pt-40 ml-10 sm:ml-[10rem] lg:ml-[10rem] xl:ml-[100px] gap-5'>
 
-                <h1 className='text-[32px] font-bold text-white'>Vega Fed Solutions | Automate Your Mission</h1>
+                <h1 className='text-[32px] font-bold text-white'>Vega | Automate Your Mission</h1>
                 <h2 className='text-[28px] text-white mb-12'>Proudly based in St. Louis, serving clients nationwide.</h2>
             </div>
             <div className='flex flex-col ml-10 sm:ml-[10rem] lg:ml-[10rem] xl:ml-[100px] pb-30'>
