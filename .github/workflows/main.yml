@@ -370,7 +370,7 @@ jobs:
       - name: Empty S3 buckets
         continue-on-error: true
         run: |
-          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET}}" "${{ env.TEMPLATE_BUCKET }}"; do
+          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET }}" "${{ env.TEMPLATE_BUCKET }}"; do
             if [ ! -z "$bucket" ]; then
               echo "Checking bucket: $bucket"
               if aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
