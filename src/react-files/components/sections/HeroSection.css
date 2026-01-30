@@ -105,6 +105,12 @@
   /* Font size handled by typography.css */
 }
 
+.hero-paragraph {
+  color: #ffffff;
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+}
+
 /* Hero Logo */
 .hero-logo {
   margin-top: 2rem;

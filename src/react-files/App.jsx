@@ -6,6 +6,7 @@ import Our_Story from './routes/Our_Story.jsx'
 import Careers_Main from './routes/Careers_Main.jsx'
 import About_Updated from './routes/About_Updated.jsx'
 import ExamplePage from './routes/ExamplePage.jsx'
+import Homepage2 from './routes/Homepage2.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       <Route path="/Careers" element={<Careers_Main/>}></Route>
       <Route path="/About" element={<About_Updated/>}></Route>
       <Route path="/ExamplePage" element={<ExamplePage/>}></Route>
+      <Route path="/Homepage2" element={<Homepage2/>}></Route>
       </Routes>
     </>
   )

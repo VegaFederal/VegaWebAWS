@@ -10,7 +10,8 @@ import './HeroSection.css'
  * @param {string} backgroundColor - Background color (default: #001837)
  * @param {number} imageOpacity - Opacity of background image (0-1, default: 1)
  * @param {string} title - Main heading text
- * @param {string} subtitle - Subtitle text
+ * @param {string | ReactNode} subtitle - Subtitle text (optional)
+ * @param {string | ReactNode} paragraph - Extra paragraph under subtitle (optional)
  * @param {string} logoImage - Logo image to display below subtitle (optional)
  * @param {string} logoAlt - Alt text for logo (optional)
  * @param {string} logoSize - Logo size (e.g., '150px', '200px', '300px', default: responsive)
@@ -26,6 +27,7 @@ const HeroSection = ({
   imageOpacity = .6,
   title,
   subtitle,
+  paragraph,
   logoImage,
   logoAlt = 'Logo',
   logoSize,
@@ -56,6 +58,7 @@ const HeroSection = ({
           <div className="hero-content">
             {title && <h1 className="hero-title">{title}</h1>}
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
+            {paragraph && <p className="hero-paragraph">{paragraph}</p>}
             {logoImage && (
               <div className="hero-logo">
                 <img src={logoImage} alt={logoAlt} className="hero-logo-image" />

@@ -3,7 +3,26 @@
 
 .banner-section {
   padding: 2rem 0;
+  box-sizing: border-box;
   overflow-x: hidden;
+}
+
+.banner-section-centered {
+  display: flex;
+  align-items: center;
+}
+
+.banner-section-centered .page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.banner-section-fixed {
+  padding: 0;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {

@@ -1,5 +1,4 @@
 /* Typography System - Responsive Font Sizes */
-/*
 /* Mobile First Approach - Base styles for mobile (< 768px) */
 
 /* Heading Styles */
@@ -46,7 +45,8 @@ h6 {
 }
 
 /* Paragraph and Body Text */
-p {
+p,
+li {
   font-size: 1rem;        /* 16px */
   line-height: 1.6;
   margin: 0 0 1rem 0;
@@ -124,7 +124,8 @@ p {
     font-size: 1.125rem;   /* 18px */
   }
 
-  p {
+  p,
+  li {
     font-size: 1.125rem;   /* 18px */
   }
 
@@ -191,7 +192,8 @@ p {
     font-size: 1.25rem;    /* 20px */
   }
 
-  p {
+  p,
+  li {
     font-size: 1.25rem;    /* 20px */
   }
 

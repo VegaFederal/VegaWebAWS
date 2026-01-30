@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./components/sections/shared/utilities.css";
+@import "./components/typography.css";
 
 @theme {
   --color-primary: #001837;

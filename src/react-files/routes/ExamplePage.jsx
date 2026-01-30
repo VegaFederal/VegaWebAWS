@@ -22,6 +22,7 @@ import MobileImage from '../assets/2_Mobile_Development.png'
 import BPAImage from '../assets/3_Business_Process_BPA.png'
 import PlatformImage from '../assets/4_Enterprise Platform.png'
 import './ExamplePage.css'
+import '../components/typography.css'
 
 /**
  * ExamplePage - Demonstrates how to use section components

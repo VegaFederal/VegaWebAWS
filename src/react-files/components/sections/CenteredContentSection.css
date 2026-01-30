@@ -20,14 +20,23 @@
 
 .centered-content-wrapper {
   margin: 0 auto;
+}
+
+.centered-content-wrapper.max-two-column {
+  max-width: 1200px; /* match two-column grid width */
+}
+
+.centered-content-wrapper.max-content {
   max-width: 56rem; /* max-w-4xl equivalent */
 }
 
-.centered-content-wrapper.narrow {
-  max-width: 48rem; /* max-w-3xl equivalent */
+.centered-content-wrapper.max-wide {
+  max-width: 72rem; /* max-w-6xl equivalent */
 }
 
-.centered-content-wrapper.wide {
-  max-width: 64rem; /* max-w-5xl equivalent */
+.centered-content-wrapper.align-left {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
 }
 
