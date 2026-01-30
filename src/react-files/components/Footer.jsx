@@ -6,7 +6,7 @@ export default function Footer(){
     return (
         <>
         
-        <section className='bg-primary bg-cover bg-center lg:h-screen xl:h-fit pl-[10px] mr-[10px]'>
+        <section className='bg-primary bg-cover bg-center pl-[10px] mr-[10px] pb-10'>
             <img src={stlSkyline} alt='' className="object-contain w-full"/>
             <div className='flex flex-col pt-40 ml-10 sm:ml-[10rem] lg:ml-[10rem] xl:ml-[100px] gap-5'>
 
