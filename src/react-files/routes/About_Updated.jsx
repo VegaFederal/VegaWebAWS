@@ -10,7 +10,6 @@ import themba from '../assets/About_us/Themba.png'
 import brent from '../assets/About_us/Brent.png'
 import dan from '../assets/About_us/Dan.png'
 import blas from '../assets/About_us/Blas.png'
-import katy from '../assets/About_us/Katy.png'
 import krista from '../assets/About_us/Krista.png'
 import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
@@ -131,19 +130,6 @@ const About_Updated = () => {
                 "Christian Brothers College HS (CBC)",
                 "Trail running",
                 "Coffee"
-            ]
-        },
-        {
-            id: 6,
-            name: "Katy",
-            title: "Senior UX Designer",
-            image: katy,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "The Principia HS",
-                "Professional abstract painter",
-                "Organic \"Fizz\" Energy Drink"
             ]
         },
         {
