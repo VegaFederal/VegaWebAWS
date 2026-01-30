@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {Link, ScrollRestoration} from 'react-router-dom'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import './NavbarStyles.css'
 import Logo_Blue from '../assets/vega_logo_blue.png';
