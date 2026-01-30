@@ -1,10 +1,7 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
 import ThembaHHeadshot from '../assets/OurStory_ThembaHeadshot.jpg'
 import RyanPHeadshot from '../assets/OurStory_RPhilipHeadshot.jpg'
-import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import Footer from '../components/Footer';
 import SkipLink from '../components/SkipLink'
 
