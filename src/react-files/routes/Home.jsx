@@ -1,21 +1,8 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import VOSB_Logo from '../assets/VOSB_Logo.png';
 import VOSB_Logo_2 from '../assets/veterans_logo_new.png';
-import complexProblems from '../assets/Homepage_Image_ComplexProblems.jpg'
-import ThriveTech from '../assets/Homepage_ThriveTech.jpg'
-import PartnerAutomation from '../assets/Homepage_PartnerAutomation.jpg'
-import msnReadSup from '../assets/Home_card_2.png'
-import tigerTeam from '../assets/Home_card_4.png'
-import GeoIntData from '../assets/Home_card_3.png'
-import AIAutomation from '../assets/Home_card_1.png'
-import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 import './HomeStyles.css'
-import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
-import PDF_Icon from '../assets/PDF_Download_Icon.png'
 import Slick_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slick_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
