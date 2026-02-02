@@ -1,16 +1,10 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
-import spotify from '../assets/About_us/Spotify_logo.png'
-import army from '../assets/About_us/Army_logo.png'
-import navy from '../assets/About_us/Navy_logo.png'
 import ryan from '../assets/About_us/Ryan.png'
 import themba from '../assets/About_us/Themba.png'
 import brent from '../assets/About_us/Brent.png'
 import dan from '../assets/About_us/Dan.png'
 import blas from '../assets/About_us/Blas.png'
-import katy from '../assets/About_us/Katy.png'
 import krista from '../assets/About_us/Krista.png'
 import chris from '../assets/About_us/Chris.png'
 import mark from '../assets/About_us/Mark.png'
@@ -21,7 +15,6 @@ import RyanE from '../assets/About_us/Ryan_E.png'
 import Jessica from '../assets/About_us/Jessica.png'
 import Kyle from '../assets/About_us/Kyle.png'
 import Brian from '../assets/About_us/Brian.png'
-import map from '../assets/About_us/map.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
 import SkipLink from '../components/SkipLink'
@@ -131,19 +124,6 @@ const About_Updated = () => {
                 "Christian Brothers College HS (CBC)",
                 "Trail running",
                 "Coffee"
-            ]
-        },
-        {
-            id: 6,
-            name: "Katy",
-            title: "Senior UX Designer",
-            image: katy,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "The Principia HS",
-                "Professional abstract painter",
-                "Organic \"Fizz\" Energy Drink"
             ]
         },
         {
