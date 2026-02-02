@@ -43,7 +43,7 @@ const Our_Story = () => {
                 </div>
             </div>
         </section>
-        <section class="
+        <section className="
             bg-white   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
@@ -51,32 +51,32 @@ const Our_Story = () => {
             py-16                        /* make the section full‑viewport height */
             sm:overflow-x-visable overflow-x-hidden
         ">
-            <div class='flex justify-center'>
+            <div className='flex justify-center'>
                 <div className="flex  flex-col items-center max-w-70/100 mx-auto text-left space-y-8 px-4 pt-20">
-                <h2 class=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h2>
-                <div class='flex flex-col xl:flex-row items-center gap-30'>
+                <h2 className=' text-primary text-5xl lg:text-[52px] font-bold'>The Founders</h2>
+                <div className='flex flex-col xl:flex-row items-center gap-30'>
                     <img src={RyanPHeadshot} alt='Headshot of Ryan Phillips' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
-                    <div class='flex flex-col'>
-                        <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Veteran | Technologist | Mission Partner</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator’s mindset.</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
+                    <div className='flex flex-col'>
+                        <h3 className='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Ryan Phillips</h3>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Veteran | Technologist | Mission Partner</p>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px]'>Ryan brings more than 20 years of experience to Vega, with a career spanning military operations, software engineering, and leadership roles inside NGA. Recognized with the David Packard Excellence in Acquisition Award, Ryan pairs technical depth with an operator’s mindset.</p>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, he helps customers navigate the complex realities of modernization without compromising mission focus.</p>
                     </div>
                 </div>
-                <div class='flex flex-col xl:flex-row-reverse items-center gap-30 mt-20'>
+                <div className='flex flex-col xl:flex-row-reverse items-center gap-30 mt-20'>
                     <img src={ThembaHHeadshot} alt='Headshot of Themba Hinke' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem]  2xl:h-[316px] 2xl:w-[473px] 2xl:ml-[100px] 2xl:mt-[120px]"/>
-                    <div class='flex flex-col pb-30'>
-                        <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Themba Hinke</h3>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Systems Architect | Trusted Government Partner</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>Themba is a seasoned technical leader with two decades of experience delivering mission-critical systems to the Department of Defense and Intelligence Community. His expertise in platform engineering, modernization, and secure system design has made him a trusted advisor to senior government leaders.</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, Themba ensures that every solution meets the highest technical and mission-readiness standards.</p>
-                        <p class='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>“We didn’t start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
+                    <div className='flex flex-col pb-30'>
+                        <h3 className='text-2xl md:text-3xl text-secondary md:pt-5 pt-5 font-bold'>Themba Hinke</h3>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>Co-Founder | Systems Architect | Trusted Government Partner</p>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px]'>Themba is a seasoned technical leader with two decades of experience delivering mission-critical systems to the Department of Defense and Intelligence Community. His expertise in platform engineering, modernization, and secure system design has made him a trusted advisor to senior government leaders.</p>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px]'>At Vega, Themba ensures that every solution meets the highest technical and mission-readiness standards.</p>
+                        <p className='text-xl md:text-[24px] text-primary mt-[50px] font-bold'>“We didn’t start Vega to be just another contractor. We started it because we knew there was a better way — one rooted in mission, not margins.”</p>
                     </div>
                 </div>
                 </div>
             </div>
         </section>
-        <section class="
+        <section className="
             bg-[url('./assets/OurStory_VegaStarImage.jpg')]   /* ← your image */
             bg-cover                        /* cover the entire area */
             bg-center                       /* center it */
@@ -86,29 +86,29 @@ const Our_Story = () => {
             z-[-1]
             sm:overflow-x-visable overflow-x-hidden
         ">
-            <div class='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
+            <div className='flex flex-col md:flex-row md:items-center justify-center min-h-screen ml-5 md:ml-[50px] lg:ml-[8rem] gap-10 md:gap-50 px-4 '>
                 <div className="max-w-70/100 mx-auto text-left space-y-8 px-4">
-                    <h2 class=' text-white text-3xl lg:text-[52px] font-bold'>
+                    <h2 className=' text-white text-3xl lg:text-[52px] font-bold'>
                         Why Vega?
                     </h2>
-                    <h3 class='text-2xl md:text-3xl text-secondary md:pt-5 pt-5'>
+                    <h3 className='text-2xl md:text-3xl text-secondary md:pt-5 pt-5'>
                     The name Vega wasn’t an accident.
                     </h3>
-                    <p class='text-xl md:text-[28px] text-white'>
-                        Vega, the <span class='font-bold'>fifth-brightest star </span> in the night sky, has served as a guiding light for centuries. In the coming millennia, it will become the North Star, once again leading navigators and explorers.                    </p>
-                    <p class='text-xl md:text-[24px] text-white mt-[50px]'>
+                    <p className='text-xl md:text-[28px] text-white'>
+                        Vega, the <span className='font-bold'>fifth-brightest star </span> in the night sky, has served as a guiding light for centuries. In the coming millennia, it will become the North Star, once again leading navigators and explorers.                    </p>
+                    <p className='text-xl md:text-[24px] text-white mt-[50px]'>
                     Vega reflects this spirit.
                     </p>
-                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
+                    <p className='text-xl md:text-[24px] text-white mt-[30px]'>
                     A trusted partner.
                     </p>
-                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
+                    <p className='text-xl md:text-[24px] text-white mt-[30px]'>
                     A fixed point.
                     </p>
-                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
+                    <p className='text-xl md:text-[24px] text-white mt-[30px]'>
                     A guide through the evolving landscape of defense and intelligence automation.
                     </p>
-                    <p class='text-xl md:text-[24px] text-white mt-[30px]'>
+                    <p className='text-xl md:text-[24px] text-white mt-[30px]'>
                     We don’t just work for the mission — we’ve lived it.                    
                     </p>
                 </div>
