@@ -12,5 +12,6 @@ export { default as GridCardSection } from './GridCardSection'
 export { default as ParallaxSection } from './ParallaxSection'
 export { default as CarouselSection } from './CarouselSection'
 export { default as LinkedPanelsSection } from './LinkedPanelsSection'
+export { default as StickyStackSection } from './StickyStackSection'
 
 

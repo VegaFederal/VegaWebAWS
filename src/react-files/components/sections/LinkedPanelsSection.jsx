@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './LinkedPanelsSection.css'
 
@@ -19,6 +19,48 @@ const LinkedPanelsSection = ({
   const [activeIndex, setActiveIndex] = useState(
     Math.min(Math.max(initialActiveIndex, 0), items.length - 1)
   )
+  const [hasEntered, setHasEntered] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (!items.length) {
+      return undefined
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length)
+    }, 4500)
+
+    return () => window.clearInterval(intervalId)
+  }, [items.length])
+
+  useEffect(() => {
+    if (!sectionRef.current) {
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    observer.observe(sectionRef.current)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!items.length) {
+      return
+    }
+
+    setActiveIndex((prev) => Math.min(Math.max(prev, 0), items.length - 1))
+  }, [items.length])
 
   if (!items.length) {
     return null
@@ -28,7 +70,7 @@ const LinkedPanelsSection = ({
   const activeItem = items[activeIndex] || items[0]
 
   return (
-    <section className={sectionClasses}>
+    <section className={sectionClasses} ref={sectionRef}>
       <div className="page-container">
         <div className="linked-panels-wrapper">
           <div className="linked-panels-grid" role="tablist" aria-label="Linked sections">
@@ -46,8 +88,8 @@ const LinkedPanelsSection = ({
             ))}
           </div>
 
-          <div className="linked-panels-panel">
-            <div className="linked-panels-content">
+          <div className={`linked-panels-panel ${hasEntered ? 'is-visible' : ''}`}>
+            <div key={activeIndex} className="linked-panels-content linked-panels-content-fade">
               {activeItem?.image && (
                 <div className="linked-panels-image">
                   <img
