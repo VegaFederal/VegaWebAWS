@@ -1,6 +1,5 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import myImage from '../assets/Appian_logo.png'
 import myImage2 from '../assets/Clarity_logo.png'

@@ -1,10 +1,4 @@
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
-import spotify from '../assets/About_us/Spotify_logo.png'
-import army from '../assets/About_us/Army_logo.png'
-import navy from '../assets/About_us/Navy_logo.png'
 import ryan from '../assets/About_us/Ryan.png'
 import themba from '../assets/About_us/Themba.png'
 import brent from '../assets/About_us/Brent.png'
