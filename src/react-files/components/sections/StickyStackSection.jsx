@@ -51,18 +51,6 @@ const StickyStackSection = ({
                   {item.text && (
                     <p className="sticky-stack-text">{item.text}</p>
                   )}
-                  {item.tags?.length ? (
-                    <div className="sticky-stack-tags" aria-label="Highlights">
-                      {item.tags.map((tag, tagIndex) => (
-                        <span
-                          key={`${tag}-${tagIndex}`}
-                          className="sticky-stack-tag"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  ) : null}
                   {item.ctaText && item.ctaLink && (
                     <a className="sticky-stack-cta" href={item.ctaLink}>
                       {item.ctaText}
