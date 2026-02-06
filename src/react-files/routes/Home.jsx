@@ -69,23 +69,59 @@ const Home = () => {
             </div>
         </div>
     </section>
-    <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
+    <section class='container bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
             <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
-                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[1000px] 2xl:w-[1000px] 2xl:ml-[0px] "/> 
-                <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
-                    <h2 class='text-2xl md:text-6xl font-bold ml-5 mb-5'>Overview</h2>
-                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>Vega Federal Solutions delivers secure, automated, and mission-ready technology services to federal agencies across defense, civilian, and national security sectors. We help government organizations streamline operations, modernize critical systems, and operate with confidence in a rapidly evolving digital landscape.</p>
-                    <p class='ml-5  text-primary text-lg md:text-[24px] mb-5'>With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance.</p>
-                    <h3 class='text-2xl font-bold md:text-3xl text-primary ml-5 mb-5'>Our Mission</h3>
-                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-7'>To empower federal agencies with secure, scalable, and future-ready solutions that enhance mission execution and protect national interests. We focus on technologies and automation that optimize workflows, accelerate modernization, and build operational resilience.</p>
-                    <p class='ml-5 text-primary text-lg md:text-[24px] mb-3'>Our mission is grounded in three principles:</p>
-                    <ul>
-                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Trust — Partnerships built on integrity and transparency.</li>
-                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Security — Solutions that safeguard systems, data, and critical infrastructure.</li>
-                        <li class='ml-5 text-primary text-lg md:text-[24px] mb-5'>Impact — Measurable outcomes that improve efficiency and mission readiness.</li>
-                    </ul>
+                
+                <div class='row md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] border-4 border-amber-200'>
+                    <div class="col border-4 border-amber-600">
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                    </div>
+                    <div class="col border-4 border-amber-600">
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                    </div>
+                </div>
+                 <div class='row md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] border-4 border-amber-200'>
+                    <div class="col border-4 border-amber-600">
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                    </div>
+                    <div class="col border-4 border-amber-600">
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                        <div class="box border-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui reprehenderit, voluptates quaerat, error sunt dolore earum ut provident exercitationem tempore hic facere. Voluptate fugiat alias molestias illo ipsa nemo expedita.
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </section>
     <section class="
             bg-white
