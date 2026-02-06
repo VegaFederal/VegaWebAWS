@@ -10,7 +10,7 @@ import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
-import Slick_Sheet from '../assets/Vega Slick Sheet.pdf'
+import Slick_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import SkipLink from '../components/SkipLink'
 
 const Capabilities = () => {
