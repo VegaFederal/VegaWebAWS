@@ -4,7 +4,7 @@ import VOSB_Logo_2 from '../assets/veterans_logo_new.png';
 import './HomeStyles.css'
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
-import PDF_Slick_Sheet from '../assets/Vega Slick Sheet.pdf'
+import PDF_Slick_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Mission_statement from '../assets/Mission_statement.png'
 import SkipLink from '../components/SkipLink'
