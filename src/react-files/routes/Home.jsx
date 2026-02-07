@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slick_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
-import Mission_statement from '../assets/Mission_statement.png'
+import Mission_statement from '../assets/headway-5QgIuuBxKwM-unsplash.jpg'
 import SkipLink from '../components/SkipLink'
 
 
