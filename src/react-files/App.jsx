@@ -6,6 +6,7 @@ import Our_Story from './routes/Our_Story.jsx'
 import Careers_Main from './routes/Careers_Main.jsx'
 import About_Updated from './routes/About_Updated.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import Example from './routes/Example.jsx'
 
 function App() {
   const location = useLocation();
@@ -44,13 +45,14 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
+      {/*<ScrollToTop />*/}
       <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/Capabilities" element={<Capabilities />}/>
       <Route path="/Our_Story" element={<Our_Story/>}/>
       <Route path="/Careers" element={<Careers_Main/>}></Route>
       <Route path="/About" element={<About_Updated/>}></Route>
+      <Route path="/Example" element={<Example/>}></Route>
       </Routes>
     </>
   )
