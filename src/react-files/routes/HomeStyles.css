@@ -240,6 +240,17 @@
   .hero-img-small video { min-height: 120px; }
 }
 
+@media (max-width: 1023px) {
+  .hero-img-large img,
+  .hero-img-large video {
+    min-height: 200px;
+  }
+  .hero-img-small img,
+  .hero-img-small video {
+    min-height: 120px;
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-images-grid {
     max-width: 100%;
