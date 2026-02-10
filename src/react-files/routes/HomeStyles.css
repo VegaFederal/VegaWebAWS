@@ -86,10 +86,25 @@
   margin-top: 3rem;
 }
 
+/* Small screens: images on top, text below */
+@media (max-width: 1023px) {
+  .hero-images-col {
+    order: 1;
+  }
+  .hero-text-col {
+    order: 2;
+    margin-top: 0;
+  }
+}
+
 @media (min-width: 1024px) {
+  .hero-images-col {
+    order: unset;
+  }
   .hero-text-col {
     flex: 0 0 36rem;
     margin-top: 5rem;
+    order: unset;
   }
 }
 @media (min-width: 1920px) {
@@ -208,6 +223,14 @@
   margin: 0 auto;
 }
 
+/* Smaller images on mobile so text isn't overpowered */
+@media (max-width: 1023px) {
+  .hero-images-grid {
+    max-width: 380px;
+    gap: 0.75rem;
+  }
+}
+
 .hero-img {
   border-radius: 1rem;
   overflow: hidden;
@@ -235,6 +258,17 @@
 .hero-img-small img,
 .hero-img-small video {
   min-height: 160px;
+}
+
+@media (max-width: 1023px) {
+  .hero-img-large img,
+  .hero-img-large video {
+    min-height: 200px;
+  }
+  .hero-img-small img,
+  .hero-img-small video {
+    min-height: 120px;
+  }
 }
 
 @media (min-width: 1024px) {
