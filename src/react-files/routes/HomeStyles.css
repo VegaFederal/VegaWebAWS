@@ -1,6 +1,13 @@
 /* Hero: two-column layout – gradient (Slate 800 → Slate 900) */
 .hero-two-column {
-  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  background-color: #001837; /* Fallback Navy */
+  background-image: radial-gradient(
+      ellipse 80% 50% at 10% 0%, 
+      rgba(221, 0, 74, 0.4) 0%, 
+      rgba(0, 24, 55, 0) 70%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
