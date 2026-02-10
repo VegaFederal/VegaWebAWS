@@ -1,6 +1,4 @@
 import Navbar from '../components/Navbar'
-import Arrow from '../assets/Arrow_Hero.png';
-import VOSB_Logo_2 from '../assets/veterans_logo_new.png';
 import './HomeStyles.css'
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
@@ -8,6 +6,10 @@ import PDF_Slick_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Mission_statement from '../assets/headway-5QgIuuBxKwM-unsplash.jpg'
 import SkipLink from '../components/SkipLink'
+import VOSB_Logo_White from '../assets/vosb-white-1.png'
+import AutomationVideo from '../assets/Automationvideo.mp4'
+import WhitehouseFlag from '../assets/WhitehouseFlag.jpg'
+import SatelliteVideo from '../assets/SatelliteVideo.mp4'
 
 
 
@@ -15,34 +17,20 @@ const Home = () => {
   return (
     <>
     <SkipLink />
-    <section className='hero'>
-        <div className="relative w-full hero-lg-aspect h-fit md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Homepage_Hero_New.png')] bg-cover bg-center bg-no-repeat">
-                <header>
-                    <Navbar />
-                </header>
+    <section className='hero hero-two-column'>
+        <header>
+            <Navbar />
+        </header>
 
-                {/* Skip target - content right after navbar */}
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-40 md:mt-[rem] lg:mt-[13rem]">
-                {/* 
-                    - flex: enables flexbox layout
-                    - items-end: aligns items to the bottom
-                    - gap-5: 1.25rem gap between children
-                    - pl-5: 1.25rem padding-left (instead of margin-left on the container)
-                    - h-[8.25rem]: sets height to 132px in rem units
-                    */}
-                    <img 
-                        src={Arrow} 
-                        alt="" 
-                        className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
-                    />
-
-
-                    <div id="after-navbar" tabIndex={-1} className='h-auto md:mb-10'>
-                        <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Automate Your Mission</h4>
-                        <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem] mb-5">Secure automation. Human-centered solutions. Mission-aligned results.</p>
-                        <p className="max-w-md md:max-w-160 text-center text-white md:text-left text-sm xl:text-base md:text-[1rem]">At Vega, we automate, design, and deliver solutions that help our federal partners improve efficiency and streamline processes. Our goal is to support decision-makers so they can focus on their mission, while we modernize operations thoughtfully and collaboratively. With a deep understanding of the mission and its stakes, Vega supports more efficient operations so users can stay focused on what matters most.</p>
-                    </div>
+        <div className="hero-inner">
+            {/* Left column: heading, paragraph, CTA */}
+            <div className="hero-text-col">
+                <div id="after-navbar" tabIndex={-1} className="hero-text-block">
+                    <h1 className="hero-title">
+                        Automate Your <span className="hero-title-accent">Mission</span>
+                    </h1>
+                    <p className="hero-lead">Secure automation. Human-centered solutions. Mission-aligned results.</p>
+                    <p className="hero-body">At Vega, we automate, design, and deliver solutions that help our federal partners improve efficiency and streamline processes. Our goal is to support decision-makers so they can focus on their mission, while we modernize operations thoughtfully and collaboratively. With a deep understanding of the mission and its stakes, Vega supports more efficient operations so users can stay focused on what matters most.</p>
                 </div>
                 <div className='flex md:justify-start pt-10 sm:pt-10 md:pt-6 pb-10 sm:pb-20 pl-15 md:pl-30 md:space-x-3 md:flex-row md:space-y-0 xl:pl-45 mx-[5px] md:mx-0'>
                     <a href={PDF_Slack_Sheet} download="Capabilities-Slack-Sheet.pdf">
@@ -51,9 +39,25 @@ const Home = () => {
                             Download Capabilities Slick Sheet
                         </button>
                     </a>
-                </div> 
-                <img src={VOSB_Logo_2} alt='Certified Veteran-Owned Small Business (VOSB) logo' className="object-contain ml-30 sm:ml-80 h-40 w-40 md:h-[12rem] md:w-[12rem] opacity-100 brightness-100 contrast-100"/>
+                </div>
+                <div className="hero-vosb">
+                    <img src={VOSB_Logo_White} alt="Certified Veteran-Owned Small Business (VOSB)" className="hero-vosb-logo" />
+                </div>
+            </div>
 
+            {/* Right column: three-image layout (one large, two stacked) */}
+            <div className="hero-images-col">
+                <div className="hero-images-grid">
+                    <div className="hero-img hero-img-large">
+                        <video src={AutomationVideo} autoPlay loop muted playsInline aria-hidden="true" />
+                    </div>
+                    <div className="hero-img hero-img-small">
+                        <img src={WhitehouseFlag} alt="White House with American flag" />
+                    </div>
+                    <div className="hero-img hero-img-small">
+                        <video src={SatelliteVideo} autoPlay loop muted playsInline aria-hidden="true" />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
