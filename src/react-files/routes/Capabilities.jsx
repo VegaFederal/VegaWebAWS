@@ -1,10 +1,10 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/Machine_learning.jpg';
-import myImage3 from '../assets/Cloud_infrastructure.jpg';
-import myImage4 from '../assets/Geospatial_section.jpg';
-import myImage5 from '../assets/Ux_design.jpg';
+import myImage2 from '../assets/GroundMachines.jpg';
+import myImage3 from '../assets/Ux_design.jpg';
+import myImage4 from '../assets/CollaborationCapabilites.jpg';
+import myImage5 from '../assets/Cloud_infrastructure.jpg';
 import myImage6 from '../assets/PDF_Download_Icon.png';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
