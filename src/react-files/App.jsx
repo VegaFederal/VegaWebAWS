@@ -8,6 +8,7 @@ import About_Updated from './routes/About_Updated.jsx'
 import ExamplePage from './routes/ExamplePage.jsx'
 import Homepage2 from './routes/Homepage2.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import Example from './routes/Example.jsx'
 
 function App() {
   const location = useLocation();
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
+      {/*<ScrollToTop />*/}
       <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/Capabilities" element={<Capabilities />}/>
