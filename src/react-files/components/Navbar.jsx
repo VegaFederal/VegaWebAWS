@@ -16,8 +16,8 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     return (
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             
-            <Link to='/'><img src={Logo_White} alt='Vega Federal logo' class="w-45 pb-3"className='mobile-image'></img>
-                         <img src={Logo_Blue} alt='Vega Federal logo' class="w-45 pb-3 " className='desktop-image'></img></Link>
+            <Link to='/'><img src={Logo_White} alt='Vega logo' class="w-45 pb-3"className='mobile-image'></img>
+                         <img src={Logo_Blue} alt='Vega logo' class="w-45 pb-3 " className='desktop-image'></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li class='text-primary nav-item'>
@@ -36,7 +36,10 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                     <Link to='/About'><p class={color_about} className='nav-item'>Vega Team</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
-                    <Link to='/Example'><p class={color_about} className='nav-item'>Example Page</p></Link>
+                    <Link to='/ExamplePage'><p>Example Page</p></Link>
+                </li>
+                <li class='text-primary nav-item'>
+                    <Link to='/Homepage2'><p>Homepage 2</p></Link>
                 </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>

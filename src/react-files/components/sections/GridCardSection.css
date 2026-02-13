@@ -1,0 +1,85 @@
+/* Grid Card Section */
+/* Shared utilities (container) imported globally in index.css */
+
+.grid-card-section {
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .grid-card-section {
+    padding: 5rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-card-section {
+    padding: 6rem 0;
+  }
+}
+
+.grid-card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-card-container {
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-card-container {
+    gap: 2.5rem;
+  }
+}
+
+.grid-card-container.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-card-container.cols-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-card-container.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-card-container.cols-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-card-container.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-card-container.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-card-container.cols-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-card-container.cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-card-container.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+

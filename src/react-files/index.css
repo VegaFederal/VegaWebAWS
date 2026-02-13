@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./components/sections/shared/utilities.css";
+@import "./components/typography.css";
 
 @theme {
   --color-primary: #001837;
@@ -49,6 +51,12 @@ a {
 
 .btn:hover{
   background: rgba(255,255,255, .2);
+}
+
+.footer-link {
+  color: white;
+  transition: color 0.3s ease;
+  color: #DD004A;
 }
 
 /* Skip to main content link - hidden until focused */
