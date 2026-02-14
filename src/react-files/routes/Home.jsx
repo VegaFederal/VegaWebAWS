@@ -21,9 +21,9 @@ import '../components/typography.css'
 =======
 import SkipLink from '../components/SkipLink'
 import VOSB_Logo_White from '../assets/vosb-white-1.png'
-import AutomationVideo from '../assets/automation_vid.mp4'
+import AutomationVideo from '../assets/automationv2.mp4'
 import WhitehouseFlag from '../assets/flag.jpg'
-import SatelliteVideo from '../assets/sat_vid.mp4'
+import SatelliteVideo from '../assets/satv2.mp4'
 
 
 >>>>>>> c041255 (update adding bought istock images.)
