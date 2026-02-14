@@ -11,12 +11,22 @@ import Slick_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slick_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Mission_statement from '../assets/collab.jpg'
+<<<<<<< HEAD
 import VOSB_Logo_White from '../assets/vosb-white-1.png'
 import AutomationVideo from '../assets/automationv2.mp4'
 import WhitehouseFlag from '../assets/flag.jpg'
 import SatelliteVideo from '../assets/satv2.mp4'
 import './HomeStyles.css'
 import '../components/typography.css'
+=======
+import SkipLink from '../components/SkipLink'
+import VOSB_Logo_White from '../assets/vosb-white-1.png'
+import AutomationVideo from '../assets/automation_vid.mp4'
+import WhitehouseFlag from '../assets/flag.jpg'
+import SatelliteVideo from '../assets/sat_vid.mp4'
+
+
+>>>>>>> c041255 (update adding bought istock images.)
 
 const Home = () => {
   return (
