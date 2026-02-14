@@ -4,12 +4,12 @@ import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slick_Sheet from '../assets/Vega Slick Sheet (1).pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
-import Mission_statement from '../assets/headway-5QgIuuBxKwM-unsplash.jpg'
+import Mission_statement from '../assets/collab.jpg'
 import SkipLink from '../components/SkipLink'
 import VOSB_Logo_White from '../assets/vosb-white-1.png'
-import AutomationVideo from '../assets/Automationvideo.mp4'
-import WhitehouseFlag from '../assets/WhitehouseFlag.jpg'
-import SatelliteVideo from '../assets/SatelliteVideo.mp4'
+import AutomationVideo from '../assets/automation_vid.mp4'
+import WhitehouseFlag from '../assets/flag.jpg'
+import SatelliteVideo from '../assets/sat_vid.mp4'
 
 
 
