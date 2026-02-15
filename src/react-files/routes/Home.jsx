@@ -62,8 +62,8 @@ const Home = () => {
         </div>
     </section>
     <section className='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
-            <div className='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt- md:pb-20 md:px-[100px]'>
-                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-full max-w-[40vw] h-auto 2xl:ml-[0px] "/>                 <div className='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-60'>
+            <div className='flex flex-col lg:flex-row md:flex-col xl:flex-row  items-center px-4 pt-8 lg:pt-0 md:pb-20 md:px-[100px]'>
+                <img src={Mission_statement} alt='Picture of people working at a table' className="object-contain w-full max-w-full lg:max-w-[40vw] h-auto 2xl:ml-[0px] lg:ml-0 ml-5 mr-5 lg:mr-0 lg:w-full w-[calc(100%-2.5rem)]"/>                 <div className='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[5rem] pt-6 lg:pt-60'>
                     <h2 className='text-2xl md:text-6xl font-bold ml-5 mb-5'>Automation Built for Federal Missions</h2>
                     <p className='ml-5 text-primary text-lg md:text-[24px] mb-5'>Vega provides secure, automated technology services for defense, civilian, and national security agencies.</p>
                     <p className='ml-5 text-primary text-lg md:text-[24px] mb-5'>We help teams streamline workflows, modernize mission-critical systems, and operate with greater clarity without disrupting mission tempo. Our solutions are built for real federal environments where security, compliance, and usability are non-negotiable.</p>
