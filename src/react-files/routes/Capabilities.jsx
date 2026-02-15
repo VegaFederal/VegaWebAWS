@@ -1,7 +1,7 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/mappingproperties.jpg';
+import geospatialVideo from '../assets/stockSatimg.mp4';
 import myImage3 from '../assets/Ux_design.jpg';
 import myImage4 from '../assets/businessprocesses.jpg';
 import myImage5 from '../assets/Cloud_infrastructure.jpg';
@@ -73,7 +73,16 @@ const Capabilities = () => {
     <main id="main-content" tabIndex={-1}>
     <section class='bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden '>
         <div class='flex flex-col lg:flex-row md:flex-col xl:flex-row  justify-items-center items-center px-4 pt-5 md:pb-20 md:px-[100px] lg:pt-30 xl:pt-40 '>
-            <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/> 
+        {/* <img src={myImage2} alt='A futuristic digital world map displays glowing neon data overlays, grids, and interface elements.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px]   2xl:ml-[100px] "/>  */}
+            <video
+                src={geospatialVideo}
+                className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] 2xl:ml-[100px]"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="A futuristic digital world map displays glowing neon data overlays, grids, and interface elements."
+            /> 
             <div class='md:mb-0 xl:mb-15 lg:ml-5 2xl:ml-[10rem]'>
                 <h2 class='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Application Development</h2>
                 <h3 class='text-2xl md:text-3xl text-secondary ml-5  md:pt-5 pt-5'>Delivering Insights Through Location.</h3>
