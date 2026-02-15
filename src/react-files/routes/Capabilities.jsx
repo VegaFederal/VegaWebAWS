@@ -4,7 +4,7 @@ import Arrow from '../assets/Arrow_Hero.png';
 import geospatialVideo from '../assets/stockSatimg.mp4';
 import myImage3 from '../assets/Ux_design.jpg';
 import myImage4 from '../assets/businessprocesses.jpg';
-import myImage5 from '../assets/Cloud_infrastructure.jpg';
+import myImage5 from '../assets/buildingsoffice.jpg';
 import myImage6 from '../assets/PDF_Download_Icon.png';
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg';
 import './HomeStyles.css';
