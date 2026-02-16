@@ -3,8 +3,8 @@ import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
 import myImage2 from '../assets/1_Geospatial_Application.png';
 import myImage3 from '../assets/2_Mobile_Development.png';
-import myImage4 from '../assets/3_Business_Process_BPA.png';
-import myImage5 from '../assets/4_Enterprise Platform.png';
+import myImage4 from '../assets/stockSatimg2.mp4';
+import myImage5 from '../assets/Ux_design2.jpg';
 import './HomeStyles.css';
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
@@ -18,15 +18,17 @@ const Capabilities = () => {
     <SkipLink />
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className=" md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Capabilities_Hero_New.png')] bg-cover bg-center bg-no-repeat">
-                <header>
+            <div className="relative md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/TopViewWarship.jpg')] bg-cover bg-center bg-no-repeat">
+                {/* Dark gradient overlay: dims the left side so white text pops; fades to transparent on the right */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent pointer-events-none" aria-hidden="true" />
+                <header className="relative z-10">
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
                     </div>
                 </header>
                 {/* your content here */}
 
-                <div className="flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-62 md:mt-[16rem] lg:mt-[13rem]">
+                <div className="relative z-10 flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-62 md:mt-[16rem] lg:mt-[13rem]">
                     {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -55,7 +57,7 @@ const Capabilities = () => {
                         <p className="max-w-sm md:max-w-140 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">We don't just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
                     </div>
                 </div>
-                    <div className='flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-40  md:flex-row md:space-y-0 lg:pl-45'>
+                    <div className='relative z-10 flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-40  md:flex-row md:space-y-0 lg:pl-45'>
                         <a href={Slick_Sheet} download="Vega_Capabilities.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slick_Icon} alt="" className="h-10 mr-2 inline" />
@@ -122,7 +124,7 @@ const Capabilities = () => {
 
     <section className=' bg-white min-h-fit h-dvh md:min-h-fit 2xl:h-fit sm:overflow-x-visable overflow-x-hidden'>
         <div className='flex flex-col lg:flex-row xl:flex-row md:flex-col  items-center px-4 pt-5  md:pb-20 md:pt-10 md:px-[100px] lg:pt-20 xl:pt-30'>
-            <img src={myImage4} alt='A sleek digital flowchart with interconnected nodes and labels glows in neon pink and blue.' className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px] "/>
+            <video src={myImage4} className="object-contain w-[15rem] h-[15rem] md:w-[20rem] md:h-[20rem] lg:w-[25rem] 2xl:h-[291px] 2xl:w-[523px] md:ml-15 lg:ml-[0rem] 2xl:ml-[100px]" autoPlay loop muted playsInline aria-label="A sleek digital flowchart with interconnected nodes and labels glows in neon pink and blue." />
             <div className='md:mb-0 xl:mb-15 lg:ml-10 2xl:ml-[10rem]'>
                 <h2 className='text-2xl md:text-4xl font-bold ml-5  md:pt-0 pt-10'>Geospatial Engineering & Multi-Sensor Processing</h2>
                 <p className='ml-5  text-primary text-lg md:text-[24px] md:pt-5 pt-5'>Vega’s geospatial expertise is a differentiator, helping defense and intelligence partners turn complex sensor data into actionable insights for real-time operations.</p> 
