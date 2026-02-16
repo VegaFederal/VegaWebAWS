@@ -25,9 +25,9 @@ const BannerSection = ({
   const sectionStyle = height ? { height } : undefined
 
   return (
-    <div class="container-fluid" className={sectionClasses}>
-      <div class="row">
-        <h2 className="text-white text-center">
+    <div className={sectionClasses} style={sectionStyle}>
+      <div className="page-container">
+        <h2 className="banner-title">
           {title}
         </h2>
       </div>
