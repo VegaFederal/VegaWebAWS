@@ -28,16 +28,12 @@
   top: calc(5.5rem + (var(--stack-index) * 1.25rem));
 }
 
+/* Bootstrap row/col used for layout */
 .sticky-stack-card-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
   background-color: #ffffff;
   border-radius: 24px;
   padding: 2.5rem;
   border: 1px solid rgba(0, 24, 55, 0.12);
-  /* border-top: 6px solid var(--stack-accent, #DD004A); */
   border-top: 1px solid rgba(0, 24, 55, 0.12);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
   transform: translateY(calc(var(--stack-index) * 8px));
@@ -71,6 +67,7 @@
   margin: 0;
   color: #2f3a49;
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 .sticky-stack-tags {
@@ -104,34 +101,86 @@
   transform: translateY(-1px);
 }
 
+/* Tabs (Overview, Capabilities, Mission Impact) */
+.sticky-stack-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sticky-stack-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 2px solid rgba(0, 24, 55, 0.12);
+}
+
+.sticky-stack-tab {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2f3a49;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sticky-stack-tab:hover {
+  color: #001837;
+}
+
+.sticky-stack-tab.active {
+  color: var(--stack-accent, #DD004A);
+  border-bottom-color: var(--stack-accent, #DD004A);
+}
+
+.sticky-stack-tab-panels {
+  min-height: 8rem;
+}
+
+.sticky-stack-tab-panel {
+  margin: 0;
+}
+
+.sticky-stack-tab-label {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: #001837;
+  font-size: 0.9375rem;
+}
+
+.sticky-stack-bullet-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #2f3a49;
+  font-size: 0.9375rem;
+  list-style: none;
+}
+
+.sticky-stack-mission-impact {
+  font-weight: 500;
+}
+
 .sticky-stack-card-media {
   width: 100%;
 }
 
-.sticky-stack-card-media img {
+.sticky-stack-card-media img,
+.sticky-stack-card-media-video {
   width: 100%;
   height: auto;
   border-radius: 18px;
   object-fit: cover;
+  display: block;
 }
 
-@media (min-width: 900px) {
-  .sticky-stack-card-inner {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-  }
-
-  .sticky-stack-card:nth-child(even) .sticky-stack-card-inner {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
-  }
-
-  .sticky-stack-card:nth-child(even) .sticky-stack-card-content {
-    order: 2;
-  }
-
-  .sticky-stack-card:nth-child(even) .sticky-stack-card-media {
-    order: 1;
-  }
-}
+/* Two-column layout and alternating order handled by Bootstrap row/col and order-lg-* in JSX */
 
 @media (max-width: 700px) {
   .sticky-stack-card {

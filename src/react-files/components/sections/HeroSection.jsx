@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './HeroSection.css'
+import SlickIcon from '../../assets/White_Slack_Icon.png'
 
 /**
  * HeroSection - Basic hero section with background and centered text
@@ -16,6 +17,7 @@ import './HeroSection.css'
  * @param {string} logoAlt - Alt text for logo (optional)
  * @param {string} logoSize - Logo size (e.g., '150px', '200px', '300px', default: responsive)
  * @param {string} ctaText - Call-to-action button text (optional)
+ * @param {string} ctaDownloadFilename - Optional filename for the download attribute
  * @param {string} ctaLink - Call-to-action button link destination (optional)
  * @param {string} imageBlur - Blur amount for background image (e.g., '0px', '5px', '10px', default: '0px')
  * @param {string} height - Section height (default: 60vh)
@@ -32,6 +34,7 @@ const HeroSection = ({
   logoAlt = 'Logo',
   logoSize,
   ctaText,
+  ctaDownloadFilename,
   ctaLink,
   imageBlur = '0px',
   height = '60vh',
@@ -53,9 +56,9 @@ const HeroSection = ({
 
   return (
     <section className={sectionClasses} style={sectionStyle}>
-      <div className="hero-container">
-        <div className="hero-grid">
-          <div className="hero-content">
+      <div className="container hero-container">
+        <div className="row align-items-center hero-row">
+          <div className="col-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 hero-content text-center">
             {title && <h1 className="hero-title">{title}</h1>}
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
             {paragraph && <p className="hero-paragraph">{paragraph}</p>}
@@ -64,9 +67,10 @@ const HeroSection = ({
                 <img src={logoImage} alt={logoAlt} className="hero-logo-image" />
               </div>
             )}
-            {ctaText && ctaLink && (
+            {ctaText && ctaLink && ctaDownloadFilename && (
               <div className="hero-cta">
-                <Link to={ctaLink} className="hero-cta-button">
+                <Link to={ctaLink} download={ctaDownloadFilename} className="hero-cta-button">
+                  <img src={SlickIcon} alt="" className="hero-cta-button-icon" />
                   {ctaText}
                 </Link>
               </div>
@@ -77,6 +81,7 @@ const HeroSection = ({
     </section>
   )
 }
+
 
 export default HeroSection
 

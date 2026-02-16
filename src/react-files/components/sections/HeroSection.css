@@ -7,6 +7,7 @@
   justify-content: center;
   overflow: hidden;
   min-height: var(--hero-height, 60vh);
+  height: var(--hero-height, 60vh);
 }
 
 .hero-section-with-image {
@@ -46,47 +47,32 @@
   background-color: var(--hero-bg-color, #001837);
 }
 
+/* Bootstrap container + row: hero-container fills height, hero-row centers content vertically */
 .hero-container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
   position: relative;
   z-index: 2;
+  height: 100%;
+  min-height: inherit;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  width: 100%;
-  min-height: inherit;
-  align-items: center;
-  justify-items: center;
+.hero-row {
+  min-height: 100%;
 }
 
 .hero-content {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 2rem;
+  padding: 2rem 0;
   z-index: 1;
 }
 
 @media (min-width: 768px) {
   .hero-content {
-    grid-column: 2 / 12;
-    padding: 3rem;
+    padding: 3rem 0;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-content {
-    grid-column: 2 / 12;
-    padding: 4rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-content {
-    grid-column: 2 / 12;
+    padding: 4rem 0;
   }
 }
 

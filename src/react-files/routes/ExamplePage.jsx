@@ -77,7 +77,7 @@ const ExamplePage = () => {
         logoSize="180px"
         logoImage={VOSB_Logo}
         logoAlt="Certified Veteran-Owned Small Business (VOSB) logo"
-        ctaText="View Our Capabilities"
+        ctaText="Download Capabilities Slick Sheet"
         ctaLink="/Capabilities"
         height="85vh"
       />
