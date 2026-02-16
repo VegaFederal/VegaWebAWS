@@ -35,6 +35,12 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                 <li className='text-primary nav-item'>
                     <Link to='/About'><p className={`${color_about} nav-item`}>Vega Team</p></Link>
                 </li>
+                <li class='text-primary nav-item'>
+                    <Link to='/ExamplePage'><p>Example Page</p></Link>
+                </li>
+                <li class='text-primary nav-item'>
+                    <Link to='/Homepage2'><p>Homepage 2</p></Link>
+                </li>
             </ul>
             <div className='hamburger' onClick={handleClick}>
                 
