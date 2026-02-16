@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
-import { HeroSection, StickyStackSection } from '../components/sections'
+import { HeroSection, StickyStackSection, CenteredContentSection } from '../components/sections'
 import GeospatialImage from '../assets/stockSatimg2.mp4'
 import MobileImage from '../assets/UX_design2.jpg'
 import BPAImage from '../assets/buildingsoffice2.jpg'
@@ -116,12 +116,19 @@ const Capabilities = () => {
           </>
         }
         subtitle=""
-        paragraph="At Vega, we specialize in delivering automation, AI, and technology solutions tailored to the realities of government missions. We don't just deploy software — we solve complex challenges with precision, empathy, and mission-first execution."
+        paragraph={
+            <>
+              At Vega, we specialize in delivering automation, AI, and technology solutions tailored to the realities of government missions.
+              <span className="hero-paragraph-gap">We don't just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</span>
+            </>
+          }
         ctaText="Download Capabilities Slick Sheet"
         ctaDownloadFilename="Capabilities-Slick-Sheet.pdf"
+        textAlign="left"
         ctaLink={SlickSheet}
         ctaIcon={SlickIcon}
-        height="85vh"
+        height="100vh"
+        contentMaxWidth="75ch"
       />
 
       <main id="main-content" tabIndex={-1}>
@@ -134,25 +141,27 @@ const Capabilities = () => {
           showEyebrow={false}
         />
 
-        {/* Recent Federal Contracting - Bootstrap grid + CSS */}
-        <section className="capabilities-contracting-section">
-          <div className="container">
-            <div className="row">
-              <div className="col-12 col-lg-8 offset-lg-2">
-                <h2>Recent Federal Contracting Activity</h2>
-                <p className="contracting-item">
-                  <strong>Missile Defense Agency SHIELD IDIQ —</strong> Major contract position, ceiling of $151B, enabling rapid delivery of innovative defense capabilities.
-                </p>
-                <p className="contracting-item">
-                  <strong>UI/UX Modernization Initiatives —</strong> Supporting federal programs with intuitive, mission-ready interfaces for operators.
-                </p>
-                <p className="contracting-item">
-                  <strong>Geospatial & Automation Projects —</strong> Driving multi-sensor integration and workflow automation across intelligence and defense missions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Recent Federal Contracting - CenteredContentSection */}
+        <CenteredContentSection
+          bgColor="bg-white"
+          maxWidth="two-column"
+          align="center"
+          className="capabilities-contracting-section"
+          content={
+            <>
+              <h2>Recent Federal Contracting Activity</h2>
+              <p className="contracting-item">
+                <strong>Missile Defense Agency SHIELD IDIQ —</strong> Major contract position, ceiling of $151B, enabling rapid delivery of innovative defense capabilities.
+              </p>
+              <p className="contracting-item">
+                <strong>UI/UX Modernization Initiatives —</strong> Supporting federal programs with intuitive, mission-ready interfaces for operators.
+              </p>
+              <p className="contracting-item">
+                <strong>Geospatial & Automation Projects —</strong> Driving multi-sensor integration and workflow automation across intelligence and defense missions.
+              </p>
+            </>
+          }
+        />
 
         <section className="footer-section">
           <Footer />

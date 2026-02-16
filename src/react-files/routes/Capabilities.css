@@ -122,6 +122,12 @@
   min-height: 85vh;
 }
 
+/* Significant vertical space between the two hero paragraph sentences */
+.capabilities-page .hero-paragraph-gap {
+  display: block;
+  margin-top: 1.5rem;
+}
+
 .capabilities-page .hero-cta-button {
   display: inline-flex;
   align-items: center;
@@ -145,8 +151,8 @@
 /* Recent Contracting Section - Bootstrap + custom */
 .capabilities-contracting-section {
   background-color: #ffffff;
-  padding: 3rem 0 4rem;
   overflow-x: hidden;
+  /* padding from CenteredContentSection */
 }
 
 .capabilities-contracting-section h2 {

@@ -47,7 +47,7 @@
   background-color: var(--hero-bg-color, #001837);
 }
 
-/* Bootstrap container + row: hero-container fills height, hero-row centers content vertically */
+/* Container and row: fill section height so content centers vertically (Bootstrap handles layout) */
 .hero-container {
   position: relative;
   z-index: 2;
@@ -59,52 +59,14 @@
   min-height: 100%;
 }
 
-.hero-content {
-  padding: 2rem 0;
-  z-index: 1;
+/* Content block: optional max-width via --hero-content-max-width (e.g. contentMaxWidth="65ch") */
+.hero-content-inner {
+  max-width: var(--hero-content-max-width, 100%);
 }
 
-@media (min-width: 768px) {
-  .hero-content {
-    padding: 3rem 0;
-  }
-}
+/* Typography: title, subtitle, paragraph use typography.css (h1, p) + text-white in JSX */
 
-@media (min-width: 1024px) {
-  .hero-content {
-    padding: 4rem 0;
-  }
-}
-
-.hero-title {
-  font-weight: bold;
-  color: #ffffff;
-  margin: 0 0 1rem 0;
-  line-height: 1.2;
-  /* Font size handled by typography.css */
-}
-
-.hero-subtitle {
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.5;
-  /* Font size handled by typography.css */
-}
-
-.hero-paragraph {
-  color: #ffffff;
-  margin: 0.75rem 0 0;
-  line-height: 1.6;
-}
-
-/* Hero Logo */
-.hero-logo {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Hero logo image size (responsive via CSS custom property) */
 .hero-logo-image {
   width: auto;
   height: auto;
@@ -127,14 +89,7 @@
   }
 }
 
-/* Hero CTA Button */
-.hero-cta {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Hero CTA button (Bootstrap handles spacing/alignment in JSX) */
 .hero-cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
