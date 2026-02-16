@@ -236,12 +236,12 @@ const ExamplePage = () => {
         bgColor="bg-white"
       />
 
-      
+      {/* Banner Section
       <BannerSection
         title="Core Capabilities"
         bgColor="bg-primary"
         textColor="text-white"
-      /> 
+      /> */}
 
       {/* Grid Card Section */}
       <GridCardSection
