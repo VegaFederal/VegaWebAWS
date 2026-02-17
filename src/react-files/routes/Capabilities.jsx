@@ -5,6 +5,7 @@ import myImage2 from '../assets/stockEngeneering.jpg';
 import myImage3 from '../assets/StockPhotoLookingAtWhiteboard.JPG';
 import myImage4 from '../assets/stockSatimg2.mp4';
 import myImage5 from '../assets/Ux_design2.jpg';
+import heroVideo from '../assets/gearsTurning.webm';
 import './HomeStyles.css';
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
@@ -18,9 +19,19 @@ const Capabilities = () => {
     <SkipLink />
     <section className='capabilities'>
         <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="relative md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/TopViewWarship.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className="relative md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col overflow-hidden">
+                {/* Video background: full-bleed, cover, loop, muted for autoplay */}
+                <video
+                    src={heroVideo}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-hidden="true"
+                />
                 {/* Dark gradient overlay: dims the left side so white text pops; fades to transparent on the right */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent pointer-events-none" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 via-[72%] to-transparent pointer-events-none" aria-hidden="true" />
                 <header className="relative z-10">
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
