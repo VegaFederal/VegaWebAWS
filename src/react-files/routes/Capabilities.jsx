@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
 import { HeroSection, StickyStackSection, CenteredContentSection } from '../components/sections'
 import GeospatialImage from '../assets/stockEngeneering.jpg'
-import MobileImage from '../assets/StockPhotoLookingAtWhiteboard.jpg'
+import MobileImage from '../assets/StockPhotoLookingAtWhiteboard.JPG'
 //buildingsoffice2.jpg
 import BPAImage from '../assets/stockSatimg2.mp4'
 import PlatformImage from '../assets/Ux_design2.jpg'
