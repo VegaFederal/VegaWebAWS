@@ -1,8 +1,8 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/1_Geospatial_Application.png';
-import myImage3 from '../assets/2_Mobile_Development.png';
+import myImage2 from '../assets/stockEngeneering.jpg';
+import myImage3 from '../assets/StockPhotoLookingAtWhiteboard.JPG';
 import myImage4 from '../assets/stockSatimg2.mp4';
 import myImage5 from '../assets/Ux_design2.jpg';
 import './HomeStyles.css';
