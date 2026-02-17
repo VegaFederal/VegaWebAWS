@@ -50,7 +50,7 @@ const HeroSection = ({
 
   // Bootstrap text and flex alignment from textAlign
   const alignMap = { left: 'start', center: 'center', right: 'end' }
-  const align = alignMap[textAlign] ?? 'center'
+  const align = alignMap[textAlign] ?? 'center' // ?? defaults to center if textAlign is null or undefined.
   const textClass = `text-${align}`
   const justifyClass = `justify-content-${align}`
   const colOffsetClass = textAlign === 'left' ? '' : textAlign === 'right' ? 'offset-lg-2 offset-xl-4' : 'offset-lg-1 offset-xl-2'
