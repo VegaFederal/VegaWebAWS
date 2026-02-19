@@ -43,6 +43,34 @@
   z-index: 1;
 }
 
+/* Full-bleed background video */
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-section-with-video {
+  position: relative;
+  background-color: var(--hero-bg-color, #001837);
+}
+
+/* Overlay for video opacity (same as image) */
+.hero-section-with-video::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, calc(1 - var(--hero-image-opacity, 1)));
+  z-index: 1;
+}
+
 .hero-section-with-color {
   background-color: var(--hero-bg-color, #001837);
 }

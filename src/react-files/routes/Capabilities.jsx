@@ -11,6 +11,7 @@ import PlatformImage from '../assets/Ux_design2.jpg'
 import SlickIcon from '../assets/White_Slack_Icon.png'
 import SlickSheet from '../assets/Vega Slick Sheet.pdf'
 import HomepageHero from '../assets/rawImage.jpg'
+import CapabilitiesHeroVideo from '../assets/stockblackgears.webm'
 import './Capabilities.css'
 import '../components/typography.css'
 
@@ -106,10 +107,9 @@ const Capabilities = () => {
 
       {/* Hero - component-based, same pattern as ExamplePage */}
       <HeroSection
-        backgroundImage={HomepageHero}
+        backgroundVideo={CapabilitiesHeroVideo}
         backgroundColor="#001837"
         imageOpacity={0.6}
-        imageBlur="2px"
         title={
           <>
             Purpose-Built Automation.<br />

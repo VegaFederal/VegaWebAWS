@@ -8,6 +8,7 @@ import SlickIcon from '../../assets/White_Slack_Icon.png'
  * Uses grid layout for centering content
  * 
  * @param {string} backgroundImage - URL for background image (optional)
+ * @param {string} backgroundVideo - URL for background video (optional; takes precedence over backgroundImage when set)
  * @param {string} backgroundColor - Background color (default: #001837)
  * @param {number} imageOpacity - Opacity of background image (0-1, default: 1)
  * @param {string} title - Main heading text
@@ -27,6 +28,7 @@ import SlickIcon from '../../assets/White_Slack_Icon.png'
  */
 const HeroSection = ({
   backgroundImage,
+  backgroundVideo,
   backgroundColor = '#001837',
   imageOpacity = .6,
   title,
@@ -44,8 +46,12 @@ const HeroSection = ({
   contentMaxWidth,
   className = ''
 }) => {
-  // Build CSS class for background
-  const bgClass = backgroundImage ? 'hero-section-with-image' : 'hero-section-with-color'
+  // Build CSS class for background (video takes precedence over image)
+  const bgClass = backgroundVideo
+    ? 'hero-section-with-video'
+    : backgroundImage
+      ? 'hero-section-with-image'
+      : 'hero-section-with-color'
   const sectionClasses = `hero-section ${bgClass} ${className}`
 
   // Bootstrap text and flex alignment from textAlign
@@ -70,6 +76,17 @@ const HeroSection = ({
 
   return (
     <section className={sectionClasses} style={sectionStyle}>
+      {backgroundVideo && (
+        <video
+          src={backgroundVideo}
+          className="hero-bg-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+        />
+      )}
       <div className="container hero-container h-100">
         <div className="row align-items-center hero-row">
           <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} hero-content-inner py-3 py-md-4 py-lg-5`} style={contentStyle}>
