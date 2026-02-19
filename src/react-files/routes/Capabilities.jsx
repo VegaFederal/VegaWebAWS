@@ -18,8 +18,8 @@ const Capabilities = () => {
     <>
     <SkipLink />
     <section className='capabilities'>
-        <div className="relative w-full hero-lg-aspect md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="relative md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col overflow-hidden">
+        <div className="relative w-full hero-lg-aspect md:h-screen overflow-hidden md:overflow-x-visable overflow-x-hidden">
+            <div className="relative md:absolute md:top-0 md:left-0 md:w-full h-screen md:h-screen xl:h-full flex flex-col overflow-hidden">
                 {/* Video background: full-bleed, cover, loop, muted for autoplay */}
                 <video
                     src={heroVideo}
@@ -32,14 +32,14 @@ const Capabilities = () => {
                 />
                 {/* Dark gradient overlay: dims the left side so white text pops; fades to transparent on the right */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 via-[72%] to-transparent pointer-events-none" aria-hidden="true" />
-                <header className="relative z-10">
+                <header className="relative z-50">
                     <div>
                         <Navbar color_capabilities='text-secondary'/>
                     </div>
                 </header>
                 {/* your content here */}
 
-                <div className="relative z-10 flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-62 md:mt-[16rem] lg:mt-[13rem]">
+                <div className="relative z-10 flex items-end pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-32 md:mt-[16rem] lg:mt-[13rem]">
                     {/* 
                     - flex: enables flexbox layout
                     - items-end: aligns items to the bottom
@@ -50,7 +50,7 @@ const Capabilities = () => {
                     <img 
                         src={Arrow} 
                         alt="" 
-                        className="object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
+                        className="hidden md:block object-contain h-[5rem] xl:mb-9.5 md:h-[7.5rem] md:w-[5.125rem]" 
                         /* 
                         - object-contain: keeps image aspect ratio
                         - h-[8.375rem]: 134px in rem
@@ -59,7 +59,7 @@ const Capabilities = () => {
                     />
 
 
-                    <div id="after-navbar" tabIndex={-1} className='h-[4.75rem]  md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
+                    <div id="after-navbar" tabIndex={-1} className='md:h-[7.5rem] xl:h-[8rem] md:mb-10'>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-2">Purpose-Built
                             Automation.</h4>
                         <h4 className="max-w-md md:max-w-xl xl:max-w-4xl font-bold text-center text-white text-4xl lg:text-left xl:text-4xl md:text-2xl md:pb-10">Mission—Ready Solutions.</h4>
@@ -68,7 +68,7 @@ const Capabilities = () => {
                         <p className="max-w-sm md:max-w-140 text-center text-white md:text-left text-base xl:text-xl md:text-[1.25rem]">We don't just deploy software — we solve complex challenges with precision, empathy, and mission-first execution.</p>
                     </div>
                 </div>
-                    <div className='relative z-10 flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-60 md:pt-40  md:flex-row md:space-y-0 lg:pl-45'>
+                    <div className='relative z-10 flex justify-center xl:max-w-2xl md:justify-start md:pl-30 pb-50 md:space-x-3 pt-4 mt-4 md:mt-0 md:pt-40 md:flex-row md:space-y-0 lg:pl-45'>
                         <a href={Slick_Sheet} download="Vega_Capabilities.pdf">
                             <button className='px-7 py-3 lg:px-9 lg:py-4 xl:text-xl lg:text-1.5xl text-xl font-semibold text-white rounded-2xl bg-rose-500 hover:bg-red-600 hover:text-white'>
                                 <img src={Slick_Icon} alt="" className="h-10 mr-2 inline" />
