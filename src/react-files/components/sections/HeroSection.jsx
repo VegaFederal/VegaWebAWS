@@ -68,18 +68,18 @@ const HeroSection = ({
     '--hero-height': height,
     '--hero-image-opacity': imageOpacity,
     '--hero-image-blur': imageBlur,
-    ...(logoSize && { '--hero-logo-size': logoSize }),
-    ...(contentMaxWidth && { '--hero-content-max-width': contentMaxWidth })
+    ...(logoSize && { '--hero-logo-size': logoSize })
   }
 
   const contentStyle = contentMaxWidth ? { maxWidth: contentMaxWidth } : undefined
 
   return (
-    <section className={sectionClasses} style={sectionStyle}>
+    <section className={`${sectionClasses} position-relative overflow-hidden d-flex align-items-center justify-content-center`} style={sectionStyle}>
       {backgroundVideo && (
         <video
           src={backgroundVideo}
-          className="hero-bg-video"
+          className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+          style={{ zIndex: 0 }}
           autoPlay
           loop
           muted
@@ -87,21 +87,21 @@ const HeroSection = ({
           aria-hidden="true"
         />
       )}
-      <div className="container hero-container h-100">
+      <div className="container position-relative z-2 hero-container h-100">
         <div className="row align-items-center hero-row">
-          <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} hero-content-inner py-3 py-md-4 py-lg-5`} style={contentStyle}>
+          <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} py-3 py-md-4 py-lg-5`} style={contentStyle}>
             {title && <h2 className="text-white mb-3">{title}</h2>}
             {subtitle && <p className="text-white fs-5 mb-0">{subtitle}</p>}
             {paragraph && <p className="text-white mt-2">{paragraph}</p>}
             {logoImage && (
               <div className={`d-flex ${justifyClass} mt-3 mt-md-4`}>
-                <img src={logoImage} alt={logoAlt} className="hero-logo-image" />
+                <img src={logoImage} alt={logoAlt} className="hero-logo-image object-fit-contain" />
               </div>
             )}
             {ctaText && ctaLink && ctaDownloadFilename && (
               <div className={`d-flex ${justifyClass} mt-3 mt-md-4`}>
-                <Link to={ctaLink} download={ctaDownloadFilename} className="hero-cta-button d-inline-flex align-items-center">
-                  <img src={SlickIcon} alt="" className="hero-cta-button-icon me-2" />
+                <Link to={ctaLink} download={ctaDownloadFilename} className="hero-cta-button d-inline-flex align-items-center"> {/* Not using bootstrap button class here because it adds extra padding and spacing that we don't want */}
+                  <img src={SlickIcon} alt="" className="me-2" style={{ height: '2.5em', width: 'auto' }} />
                   {ctaText}
                 </Link>
               </div>
