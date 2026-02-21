@@ -1,11 +1,11 @@
 
 import Navbar from '../components/Navbar'
 import Arrow from '../assets/Arrow_Hero.png';
-import myImage2 from '../assets/istockAutomationCapabillities.jpg';
+import myImage2 from '../assets/repairing_arm.jpg';
 import myImage3 from '../assets/StockPhotoLookingAtWhiteboard.JPG';
-import myImage4 from '../assets/stockSatimg2.mp4';
-import myImage5 from '../assets/Ux_design2.jpg';
-import heroVideo from '../assets/gearsTurning.webm';
+import myImage4 from '../assets/satelliteOverRiver.mp4';
+import myImage5 from '../assets/uiMeeting.jpg';
+import heroVideo from '../assets/movingGears.mp4';
 import './HomeStyles.css';
 import Footer from '../components/Footer';
 import Slick_Icon from '../assets/White_Slack_Icon.png'
