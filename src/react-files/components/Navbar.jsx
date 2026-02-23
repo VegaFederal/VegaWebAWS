@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {Link, ScrollRestoration} from 'react-router-dom'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 import {FaBars, FaTimes} from 'react-icons/fa'
 import './NavbarStyles.css'
 import Logo_Blue from '../assets/vega_logo_blue.png';
@@ -16,24 +16,24 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
     return (
         <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
             
-            <Link to='/'><img src={Logo_White} alt='Vega logo' class="w-45 pb-3"className='mobile-image'></img>
-                         <img src={Logo_Blue} alt='Vega logo' class="w-45 pb-3 " className='desktop-image'></img></Link>
+            <Link to='/'><img src={Logo_White} alt='Vega logo' className="w-45 pb-3 mobile-image"></img>
+                         <img src={Logo_Blue} alt='Vega logo' className="w-45 pb-3 desktop-image"></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li class='text-primary nav-item'>
+                <li className='text-primary nav-item'>
                     <Link to='/'><p className='nav-item home'>Home</p></Link>
                 </li>
-                <li class='text-primary nav-item'>
-                    <Link to='/Capabilities'><p class={color_capabilities} className='nav-item'>Capabilities</p></Link>
+                <li className='text-primary nav-item'>
+                    <Link to='/Capabilities'><p className={`${color_capabilities} nav-item`}>Capabilities</p></Link>
                 </li>
-                <li class='text-white nav-item'>
-                    <Link to='/Our_Story'><p class={color_story} className='nav-item'>Our Story</p></Link>
+                <li className='text-white nav-item'>
+                    <Link to='/Our_Story'><p className={`${color_story} nav-item`}>Our Story</p></Link>
                 </li>
-                <li class='text-primary nav-item'>
-                    <Link to='/Careers'><p class={color_career} className='nav-item'>Careers</p></Link>
+                <li className='text-primary nav-item'>
+                    <Link to='/Careers'><p className={`${color_career} nav-item`}>Careers</p></Link>
                 </li>
-                <li class='text-primary nav-item'>
-                    <Link to='/About'><p class={color_about} className='nav-item'>Vega Team</p></Link>
+                <li className='text-primary nav-item'>
+                    <Link to='/About'><p className={`${color_about} nav-item`}>Vega Team</p></Link>
                 </li>
                 <li class='text-primary nav-item'>
                     <Link to='/ExamplePage'><p>Example Page</p></Link>

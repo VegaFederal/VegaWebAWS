@@ -36,12 +36,12 @@ const TwoColumnSection = ({
 
   return (
     <div className={sectionClasses}>
-      <div className="page-container">
-        <div className={gridClasses} style={gridStyle}>
-          <div className="two-column-image">
-            {image && <img src={image} alt={imageAlt} style={imageStyle} />}
+      <div className="container">
+        <div className={gridClasses} class="row align-items-center">
+          <div className="col" >
+            {image && <img src={image} alt={imageAlt}/>}
           </div>
-          <div className="two-column-content">
+          <div className="col">
             {content}
           </div>
         </div>

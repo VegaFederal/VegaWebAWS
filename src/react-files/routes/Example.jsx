@@ -17,7 +17,7 @@ import Homepage_Cards from '../components/Homepage_Cards';
 import Footer from '../components/Footer';
 import PDF_Icon from '../assets/PDF_Download_Icon.png'
 import Slack_Icon from '../assets/White_Slack_Icon.png'
-import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
+import PDF_Slack_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import Mission_statement from '../assets/Mission_statement.png'
 

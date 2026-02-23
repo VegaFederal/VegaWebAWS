@@ -1,4 +1,3 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
 import stlSkyline from '../assets/Footer Stl Skyline Banner.jpg'
 
@@ -18,6 +17,12 @@ export default function Footer(){
                     <p className='text-xl text-white'>911 Washington Ave, Suite 412</p>
                     <p className='text-xl text-white'>St. Louis, MO 63101</p>
                     <Link to='mailto:Info@vegafederal.com' className='footer-link'>Info@vegafederal.com</Link>
+                    <Link
+                        to='https://www.linkedin.com/company/vega-fed-solutions/posts/?feedView=all'
+                        className='footer-link'
+                    >
+                    LinkedIn
+                </Link>
                 </div>
             </div>
         </section>
