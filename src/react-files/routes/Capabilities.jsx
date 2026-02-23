@@ -3,15 +3,15 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
 import { HeroSection, StickyStackSection, CenteredContentSection } from '../components/sections'
-import GeospatialImage from '../assets/stockEngeneering.jpg'
+import GeospatialImage from '../assets/repairing_arm.jpg'
 import MobileImage from '../assets/StockPhotoLookingAtWhiteboard.JPG'
 //buildingsoffice2.jpg
-import BPAImage from '../assets/stockSatimg2.mp4'
-import PlatformImage from '../assets/Ux_design2.jpg'
+import BPAImage from '../assets/satelliteOverRiver.mp4'
+import PlatformImage from '../assets/uiMeeting.jpg'
 import SlickIcon from '../assets/White_Slack_Icon.png'
 import SlickSheet from '../assets/Vega Slick Sheet.pdf'
 import HomepageHero from '../assets/rawImage.jpg'
-import CapabilitiesHeroVideo from '../assets/stockblackgears.webm'
+import CapabilitiesHeroVideo from '../assets/movingGears.mp4'
 import './Capabilities.css'
 import '../components/typography.css'
 
@@ -26,12 +26,12 @@ const Capabilities = () => {
       title: 'Automation & Machine Learning',
       overview: 'At Vega, we believe automation is the key to accelerating federal missions. By reducing manual effort, improving accuracy, and connecting the right data to the right people, our solutions let operators focus on what matters most. We integrate applications, workflows, and analytics seamlessly, combining thoughtful engineering with practical automation to enable faster, better-informed decisions.',
       capabilities: [
-        '- User-centered analytics and mission-specific operational insights',
-        '- Data visualization and dashboards for intuitive, actionable information',
-        '- Test automation that improves reliability and reduces repetitive work',
-        '- Machine learning pipelines that turn complex data into actionable insights',
-        '- Quantifiable benefits: time savings percentages, cost reduction estimates, accuracy improvements',
-        '- Workflow automation tailored to mission processes'
+        'User-centered analytics and mission-specific operational insights',
+        'Data visualization and dashboards for intuitive, actionable information',
+        'Test automation that improves reliability and reduces repetitive work',
+        'Machine learning pipelines that turn complex data into actionable insights',
+        'Quantifiable benefits: time savings percentages, cost reduction estimates, accuracy improvements',
+        'Workflow automation tailored to mission processes'
       ],
       missionImpact: 'Agencies operate with greater speed, accuracy, and confidence, leveraging automation to deliver mission-critical outcomes faster and more reliably.',
     //   ctaText: 'Explore Capabilities',
@@ -45,14 +45,14 @@ const Capabilities = () => {
       title: 'Cloud, DevOps & DevSecOps Modernization',
       overview: 'Vega modernizes federal IT environments with a practical, mission-focused approach. We help agencies move to secure, scalable cloud architectures without adding complexity, enabling faster delivery and stronger operational resilience.',
       capabilities: [
-        '- Secure, reliable application deployment and scaling',
-        '- Configuration management for consistent environments',
-        '- Monitoring, logging, and automated system health checks',
-        '- Containerization and orchestration on modern platforms',
-        '- DevSecOps pipelines with security built in from the start',
-        '- CI/CD pipelines to streamline delivery and reduce manual effort',
-        '- Multi-cloud engineering (AWS, Azure, Google Cloud, IBM, Oracle, OpenStack)',
-        '- Infrastructure as Code (Ansible, Terraform, CloudFormation, ARM, CDK)'
+        'Secure, reliable application deployment and scaling',
+        'Configuration management for consistent environments',
+        'Monitoring, logging, and automated system health checks',
+        'Containerization and orchestration on modern platforms',
+        'DevSecOps pipelines with security built in from the start',
+        'CI/CD pipelines to streamline delivery and reduce manual effort',
+        'Multi-cloud engineering (AWS, Azure, Google Cloud, IBM, Oracle, OpenStack)',
+        'Infrastructure as Code (Ansible, Terraform, CloudFormation, ARM, CDK)'
       ],
       missionImpact: 'Modernized legacy systems, reduced operational risk, and faster delivery of critical capabilities — all with solutions built to last.',
     //   ctaText: 'Learn More',
@@ -65,11 +65,11 @@ const Capabilities = () => {
       title: 'Geospatial Engineering & Multi-Sensor Processing',
       overview: "Vega's geospatial expertise is a differentiator, helping defense and intelligence partners turn complex sensor data into actionable insights for real-time operations.",
       capabilities: [
-        '- Multi-sensor data processing: vector, raster, photogrammetry, LIDAR, RADAR',
-        '- Mission-ready situational awareness tools',
-        '- Common Operating Picture (COP) development for shared situational awareness',
-        '- Modernization of legacy GEOINT systems for improved speed and usability',
-        '- Geospatial application development for mission workflows'
+        'Multi-sensor data processing: vector, raster, photogrammetry, LIDAR, RADAR',
+        'Mission-ready situational awareness tools',
+        'Common Operating Picture (COP) development for shared situational awareness',
+        'Modernization of legacy GEOINT systems for improved speed and usability',
+        'Geospatial application development for mission workflows'
       ],
       missionImpact: 'Supports DoD, IC, and homeland defense by delivering clear, actionable intelligence and situational awareness.',
     //   ctaText: 'View Geospatial',
@@ -82,12 +82,12 @@ const Capabilities = () => {
       title: 'Mission Focused User Experience',
       overview: 'Vega ensures mission systems are intuitive, efficient, and operator-ready by combining UX research, human-centered design, and modern front-end engineering. These capabilities directly complement automation and integration initiatives, making workflows seamless.',
       capabilities: [
-        '- Modernization of legacy operator tools and workflows',
-        '- Responsive, mobile-ready UI development',
-        '- Accessibility-compliant interfaces (Section 508 / WCAG)',
-        '- Front-end engineering (React, Angular, Vue)',
-        '- Modern UI design and component-based development',
-        '- UX research, workflow analysis, and human-centered design'
+        'Modernization of legacy operator tools and workflows',
+        'Responsive, mobile-ready UI development',
+        'Accessibility-compliant interfaces (Section 508 / WCAG)',
+        'Front-end engineering (React, Angular, Vue)',
+        'Modern UI design and component-based development',
+        'UX research, workflow analysis, and human-centered design'
       ],
       missionImpact: 'Interfaces are intuitive, efficient, and built for real-world operational use — reducing friction and increasing mission effectiveness.',
     //   ctaText: 'See UX Work',
@@ -108,7 +108,6 @@ const Capabilities = () => {
       {/* Hero - component-based, same pattern as ExamplePage */}
       <HeroSection
         backgroundVideo={CapabilitiesHeroVideo}
-        backgroundColor="#001837"
         imageOpacity={0.6}
         title={
           <>
@@ -132,14 +131,13 @@ const Capabilities = () => {
         contentMaxWidth="75ch"
       />
 
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content">
         {/* Scrolling cards - StickyStackSection (same component as ExamplePage) */}
         <StickyStackSection
           title="Our Capabilities"
           subtitle="Mission-ready automation, cloud, geospatial, and UX—built for federal missions."
           items={stickyStackItems}
-          bgColor="bg-white"
-          showEyebrow={false}
+          backgroundColor="#F2F2F7"
         />
 
         {/* Recent Federal Contracting - CenteredContentSection */}

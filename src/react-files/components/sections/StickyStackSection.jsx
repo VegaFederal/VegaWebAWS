@@ -14,8 +14,10 @@ function isVideoUrl (src) {
  * @param {string} title - Section heading
  * @param {string} subtitle - Optional supporting text
  * @param {Array} items - Cards to stack (each may have text OR overview, capabilities[], missionImpact for tabs)
- * @param {string} bgColor - Background color class
- * @param {boolean} showEyebrow - Show eyebrow label above title (default: true)
+ * @param {string} bgColor - Background color class (e.g. 'bg-white', 'bg-gray')
+ * @param {string} backgroundColor - CSS color value for section background (e.g. '#FAF9F6', 'rgb(250,249,246)'). Overrides bgColor when set.
+ * @param {string} stickyCardsOffset - Where cards stick (default '25vh'). Use vh for uniform scaling.
+ * @param {string} stickyReleasePadding - Extra scroll before cards unstick (default '15vh'). Use vh for uniform scaling.
  * @param {string} className - Additional CSS classes
  */
 const StickyStackSection = ({
@@ -23,26 +25,43 @@ const StickyStackSection = ({
   subtitle = '',
   items = [],
   bgColor = 'bg-white',
-  showEyebrow = true,
+  backgroundColor,
+  stickyCardsOffset = '22vh',
+  stickyReleasePadding = '15vh',
   className = ''
 }) => {
   if (!items.length) {
     return null
   }
 
+  const sectionStyle = {
+    '--sticky-cards-offset': stickyCardsOffset,
+    '--sticky-release-padding': stickyReleasePadding,
+    ...(backgroundColor && { backgroundColor })
+  }
+  const bgClass = backgroundColor ? '' : bgColor
+  const titleStyle = backgroundColor ? { backgroundColor } : undefined
+
   return (
-    <section className={`sticky-stack-section ${bgColor} ${className}`}>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-8 offset-lg-2 text-center sticky-stack-header">
+    <section className={`sticky-stack-section ${bgClass} ${className}`.trim()} style={sectionStyle}>
+      <div className={`sticky-stack-title-wrap ${bgClass}`.trim()} style={titleStyle}>
+        <div className={`sticky-stack-header text-center ${bgClass}`.trim()} style={titleStyle}>
+          <div className="container">
             {title && <h2>{title}</h2>}
             {subtitle && <p>{subtitle}</p>}
           </div>
         </div>
-
+      </div>
+      <div className="container">
         <div className="sticky-stack-list" aria-label="Stacking cards">
           {items.map((item, index) => (
-            <StickyStackCard key={`${item.title || 'stack-card'}-${index}`} item={item} index={index} showEyebrow={showEyebrow} />
+            <StickyStackCard
+              key={`${item.title || 'stack-card'}-${index}`}
+              item={item}
+              index={index}
+              stackIndex={items.length - 1 - index}
+              isFirstCard={index === 0}
+            />
           ))}
         </div>
       </div>
@@ -50,7 +69,7 @@ const StickyStackSection = ({
   )
 }
 
-function StickyStackCard ({ item, index, showEyebrow = true }) {
+function StickyStackCard ({ item, index, stackIndex, isFirstCard = false }) {
   const hasTabs = item.overview != null && Array.isArray(item.capabilities) && item.missionImpact != null
   const [activeTab, setActiveTab] = useState('overview')
 
@@ -58,20 +77,17 @@ function StickyStackCard ({ item, index, showEyebrow = true }) {
 
   return (
     <article
-      className="sticky-stack-card"
+      className={`sticky-stack-card ${isFirstCard ? 'sticky-stack-card-first' : ''}`}
       style={{
-        '--stack-index': index,
+        '--stack-index': stackIndex ?? index,
         '--stack-accent': item.accent || '#DD004A',
         zIndex: index + 1
       }}
     >
       <div className="sticky-stack-card-inner row align-items-start g-4">
         <div className={contentColClass}>
-          {showEyebrow && item.eyebrow && (
-            <span className="sticky-stack-eyebrow">{item.eyebrow}</span>
-          )}
           {item.title && (
-            <h3 className="sticky-stack-title">{item.title}</h3>
+            <h2 className="sticky-stack-title">{item.title}</h2>
           )}
 
           {hasTabs ? (

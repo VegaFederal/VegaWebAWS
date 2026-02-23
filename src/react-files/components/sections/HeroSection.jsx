@@ -90,7 +90,7 @@ const HeroSection = ({
       <div className="container position-relative z-2 hero-container h-100">
         <div className="row align-items-center hero-row">
           <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} py-3 py-md-4 py-lg-5`} style={contentStyle}>
-            {title && <h2 className="text-white mb-3">{title}</h2>}
+            {title && <h1 className="text-white mb-3">{title}</h1>}
             {subtitle && <p className="text-white fs-5 mb-0">{subtitle}</p>}
             {paragraph && <p className="text-white mt-2">{paragraph}</p>}
             {logoImage && (

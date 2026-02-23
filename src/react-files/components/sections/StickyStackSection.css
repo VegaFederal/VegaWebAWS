@@ -1,111 +1,62 @@
-/* Sticky Stack Section */
+/* Sticky Stack Section - all values in vh for uniform behavior across viewport sizes */
 .sticky-stack-section {
-  padding: 4.5rem 0;
+  padding: 5vh 0;
+  --sticky-card-step: 0.5vh;
+  --sticky-card-min-height: 60vh;
+  --sticky-stack-line-height: 1;
+}
+
+/* Title sticks at top; all cards (including first) stack together below */
+.sticky-stack-title-wrap {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
 }
 
 .sticky-stack-header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 2.5rem;
-}
-
-.sticky-stack-header h2 {
-  margin-bottom: 0.75rem;
-}
-
-.sticky-stack-header p {
-  margin: 0;
-  color: #4b5563;
+  width: 100%;
+  margin: 0 0 1rem; /* Reduced margin between title and first card */
+  padding: 0 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sticky-stack-list {
-  display: grid;
-  gap: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
+.sticky-stack-header .container {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+}
+
+/* Cards stack below the stuck title — keep sticky on all viewports including mobile */
 .sticky-stack-card {
+  position: -webkit-sticky;
   position: sticky;
-  top: calc(5.5rem + (var(--stack-index) * 1.25rem));
+  top: calc(var(--sticky-cards-offset, 25vh) + (var(--stack-index) * var(--sticky-card-step)));
 }
 
-/* Bootstrap row/col used for layout */
 .sticky-stack-card-inner {
   background-color: #ffffff;
   border-radius: 24px;
   padding: 2.5rem;
   border: 1px solid rgba(0, 24, 55, 0.12);
-  border-top: 1px solid rgba(0, 24, 55, 0.12);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
-  transform: translateY(calc(var(--stack-index) * 8px));
+  transform: translateY(calc(var(--stack-index) * 0.4vh));
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: var(--sticky-card-min-height);
 }
 
-/* .sticky-stack-card:hover .sticky-stack-card-inner {
-  transform: translateY(calc(var(--stack-index) * 4px));
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
-} */
-
-.sticky-stack-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.sticky-stack-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #7c8798;
-}
-
-.sticky-stack-title {
-  margin: 0;
-}
-
-.sticky-stack-text {
-  margin: 0;
-  color: #2f3a49;
-  line-height: 1.6;
-  white-space: pre-line;
-}
-
-.sticky-stack-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.sticky-stack-tag {
-  background-color: rgba(0, 24, 55, 0.08);
-  color: #001837;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.sticky-stack-cta {
-  align-self: flex-start;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #DD004A;
-  padding: 0.6rem 1.4rem;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.sticky-stack-cta:hover {
-  background-color: #c40042;
-  transform: translateY(-1px);
-}
-
-/* Tabs (Overview, Capabilities, Mission Impact) */
+/* Tabs */
 .sticky-stack-tabs {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .sticky-stack-tab-list {
@@ -144,27 +95,16 @@
   min-height: 8rem;
 }
 
-.sticky-stack-tab-panel {
-  margin: 0;
-}
 
-.sticky-stack-tab-label {
-  margin: 0 0 0.5rem 0;
-  font-weight: 600;
-  color: #001837;
-  font-size: 0.9375rem;
+/* Capabilities tab only: reset ul padding + line-height for list items */
+.sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
-
-.sticky-stack-bullet-list {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: #2f3a49;
-  font-size: 0.9375rem;
-  list-style: none;
-}
-
-.sticky-stack-mission-impact {
-  font-weight: 500;
+.sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+  line-height: var(--sticky-stack-line-height);
 }
 
 .sticky-stack-card-media {
@@ -180,19 +120,88 @@
   display: block;
 }
 
-/* Two-column layout and alternating order handled by Bootstrap row/col and order-lg-* in JSX */
-
-@media (max-width: 700px) {
-  .sticky-stack-card {
-    position: relative;
-    top: auto;
+@media (max-width: 1366px) {
+  .sticky-stack-section {
+    --sticky-card-min-height: 55vh;
   }
-
+  .sticky-stack-section .sticky-stack-text {
+    font-size: 1rem;
+  }
+  .sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+    font-size: 1rem;
+    line-height: var(--sticky-stack-line-height);
+  }
+}
+@media (max-width: 1024px) {
   .sticky-stack-card-inner {
-    transform: none;
+    height: auto;
+    min-height: auto;
   }
+}
 
-  .sticky-stack-card:hover .sticky-stack-card-inner {
-    transform: none;
+/* Mobile: compact layout so full cards are visible on scroll */
+@media (max-width: 768px) {
+  .sticky-stack-section {
+    padding: 3vh 0;
+    --sticky-cards-offset: 12vh !important;
+    --sticky-card-step: 0.3vh;
+  }
+  .sticky-stack-header {
+    margin: 0 0 0.5rem;
+    padding: 0 0.5rem 0.25rem;
+  }
+  .sticky-stack-header h2 {
+    font-size: 1.5rem;
+  }
+  .sticky-stack-header p {
+    font-size: 0.9rem;
+  }
+  .sticky-stack-list {
+    gap: 1.5rem;
+  }
+  .sticky-stack-card-inner {
+    padding: 1.25rem;
+    border-radius: 16px;
+    transform: translateY(calc(var(--stack-index) * 0.25vh));
+  }
+  .sticky-stack-title-wrap {
+    top: 3.5rem;
+  }
+  .sticky-stack-card {
+    top: calc(var(--sticky-cards-offset, 12vh) + (var(--stack-index) * var(--sticky-card-step)));
+  }
+  .sticky-stack-tabs {
+    gap: 0.375rem;
+  }
+  .sticky-stack-tab {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .sticky-stack-tab-list {
+    gap: 0.375rem;
+  }
+  .sticky-stack-section .sticky-stack-title {
+    font-size: 1.125rem;
+  }
+  .sticky-stack-section .sticky-stack-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+    font-size: 0.875rem;
+    line-height: 1.25;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .sticky-stack-tab-panels {
+    min-height: 6rem;
+  }
+  .sticky-stack-card-inner .row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+  .sticky-stack-card-media img,
+  .sticky-stack-card-media-video {
+    border-radius: 12px;
   }
 }
