@@ -162,9 +162,9 @@ const Capabilities = () => {
           }
         />
 
-        <section className="footer-section">
+
           <Footer />
-        </section>
+
       </main>
     </div>
   )

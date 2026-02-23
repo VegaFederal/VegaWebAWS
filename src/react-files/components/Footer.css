@@ -1,0 +1,128 @@
+/* Footer - Compact multi-column layout, Bootstrap grid */
+
+.footer-section {
+  background-color: var(--color-primary, #001837);
+  position: relative;
+}
+
+.footer-border-top,
+.footer-border-bottom {
+  height: 3px;
+  background-color: var(--color-secondary, #DD004A);
+}
+
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .footer-logo {
+    max-width: 140px;
+  }
+}
+
+.footer-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .footer-heading {
+    font-size: 1.75rem;
+  }
+}
+
+.footer-subheading {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .footer-subheading {
+    font-size: 1.25rem;
+  }
+}
+
+.footer-address-block {
+  font-style: normal;
+}
+
+.footer-address-block .footer-address {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-address-block .footer-link {
+  display: block;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-col-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem 0;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav .footer-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-section .footer-link {
+  color: #fff;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.footer-section .footer-link:hover {
+  color: var(--color-secondary, #DD004A);
+}
+
+.footer-scroll-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-secondary, #DD004A);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.footer-scroll-btn:hover {
+  background-color: #c20042;
+  transform: translateY(-2px);
+}
+
+.footer-scroll-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  margin: 1.5rem 0 0 0;
+  opacity: 0.9;
+}
