@@ -11,7 +11,7 @@ import Homepage_Hero from '../assets/Homepage_Hero_New.png'
 import VOSB_Logo_2 from '../assets/veterans_logo_new.png'
 import Mission_statement from '../assets/Mission_statement.png'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
-import PDF_Slack_Sheet from '../assets/Vega Slick Sheet (1).pdf'
+import PDF_Slack_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import Slack_Icon from '../assets/White_Slack_Icon.png'
 import './Homepage2.css'
 
