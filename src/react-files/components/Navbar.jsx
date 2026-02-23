@@ -20,10 +20,10 @@ const Navbar = ({color_story, color_capabilities,color_contact, color_partner, c
                          <img src={Logo_Blue} alt='Vega logo' className="w-45 pb-3 desktop-image"></img></Link>
             
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li className='text-primary nav-item'>
+                <li className='text-primary nav-item '>
                     <Link to='/'><p className='nav-item home'>Home</p></Link>
                 </li>
-                <li className='text-primary nav-item'>
+                <li className='text-primary nav-item '>
                     <Link to='/Capabilities'><p className={`${color_capabilities} nav-item`}>Capabilities</p></Link>
                 </li>
                 <li className='text-white nav-item'>
