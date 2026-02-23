@@ -35,23 +35,51 @@
 
 .nav-menu {
     display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu li {
-    padding: 0 1.5rem 0 3.5rem;  
+    padding: 0 1.5rem 0 3.5rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu li.nav-item:not(:last-child) {
-    border-right: 2px solid #001837;
+    position: relative;
     padding-right: 3.5rem;
     padding-left: 3.5rem;
     margin-right: 0;
+}
+
+/* Shorter separator line using pseudo-element */
+.nav-menu li.nav-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 60%;
+    background-color: #001837;
 }
 
 .nav-menu a {
     font-size: 1.05rem;
     font-weight: bold;
     transition: font-size 0.3s ease; /* Smooth text transition */
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Override typography.css for navbar paragraphs */
+.nav-menu a p {
+    margin: 0;
+    line-height: 1;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 .hamburger {
@@ -119,18 +147,45 @@
     }
     
     .nav-menu li {
-        padding: 0 .5rem;
+        padding: 0 0.75rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
     }
 
     .nav-menu li.nav-item:not(:last-child) {
         border-right: 2px solid #fff;
         padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    /* Shorter separator line using pseudo-element */
+    .nav-menu li.nav-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 40%;
+        background-color: #001837;
     }
 
     .nav-menu a {
         font-size: 1.25rem;
         font-weight: semi-bold;
         transition: font-size 0.3s ease;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Override typography.css for navbar paragraphs */
+    .nav-menu a p {
+        margin: 0;
+        line-height: 1;
+        font-size: inherit;
+        font-weight: inherit;
     }
 
     .nav-item {
