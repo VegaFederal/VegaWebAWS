@@ -4,28 +4,9 @@
   margin-top: 1.5rem;
 }
 
-/* Recent Contracting Section - Bootstrap + custom */
-.capabilities-contracting-section {
-  background-color: #ffffff;
-  overflow-x: hidden;
-  /* padding from CenteredContentSection */
+.contracting-item {
+  margin-top: 2rem;
 }
-
-.capabilities-contracting-section h2 {
-  color: #001837;
-  margin-bottom: 1.5rem;
-}
-
-.capabilities-contracting-section p {
-  color: #001837;
-  margin-bottom: 1rem;
-}
-
-.capabilities-contracting-section .contracting-item {
-  margin-bottom: 1rem;
-}
-
-
 
 /* Footer section */
 .capabilities-page .footer-section {

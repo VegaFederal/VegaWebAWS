@@ -144,7 +144,7 @@ const Capabilities = () => {
         <CenteredContentSection
           bgColor="bg-white"
           maxWidth="two-column"
-          align="center"
+          align="left"
           className="capabilities-contracting-section"
           content={
             <>

@@ -3,11 +3,12 @@ import './CenteredContentSection.css'
 
 /**
  * CenteredContentSection - Full-width centered content section
- * 
+ * Uses Bootstrap container and utilities where possible.
+ *
  * @param {ReactNode} content - Content to display
  * @param {string} bgColor - Background color class (default: 'bg-white')
  * @param {string} maxWidth - Max width preset or custom size
- *   Presets: 'two-column' (1200px), 'content' (56rem), 'wide' (72rem)
+ *   Presets: 'two-column' (container-xl ≈1140px), 'content'/'narrow' (container-lg ≈960px), 'wide' (container-xxl ≈1320px)
  *   Custom: any valid CSS length (e.g. '900px', '70rem')
  * @param {string} align - Content alignment: 'center' or 'left' (default: 'center')
  * @param {string} className - Additional CSS classes
@@ -19,26 +20,27 @@ const CenteredContentSection = ({
   align = 'center',
   className = ''
 }) => {
-  const sectionClasses = `centered-content-section ${bgColor} ${className}`
-  const alignmentClass = align !== 'center' ? `align-${align}` : ''
   const presetMap = {
-    default: 'max-two-column',
-    'two-column': 'max-two-column',
-    content: 'max-content',
-    narrow: 'max-content',
-    wide: 'max-wide'
+    default: 'container-xl',
+    'two-column': 'container-xl',
+    content: 'container-lg',
+    narrow: 'container-lg',
+    wide: 'container-xxl'
   }
-  const presetClass = presetMap[maxWidth] || ''
-  const isCustomWidth = !presetClass && typeof maxWidth === 'string'
-  const wrapperClasses = `centered-content-wrapper ${presetClass} ${alignmentClass}`.trim()
+  const containerClass = presetMap[maxWidth] || ''
+  const isCustomWidth = !containerClass && typeof maxWidth === 'string'
+  const isAlignStart = align === 'left' || align === 'start'
+  const textAlignClass = isAlignStart ? 'text-start' : 'text-center'
+  const sectionClasses = `centered-content-section py-4 py-md-5 overflow-hidden ${bgColor} ${className}`.trim()
+  const wrapperClasses = isCustomWidth
+    ? `container-fluid mx-auto ${textAlignClass}`.trim()
+    : `container ${containerClass} mx-auto ${textAlignClass}`.trim()
   const wrapperStyle = isCustomWidth ? { maxWidth } : undefined
 
   return (
     <div className={sectionClasses}>
-      <div className="page-container">
-        <div className={wrapperClasses} style={wrapperStyle}>
-          {content}
-        </div>
+      <div className={wrapperClasses} style={wrapperStyle}>
+        {content}
       </div>
     </div>
   )
