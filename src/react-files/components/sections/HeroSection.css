@@ -52,9 +52,9 @@
   min-height: inherit;
 }
 
-/* Left-align hero content on large screens - override section flex and Bootstrap container */
+/* Left-align hero content on large screens - only when text is left-aligned */
 @media (min-width: 1600px) {
-  .hero-section .hero-container {
+  .hero-section.hero-section-align-left .hero-container {
     margin-left: 10rem;
     margin-right: auto;
   }

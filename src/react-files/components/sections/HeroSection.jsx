@@ -52,7 +52,7 @@ const HeroSection = ({
     : backgroundImage
       ? 'hero-section-with-image'
       : 'hero-section-with-color'
-  const sectionClasses = `hero-section ${bgClass} ${className}`
+  const sectionClasses = `hero-section ${bgClass}${textAlign === 'left' ? ' hero-section-align-left' : ''} ${className}`.trim()
 
   // Bootstrap text and flex alignment from textAlign
   const alignMap = { left: 'start', center: 'center', right: 'end' }
