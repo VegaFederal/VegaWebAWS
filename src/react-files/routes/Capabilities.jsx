@@ -138,6 +138,7 @@ const Capabilities = () => {
           subtitle="Mission-ready automation, cloud, geospatial, and UX—built for federal missions."
           items={stickyStackItems}
           backgroundColor="#F2F2F7"
+          autoTabInterval={15000}
         />
 
         {/* Recent Federal Contracting - CenteredContentSection */}

@@ -201,6 +201,9 @@
 
 /* Symmetrical margins matching hero on large screens (≥1400px) */
 @media (min-width: 1400px) {
+  .sticky-stack-section {
+    --sticky-card-min-height: 60vh;
+  }
   .sticky-stack-section > .container {
     max-width: 100%;
     padding-left: 10rem;
