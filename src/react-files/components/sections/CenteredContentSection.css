@@ -1,0 +1,9 @@
+/* Symmetrical margins matching hero and sticky stack on large screens (≥1400px) */
+@media (min-width: 1400px) {
+  .centered-content-section .container,
+  .centered-content-section .container-fluid {
+    max-width: 100%;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}

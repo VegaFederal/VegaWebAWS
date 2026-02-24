@@ -52,6 +52,13 @@
   min-height: inherit;
 }
 
+/* Left-align hero content on large screens - override section flex and Bootstrap container */
+@media (min-width: 1600px) {
+  .hero-section .hero-container {
+    margin-left: 10rem;
+    margin-right: auto;
+  }
+}
 .hero-row {
   min-height: 100%;
 }
