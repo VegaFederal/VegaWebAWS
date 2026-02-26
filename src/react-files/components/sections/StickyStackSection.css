@@ -119,7 +119,7 @@
   display: block;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1600px) {
   .sticky-stack-section {
     --sticky-card-min-height: 55vh;
   }

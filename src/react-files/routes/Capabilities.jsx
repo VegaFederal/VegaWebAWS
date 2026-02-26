@@ -108,13 +108,13 @@ const Capabilities = () => {
       {/* Hero - component-based, same pattern as ExamplePage */}
       <HeroSection
         backgroundVideo={CapabilitiesHeroVideo}
-        imageOpacity={0.6}
         title={
           <>
             Purpose-Built Automation.<br />
             Mission—Ready Solutions.
           </>
         }
+        textAlign="left"
         subtitle=""
         paragraph={
             <>
@@ -124,7 +124,6 @@ const Capabilities = () => {
           }
         ctaText="Download Capabilities Slick Sheet"
         ctaDownloadFilename="Capabilities-Slick-Sheet.pdf"
-        textAlign="left"
         ctaLink={SlickSheet}
         ctaIcon={SlickIcon}
         height="100vh"
