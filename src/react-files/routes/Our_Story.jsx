@@ -16,7 +16,7 @@ const Our_Story = () => {
                 <header className=''>
                         <Navbar color_story='text-secondary'/>
                     </header>
-                <div className="md:absolute md:top-0 h-screen md:left-0 md:w-full flex flex-col bg-[url('./assets/Our_Story_Hero_New.png')] bg-cover bg-no-repeat">
+                <div className="md:absolute md:top-0 h-screen md:left-0 md:w-full flex flex-col bg-[url('./assets/stlarch.jpg')] bg-cover bg-no-repeat">
                     
                     <div className="flex items-start pl-5 md:gap-3 xl:gap-5 lg:pl-[2rem] xl:pl-[5rem] mt-55">
                         <img 
