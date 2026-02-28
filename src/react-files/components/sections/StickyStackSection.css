@@ -13,25 +13,10 @@
   top: 4rem;
 }
 
-.sticky-stack-header {
-  width: 100%;
-  margin: 0 0 1rem; /* Reduced margin between title and first card */
-  padding: 0 1rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .sticky-stack-list {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-}
-
-.sticky-stack-header .container {
-  width: 100%;
-  max-width: 720px;
-  text-align: center;
 }
 
 /* Cards stack below the stuck title — keep sticky on all viewports including mobile */
@@ -81,14 +66,11 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.sticky-stack-tab:hover {
-  color: #001837;
-}
-
 .sticky-stack-tab.active {
   color: var(--stack-accent, #DD004A);
   border-bottom-color: var(--stack-accent, #DD004A);
 }
+
 
 .sticky-stack-tab-panels {
   min-height: 8rem;
@@ -102,6 +84,7 @@
   margin-left: 0;
   margin-right: 0;
 }
+
 .sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
   line-height: var(--sticky-stack-line-height);
 }

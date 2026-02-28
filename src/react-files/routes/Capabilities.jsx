@@ -130,6 +130,7 @@ const Capabilities = () => {
         contentMaxWidth="75ch"
       />
 
+
       <main id="main-content">
         {/* Scrolling cards - StickyStackSection (same component as ExamplePage) */}
         <StickyStackSection
