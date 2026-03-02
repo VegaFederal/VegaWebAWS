@@ -81,7 +81,7 @@ const Homepage2 = () => {
             </ul>
           </div>
         }
-        isReversed={true}
+        isReversed={false}
         bgColor="bg-white"
       />
 
