@@ -14,6 +14,8 @@ import './TwoColumnSection.css'
  * @param {ReactNode} content - Content to display (text, headings, etc.)
  * @param {string} bgColor - Background color class (default: 'bg-white')
  * @param {string} className - Additional CSS classes
+ * @param {boolean} isReversed - Whether the text is on the right or the left
+ * 
  */
 const TwoColumnSection = ({
   image,
@@ -24,6 +26,7 @@ const TwoColumnSection = ({
   contentColumnSpan = 7,
   content,
   bgColor = 'bg-white',
+  isReversed,
   className = ''
 }) => {
   const sectionClasses = `two-column-section ${bgColor} ${className}`
@@ -34,11 +37,28 @@ const TwoColumnSection = ({
     '--content-span': contentColumnSpan
   }
 
+  if (isReversed) {
+    return (
+    <div className={sectionClasses}>
+      <div className="container">
+        <div className={gridClasses} class="row align-items-center">
+          <div className="col">
+            {content}
+          </div>
+          <div className="col-lg ml-10 lg:ml-0" >
+            {image && <img src={image} alt={imageAlt}/>}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+  }
+
   return (
     <div className={sectionClasses}>
       <div className="container">
         <div className={gridClasses} class="row align-items-center">
-          <div className="col" >
+          <div className="col-lg ml-10 lg:ml-0" >
             {image && <img src={image} alt={imageAlt}/>}
           </div>
           <div className="col">

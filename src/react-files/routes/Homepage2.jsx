@@ -54,7 +54,7 @@ const Homepage2 = () => {
       <TwoColumnSection
         image={Mission_statement}
         imageAlt="Mission statement"
-        imageFirst={true}
+        imageFirst={false}
         className="homepage2-two-column"
         content={
           <div>
@@ -81,6 +81,7 @@ const Homepage2 = () => {
             </ul>
           </div>
         }
+        isReversed={false}
         bgColor="bg-white"
       />
 
