@@ -1,11 +1,326 @@
-@media (min-width: 1024px) { /* Tailwind's lg breakpoint */
+/* Hero: two-column layout – gradient (Slate 800 → Slate 900) */
+.hero-two-column {
+  background-color: #001837; /* Fallback Navy */
+  background-image: radial-gradient(
+      ellipse 80% 50% at 10% 0%, 
+      rgba(221, 0, 74, 0.4) 0%, 
+      rgba(0, 24, 55, 0) 70%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* VOSB logo inside paragraph section, centered under CTA */
+.hero-vosb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0;
+  width: 100%;
+}
+
+.hero-vosb-logo {
+  width: 8rem;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .hero-vosb-logo {
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-vosb {
+    padding: 1.25rem 0 0;
+  }
+  .hero-vosb-logo {
+    width: 12rem;
+  }
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* Clear fixed navbar (60px) + comfortable spacing */
+  padding: 5.5rem 1.25rem 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 6rem;
+    padding: 5.5rem 2.5rem 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-inner {
+    gap: 8rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-inner {
+    gap: 10rem;
+  }
+}
+
+/* Monitor screens (1920px / full HD and up) */
+@media (min-width: 1920px) {
+  .hero-inner {
+    gap: 14rem;
+    max-width: 1800px;
+  }
+}
+
+/* Left column: text - fixed width, content centered */
+.hero-text-col {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 18rem;
+  margin-top: 3rem;
+}
+
+/* Small screens: images on top, text below */
+@media (max-width: 1023px) {
+  .hero-images-col {
+    order: 1;
+  }
+  .hero-text-col {
+    order: 2;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-images-col {
+    order: unset;
+  }
+  .hero-text-col {
+    flex: 0 0 36rem;
+    margin-top: 5rem;
+    order: unset;
+  }
+}
+@media (min-width: 1920px) {
+  .hero-text-col {
+    flex: 0 0 44rem;
+    margin-top: 8rem;
+  }
+}
+
+/* Right column: images - takes remaining space, doesn't shrink below minimum */
+.hero-images-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .hero-images-col {
+    min-width: 320px;
+  }
+}
+
+.hero-text-block {
+  max-width: 36rem;
+}
+
+@media (min-width: 1920px) {
+  .hero-text-block {
+    max-width: 44rem;
+  }
+  
+  .hero-vosb-logo {
+    padding: 5rem 0 0;
+    width: 14rem;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-lead {
+    font-size: 1.5rem;
+  }
+
+  .hero-body {
+    font-size: 1.5rem;
+  }
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.hero-title-accent {
+  color: #DD004A;
+}
+
+.hero-lead {
+  font-size: 1.125rem;
+  color: #e2e8f0;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.hero-body {
+  font-size: 1rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.hero-cta-wrap {
+  margin-top: 0.25rem;
+  align-self: flex-start;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: left;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #DD004A;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(221, 0, 74, 0.4);
+}
+
+.hero-cta:hover {
+  background: #c20042;
+  box-shadow: 0 0 24px rgba(221, 0, 74, 0.5);
+}
+
+.hero-cta-icon {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+/* Right column: three-image asymmetric grid */
+.hero-images-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-images-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Smaller images on mobile so text isn't overpowered */
+@media (max-width: 1023px) {
+  .hero-images-grid {
+    max-width: 380px;
+    gap: 0.75rem;
+  }
+}
+
+.hero-img {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.hero-img img,
+.hero-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-img-large {
+  grid-row: span 2;
+  align-self: center;
+}
+
+.hero-img-large img,
+.hero-img-large video {
+  min-height: 280px;
+}
+
+.hero-img-small img,
+.hero-img-small video {
+  min-height: 160px;
+}
+
+@media (max-width: 1023px) {
+  .hero-img-large img,
+  .hero-img-large video {
+    min-height: 200px;
+  }
+  .hero-img-small img,
+  .hero-img-small video {
+    min-height: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-images-grid {
+    max-width: 100%;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .hero-img-large img,
+  .hero-img-large video {
+    min-height: 340px;
+  }
+
+  .hero-img-small img,
+  .hero-img-small video {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-images-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-img-large img,
+  .hero-img-large video {
+    min-height: 440px;
+  }
+
+  .hero-img-small img,
+  .hero-img-small video {
+    min-height: 260px;
+  }
+}
+
+@media (min-width: 1024px) {
   .hero-lg-aspect {
     padding-top: 60.8%;
   }
 }
+
 @media (max-width: 1023px) {
   .hero-lg-aspect {
     padding-top: 0;
-    min-height: 400px; /* or whatever you want for mobile */
+    min-height: 400px;
   }
 }
