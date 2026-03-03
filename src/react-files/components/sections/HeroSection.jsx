@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './HeroSection.css'
 import SlickIcon from '../../assets/White_Slack_Icon.png'
 
@@ -100,10 +99,10 @@ const HeroSection = ({
             )}
             {ctaText && ctaLink && ctaDownloadFilename && (
               <div className={`d-flex ${justifyClass} mt-3 mt-md-4`}>
-                <Link to={ctaLink} download={ctaDownloadFilename} className="hero-cta-button d-inline-flex align-items-center"> {/* Not using bootstrap button class here because it adds extra padding and spacing that we don't want */}
+                <a href={ctaLink} download={ctaDownloadFilename} className="hero-cta-button d-inline-flex align-items-center"> {/* Not using bootstrap button class here because it adds extra padding and spacing that we don't want */}
                   <img src={SlickIcon} alt="" className="me-2" style={{ height: '2.5em', width: 'auto' }} />
                   {ctaText}
-                </Link>
+                </a>
               </div>
             )}
           </div>

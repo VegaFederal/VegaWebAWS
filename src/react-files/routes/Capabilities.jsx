@@ -123,7 +123,7 @@ const Capabilities = () => {
             </>
           }
         ctaText="Download Capabilities Slick Sheet"
-        ctaDownloadFilename="Capabilities-Slick-Sheet.pdf"
+        ctaDownloadFilename="Vega_Capabilities.pdf"
         ctaLink={SlickSheet}
         ctaIcon={SlickIcon}
         height="100vh"
