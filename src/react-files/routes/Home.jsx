@@ -17,19 +17,10 @@ const Home = () => {
   return (
     <>
     <SkipLink />
-<<<<<<< 294-capabilities-page-adding-components-and-grid-layout-vegaweb-20
-    <section className='hero'>
-        <div className="relative w-full hero-lg-aspect h-fit md:h-screen md:overflow-y-hidden overflow-y-visible md:overflow-x-visable overflow-x-hidden">
-            <div className="md:absolute md:top-0 md:left-0 md:w-full h-screen xl:h-full flex flex-col bg-[url('./assets/Arch2.jpeg')] bg-cover bg-center bg-no-repeat">
-                <header>
-                    <Navbar />
-                </header>
-=======
     <section className='hero hero-two-column'>
         <header>
             <Navbar />
         </header>
->>>>>>> main
 
         <div className="hero-inner">
             {/* Left column: heading, paragraph, CTA */}
