@@ -18,7 +18,7 @@ import Brian from '../assets/About_us/Brian.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
 import SkipLink from '../components/SkipLink'
-
+import Nick from '../assets/About_us/Nick.png'
 const About_Updated = () => {
     // Team member data - easy to add more people
     const teamMembers = [
@@ -140,18 +140,19 @@ const About_Updated = () => {
             ]
         },
         {
-            id: 11,
-            name: "Owen",
+            id: 10,
+            name: "Nick",
             title: "Software Engineer",
-            image: owen,
+            image: Nick,
             veteranLogo: null,
             veteranLogoSize: null,
             details: [
-                "Valley Park High School",
-                "I am a massive fan of Chess (playing for 18 years!)",
-                "A healthy mix between solving interesting problems & Pure Leaf's sweet tea!"
+                "Moses lake High school, WS",
+                "Whistling and jujitsu",
+                "The ability to learn something new"
             ]
         },
+
         {
             id: 12,
             name: "Blas",
