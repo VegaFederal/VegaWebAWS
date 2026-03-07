@@ -2,7 +2,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import SkipLink from '../components/SkipLink'
 
-
 import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
     return(
