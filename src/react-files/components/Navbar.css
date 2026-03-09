@@ -106,9 +106,14 @@ a {
   z-index: 1;
 }
 
-.navbar .nav-link-careers-btn:hover,
-.navbar .nav-link-careers-btn.active {
+.navbar .nav-link-careers-btn:hover {
   background-color: #DD004A !important;
+  color: #fff !important;
+}
+
+/* Active (on Careers page): stay navy so it matches page context */
+.navbar .nav-link-careers-btn.active {
+  background-color: #001837 !important;
   color: #fff !important;
 }
 
