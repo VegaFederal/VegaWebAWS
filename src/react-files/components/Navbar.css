@@ -1,7 +1,127 @@
 /* Minimal overrides – layout and styling come from Bootstrap navbar */
 
 /* Override Tailwind’s .collapse (visibility: collapse) so Bootstrap can control show/hide */
+/* Fixed navbar: smooth transition when scroll state changes */
+.navbar.fixed-top {
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.navbar.fixed-top.navbar-scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
 .navbar .collapse.navbar-collapse {
   visibility: visible;
+}
+
+/* Larger text and spacing for navbar links */
+.navbar .nav-link {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Extra spacing between items only when navbar is expanded (laptop/desktop) */
+@media (min-width: 992px) {
+  .navbar.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.navbar .nav-link:hover {
+  color: #DD004A; /* Vega red / secondary */
+}
+
+/* Current page: red (Vega secondary) – specific so it overrides Bootstrap */
+.navbar .navbar-nav .nav-link.active {
+  color: #DD004A !important;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+}
+
+/* Careers CTA button – primary navy with slash on hover */
+.navbar .nav-item-careers {
+  align-self: center;
+}
+
+.navbar .nav-link-careers-btn {
+  background-color: #001837 !important;
+  color: #fff !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar .nav-link-careers-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .nav-link-careers-btn:hover,
+.navbar .nav-link-careers-btn.active {
+  background-color: #DD004A !important;
+  color: #fff !important;
+}
+
+.navbar .nav-link-careers-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: #000;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.navbar .nav-link-careers-btn:hover::before {
+  transform: skew(30deg) translate3d(200%, 0, 0);
+}
+
+/* Corner hover effect – on text span with spacing, not the full padded gap */
+.navbar .nav-link:not(.nav-link-careers-btn) > span {
+  position: relative;
+  padding: 0.5em 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar .nav-link:not(.nav-link-careers-btn) > span::before,
+.navbar .nav-link:not(.nav-link-careers-btn) > span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0 solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:not(.nav-link-careers-btn) > span::after {
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+
+.navbar .nav-link:not(.nav-link-careers-btn) > span::before {
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.navbar .nav-link:not(.nav-link-careers-btn):hover > span::before,
+.navbar .nav-link:not(.nav-link-careers-btn):hover > span::after {
+  width: 10px;
+  height: 10px;
+  border-color: #DD004A;
 }
 
