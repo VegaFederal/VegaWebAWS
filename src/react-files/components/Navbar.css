@@ -1,0 +1,7 @@
+/* Minimal overrides – layout and styling come from Bootstrap navbar */
+
+/* Override Tailwind’s .collapse (visibility: collapse) so Bootstrap can control show/hide */
+.navbar .collapse.navbar-collapse {
+  visibility: visible;
+}
+
