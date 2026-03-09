@@ -13,7 +13,7 @@ const Our_Story = () => {
         {/* Skip link as first element */}
         <section className="">
             <div className="overflow-hidden h-screen bg-primary">
-                <header className=''>
+                <header className="relative z-10">
                         <Navbar color_story='text-secondary'/>
                     </header>
                 <div className="md:absolute md:top-0 h-screen md:left-0 md:w-full flex flex-col bg-[url('./assets/StLouisSkyLineArial.jpg')] bg-cover bg-no-repeat">
