@@ -1,0 +1,40 @@
+/* Restore bullets and match paragraph sizing for list text */
+.homepage2-bullets {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.homepage2-paragraph {
+  margin-top: 1rem;
+}
+
+/* Adjust spacing between image and text in TwoColumnSection */
+.homepage2-two-column .two-column-grid {
+  gap: 2.5rem;
+}
+
+.h5-bold {
+  font-weight: bold;
+}
+
+.double-space {
+    margin-bottom: 2rem; /* default h5 is 0.5rem, so 1rem is double */
+  }
+
+.h5-regular {
+    font-weight: 400;
+  }
+
+.h4-regular-red {
+    color: var(--color-secondary);
+    font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .homepage2-two-column .two-column-grid {
+    gap: 3.5rem;
+  }
+}
+
+
