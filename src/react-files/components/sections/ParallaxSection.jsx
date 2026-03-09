@@ -96,17 +96,17 @@ const ParallaxSection = ({
   return (
     <section ref={sectionRef} className={sectionClasses} style={sectionStyle}>
       <div className="parallax-background" style={backgroundStyle}></div>
-      <div className="parallax-overlay"></div>
+      <div className="parallax-overlay" ></div>
       <div className="parallax-content">
-        <div className="page-container">
-          <div ref={contentRef} className={`parallax-inner ${isVisible ? 'parallax-inner-visible' : ''}`}>
+        <div className="container-fluid">
+          <div ref={contentRef} className={`parallax-inner ${isVisible ? 'parallax-inner-visible' : ''}`} class="col">
             {title && (
-              <div className="parallax-title">
+              <div className="row parallax-title">
                 {typeof title === 'string' ? <h2>{title}</h2> : title}
               </div>
             )}
             {content && (
-              <div className="parallax-text">
+              <div className="row parallax-text">
                 {typeof content === 'string' ? <p>{content}</p> : content}
               </div>
             )}
