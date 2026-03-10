@@ -6,18 +6,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3.5rem; /* Default padding */
+    padding: 0rem 3.5rem; /* Default padding */
     z-index: 1000;
-    background-color: white; /* Your color with opacity */
+    background-color: black; /* Your color with opacity */
     backdrop-filter: blur(10px);
     transition: all 0.3s ease; /* Smooth transition */
     border-bottom: 1px solid  #001837;
+    padding-top: 1.5rem;
 }
 
 .header img {
     transition: all 0.3s ease; /* Smooth logo transition */
     width: 105px; /* Default logo width */
     height: auto;
+    margin-bottom: 1rem;
 }
 
 .header img:hover {
