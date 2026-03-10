@@ -26,6 +26,8 @@ const TeamPageSection = ({
     answer3 = ' ',
     veteranLogo,
 }) => {
+    const sectionClasses = `two-column-section`
+
 // Team member data - easy to add more people
     const teamMembers = [
         {
@@ -47,22 +49,23 @@ const TeamPageSection = ({
         <>
         <SkipLink />
             <section className='about_concept'>
-                <div class="container-fluid">
-                    <div id="after-navbar" tabIndex={-1} className='col'>
+                <div className='bg-primary bg-cover bg-center bg-no-repeat h-fit,z-[-1]'>
+                    
+                    
+                    <div id="after-navbar" tabIndex={-1} className='flex flex-col items-center pt-20'>
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
-                        <div id="div" className='gap-8 lg:gap-16 xl:gap-24'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-8xl'>
                             {teamMembers.map((member) => (
-                                <div key={member.id} className='col flex flex-col items-center'>
+                                <div key={member.id} className='flex flex-col items-center'>
                                     {/* Image with veteran logo overlay */}
                                     <div className='relative mb-6'>
                                         <img 
-                                            id = "img"
                                             src={member.image} 
                                             alt={member.name} 
+                                            className='w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[377px] lg:h-[377px] object-cover'
                                         />
                                         {member.veteranLogo && (
                                             <img 
-                                                loading='lazy'
                                                 src={member.veteranLogo} 
                                                 alt={`${member.name} veteran logo`} 
                                                 className={`absolute top-[5px] right-[5px] ${member.veteranLogoSize}`}
@@ -71,19 +74,19 @@ const TeamPageSection = ({
                                     </div>
                                     
                                     {/* Name */}
-                                    <h1 id="h1" className=' text-3xl md:text-4xl lg:text-5xl'>
+                                    <h1 className='text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-center'>
                                         {member.name}
                                     </h1>
                                     
                                     {/* Title */}
-                                    <h3 id="h3" className='text-xl md:text-2xl lg:text-3xl'>
+                                    <h3 className='text-secondary text-xl md:text-2xl lg:text-3xl mb-6 text-center'>
                                         {member.title}
                                     </h3>
                                     
                                     {/* Details */}
-                                    <ul className='col'>
+                                    <ul className='flex flex-col items-center space-y-2'>
                                         {member.details.map((detail, index) => (
-                                            <li id="li" key={index} className='text-lg md:text-xl'>
+                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
                                             </li>
                                         ))}

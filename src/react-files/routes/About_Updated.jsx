@@ -1,3 +1,8 @@
+//import {
+  //  TeamPageSection
+//} from '../components/sections'
+import TeamPageSection from '../components/sections/TeamPageSection';
+
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import SkipLink from '../components/SkipLink'
@@ -6,7 +11,6 @@ import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
     return(
         <>
-        <SkipLink />
             <section className='about_concept'>
                 <div className='
                     bg-vega-blue
@@ -21,7 +25,7 @@ const About_Updated = () => {
                             <Navbar color_about="text-vega"/>
                         </div>
                     </header>
-                    
+
                     <div id="after-navbar" tabIndex={-1} className='flex flex-col items-center pt-30'>
                         {/* Header Section */}
                         <div className='flex justify-center mb-[50px] px-4'>
@@ -79,11 +83,8 @@ const About_Updated = () => {
                     </div>
                 </div>
             </section>
-            <section classname='sm:overflow-x-visible overflow-x-hidden'>
-                <Footer></Footer>
-            </section>
-
         </>
+        
     )
 }
 
