@@ -136,6 +136,8 @@ const Homepage2 = () => {
         }
         bgColor="bg-white"
       />
+
+
       <section className="footer-section">
         <Footer />
       </section>
