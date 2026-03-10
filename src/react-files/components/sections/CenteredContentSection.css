@@ -1,42 +1,9 @@
-/* Centered Content Section */
-/* Shared utilities (container) imported globally in index.css */
-
-.centered-content-section {
-  padding: 4rem 0;
-  overflow-x: hidden;
-}
-
-@media (min-width: 768px) {
-  .centered-content-section {
-    padding: 5rem 0;
+/* Symmetrical margins matching hero and sticky stack on large screens (≥1400px) */
+@media (min-width: 1400px) {
+  .centered-content-section .container,
+  .centered-content-section .container-fluid {
+    max-width: 100%;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
-
-@media (min-width: 1280px) {
-  .centered-content-section {
-    padding: 6rem 0;
-  }
-}
-
-.centered-content-wrapper {
-  margin: 0 auto;
-}
-
-.centered-content-wrapper.max-two-column {
-  max-width: 1200px; /* match two-column grid width */
-}
-
-.centered-content-wrapper.max-content {
-  max-width: 56rem; /* max-w-4xl equivalent */
-}
-
-.centered-content-wrapper.max-wide {
-  max-width: 72rem; /* max-w-6xl equivalent */
-}
-
-.centered-content-wrapper.align-left {
-  margin-left: 0;
-  margin-right: auto;
-  text-align: left;
-}
-
