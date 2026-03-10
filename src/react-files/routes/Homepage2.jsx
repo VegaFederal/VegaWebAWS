@@ -14,6 +14,7 @@ import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
 import PDF_Slack_Sheet from '../assets/Vega_Slick_Sheet.pdf'
 import Slack_Icon from '../assets/White_Slack_Icon.png'
 import './Homepage2.css'
+import TeamPageSection from '../components/sections/TeamPageSection';
 
 /**
  * Homepage2 - Component-based homepage layout aligned with the current site
