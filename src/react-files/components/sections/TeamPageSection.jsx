@@ -154,6 +154,7 @@ const TeamPageSection = ({
                                         />
                                         {member.veteranLogo && (
                                             <img 
+                                                loading='lazy'
                                                 src={member.veteranLogo} 
                                                 alt={`${member.name} veteran logo`} 
                                                 className={`absolute top-[5px] right-[5px] ${member.veteranLogoSize}`}
