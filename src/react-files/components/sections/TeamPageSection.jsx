@@ -94,7 +94,7 @@ const TeamPageSection = ({
                 answer3, //"Winning"
             ] 
         },
-        {
+        /*{
             id: id2,
             name: name2, //"Themba",
             title: title2, //"Co-Founder & Chief Growth Officer",
@@ -132,7 +132,7 @@ const TeamPageSection = ({
                 answer11, //"Keeping plants alive(sort of).",
                 answer12, //"Coffee, lots of Coffee"
             ]
-        }
+        }*/
     ];
 
     return(
