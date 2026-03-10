@@ -12,6 +12,7 @@
 
 /* Hero: two-column layout – gradient (Slate 800 → Slate 900) */
 .hero-two-column {
+  overflow-x: hidden;
   background-color: #001837;
   background-image: radial-gradient(
     ellipse 80% 50% at 10% 0%,
@@ -190,15 +191,7 @@
 }
 
 @media (min-width: 1024px) {
-  .hero-images-col { min-width: 400px; }
-}
-
-@media (min-width: 1280px) {
-  .hero-images-col { min-width: 480px; }
-}
-
-@media (min-width: 1920px) {
-  .hero-images-col { min-width: 560px; }
+  .hero-images-col { min-width: 320px; }
 }
 
 /* Three-image asymmetric grid */
