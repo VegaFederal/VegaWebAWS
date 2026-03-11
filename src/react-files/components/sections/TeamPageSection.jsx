@@ -51,88 +51,22 @@ const TeamPageSection = ({
     answer2 = ' ',
     answer3 = ' ',
     veteranLogo,
-
-    id2,
-    image2,
-    name2 = ' ',
-    title2 = ' ',
-    answer4 = ' ',
-    answer5 = ' ',
-    answer6 = ' ',
-    veteranLogo2,
-
-    id3,
-    image3,
-    name3 = ' ',
-    title3 = ' ',
-    answer7 = ' ',
-    answer8 = ' ',
-    answer9 = ' ',
-    veteranLogo3,
-
-    id4,
-    image4,
-    name4 = ' ',
-    title4 = ' ',
-    answer10 = ' ',
-    answer11 = ' ',
-    answer12 = ' ',
-    veteranLogo4
 }) => {
 // Team member data - easy to add more people
     const teamMembers = [
         {
             id: id, //1,
-            name: name, //"Ryan",
-            title: title, //"Founder & CEO",
-            image: image, //ryan,
+            name: name,
+            title: title,
+            image: image,
             veteranLogo: veteranLogo,
             veteranLogoSize: null,
             details: [
-                answer1, //"Aquinas Mercy High School",
-                answer2, //"Inventing Dance Moves",
-                answer3, //"Winning"
+                answer1,
+                answer2,
+                answer3,
             ] 
         },
-        /*{
-            id: id2,
-            name: name2, //"Themba",
-            title: title2, //"Co-Founder & Chief Growth Officer",
-            image: image2,
-            veteranLogo: veteranLogo2,
-            veteranLogoSize: null,
-            details: [
-                answer4, //"Stanley-Boyd High (WI)",
-                answer5, //"Cut flower farming",
-                answer6 //"Complex, impossible challenges, especially government bureaucracy."
-            ]
-        },
-        {
-            id: id3,
-            name: name3, //"Mark",
-            title: title3, //"Director of Cloud Engineering",
-            image: image3, //mark,
-            veteranLogo: veteranLogo3,
-            veteranLogoSize: null,
-            details: [
-                answer7, //"Pike Central (Petersburg IN)",
-                answer8, //"Coaching Athletes",
-                answer9, //"Steak & Eggs"
-            ]
-        },
-        {
-            id: id4,
-            name: name4, //"Chris",
-            title: title4, //"Director of Defense Health",
-            image: image4, //chris,
-            veteranLogo: veteranLogo4,
-            veteranLogoSize: null,
-            details: [
-                answer10, //"Boone High in Boone, IA",
-                answer11, //"Keeping plants alive(sort of).",
-                answer12, //"Coffee, lots of Coffee"
-            ]
-        }*/
     ];
 
     return(
