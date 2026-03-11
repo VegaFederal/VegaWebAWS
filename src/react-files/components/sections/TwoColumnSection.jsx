@@ -15,7 +15,7 @@ import './TwoColumnSection.css'
  * @param {string} bgColor - Background color class (default: 'bg-white')
  * @param {string} className - Additional CSS classes
  * @param {boolean} isReversed - Whether the text is on the right or the left
- * 
+ * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
  */
 const TwoColumnSection = ({
   image,
@@ -27,9 +27,11 @@ const TwoColumnSection = ({
   content,
   bgColor = 'bg-white',
   isReversed,
-  className = ''
+  className = '',
+  borderOverlay = false
 }) => {
-  const sectionClasses = `two-column-section ${bgColor} ${className}`
+  const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
+  const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
   const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}`
   const imageStyle = imageSize ? { maxWidth: imageSize } : undefined
   const gridStyle = {
@@ -40,7 +42,7 @@ const TwoColumnSection = ({
   if (isReversed) {
     return (
     <div className={sectionClasses}>
-      <div className="container">
+      <div className={containerClasses}>
         <div className={gridClasses} class="row align-items-center">
           <div className="col">
             {content}
@@ -56,7 +58,7 @@ const TwoColumnSection = ({
 
   return (
     <div className={sectionClasses}>
-      <div className="container">
+      <div className={containerClasses}>
         <div className={gridClasses} class="row align-items-center">
           <div className="col-lg ml-10 lg:ml-0" >
             {image && <img src={image} alt={imageAlt}/>}

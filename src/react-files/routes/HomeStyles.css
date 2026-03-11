@@ -12,7 +12,8 @@
 
 /* Hero: two-column layout – gradient (Slate 800 → Slate 900) */
 .hero-two-column {
-  overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
   background-color: #001837;
   background-image: radial-gradient(
     ellipse 80% 50% at 10% 0%,
@@ -24,6 +25,36 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Bouncing scroll arrow at bottom of hero */
+.hero-scroll-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DD004A;
+  text-decoration: none;
+  animation: hero-arrow-bounce 2s ease-in-out infinite;
+}
+
+.hero-scroll-arrow:hover {
+  color: #DD004A;
+  opacity: 0.9;
+}
+
+.hero-scroll-arrow svg {
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes hero-arrow-bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(6px); }
+  60% { transform: translateX(-50%) translateY(3px); }
 }
 
 .hero-inner {
@@ -268,41 +299,58 @@
 }
 
 
-/* Tighter spacing between the three mission sections (intro, two-column, approach) */
+/* Mission intro: override Bootstrap py-4/py-md-5 (they use !important); extra top space for hero transition */
 .home-mission-intro.centered-content-section {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 5rem !important;
 }
 
 @media (min-width: 768px) {
   .home-mission-intro.centered-content-section {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 7rem !important;
   }
 }
 
-.home-mission-section.two-column-section {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+.home-mission-delivers.two-column-section {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 @media (min-width: 768px) {
-  .home-mission-section.two-column-section {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+  .home-mission-delivers.two-column-section {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
   }
 }
 
-/* Mission two-column section */
-.home-mission-section .container {
+.home-mission-approach.mission-cards-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .home-mission-approach.mission-cards-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Mission: two-column (delivers) + mission-with-cards (approach) */
+.home-mission-delivers .container,
+.home-mission-approach.mission-cards-section .container {
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
-  .home-mission-section .container {
+  .home-mission-delivers .container,
+  .home-mission-approach.mission-cards-section .container {
     padding-left: 6.25rem;
     padding-right: 6.25rem;
   }
+}
+
+/* Homepage: two-column section image – rounded corners */
+.home-mission-delivers.two-column-section img {
+  border-radius: 1rem;
 }
 
 /* "Why Choose Vega?" content section */

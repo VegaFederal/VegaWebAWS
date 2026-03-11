@@ -5,7 +5,7 @@ import {
   TwoColumnSection,
   BannerSection,
   CenteredContentSection,
-  FourColumnSection,
+  MissionWithCardsSection,
 } from '../components/sections'
 import Slick_Icon from '../assets/White_Slack_Icon.png'
 import PDF_Slick_Sheet from '../assets/Vega_Slick_Sheet.pdf'
@@ -63,8 +63,14 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <a href="#home-mission-intro" className="hero-scroll-arrow" aria-label="Scroll to next section">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="5 11 12 16 19 11" />
+          </svg>
+        </a>
       </section>
 
+      <div id="home-mission-intro">
       <CenteredContentSection
         maxWidth="two-column"
         align="center"
@@ -78,16 +84,18 @@ const Home = () => {
           </div>
         }
       />
+      </div>
 
       <TwoColumnSection
         image={Mission_statement}
         imageAlt="Picture of people working at a table"
         imageFirst={true}
         bgColor="bg-white"
-        className="home-mission-section"
+        className="home-mission-delivers"
+        borderOverlay={true}
         content={
           <div>
-            <h4>What Our Automation Delivers</h4>
+            <h2>What Our Automation Delivers</h2>
             <ul className="home-bullets">
               <li>Faster, more reliable workflows</li>
               <li>Reduced manual burden for analysts and operators</li>
@@ -95,22 +103,24 @@ const Home = () => {
               <li>Scalable platforms aligned to mission tempo</li>
               <li>Clear, intuitive user experiences for complex systems</li>
             </ul>
-            <h4>Our Mission</h4>
-            <p>Automate Your Mission. Empower Your People.</p>
-            <p>At Vega, we help federal agencies operate faster, smarter, and more securely. Through automation, modern engineering, and real federal experience, we remove friction from complex operations so teams can focus on what matters most: mission success.</p>
           </div>
         }
       />
 
-      <FourColumnSection
-        title="Our Approach"
-        bgColor="bg-white"
+      <MissionWithCardsSection
         className="home-mission-approach"
-        items={[
-          { miniTitle: 'Trust', text: 'Partnerships built on integrity, transparency, and hands-on federal experience.' },
-          { miniTitle: 'Security', text: 'Solutions engineered to protect systems, data, and critical infrastructure from day one.' },
-          { miniTitle: 'Impact', text: 'Automation that drives measurable gains in efficiency, readiness, and mission execution.' },
-          { miniTitle: 'Vega', text: 'Automating your mission so the people who carry it out can achieve theirs.' },
+        missionTitle={<h2>Our <br/>Mission<br/></h2>}
+        missionContent={
+          <>
+            <p>Automate Your Mission. Empower Your People.</p>
+            <p>At Vega, we help federal agencies operate faster, smarter, and more securely. Through automation, modern engineering, and real federal experience, we remove friction from complex operations so teams can focus on what matters most: mission success.</p>
+          </>
+        }
+        cards={[
+          { title: 'Trust', text: 'Partnerships built on integrity, transparency, and hands-on federal experience.' },
+          { title: 'Security', text: 'Solutions engineered to protect systems, data, and critical infrastructure from day one.' },
+          { title: 'Impact', text: 'Automation that drives measurable gains in efficiency, readiness, and mission execution.' },
+          { title: 'Vega', text: 'Automating your mission so the people who carry it out can achieve theirs.' },
         ]}
       />
 
