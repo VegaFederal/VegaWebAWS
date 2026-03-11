@@ -15,7 +15,8 @@ import './TwoColumnSection.css'
  * @param {string} bgColor - Background color class (default: 'bg-white')
  * @param {string} className - Additional CSS classes
  * @param {boolean} isReversed - Whether the text is on the right or the left
- * 
+ * @param {string} marginL
+ * @param {string} marginR
  */
 const TwoColumnSection = ({
   image,
@@ -27,15 +28,21 @@ const TwoColumnSection = ({
   content,
   bgColor = 'bg-white',
   isReversed,
-  className = ''
+  className = '',
+  marginL = "",
+  marginR = ""
 }) => {
   const sectionClasses = `two-column-section ${bgColor} ${className}`
   const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}`
-  const imageStyle = imageSize ? { maxWidth: imageSize } : undefined
+  const imageStyle = imageSize ? {maxWidth: imageSize, minWidth: imageSize} : undefined
   const gridStyle = {
     '--image-span': imageColumnSpan,
     '--content-span': contentColumnSpan
   }
+  const inputStyle = {
+    marginLeft: marginL,
+    marginRight: marginR,
+  };
 
   if (isReversed) {
     return (
@@ -45,8 +52,8 @@ const TwoColumnSection = ({
           <div className="col">
             {content}
           </div>
-          <div className="col-lg ml-10 lg:ml-0" >
-            {image && <img src={image} alt={imageAlt}/>}
+          <div className="col-lg ml-10 lg:ml-0" style={inputStyle}>
+            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
         </div>
       </div>
@@ -58,8 +65,8 @@ const TwoColumnSection = ({
     <div className={sectionClasses}>
       <div className="container">
         <div className={gridClasses} class="row align-items-center">
-          <div className="col-lg ml-10 lg:ml-0" >
-            {image && <img src={image} alt={imageAlt}/>}
+          <div className="col-lg ml-10 lg:ml-0" style={inputStyle}>
+            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
           <div className="col">
             {content}
