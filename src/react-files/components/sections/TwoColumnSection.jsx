@@ -15,6 +15,8 @@ import './TwoColumnSection.css'
  * @param {string} bgColor - Background color class (default: 'bg-white')
  * @param {string} className - Additional CSS classes
  * @param {boolean} isReversed - Whether the text is on the right or the left
+ * @param {string} marginL
+ * @param {string} marginR
  * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
  */
 const TwoColumnSection = ({
@@ -28,6 +30,8 @@ const TwoColumnSection = ({
   bgColor = 'bg-white',
   isReversed,
   className = '',
+  marginL = "",
+  marginR = "",
   borderOverlay = false
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
