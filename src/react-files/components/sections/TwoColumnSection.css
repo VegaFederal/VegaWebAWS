@@ -95,8 +95,15 @@
   pointer-events: none;
 }
 
+@media (max-width: 767px) {
+  .two-column-container-border-overlay::after {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .two-column-container-border-overlay::after {
+    display: block;
     left: 5rem;
     right: 5rem;
     top: -0.75rem;

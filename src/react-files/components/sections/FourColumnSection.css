@@ -21,9 +21,11 @@
 
 /* Vertical separator between columns (secondary color) – only when columns are side by side */
 @media (min-width: 576px) {
-  .four-column-section .four-column-col:not(:first-child) {
-    border-left: 3px solid #DD004A;
-    padding-left: 1rem;
+  .four-column-section .four-column-col {
+    border: 1px solid #001837;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.1rem;
   }
 }
 
