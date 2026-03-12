@@ -1,24 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
-import ryan from '../assets/About_us/Ryan.png'
-import themba from '../assets/About_us/Themba.png'
-import brent from '../assets/About_us/Brent.png'
-import dan from '../assets/About_us/Dan.png'
-import blas from '../assets/About_us/Blas.png'
-import krista from '../assets/About_us/Krista.png'
-import chris from '../assets/About_us/Chris.png'
-import mark from '../assets/About_us/Mark.png'
-import owen from '../assets/About_us/Owen.png'
-import robbie from '../assets/About_us/Robbie.png'
-import joseph from '../assets/About_us/Joseph_K.png'
-import RyanE from '../assets/About_us/Ryan_E.png'
-import Jessica from '../assets/About_us/Jessica.png'
-import Kyle from '../assets/About_us/Kyle.png'
-import Brian from '../assets/About_us/Brian.png'
-import vetNavy from '../assets/About_us/US_Navy.png' // Navy
-import vetArmy from '../assets/About_us/US_Army.png' // Army
 import SkipLink from '../components/SkipLink'
-import Nick from '../assets/About_us/Nick.png'
+
 
 import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
