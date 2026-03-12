@@ -160,7 +160,6 @@ const Homepage2 = () => {
           />
         </div>
 
-        
       <section className="footer-section">
         <Footer />
       </section>
