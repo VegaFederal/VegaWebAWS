@@ -10,7 +10,7 @@ const About_Updated = () => {
         <SkipLink />
             <section className='about_concept'>
                 <div className='
-                    bg-primary
+                    bg-vega-blue
                     bg-cover
                     bg-center
                     bg-no-repeat
@@ -19,7 +19,7 @@ const About_Updated = () => {
                 '>
                     <header>
                         <div>
-                            <Navbar color_about="text-secondary"/>
+                            <Navbar color_about="text-vega"/>
                         </div>
                     </header>
                     
@@ -62,9 +62,9 @@ const About_Updated = () => {
                                     </h1>
                                     
                                     {/* Title */}
-                                    <h3 className='text-secondary text-xl md:text-2xl lg:text-3xl mb-6 text-center'>
+                                    <p className='text-vega-red text-xl md:text-2xl lg:text-3xl mb-3 text-center'>
                                         {member.title}
-                                    </h3>
+                                    </p>
                                     
                                     {/* Details */}
                                     <ul className='flex flex-col items-center space-y-2'>
