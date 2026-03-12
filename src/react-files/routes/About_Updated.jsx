@@ -67,7 +67,7 @@ const About_Updated = () => {
                                     </p>
                                     
                                     {/* Details */}
-                                    <ul className='flex flex-col items-center space-y-2'>
+                                    <ul className='flex flex-col items-center space-y-2 mr-5'>
                                         {member.details.map((detail, index) => (
                                             <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
                                                 {detail}
