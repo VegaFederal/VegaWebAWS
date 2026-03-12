@@ -20,7 +20,7 @@ import vetArmy from '../assets/About_us/US_Army.png' // Army
 import SkipLink from '../components/SkipLink'
 import Nick from '../assets/About_us/Nick.png'
 
-import teamMembers from './Team_members'
+import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
     return(
         <>
