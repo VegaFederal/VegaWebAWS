@@ -18,194 +18,10 @@ import Brian from '../assets/About_us/Brian.png'
 import vetNavy from '../assets/About_us/US_Navy.png' // Navy
 import vetArmy from '../assets/About_us/US_Army.png' // Army
 import SkipLink from '../components/SkipLink'
+import Nick from '../assets/About_us/Nick.png'
 
+import teamMembers from './Team_members'
 const About_Updated = () => {
-    // Team member data - easy to add more people
-    const teamMembers = [
-        {
-            id: 1,
-            name: "Ryan",
-            title: "Founder & CEO",
-            image: ryan,
-            veteranLogo: vetArmy,
-            veteranLogoSize: null,
-            details: [
-                "Aquinas Mercy High School",
-                "Inventing Dance Moves",
-                "Winning"
-            ] 
-        },
-        {
-            id: 2,
-            name: "Themba",
-            title: "Co-Founder & Chief Growth Officer",
-            image: themba,
-            veteranLogo: vetNavy,
-            veteranLogoSize: null,
-            details: [
-                "Stanley-Boyd High (WI)",
-                "Cut flower farming",
-                "Complex, impossible challenges, especially government bureaucracy."
-            ]
-        },
-        {
-            id: 3,
-            name: "Mark",
-            title: "Director of Cloud Engineering",
-            image: mark,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Pike Central (Petersburg IN)",
-                "Coaching Athletes",
-                "Steak & Eggs"
-            ]
-        },
-        {
-            id: 4,
-            name: "Chris",
-            title: "Director of Defense Health",
-            image: chris,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Boone High in Boone, IA",
-                "Keeping plants alive(sort of).",
-                "Coffee, lots of Coffee"
-            ]
-        },
-        {
-            id: 5,
-            name: "Krista",
-            title: "Operations Leader",
-            image: krista,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Parkway South High School",
-                "I am really great at putting together a costume",
-                "Regular Coca Cola"
-            ]
-        },
-        {
-            id: 6,
-            name: "Jessica",
-            title: "Director of Recruitment",
-            image: Jessica,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Parkway Central High School",
-                "Writing",
-                "I try to spend my days helping others"
-            ]
-        },
-        {
-            id: 7,
-            name: "Dan",
-            title: "Senior Software Engineer",
-            image: dan,
-            veteranLogo: vetArmy,
-            veteranLogoSize: null,
-            details: [
-                "Rosary High School",
-                "DIY games",
-                "Sleep and a fun problem"
-            ]
-        },
-        {
-            id: 8,
-            name: "Ryan E.",
-            title: "Senior Software Engineer",
-            image: RyanE,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Christian Brothers College HS (CBC)",
-                "Trail running",
-                "Coffee"
-            ]
-        },
-        {
-            id: 9,
-            name: "Joseph K.",
-            title: "Software Engineer",
-            image: joseph,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "",
-                "",
-                ""
-            ]
-        },
-        {
-            id: 11,
-            name: "Owen",
-            title: "Software Engineer",
-            image: owen,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Valley Park High School",
-                "I am a massive fan of Chess (playing for 18 years!)",
-                "A healthy mix between solving interesting problems & Pure Leaf's sweet tea!"
-            ]
-        },
-        {
-            id: 12,
-            name: "Blas",
-            title: "Software Engineer",
-            image: blas,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "The Fulton School",
-                "Soccer",
-                "Completing projects"
-            ]
-        },
-        {
-            id: 13,
-            name: "Robbie",
-            title: "Intern Engineer",
-            image: robbie,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Home school",
-                "Learning board games",
-                "Doing something that is interesting"
-            ]
-        },
-        {
-            id: 14,
-            name: "Kyle",
-            title: "Senior Geospatial Data Engineer",
-            image: Kyle,
-            veteranLogo: vetArmy,
-            veteranLogoSize: null,
-            details: [
-                "A Catholic school in southern Louisiana",
-                "I have been a clarinetist for nearly 15 years.",
-                "Celsius, Monster, Alani, and Crunchwraps"
-            ]
-        },
-        {
-            id: 15,
-            name: "Brian",
-            title: "Director, Solutions Architecture & Delivery",
-            image: Brian,
-            veteranLogo: null,
-            veteranLogoSize: null,
-            details: [
-                "Lexington High School in Lexington, MA.",
-                "I'm surprisingly good at \"la erre vibrante\".",
-                "Double espresso with oat milk."
-            ]
-        }
-    ];
-
     return(
         <>
         <SkipLink />
@@ -239,12 +55,12 @@ const About_Updated = () => {
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-8xl'>
-                            {teamMembers.map((member) => (
+                            {teamMembers && teamMembers.map((member) => (
                                 <div key={member.id} className='flex flex-col items-center'>
                                     {/* Image with veteran logo overlay */}
                                     <div className='relative mb-6'>
                                         <img 
-                                            src={member.image} 
+                                            src={member.image}
                                             alt={member.name} 
                                             className='w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[377px] lg:h-[377px] object-cover'
                                         />
