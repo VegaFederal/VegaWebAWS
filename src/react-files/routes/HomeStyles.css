@@ -161,10 +161,9 @@
   line-height: 1.6;
 }
 
-/* CTA button */
 .hero-cta-wrap {
   margin-top: 0.25rem;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .hero-cta {
