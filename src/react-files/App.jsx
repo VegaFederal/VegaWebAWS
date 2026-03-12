@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      {/*<ScrollToTop />*/}
+      <ScrollToTop />
       <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/Capabilities" element={<Capabilities />}/>
