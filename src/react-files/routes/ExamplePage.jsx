@@ -70,14 +70,13 @@ const ExamplePage = () => {
       <HeroSection
         backgroundImage={Homepage_Hero}
         backgroundColor=""
-        imageOpacity={0.6}
-        imageBlur="2px"
         title="Automate Your Mission"
         subtitle="Secure automation. Human-centered solutions. Mission-aligned results."
         logoSize="180px"
+        textAlign="left"
         logoImage={VOSB_Logo}
         logoAlt="Certified Veteran-Owned Small Business (VOSB) logo"
-        ctaText="View Our Capabilities"
+        ctaText="Download Capabilities Slick Sheet"
         ctaLink="/Capabilities"
         height="85vh"
       />
@@ -236,12 +235,12 @@ const ExamplePage = () => {
         bgColor="bg-white"
       />
 
-      
+      {/* Banner Section
       <BannerSection
         title="Core Capabilities"
         bgColor="bg-primary"
         textColor="text-white"
-      /> 
+      /> */}
 
       {/* Grid Card Section */}
       <GridCardSection
