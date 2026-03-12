@@ -14,32 +14,6 @@ import SkipLink from '../SkipLink'
  * @param {string} answer3 
  * @param {string} veteranLogo - Get whether or not the person needs the veteran logo
  * 
- * @param {number} id2
- * @param {string} image2 - Image source URL
- * @param {string} name2 - The person's name
- * @param {string} title2 - The person's job title
- * @param {string} answer4
- * @param {string} answer5
- * @param {string} answer6 
- * @param {string} veteranLogo2 - Get whether or not the person needs the veteran logo
- * 
- * @param {number} id3
- * @param {string} image3 - Image source URL
- * @param {string} name3 - The person's name
- * @param {string} title3 - The person's job title
- * @param {string} answer7
- * @param {string} answer8
- * @param {string} answer9 
- * @param {string} veteranLogo3 - Get whether or not the person needs the veteran logo
- * 
- * @param {number} id4
- * @param {string} image4 - Image source URL
- * @param {string} name4 - The person's name
- * @param {string} title4 - The person's job title
- * @param {string} answer10
- * @param {string} answer11
- * @param {string} answer12
- * @param {string} veteranLogo4 - Get whether or not the person needs the veteran logo
  */
 
 const TeamPageSection = ({
