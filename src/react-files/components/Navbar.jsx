@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar navbar-expand-lg bg-body-tertiary fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}>
-      <div className="container-fluid">
+      <div className="container">
         <NavLink className="navbar-brand" to="/">
           <img src={Logo_blue} alt="Vega" className="vega-navbar-logo" />
         </NavLink>
