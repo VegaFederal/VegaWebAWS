@@ -30,6 +30,13 @@
   visibility: visible;
 }
 
+/* Home link – visible only on mobile (below navbar-expand-lg breakpoint) */
+@media (min-width: 992px) {
+  .navbar .nav-item-home-mobile {
+    display: none;
+  }
+}
+
 /* Larger text and spacing for navbar links */
 .navbar .nav-link {
   font-size: 1.125rem;

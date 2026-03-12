@@ -47,6 +47,9 @@ const Navbar = () => {
         </button>
         <div ref={collapseRef} className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+            <li className="nav-item nav-item-home-mobile">
+              <NavLink className={linkClass} to="/" onClick={closeCollapse}><span>Home</span></NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className={linkClass} to="/Capabilities" onClick={closeCollapse}><span>Capabilities</span></NavLink>
             </li>
