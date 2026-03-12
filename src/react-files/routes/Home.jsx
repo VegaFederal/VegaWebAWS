@@ -63,11 +63,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <a href="#home-mission-intro" className="hero-scroll-arrow" aria-label="Scroll to next section">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <polyline points="5 11 12 16 19 11" />
-          </svg>
-        </a>
       </section>
 
       <div id="home-mission-intro">
@@ -109,7 +104,7 @@ const Home = () => {
 
       <MissionWithCardsSection
         className="home-mission-approach"
-        missionTitle={<h2>Our <br/>Mission<br/></h2>}
+        missionTitle={<h2>Our Mission</h2>}
         missionContent={
           <>
             <p>Automate Your Mission. Empower Your People.</p>
