@@ -23,6 +23,7 @@ import SlickIcon from '../../assets/White_Slack_Icon.png'
  * @param {string} height - Section height (default: 60vh)
  * @param {'left'|'center'|'right'} textAlign - Text and content alignment (default: 'center')
  * @param {string} contentMaxWidth - Max width of text block, any CSS value (e.g. '65ch', '600px', '50%'). Omit for full column width.
+ * @param {ReactNode} content - Custom content block (optional). When set, renders instead of subtitle/paragraph.
  * @param {string} className - Additional CSS classes
  */
 const HeroSection = ({
@@ -33,6 +34,7 @@ const HeroSection = ({
   title,
   subtitle,
   paragraph,
+  content,
   logoImage,
   logoAlt = 'Logo',
   logoSize,
@@ -90,8 +92,12 @@ const HeroSection = ({
         <div className="row align-items-center hero-row">
           <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} py-3 py-md-4 py-lg-5`} style={contentStyle}>
             {title && <h1 className="text-white mb-3">{title}</h1>}
-            {subtitle && <p className="text-white fs-5 mb-0">{subtitle}</p>}
-            {paragraph && <p className="text-white mt-2">{paragraph}</p>}
+            {content ? content : (
+              <>
+                {subtitle && <p className="text-white fs-5 mb-0">{subtitle}</p>}
+                {paragraph && <p className="text-white mt-2">{paragraph}</p>}
+              </>
+            )}
             {logoImage && (
               <div className={`d-flex ${justifyClass} mt-3 mt-md-4`}>
                 <img src={logoImage} alt={logoAlt} className="hero-logo-image object-fit-contain" />

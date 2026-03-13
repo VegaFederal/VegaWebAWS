@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
-import { HeroSection, TwoColumnSection, CenteredContentSection, ParallaxSection } from '../components/sections'
+import { HeroSection, TwoColumnSection, CenteredContentSection } from '../components/sections'
 import RyanPHeadshot from '../assets/RyanHeadshot.jpeg'
 import ThembaHHeadshot from '../assets/ThembaHeadshot.jpg'
 import OurStoryHero from '../assets/StLouisSkyLineArial.jpg'
@@ -71,11 +71,9 @@ const Our_Story = () => {
           }
         />
 
-        <ParallaxSection
+        <HeroSection
           backgroundVideo={OurStoryVegaStarVideo}
           title="Why Vega?"
-          contentFullHeight
-          className="why-vega-section"
           content={
             <div className="why-vega-content">
               <p className="why-vega-subheading">The name Vega wasn't an accident.</p>
@@ -87,8 +85,10 @@ const Our_Story = () => {
               <p className="why-vega-statement">We don't just work for the mission — we've lived it.</p>
             </div>
           }
+          textAlign="left"
           height="80vh"
-          parallaxSpeed={0.5}
+          contentMaxWidth="65ch"
+          className="why-vega-section"
         />
       </main>
 
