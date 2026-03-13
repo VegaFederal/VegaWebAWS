@@ -18,25 +18,31 @@
   }
 }
 
-.two-column-grid {
-  display: grid;
+/* Only when contentGap is set: use grid + custom gap and remove Bootstrap gutter so gap is the only spacing */
+.two-column-section .two-column-grid.row.two-column-custom-gap {
+  display: grid !important;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: var(--two-col-gap, 1.5rem);
   align-items: center;
-  max-width: 1200px; /* or whatever width you prefer */
-  margin: 0 auto; /* centers the grid */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.two-column-section .two-column-grid.row.two-column-custom-gap > * {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (min-width: 768px) {
-  .two-column-grid {
-    gap: 2rem;
+  .two-column-section .two-column-grid.row.two-column-custom-gap {
+    gap: var(--two-col-gap, 2rem);
   }
 }
 
 @media (min-width: 1024px) {
-  .two-column-grid {
+  .two-column-section .two-column-grid.row.two-column-custom-gap {
     grid-template-columns: repeat(12, 1fr);
-    gap: 2.5rem;
+    gap: var(--two-col-gap, 2.5rem);
   }
 }
 

@@ -49,7 +49,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="hero-images-col">
+        <div className="hero-images-col">
             <div className="hero-images-grid">
               <div className="hero-img hero-img-large">
                 <video src={AutomationVideo} autoPlay loop muted playsInline aria-hidden="true" />
@@ -63,11 +63,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <a href="#home-mission-intro" className="hero-scroll-arrow" aria-label="Scroll to next section">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <polyline points="5 11 12 16 19 11" />
-          </svg>
-        </a>
       </section>
 
       <div id="home-mission-intro">
@@ -170,6 +165,7 @@ const Home = () => {
         imageSize="320px"
         bgColor="bg-white"
         className="home-who-we-are"
+        contentGap="tight"
         content={
           <div>
             <h4 className="text-secondary">We've Lived the Mission. Now We Help Automate It.</h4>
