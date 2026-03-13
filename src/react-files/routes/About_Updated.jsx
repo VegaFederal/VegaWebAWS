@@ -1,17 +1,12 @@
-//import {
-  //  TeamPageSection
-//} from '../components/sections'
-import TeamPageSection from '../components/sections/TeamPageSection';
-
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import SkipLink from '../components/SkipLink'
-import Nick from '../assets/About_us/Nick.png'
 
 import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
     return(
         <>
+          <SkipLink />
             <section className='about_concept'>
                 <div className='
                     bg-vega-blue
@@ -83,6 +78,9 @@ const About_Updated = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section classname='sm:overflow-x-visible overflow-x-hidden'>
+                <Footer></Footer>
             </section>
         </>
         
