@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react'
-import './ParallaxSection.css'
+import './BackgroundMediaSection.css'
 
 /**
- * ParallaxSection - Parallax scrolling section with image or video background and text overlay
+ * BackgroudMediaSection - Parallax scrolling section with image or video background and text overlay
  * Background moves at a different speed than the scroll for a parallax effect
  * 
  * @param {string} backgroundImage - URL for background image (use with image)
@@ -16,7 +16,7 @@ import './ParallaxSection.css'
  * @param {boolean} contentFullHeight - If true, content spans section height and is vertically centered (default: false)
  * @param {string} className - Additional CSS classes
  */
-const ParallaxSection = ({
+const BackgroundMediaSection = ({
   backgroundImage,
   backgroundVideo,
   title,
@@ -139,4 +139,4 @@ const ParallaxSection = ({
   )
 }
 
-export default ParallaxSection
+export default BackgroundMediaSection
