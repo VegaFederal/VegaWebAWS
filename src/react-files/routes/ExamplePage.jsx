@@ -7,7 +7,7 @@ import {
   BannerSection,
   GridCardSection,
   CenteredContentSection,
-  ParallaxSection,
+  BackgroundMediaSection,
   CarouselSection,
   LinkedPanelsSection,
   StickyStackSection
@@ -102,10 +102,10 @@ const ExamplePage = () => {
         bgColor="bg-white"
       />
 
-      {/* Parallax Section */}
+      {/* Background Media Section */}
       <div ref={parallaxWrapperRef} className={`example-parallax-wrapper ${lineVisible ? 'animate-line' : ''}`}>
         <div className="example-parallax-vertical-line"></div>
-        <ParallaxSection
+        <BackgroundMediaSection
           backgroundImage={Homepage_first_banner}
           title={<h2 style={{ marginBottom: '2rem' }}><span style={{ fontWeight: 'normal' }}>Automation</span><br />Built for Federal Missions</h2>}
           content="With deep federal experience and technical expertise, we understand the requirements, regulations, and mission pressures agencies face. We design automation-driven, scalable solutions that improve efficiency, reduce risk, and strengthen overall mission performance."
