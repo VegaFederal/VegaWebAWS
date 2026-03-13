@@ -138,28 +138,6 @@ const Homepage2 = () => {
         bgColor="bg-white"
       />
 
-        <div className=''>
-          <TeamPageSection
-            id = {1}
-            image = {Mission_statement}
-            name = "Name"
-            title = "Title"
-            answer1 = "Answer One"
-            answer2 = "Answer Two"
-            answer3 = "Answer Three"
-          />
-
-          <TeamPageSection
-            id = {1}
-            image = {Mission_statement}
-            name = "Name"
-            title = "Title"
-            answer1 = "Answer One"
-            answer2 = "Answer Two"
-            answer3 = "Answer Three"
-          />
-        </div>
-
       <section className="footer-section">
         <Footer />
       </section>

@@ -1,0 +1,116 @@
+/* MissionWithCardsSection – Bootstrap layout; custom hover-expand + accent */
+
+.mission-cards-section {
+  overflow-x: hidden;
+  background-color: #fff;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .mission-cards-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Left column: pin to top so it doesn’t move when right column (cards) expand/collapse */
+.mission-cards-left-col {
+  align-self: flex-start;
+}
+
+
+
+/* Paragraph text black */
+.mission-cards-mission .text-secondary,
+.mission-cards-mission p {
+  color: #000 !important;
+}
+
+.mission-cards-card .card-text {
+  color: #000 !important;
+}
+
+/* Card: hover expand and Vega accent */
+.mission-cards-card {
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mission-cards-card:hover,
+.mission-cards-card:focus-within {
+  border-color: #DD004A;
+  box-shadow: 0 4px 12px rgba(0, 24, 55, 0.08);
+}
+
+.mission-cards-card-header {
+  min-height: 4rem;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .mission-cards-card-header {
+    min-height: 4.5rem;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+}
+
+.mission-cards-card:hover .mission-cards-card-indicator,
+.mission-cards-card:focus-within .mission-cards-card-indicator {
+  color: #DD004A !important;
+}
+
+/* Hover-to-expand: collapse detail by default */
+.mission-cards-card-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.mission-cards-card:hover .mission-cards-card-detail,
+.mission-cards-card:focus-within .mission-cards-card-detail {
+  max-height: 220px;
+}
+
+/* Plus icon that rotates to X on hover */
+.mission-cards-card-indicator {
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.mission-cards-card-indicator-icon {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.mission-cards-card-indicator-icon::before,
+.mission-cards-card-indicator-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mission-cards-card-indicator-icon::before {
+  width: 6px;
+  height: 2px;
+}
+
+.mission-cards-card-indicator-icon::after {
+  width: 2px;
+  height: 6px;
+}
+
+.mission-cards-card:hover .mission-cards-card-indicator-icon,
+.mission-cards-card:focus-within .mission-cards-card-indicator-icon {
+  transform: rotate(45deg);
+}

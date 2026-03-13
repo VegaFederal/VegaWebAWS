@@ -17,6 +17,8 @@ import './TwoColumnSection.css'
  * @param {boolean} isReversed - Whether the text is on the right or the left
  * @param {string} marginL
  * @param {string} marginR
+ * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
+ * @param {string} contentGap - Gap between image and text: 'default' | 'narrow' (1.25rem) | 'tight' (0.75rem), or any CSS length (e.g. '1rem'). Use 'narrow' or 'tight' for small/square images.
  */
 const TwoColumnSection = ({
   image,
@@ -30,14 +32,20 @@ const TwoColumnSection = ({
   isReversed,
   className = '',
   marginL = "",
-  marginR = ""
+  marginR = "",
+  borderOverlay = false,
+  contentGap
 }) => {
-  const sectionClasses = `two-column-section ${bgColor} ${className}`
-  const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}`
+  const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
+  const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
+  const gapValue = contentGap === 'narrow' ? '1.25rem' : contentGap === 'tight' ? '0.75rem' : contentGap === 'default' ? undefined : contentGap
+  const useCustomGap = !!gapValue
+  const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}${useCustomGap ? ' two-column-custom-gap' : ''}`.trim()
   const imageStyle = imageSize ? {maxWidth: imageSize, minWidth: imageSize} : undefined
   const gridStyle = {
     '--image-span': imageColumnSpan,
-    '--content-span': contentColumnSpan
+    '--content-span': contentColumnSpan,
+    ...(gapValue && { '--two-col-gap': gapValue })
   }
   const inputStyle = {
     marginLeft: marginL,
@@ -47,12 +55,12 @@ const TwoColumnSection = ({
   if (isReversed) {
     return (
     <div className={sectionClasses}>
-      <div className="container">
-        <div className={gridClasses} class="row align-items-center">
-          <div className="col">
+      <div className={containerClasses}>
+        <div className={`${gridClasses} row align-items-center`} style={gridStyle}>
+          <div className="two-column-content col">
             {content}
           </div>
-          <div className="col-lg ml-10 lg:ml-0" style={inputStyle}>
+          <div className="two-column-image col-lg ml-10 lg:ml-0" style={inputStyle}>
             {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
         </div>
@@ -63,12 +71,12 @@ const TwoColumnSection = ({
 
   return (
     <div className={sectionClasses}>
-      <div className="container">
-        <div className={gridClasses} class="row align-items-center">
-          <div className="col-lg ml-10 lg:ml-0" style={inputStyle}>
+      <div className={containerClasses}>
+        <div className={`${gridClasses} row align-items-center`} style={gridStyle}>
+          <div className="two-column-image col-lg ml-10 lg:ml-0" style={inputStyle}>
             {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
-          <div className="col">
+          <div className="two-column-content col">
             {content}
           </div>
         </div>

@@ -13,5 +13,7 @@ export { default as ParallaxSection } from './ParallaxSection'
 export { default as CarouselSection } from './CarouselSection'
 export { default as LinkedPanelsSection } from './LinkedPanelsSection'
 export { default as StickyStackSection } from './StickyStackSection'
+export { default as FourColumnSection } from './FourColumnSection'
+export { default as MissionWithCardsSection } from './MissionWithCardsSection'
 
 
