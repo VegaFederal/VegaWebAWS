@@ -5,7 +5,7 @@ import SkipLink from '../components/SkipLink'
 import { HeroSection, TwoColumnSection, CenteredContentSection, ParallaxSection } from '../components/sections'
 import RyanPHeadshot from '../assets/RyanHeadshot.jpeg'
 import ThembaHHeadshot from '../assets/ThembaHeadshot.jpg'
-import OurStoryHero from '../assets/StLouisSkylineArial.jpg'
+import OurStoryHero from '../assets/StLouisSkyLineArial.jpg'
 import OurStoryVegaStarVideo from '../assets/movingNightSky.mp4'
 
 import '../components/typography.css'
