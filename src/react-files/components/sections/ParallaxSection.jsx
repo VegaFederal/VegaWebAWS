@@ -2,26 +2,30 @@ import React, { useRef, useEffect, useState } from 'react'
 import './ParallaxSection.css'
 
 /**
- * ParallaxSection - Parallax scrolling section with image background and text overlay
- * Image moves at a different speed than the scroll for a parallax effect
+ * ParallaxSection - Parallax scrolling section with image or video background and text overlay
+ * Background moves at a different speed than the scroll for a parallax effect
  * 
- * @param {string} backgroundImage - URL for background image (required)
+ * @param {string} backgroundImage - URL for background image (use with image)
+ * @param {string} backgroundVideo - URL for background video (use instead of image; autoplay, loop, muted)
  * @param {string|ReactNode} title - Main heading text or custom content
  * @param {string|ReactNode} content - Subtitle text or custom content (optional)
  * @param {number} overlayOpacity - Overlay opacity (0-1, default: 0.4)
  * @param {number} imageBlur - Blur amount for background image (0-20, default: 0)
  * @param {string} height - Section height (default: 60vh)
  * @param {number} parallaxSpeed - Parallax speed multiplier (default: 0.5)
+ * @param {boolean} contentFullHeight - If true, content spans section height and is vertically centered (default: false)
  * @param {string} className - Additional CSS classes
  */
 const ParallaxSection = ({
   backgroundImage,
+  backgroundVideo,
   title,
   content,
   overlayOpacity = 0.4,
   imageBlur = 0,
   height = '60vh',
   parallaxSpeed = 0.5,
+  contentFullHeight = false,
   className = ''
 }) => {
   const sectionRef = useRef(null)
@@ -81,12 +85,17 @@ const ParallaxSection = ({
     }
   }, [])
 
-  const sectionClasses = `parallax-section ${className}`
-  const backgroundStyle = {
+  const useVideo = Boolean(backgroundVideo)
+  const sectionClasses = `parallax-section ${contentFullHeight ? 'parallax-section--full-height' : ''} ${className}`.trim()
+  const backgroundStyle = !useVideo && backgroundImage ? {
     backgroundImage: `url(${backgroundImage})`,
     transform: `translate3d(0, ${scrollY}px, 0)`,
     filter: imageBlur > 0 ? `blur(${imageBlur}px)` : 'none'
-  }
+  } : undefined
+  const videoStyle = useVideo ? {
+    transform: `translate3d(0, ${scrollY}px, 0)`,
+    filter: imageBlur > 0 ? `blur(${imageBlur}px)` : 'none'
+  } : undefined
 
   const sectionStyle = {
     '--overlay-opacity': overlayOpacity,
@@ -95,18 +104,31 @@ const ParallaxSection = ({
 
   return (
     <section ref={sectionRef} className={sectionClasses} style={sectionStyle}>
-      <div className="parallax-background" style={backgroundStyle}></div>
-      <div className="parallax-overlay" ></div>
+      {useVideo ? (
+        <div className="parallax-background parallax-background--video" style={videoStyle}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            src={backgroundVideo}
+            className="parallax-video"
+          />
+        </div>
+      ) : (
+        <div className="parallax-background" style={backgroundStyle}></div>
+      )}
+      <div className="parallax-overlay"></div>
       <div className="parallax-content">
-        <div className="container-fluid">
-          <div ref={contentRef} className={`parallax-inner ${isVisible ? 'parallax-inner-visible' : ''}`} class="col">
+        <div className="page-container">
+          <div ref={contentRef} className={`parallax-inner ${isVisible ? 'parallax-inner-visible' : ''}`}>
             {title && (
-              <div className="row parallax-title">
+              <div className="parallax-title">
                 {typeof title === 'string' ? <h2>{title}</h2> : title}
               </div>
             )}
             {content && (
-              <div className="row parallax-text">
+              <div className="parallax-text">
                 {typeof content === 'string' ? <p>{content}</p> : content}
               </div>
             )}
@@ -118,4 +140,3 @@ const ParallaxSection = ({
 }
 
 export default ParallaxSection
-

@@ -1,0 +1,43 @@
+.why-vega-section .parallax-title h2 {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 0 0 0.75rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-content {
+    max-width: 65ch;
+  }
+  
+  /* Higher specificity to override .parallax-text p { color: #ffffff } */
+  .why-vega-section .parallax-text .why-vega-subheading {
+    color: #dc3545 !important;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-paragraph {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-paragraph strong {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  /* Higher specificity to override .parallax-text p { margin: 0 } */
+  .why-vega-section .parallax-text .why-vega-statement {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 1rem 0 0 0 !important;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
