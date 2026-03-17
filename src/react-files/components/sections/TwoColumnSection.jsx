@@ -60,7 +60,7 @@ const TwoColumnSection = ({
           <div className="two-column-content col">
             {content}
           </div>
-          <div className="two-column-image col-lg ml-10 lg:ml-0" style={inputStyle}>
+          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
             {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
         </div>
@@ -73,7 +73,7 @@ const TwoColumnSection = ({
     <div className={sectionClasses}>
       <div className={containerClasses}>
         <div className={`${gridClasses} row align-items-center`} style={gridStyle}>
-          <div className="two-column-image col-lg ml-10 lg:ml-0" style={inputStyle}>
+          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
             {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
           </div>
           <div className="two-column-content col">
