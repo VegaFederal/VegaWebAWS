@@ -1,28 +1,45 @@
+import { useRef, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer';
+import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
+import { teamMembers } from '../Team_members.js'
+import './About_Updated.css'
 
-import {teamMembers} from '../Team_members.js'
 const About_Updated = () => {
-    return(
-        <>
-          <SkipLink />
-            <section className='about_concept'>
-                <div className='
-                    bg-vega-blue
-                    bg-cover
-                    bg-center
-                    bg-no-repeat
-                    h-fit
-                    z-[-1]
-                '>
-                    <header>
-                        <div>
-                            <Navbar color_about="text-vega"/>
-                        </div>
-                    </header>
+  const gridRef = useRef(null)
+  const [visibleCards, setVisibleCards] = useState(new Set())
 
-                    <div id="after-navbar" tabIndex={-1} className='flex flex-col items-center pt-30'>
+  /* Lazy reveal: observe each card, add visible class when in viewport */
+  useEffect(() => {
+    if (!gridRef.current || !teamMembers?.length) return
+    const cards = gridRef.current.querySelectorAll('.about-team-card')
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.dataset.cardId
+            if (id) setVisibleCards((prev) => new Set(prev).add(id))
+          }
+        })
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -20px 0px' }
+    )
+    cards.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <>
+      <SkipLink />
+      <section className='about-concept'>
+        <div>
+          <header>
+            <div>
+              <Navbar color_about='text-vega' />
+            </div>
+          </header>
+
+          <div id='after-navbar' tabIndex={-1} className='flex flex-col items-center pt-30'>
                         {/* Header Section */}
                         <div className='flex justify-center mb-[50px] px-4'>
                             <h1 className='text-white text-3xl md:text-5xl font-bold text-center'>Our Team</h1>
@@ -36,55 +53,47 @@ const About_Updated = () => {
                         </div>
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 xl:gap-24 mb-[100px] px-4 max-w-8xl'>
+                        <div ref={gridRef} className='about-team-grid'>
                             {teamMembers && teamMembers.map((member) => (
-                                <div key={member.id} className='flex flex-col items-center'>
-                                    {/* Image with veteran logo overlay */}
-                                    <div className='relative mb-6'>
-                                        <img 
-                                            src={member.image}
-                                            alt={member.name} 
-                                            className='w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[377px] lg:h-[377px] object-cover'
+                                <div
+                                  key={member.id}
+                                  data-card-id={member.id}
+                                  className={`about-team-card ${visibleCards.has(String(member.id)) ? 'about-team-card--visible' : ''}`}
+                                >
+                                    <div className='about-team-card__img-wrap'>
+                                        <img
+                                          src={member.image}
+                                          alt={member.name}
+                                          loading='lazy'
+                                          className='about-team-card__img'
                                         />
                                         {member.veteranLogo && (
-                                            <img 
-                                                src={member.veteranLogo} 
-                                                alt={`${member.name} veteran logo`} 
-                                                className={`absolute top-[5px] right-[5px] ${member.veteranLogoSize}`}
+                                            <img
+                                              src={member.veteranLogo}
+                                              alt={`${member.name} veteran logo`}
+                                              loading='lazy'
+                                              className='about-team-card__veteran-logo'
                                             />
                                         )}
                                     </div>
-                                    
-                                    {/* Name */}
-                                    <h1 className='text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-center'>
-                                        {member.name}
-                                    </h1>
-                                    
-                                    {/* Title */}
-                                    <p className='text-vega-red text-xl md:text-2xl lg:text-3xl mb-3 text-center'>
-                                        {member.title}
-                                    </p>
-                                    
-                                    {/* Details */}
-                                    <ul className='flex flex-col items-center space-y-2 mr-5'>
+                                    <h2 className='about-team-card__name'>{member.name}</h2>
+                                    <p className='about-team-card__title'>{member.title}</p>
+                                    <ul className='about-team-card__details'>
                                         {member.details.map((detail, index) => (
-                                            <li key={index} className='text-white text-lg md:text-xl text-center max-w-[300px]'>
-                                                {detail}
-                                            </li>
+                                            <li key={index}>{detail}</li>
                                         ))}
                                     </ul>
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section classname='sm:overflow-x-visible overflow-x-hidden'>
-                <Footer></Footer>
-            </section>
-        </>
-        
-    )
+          </div>
+        </div>
+      </section>
+      <section className='sm:overflow-x-visible overflow-x-hidden'>
+        <Footer />
+      </section>
+    </>
+  )
 }
 
 export default About_Updated
