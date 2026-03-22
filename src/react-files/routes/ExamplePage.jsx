@@ -12,16 +12,8 @@ import {
   LinkedPanelsSection,
   StickyStackSection
 } from '../components/sections'
-import Mission_statement from '../assets/Mission_statement.png'
-import Mission_statement_2 from '../assets/StandingAroundWhiteboard.jpg'
 import ArmyNavy_Logo from '../assets/ArmyNavy Logos.png'
-import Homepage_Hero from '../assets/rawImage.jpg'
-import Homepage_first_banner from '../assets/Homepage_first_banner.png'
 import VOSB_Logo from '../assets/veterans_logo_new.png'
-import GeospatialImage from '../assets/1_Geospatial_Application.png'
-import MobileImage from '../assets/2_Mobile_Development.png'
-import BPAImage from '../assets/3_Business_Process_BPA.png'
-import PlatformImage from '../assets/4_Enterprise Platform.png'
 import './ExamplePage.css'
 import '../components/typography.css'
 
