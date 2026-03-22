@@ -104,7 +104,7 @@ const Home = () => {
 
       <MissionWithCardsSection
         className="home-mission-approach"
-        missionTitle={<h2>Our Mission</h2>}
+        missionTitle="Our Mission"
         missionContent={
           <>
             <p>Automate Your Mission. Empower Your People.</p>
