@@ -281,12 +281,12 @@
 
 /* Mission intro: override Bootstrap py-4/py-md-5 (they use !important); extra top space for hero transition */
 .home-mission-intro.centered-content-section {
-  padding-top: 5rem !important;
+  padding-top: 4rem !important;
 }
 
 @media (min-width: 768px) {
   .home-mission-intro.centered-content-section {
-    padding-top: 7rem !important;
+    padding-top: 5rem !important;
   }
 }
 
@@ -333,8 +333,18 @@
   border-radius: 1rem;
 }
 
-/* "Why Choose Vega?" content section */
+/* "Why Choose Vega?" content section – match 4rem/5rem vertical rhythm */
+.home-why-choose.centered-content-section {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
 @media (min-width: 768px) {
+  .home-why-choose.centered-content-section {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+
   .home-why-choose .container,
   .home-why-choose .container-xl {
     padding-left: 6.25rem;
@@ -350,7 +360,19 @@
   margin-top: 0;
 }
 
-/* "Who We Are" two-column section */
+/* "Who We Are" two-column section – cap at 5rem to match site-wide rhythm */
+.home-who-we-are.two-column-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .home-who-we-are.two-column-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
 .home-who-we-are .container {
   max-width: 100%;
 }
