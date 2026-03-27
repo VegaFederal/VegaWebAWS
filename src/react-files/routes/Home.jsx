@@ -164,7 +164,7 @@ const Home = () => {
         imageFirst={true}
         imageSize="320px"
         bgColor="bg-white"
-        className="home-who-we-are"
+        className="home-who-we-are lg:mr-25"
         contentGap="tight"
         content={
           <div>
