@@ -7,11 +7,29 @@
   padding-bottom: 4rem;
 }
 
+.mobile-text {
+  display: flex;
+}
+
+.web-text {
+  display: none;
+}
+
+
 @media (min-width: 768px) {
   .mission-cards-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+
+  .mobile-text {
+    display: none;
+  }
+
+  .web-text {
+    display: flex;
+  }
+
 }
 
 /* Left column: pin to top so it doesn’t move when right column (cards) expand/collapse */
