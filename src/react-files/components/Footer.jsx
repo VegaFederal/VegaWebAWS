@@ -48,7 +48,7 @@ export default function Footer () {
             <div className="col-12 col-sm-4 col-lg-3">
               <h4 className="footer-col-title">Contact</h4>
               <address className="footer-contact text-white">
-                <p className="footer-address">T-REX Innovation Center</p>
+                <p className="footer-address">Vega</p>
                 <p className="footer-address">911 Washington Ave, Suite 412</p>
                 <p className="footer-address">St. Louis, MO 63101</p>
                 <Link to="mailto:Info@vegafederal.com" className="footer-link">Info@vegafederal.com</Link>
