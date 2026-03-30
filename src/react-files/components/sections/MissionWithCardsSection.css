@@ -59,7 +59,11 @@
 
 .mission-cards-card:hover .mission-cards-card-indicator,
 .mission-cards-card:focus-within .mission-cards-card-indicator {
-  color: #DD004A !important;
+  color: #001837 !important;
+}
+
+.mission-cards-card:hover .card-title {
+  color: #DD004A;
 }
 
 /* Hover-to-expand: collapse detail by default */
