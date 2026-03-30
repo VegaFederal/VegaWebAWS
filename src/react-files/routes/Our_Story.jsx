@@ -33,6 +33,7 @@ const Our_Story = () => {
           maxWidth="wide"
           align="center"
           bgColor="bg-white"
+          className="mb-[-80px]"
           content={<h2>The Founders</h2>}
         />
 
@@ -41,7 +42,7 @@ const Our_Story = () => {
           marginR='5rem'
           imageAlt="Headshot of Ryan Phillips"
           bgColor="bg-white"
-          className="our-story-founder"
+          className="our-story-founder mb-[-110px]"
           content={
             <div>
               <h3 className="text-secondary fw-bold">Ryan Phillips</h3>
