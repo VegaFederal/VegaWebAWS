@@ -14,6 +14,25 @@
   padding-bottom: 0.25rem !important;
 }
 
+/* Full-width container – edge padding matches the page sections below */
+.navbar .container-fluid {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .navbar .container-fluid {
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
+  }
+}
+
+/* Logo: fixed size so it doesn't shift as viewport changes */
+.vega-navbar-logo {
+  height: 2.75rem;
+  width: auto;
+}
+
 .navbar.fixed-top.navbar-scrolled {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
