@@ -104,6 +104,19 @@
             ]
         },
         {
+            "id": 16,
+            "name": "Ellie",
+            "title": "Senior Software Engineer",
+            "image": "Ellie",
+            "veteranLogo": null,
+            "veteranLogoSize": null,
+            "details": [
+                "Westfield High School in Chantilly, VA",
+                "Navigating places from memory",
+                "Coffee, and bone broth"
+            ]
+        },
+        {
             "id": 9,
             "name": "Joseph K.",
             "title": "Software Engineer",
