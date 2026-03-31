@@ -118,7 +118,7 @@ const Home = () => {
           { title: 'Vega', text: 'Automating your mission so the people who carry it out can achieve theirs.' },
         ]}
       />
-
+      
       <BannerSection
         title="Why Choose Vega?"
         bgColor="bg-primary"
