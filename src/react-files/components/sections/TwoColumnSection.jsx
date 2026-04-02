@@ -19,7 +19,9 @@ import './TwoColumnSection.css'
  * @param {string} marginR
  * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
  * @param {string} contentGap - Gap between image and text: 'default' | 'narrow' (1.25rem) | 'tight' (0.75rem), or any CSS length (e.g. '1rem'). Use 'narrow' or 'tight' for small/square images.
- */
+ * @param {number} imagePercent - The percent of the screen the left section takes up
+ * @param {number} contnetPercent - The percent of the screen the right section takes up
+*/
 const TwoColumnSection = ({
   image,
   imageAlt = '',
@@ -34,7 +36,9 @@ const TwoColumnSection = ({
   marginL = "",
   marginR = "",
   borderOverlay = false,
-  contentGap
+  contentGap,
+  imagePercent = 50,
+  contnetPercent = 50
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
@@ -45,7 +49,9 @@ const TwoColumnSection = ({
   const gridStyle = {
     '--image-span': imageColumnSpan,
     '--content-span': contentColumnSpan,
-    ...(gapValue && { '--two-col-gap': gapValue })
+    ...(gapValue && { '--two-col-gap': gapValue }),
+    '--image-percent' : imagePercent,
+    '--content-percent' : contnetPercent
   }
   const inputStyle = {
     marginLeft: marginL,

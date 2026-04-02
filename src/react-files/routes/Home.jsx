@@ -164,8 +164,10 @@ const Home = () => {
         imageFirst={true}
         imageSize="320px"
         bgColor="bg-white"
-        className="home-who-we-are lg:mr-25"
-        contentGap="tight"
+        className="home-who-we-are mr-100"
+        contentGap="narrow"
+        imagePercent={30}
+        contentPercent={70}
         content={
           <div>
             <h4 className="text-secondary">We've Lived the Mission. Now We Help Automate It.</h4>
