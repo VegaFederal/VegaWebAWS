@@ -3,7 +3,7 @@
 
 .two-column-section {
   padding: 4rem 0;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 @media (min-width: 768px) {
@@ -41,7 +41,7 @@
 
 @media (min-width: 1024px) {
   .two-column-section .two-column-grid.row.two-column-custom-gap {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(100, 1fr);
     gap: var(--two-col-gap, 2.5rem);
   }
 }
@@ -52,7 +52,7 @@
 
 @media (min-width: 1024px) {
   .two-column-image {
-    grid-column: span var(--image-span, 5);
+    grid-column: span var(--image-percent, 50);
   }
 }
 
@@ -62,7 +62,7 @@
 
 @media (min-width: 1024px) {
   .two-column-content {
-    grid-column: span var(--content-span, 7);
+    grid-column: span var(--content-percent, 50);
   }
 }
 
