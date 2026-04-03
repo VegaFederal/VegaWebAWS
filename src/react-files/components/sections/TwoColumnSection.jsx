@@ -42,7 +42,7 @@ const TwoColumnSection = ({
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
-  const gapValue = contentGap === 'narrow' ? '1.25rem' : contentGap === 'tight' ? '0.75rem' : contentGap === 'default' ? undefined : contentGap
+  const gapValue = contentGap === 'narrow' ? '1.25rem' : contentGap === 'tight' ? '0.75rem' : contentGap === 'who-we-are' ? '1.16rem' : contentGap === 'default' ? undefined : contentGap
   const useCustomGap = !!gapValue
   const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}${useCustomGap ? ' two-column-custom-gap' : ''}`.trim()
   const imageStyle = imageSize ? {maxWidth: imageSize, minWidth: imageSize} : undefined
