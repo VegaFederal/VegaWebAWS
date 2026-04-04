@@ -101,7 +101,7 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
         zIndex: index + 1
       }}
     >
-      <div className="sticky-stack-card-inner row align-items-start g-4">
+      <div className="sticky-stack-card-inner row g-4">
         <div className={contentColClass}>
           {item.title && (
             <h2 className="sticky-stack-title">{item.title}</h2>
