@@ -89,6 +89,19 @@
   position: relative;
 }
 
+/* Pull image + text inward so they sit inside the frame (borderOverlay only; non-bordered sections unchanged) */
+@media (min-width: 768px) {
+  .two-column-container-border-overlay > .two-column-grid.row {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .two-column-container-border-overlay > .two-column-grid.row {
+    padding: 0.625rem 1.25rem;
+  }
+}
+
 .two-column-container-border-overlay::after {
   content: '';
   position: absolute;
