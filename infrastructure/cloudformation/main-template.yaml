@@ -15,10 +15,10 @@ Parameters:
     Type: String
     Description: S3 bucket containing CloudFormation templates
 
-  RouteTableId:
-    Type: String
-    Default: rtb-0bbaaa9146c12d706
-    Description: ID of the route table for the VPC endpoin
+  # RouteTableId:
+  #   Type: String
+  #   Default: rtb-0bbaaa9146c12d706
+  #   Description: ID of the route table for the VPC endpoin
 
   VpcId:
     Type: AWS::EC2::VPC::Id
