@@ -16,7 +16,6 @@ if [ -f config/project-config.json ]; then
   INFRA_TYPE=$(grep -o '"infraType": "[^"]*' config/project-config.json | cut -d'"' -f4)
   AWS_REGION=$(grep -o '"awsRegion": "[^"]*' config/project-config.json | cut -d'"' -f4)
   VPC_ID=$(grep -o '"vpcId": "[^"]*' config/project-config.json | cut -d'"' -f4)
-  SUBNET_IDS=$(grep -o '"subnetIds": "[^"]*' config/project-config.json | cut -d'"' -f4)
 else
   echo -e "${YELLOW}Project configuration not found. Please run init.sh first.${NC}"
   exit 1
@@ -55,7 +54,6 @@ if [ "$INFRA_TYPE" == "cloudformation" ]; then
     --parameter-overrides \
         Environment=$ENV \
         VpcId=$VPC_ID \
-        SubnetIds=$SUBNET_IDS \
     --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND \
     --region $AWS_REGION
   
