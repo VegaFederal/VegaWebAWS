@@ -18,17 +18,17 @@ Parameters:
   # RouteTableId:
   #   Type: String
   #   Default: rtb-0bbaaa9146c12d706
-  #   Description: ID of the route table for the VPC endpoin
+  #   Description: ID of the route table for the VPC endpoint
 
   VpcId:
     Type: AWS::EC2::VPC::Id
     Default: vpc-03de7ad5a4c7c1822
     Description: ID of the existing company VPC
   
-  SubnetIds:
-    Type: List<AWS::EC2::Subnet::Id>
-    Default: subnet-02615277a84a5fcb4
-    Description: List of existing subnet IDs for deployment
+  # SubnetIds:
+  #   Type: List<AWS::EC2::Subnet::Id>
+  #   Default: subnet-02615277a84a5fcb4
+  #   Description: List of existing subnet IDs for deployment
 
   DomainName:
     Type: String
