@@ -88,11 +88,6 @@ Parameters:
     Type: AWS::EC2::VPC::Id
     Default: $VPC_ID
     Description: ID of the existing company VPC
-  
-  SubnetIds:
-    Type: List<AWS::EC2::Subnet::Id>
-    Default: $(echo $SUBNET_IDS | sed 's/,/,/g')
-    Description: List of existing subnet IDs for deployment
 
 Resources:
   # Security Groups Stack
@@ -184,7 +179,6 @@ aws cloudformation deploy \\
   --parameter-overrides \\
       Environment=dev \\
       VpcId=$VPC_ID \\
-      SubnetIds=$SUBNET_IDS \\
   --capabilities CAPABILITY_IAM
 \`\`\`
 
