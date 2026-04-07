@@ -17,7 +17,7 @@ import './TwoColumnSection.css'
  * @param {boolean} isReversed - Whether the text is on the right or the left
  * @param {string} marginL
  * @param {string} marginR
- * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
+ * @param {boolean} borderOverlay - When true, show a border frame and inset padding so content sits inside it
  * @param {string} contentGap - Gap between image and text: 'default' | 'narrow' (1.25rem) | 'tight' (0.75rem), or any CSS length (e.g. '1rem'). Use 'narrow' or 'tight' for small/square images.
  * @param {number} imagePercent - The percent of the screen the left section takes up
  * @param {number} contnetPercent - The percent of the screen the right section takes up

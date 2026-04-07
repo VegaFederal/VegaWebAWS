@@ -345,6 +345,20 @@
   }
 }
 
+/* Border overlay insets match 6.25rem mission container padding (TwoColumnSection default is 5rem). Home only. */
+@media (min-width: 768px) {
+  .home-mission-delivers .two-column-container-border-overlay::after {
+    left: 6.25rem;
+    right: 6.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-mission-delivers .two-column-image {
+    margin-left: 0 !important;
+  }
+}
+
 /* Homepage: two-column section image – rounded corners */
 .home-mission-delivers.two-column-section img {
   border-radius: 1rem;
