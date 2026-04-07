@@ -51,7 +51,8 @@ const TwoColumnSection = ({
     '--content-span': contentColumnSpan,
     ...(gapValue && { '--two-col-gap': gapValue }),
     '--image-percent' : imagePercent,
-    '--content-percent' : contnetPercent
+    '--content-percent' : contnetPercent,
+    '--grid-columns': `${imagePercent}fr ${contnetPercent}fr`
   }
   const inputStyle = {
     marginLeft: marginL,

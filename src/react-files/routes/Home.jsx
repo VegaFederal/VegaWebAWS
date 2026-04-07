@@ -164,7 +164,7 @@ const Home = () => {
         imageFirst={true}
         imageSize="320px"
         bgColor="bg-white"
-        className="home-who-we-are mr-100"
+        className="home-who-we-are"
         contentGap="who-we-are"
         imagePercent={30}
         contentPercent={70}

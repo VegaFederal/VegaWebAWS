@@ -377,30 +377,13 @@
   margin-top: 0;
 }
 
-/* "Who We Are" two-column section – cap at 5rem to match site-wide rhythm */
-.home-who-we-are.two-column-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
 
-@media (min-width: 768px) {
-  .home-who-we-are.two-column-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-}
-
-.home-who-we-are .container {
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
+/* @media (min-width: 1600px) {
   .home-who-we-are .container {
     padding-left: 6.25rem;
     padding-right: 6.25rem;
   }
-}
-
+} */
 /* Bullet lists */
 .home-bullets {
   list-style: disc;
