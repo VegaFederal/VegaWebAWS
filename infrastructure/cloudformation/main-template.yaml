@@ -35,6 +35,11 @@ Parameters:
     Default: ""
     Description: Custom domain name (e.g., example.com)
 
+  WwwDomain:
+    Type: String
+    Default: ""
+    Description: WWW subdomain (e.g., www.vegafederal.com)
+
   CertificateArn:
     Type: String
     Default: ""
@@ -70,6 +75,7 @@ Resources:
       Parameters:
         Environment: !Ref Environment
         DomainName: !Ref DomainName
+        WwwDomain: !Ref WwwDomain
         CertificateArn: !Ref CertificateArn
         CreateHostedZone: !Ref CreateHostedZone
       Tags:
