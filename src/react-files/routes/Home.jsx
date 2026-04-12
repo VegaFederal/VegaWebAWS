@@ -165,9 +165,8 @@ const Home = () => {
         imageSize="320px"
         bgColor="bg-white"
         className="home-who-we-are"
-        contentGap="who-we-are"
-        imagePercent={30}
-        contentPercent={70}
+        columnRatio={[3, 7]}
+        gap="1.5rem"
         content={
           <div>
             <h4 className="text-secondary">We've Lived the Mission. Now We Help Automate It.</h4>

@@ -1,9 +1,7 @@
-/* Two Column Section - Grid-based layout */
-/* Shared utilities (bg colors, container) imported globally in index.css */
+/* Two Column Section — one grid inside .container (no extra max-width; edges = Bootstrap container) */
 
 .two-column-section {
   padding: 4rem 0;
-  /*overflow-x: hidden;*/
 }
 
 @media (min-width: 768px) {
@@ -18,69 +16,32 @@
   }
 }
 
-/* Only when contentGap is set: use grid + custom gap and remove Bootstrap gutter so gap is the only spacing */
-.two-column-section .two-column-grid.row.two-column-custom-gap {
-  display: grid !important;
-  grid-template-columns: 1fr;
-  gap: var(--two-col-gap, 1.5rem);
+.two-column-section .two-column-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--tc-gap, clamp(1.25rem, 3vw, 2rem));
+  column-gap: 0;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.two-column-section .two-column-grid.row.two-column-custom-gap > * {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (min-width: 768px) {
-  .two-column-section .two-column-grid.row.two-column-custom-gap {
-    gap: var(--two-col-gap, 2rem);
+@media (min-width: 992px) {
+  .two-column-section .two-column-grid {
+    grid-template-columns: minmax(0, var(--tc-a, 1fr)) minmax(0, var(--tc-b, 1fr));
+    column-gap: var(--tc-gap, clamp(1.25rem, 3vw, 2rem));
+    row-gap: 0;
   }
-}
-
-@media (min-width: 1024px) {
-  .two-column-section .two-column-grid.row.two-column-custom-gap {
-    grid-template-columns: var(--grid-columns, 1fr 1fr);
-    gap: var(--two-col-gap, 2.5rem);
-  }
-}
-
-.two-column-image {
-  grid-column: 1 / -1;
-}
-
-@media (min-width: 1024px) {
-  .two-column-image {
-    grid-column: 1;
-  }
-}
-
-.two-column-content {
-  grid-column: 1 / -1;
-}
-
-@media (min-width: 1024px) {
-  .two-column-content {
-    grid-column: 2;
-  }
-}
-
-.two-column-reversed .two-column-content {
-  order: 1;
-}
-
-.two-column-reversed .two-column-image {
-  order: 2;
 }
 
 .two-column-image img {
   width: 100%;
   height: auto;
+  max-width: 100%;
   object-fit: contain;
+  display: block;
 }
 
-/* Optional border overlay (borderOverlay prop) – overlay only, no layout change */
+/* Optional border overlay */
 .two-column-section-border-overlay {
   overflow: visible;
 }
@@ -117,4 +78,3 @@
     box-shadow: 0 4px 12px rgba(0, 24, 55, 0.08);
   }
 }
-

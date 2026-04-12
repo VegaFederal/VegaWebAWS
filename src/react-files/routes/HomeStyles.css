@@ -331,15 +331,17 @@
   }
 }
 
-/* Mission: two-column (delivers) + mission-with-cards (approach) */
+/* Mission: two-column (delivers) + mission-with-cards (approach) + who-we-are — same wide inset */
 .home-mission-delivers .container,
-.home-mission-approach.mission-cards-section .container {
+.home-mission-approach.mission-cards-section .container,
+.home-who-we-are .container {
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .home-mission-delivers .container,
-  .home-mission-approach.mission-cards-section .container {
+  .home-mission-approach.mission-cards-section .container,
+  .home-who-we-are .container {
     padding-left: 6.25rem;
     padding-right: 6.25rem;
   }
@@ -377,13 +379,6 @@
   margin-top: 0;
 }
 
-
-/* @media (min-width: 1600px) {
-  .home-who-we-are .container {
-    padding-left: 6.25rem;
-    padding-right: 6.25rem;
-  }
-} */
 /* Bullet lists */
 .home-bullets {
   list-style: disc;
