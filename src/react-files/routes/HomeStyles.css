@@ -347,6 +347,21 @@
   }
 }
 
+/* Who We Are: center logo image when stacked (matches TwoColumnSection <992px layout) */
+@media (max-width: 991px) {
+  .home-who-we-are .two-column-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-who-we-are .two-column-image img {
+    width: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* Homepage: two-column section image – rounded corners */
 .home-mission-delivers.two-column-section img {
   border-radius: 1rem;
