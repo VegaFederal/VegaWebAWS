@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
@@ -8,6 +8,10 @@ import './About_Updated.css'
 const About_Updated = () => {
   const gridRef = useRef(null)
   const [visibleCards, setVisibleCards] = useState(new Set())
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [])
 
   /* Lazy reveal: observe each card, add visible class when in viewport */
   useEffect(() => {
