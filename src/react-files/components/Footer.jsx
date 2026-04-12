@@ -23,7 +23,7 @@ export default function Footer () {
             <div className="col-12 col-sm-6 col-lg-3">
               <div className="footer-brand">
                 <img src={LogoWhite} alt="Vega" className="footer-logo" />
-                <h1 className="footer-heading text-white">Vega | Automate Your Mission</h1>
+                <h1 className="footer-heading text-white">Automate Your Mission</h1>
                 <p className="footer-tagline text-white">Proudly based in St. Louis, serving clients nationwide.</p>
               </div>
             </div>
