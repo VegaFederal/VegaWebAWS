@@ -26,47 +26,48 @@ const TwoColumnSection = ({
   imageAlt = '',
   imageFirst = true,
   imageSize = '',
-  imageColumnSpan = 5,
-  contentColumnSpan = 7,
+  columnRatio,
+  gap: gapProp,
   content,
   bgColor = 'bg-white',
   isReversed,
   className = '',
-  marginL = "",
-  marginR = "",
+  marginL = '',
+  marginR = '',
   borderOverlay = false,
   contentGap,
   isOurStory = false
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
-  const gapValue = contentGap === 'narrow' ? '1.25rem' : contentGap === 'tight' ? '0.75rem' : contentGap === 'default' ? undefined : contentGap
-  const useCustomGap = !!gapValue
-  const gridClasses = `two-column-grid ${!imageFirst ? 'two-column-reversed' : ''}${useCustomGap ? ' two-column-custom-gap' : ''}`.trim()
-  const imageStyle = imageSize ? {maxWidth: imageSize, minWidth: imageSize} : undefined
-  const gridStyle = {
-    '--image-span': imageColumnSpan,
-    '--content-span': contentColumnSpan,
-    ...(gapValue && { '--two-col-gap': gapValue })
-  }
-  const inputStyle = {
-    marginLeft: marginL,
-    marginRight: marginR,
-  };
 
-  if (isReversed) {
-    return (
-    <div className={sectionClasses}>
-      <div className={containerClasses}>
-        <div className={`${gridClasses} row align-items-center`} style={gridStyle}>
-          <div className="two-column-content col">
-            {content}
-          </div>
-          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
-            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
-          </div>
-        </div>
-      </div>
+  const [wImage, wContent] = resolveColumnRatio({
+    columnRatio,
+    imagePercent,
+    contentPercent,
+    imageColumnSpan,
+    contentColumnSpan
+  })
+
+  const gapValue = resolveGap(gapProp, contentGap)
+
+  /* Text left / image right when isReversed or imageFirst false */
+  const contentLeft = Boolean(isReversed) || !imageFirst
+
+  const [trackA, trackB] = contentLeft ? [wContent, wImage] : [wImage, wContent]
+
+  const gridStyle = {
+    '--tc-a': `${trackA}fr`,
+    '--tc-b': `${trackB}fr`,
+    ...(gapValue ? { '--tc-gap': gapValue } : {})
+  }
+
+  const imageStyle = imageSize ? { maxWidth: imageSize, width: '100%' } : undefined
+  const inputStyle = { marginLeft: marginL, marginRight: marginR }
+
+  const imageCol = (
+    <div className="two-column-image" style={inputStyle}>
+      {image && <img src={image} alt={imageAlt} style={imageStyle} />}
     </div>
   )
   }
@@ -90,13 +91,18 @@ const TwoColumnSection = ({
   return (
     <div className={sectionClasses}>
       <div className={containerClasses}>
-        <div className={`${gridClasses} row align-items-center`} style={gridStyle}>
-          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
-            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
-          </div>
-          <div className="two-column-content col">
-            {content}
-          </div>
+        <div className="two-column-grid" style={gridStyle}>
+          {contentLeft ? (
+            <>
+              {textCol}
+              {imageCol}
+            </>
+          ) : (
+            <>
+              {imageCol}
+              {textCol}
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -105,5 +111,33 @@ const TwoColumnSection = ({
   
 }
 
-export default TwoColumnSection
+function resolveColumnRatio ({
+  columnRatio,
+  imagePercent,
+  contentPercent,
+  imageColumnSpan,
+  contentColumnSpan
+}) {
+  if (Array.isArray(columnRatio) && columnRatio.length === 2) {
+    const [a, b] = columnRatio.map((n) => Math.max(0.01, Number(n) || 1))
+    return [a, b]
+  }
+  if (imagePercent != null && contentPercent != null) {
+    return [Math.max(0.01, Number(imagePercent)), Math.max(0.01, Number(contentPercent))]
+  }
+  if (imageColumnSpan != null && contentColumnSpan != null) {
+    return [Math.max(0.01, Number(imageColumnSpan)), Math.max(0.01, Number(contentColumnSpan))]
+  }
+  return [1, 1]
+}
 
+function resolveGap (gapProp, contentGap) {
+  if (gapProp != null && gapProp !== '') return gapProp
+  if (contentGap == null || contentGap === '' || contentGap === 'default') return undefined
+  if (contentGap === 'narrow') return '1.25rem'
+  if (contentGap === 'tight') return '0.75rem'
+  if (contentGap === 'who-we-are') return '1.5rem'
+  return contentGap
+}
+
+export default TwoColumnSection

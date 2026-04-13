@@ -40,10 +40,11 @@ const MissionWithCardsSection = ({
                 tabIndex={0}
               >
                 <div className="card-body py-3 px-3 px-md-4 d-flex justify-content-between align-items-center mission-cards-card-header">
-                  <h5 className="card-title mb-0 fs-6 fs-md-5 fw-semibold text-dark">{card.title}</h5>
+                  <h5 className="card-title mb-0 fs-6 fs-md-5 fw-semibold">{card.title}</h5>
                   <span className="mission-cards-card-indicator small text-muted" aria-hidden="true">
                     <span className="mission-cards-card-indicator-icon" />
-                    <span className="ms-1">Hover to expand</span>
+                    <span className="mobile-text ms-1">Click to expand</span>
+                    <span className="web-text ms-1">Hover to expand</span>
                   </span>
                 </div>
                 <div className="mission-cards-card-detail">
