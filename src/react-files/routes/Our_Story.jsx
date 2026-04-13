@@ -55,11 +55,9 @@ const Our_Story = () => {
         <TwoColumnSection
           image={ThembaHHeadshot}
           imageAlt="Headshot of Themba Hinke"
-          isReversed={true}
           bgColor="bg-white"
-          marginL='5rem'
-
-
+          className=""
+          isOurStory={true}
           content={
             <div>
               <h3 className="text-secondary fw-bold">Themba Hinke</h3>

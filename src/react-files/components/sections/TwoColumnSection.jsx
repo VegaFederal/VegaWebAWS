@@ -19,6 +19,7 @@ import './TwoColumnSection.css'
  * @param {string} marginR
  * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
  * @param {string} contentGap - Gap between image and text: 'default' | 'narrow' (1.25rem) | 'tight' (0.75rem), or any CSS length (e.g. '1rem'). Use 'narrow' or 'tight' for small/square images.
+ * @param {boolean} isOurStory - Check to see if this is the Our story page
  */
 const TwoColumnSection = ({
   image,
@@ -34,7 +35,8 @@ const TwoColumnSection = ({
   marginL = "",
   marginR = "",
   borderOverlay = false,
-  contentGap
+  contentGap,
+  isOurStory = false
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
@@ -68,6 +70,22 @@ const TwoColumnSection = ({
     </div>
   )
   }
+  if(isOurStory) {
+    return (
+    <div className={sectionClasses}>
+      <div className={containerClasses}>
+        <div className={`${gridClasses} two-column-reversed-our-story row align-items-center`} style={gridStyle}>
+          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
+            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
+          </div>
+          <div className="two-column-content col">
+            {content}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+  }
 
   return (
     <div className={sectionClasses}>
@@ -83,6 +101,8 @@ const TwoColumnSection = ({
       </div>
     </div>
   )
+
+  
 }
 
 export default TwoColumnSection
