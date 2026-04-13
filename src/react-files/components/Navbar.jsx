@@ -1,48 +1,78 @@
-import {useState} from 'react'
-import {Link} from 'react-router-dom'
-import {FaBars, FaTimes} from 'react-icons/fa'
-import './NavbarStyles.css'
-import Logo_Blue from '../assets/vega_logo_blue.png';
-import Logo_White from '../assets/vega_logo_white.png';
+import { useRef, useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
+import Logo_blue from '../assets/vega_logo_blue.png'
+import './Navbar.css'
 
-const Navbar = ({color_story, color_capabilities,color_contact, color_partner, color_career, color_about}) => {
-    const[click, setClick] = useState(false);
-    const[scrolled, setScrolled] = useState(false);
-    
-    const handleClick = () => setClick(!click);
+const Navbar = () => {
+  const collapseRef = useRef(null)
+  const [scrolled, setScrolled] = useState(false)
 
-    
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    onScroll() // run once on mount in case already scrolled
+    window.addEventListener('scroll', onScroll, { passive: true })
+    document.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('scroll', onScroll)
+    }
+  }, [])
 
-    return (
-        <div className={`header ${scrolled ? 'scrolled bg-white' : 'bg-white'}`}>
-            
-            <Link to='/'><img src={Logo_White} alt='Vega logo' className="w-45 pb-3 mobile-image"></img>
-                         <img src={Logo_Blue} alt='Vega logo' className="w-45 pb-3 desktop-image"></img></Link>
-            
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li className='text-primary nav-item'>
-                    <Link to='/'><p className='nav-item home'>Home</p></Link>
-                </li>
-                <li className='text-primary nav-item'>
-                    <Link to='/Capabilities'><p className={`${color_capabilities} nav-item`}>Capabilities</p></Link>
-                </li>
-                <li className='text-white nav-item'>
-                    <Link to='/Our_Story'><p className={`${color_story} nav-item`}>Our Story</p></Link>
-                </li>
-                <li className='text-primary nav-item'>
-                    <Link to='/Careers'><p className={`${color_career} nav-item`}>Careers</p></Link>
-                </li>
-                <li className='text-primary nav-item'>
-                    <Link to='/About'><p className={`${color_about} nav-item`}>Vega Team</p></Link>
-                </li>
-            </ul>
-            <div className='hamburger' onClick={handleClick}>
-                
-                {click ? (<FaTimes size={20} style={{color:'#fff'}} />) : (<FaBars size={20} style={{color: '#fff'}}/>)}
-            </div>
-            
+  const linkClass = ({ isActive }) => `nav-link ${isActive ? ' active' : ''}`
+
+  const closeCollapse = () => {
+    const el = collapseRef.current
+    if (el && typeof window !== 'undefined' && window.bootstrap) {
+      const collapse = window.bootstrap.Collapse.getInstance(el)
+      if (collapse) collapse.hide()
+    }
+  }
+
+  return (
+    <nav className={`navbar navbar-expand-lg bg-body-tertiary fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="container">
+        <NavLink className="navbar-brand" to="/">
+          <img src={Logo_blue} alt="Vega" className="vega-navbar-logo" />
+        </NavLink>
+        <button
+          type="button"
+          className="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" aria-hidden />
+        </button>
+        <div ref={collapseRef} className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item nav-item-home-mobile">
+              <NavLink className={linkClass} to="/" onClick={closeCollapse}><span>Home</span></NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className={linkClass} to="/Capabilities" onClick={closeCollapse}><span>Capabilities</span></NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className={linkClass} to="/Our_Story" onClick={closeCollapse}><span>Our Story</span></NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className={linkClass} to="/About" onClick={closeCollapse}><span>Vega Team</span></NavLink>
+            </li>
+            <li className="nav-item nav-item-careers">
+              <NavLink className={({ isActive }) => `nav-link nav-link-careers-btn${isActive ? ' active' : ''}`} to="/Careers" onClick={closeCollapse}><span>Careers</span></NavLink>
+            </li>
+            {/* <li className="nav-item">
+              <NavLink className={linkClass} to="/ExamplePage" onClick={closeCollapse}>Example Page</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className={linkClass} to="/Homepage2" onClick={closeCollapse}>Homepage 2</NavLink>
+            </li> */}
+          </ul>
         </div>
-    )
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar

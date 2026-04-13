@@ -1,0 +1,11 @@
+/* Significant vertical space between the two hero paragraph sentences */
+.capabilities-page .hero-paragraph-gap {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+.contracting-item {
+  margin-top: 2rem;
+}
+
+

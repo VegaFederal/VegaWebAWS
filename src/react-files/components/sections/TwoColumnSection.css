@@ -1,0 +1,120 @@
+/* Two Column Section - Grid-based layout */
+/* Shared utilities (bg colors, container) imported globally in index.css */
+
+.two-column-section {
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .two-column-section {
+    padding: 5rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .two-column-section {
+    padding: 6rem 0;
+  }
+}
+
+/* Only when contentGap is set: use grid + custom gap and remove Bootstrap gutter so gap is the only spacing */
+.two-column-section .two-column-grid.row.two-column-custom-gap {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: var(--two-col-gap, 1.5rem);
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.two-column-section .two-column-grid.row.two-column-custom-gap > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .two-column-section .two-column-grid.row.two-column-custom-gap {
+    gap: var(--two-col-gap, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .two-column-section .two-column-grid.row.two-column-custom-gap {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--two-col-gap, 2.5rem);
+  }
+}
+
+.two-column-image {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .two-column-image {
+    grid-column: span var(--image-span, 5);
+  }
+}
+
+.two-column-content {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .two-column-content {
+    grid-column: span var(--content-span, 7);
+  }
+}
+
+.two-column-reversed .two-column-content {
+  order: 1;
+}
+
+.two-column-reversed .two-column-image {
+  order: 2;
+}
+
+.two-column-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Optional border overlay (borderOverlay prop) – overlay only, no layout change */
+.two-column-section-border-overlay {
+  overflow: visible;
+}
+
+.two-column-container-border-overlay {
+  position: relative;
+}
+
+.two-column-container-border-overlay::after {
+  content: '';
+  position: absolute;
+  left: 2.5rem;
+  right: 2.5rem;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .two-column-container-border-overlay::after {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .two-column-container-border-overlay::after {
+    display: block;
+    left: 5rem;
+    right: 5rem;
+    top: -0.75rem;
+    bottom: -0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 24, 55, 0.08);
+  }
+}
+

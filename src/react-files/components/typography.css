@@ -1,0 +1,267 @@
+/* Typography System - Responsive Font Sizes */
+/* Mobile First Approach - Base styles for mobile (< 768px) */
+
+/* Heading Styles */
+
+h1 {
+  font-size: 2rem;        
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-size: 1.75rem;   
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0 0 0.875rem 0;
+}
+
+h3 {
+  font-size: 1.5rem;      
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0 0 0.75rem 0;
+}
+
+h4 {
+  font-size: 1.25rem;     
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.625rem 0;
+}
+
+h5 {
+  font-size: 1.125rem;    
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+h6 {
+  font-size: 1rem;        
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+p,
+li:not(.nav-item) {
+  font-size: 1rem;        
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.text-small {
+  font-size: 0.875rem;    
+  line-height: 1.5;
+}
+
+.text-base {
+  font-size: 1rem;        
+  line-height: 1.6;
+}
+
+.text-large {
+  font-size: 1.125rem;    
+  line-height: 1.6;
+}
+
+.text-xl {
+  font-size: 1.25rem;     
+  line-height: 1.6;
+}
+
+.text-2xl {
+  font-size: 1.5rem;      
+  line-height: 1.5;
+}
+
+.text-3xl {
+  font-size: 1.875rem;    
+  line-height: 1.4;
+}
+
+.text-4xl {
+  font-size: 2.25rem;     
+  line-height: 1.3;
+}
+
+.text-5xl {
+  font-size: 3rem;        
+  line-height: 1.2;
+}
+
+.text-6xl {
+  font-size: 3.75rem;     
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;     
+  }
+
+  h2 {
+    font-size: 2rem;       
+  }
+
+  h3 {
+      font-size: 1.75rem;    
+  }
+
+  h4 {
+    font-size: 1.5rem;     
+  }
+
+  h5 {
+    font-size: 1.25rem;    
+  }
+
+  h6 {
+    font-size: 1.125rem;   
+  }
+
+  p,
+  li:not(.nav-item) {
+    font-size: 1.125rem;   
+  }
+
+  .text-small {
+    font-size: 0.9375rem;  
+  }
+
+  .text-base {
+    font-size: 1.125rem;   
+  }
+
+  .text-large {
+    font-size: 1.25rem;    
+  }
+
+  .text-xl {
+    font-size: 1.5rem;     
+  }
+
+  .text-2xl {
+    font-size: 1.875rem;   
+  }
+
+  .text-3xl {
+    font-size: 2.25rem;    
+  }
+
+  .text-4xl {
+    font-size: 3rem;       
+  }
+
+  .text-5xl {
+    font-size: 3.75rem;    
+  }
+
+  .text-6xl {
+    font-size: 4.5rem;     
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;       
+  }
+
+  h2 {
+    font-size: 2.5rem;     
+  }
+
+  h3 {
+    font-size: 2rem;       
+  }
+
+  h4 {
+    font-size: 1.75rem;    
+  }
+
+  h5 {
+    font-size: 1.5rem;     
+  }
+
+  h6 {
+    font-size: 1.25rem;    
+  }
+
+  p,
+  li:not(.nav-item) {
+    font-size: 1.25rem;    
+  }
+
+  .text-small {
+    font-size: 1rem;       
+  }
+
+  .text-base {
+    font-size: 1.25rem;    
+  }
+
+  .text-large {
+    font-size: 1.5rem;     
+  }
+
+  .text-xl {
+    font-size: 1.875rem;   
+  }
+
+  .text-2xl {
+    font-size: 2.25rem;    
+  }
+
+  .text-3xl {
+    font-size: 3rem;       
+  }
+
+  .text-4xl {
+    font-size: 3.75rem;    
+  }
+
+  .text-5xl {
+    font-size: 4.5rem;     
+  }
+
+  .text-6xl {
+    font-size: 5.25rem;    
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 3.5rem;     
+  }
+
+  h2 {
+    font-size: 3rem;       
+  }
+
+  h3 {
+    font-size: 2.25rem;    
+  }
+
+  h4 {
+    font-size: 2rem;       
+  }
+
+  .text-3xl {
+    font-size: 3.5rem;     
+  }
+
+  .text-4xl {
+    font-size: 4rem;       
+  }
+
+  .text-5xl {
+    font-size: 5rem;       
+  }
+
+  .text-6xl {
+    font-size: 6rem;       
+  }
+}
+
