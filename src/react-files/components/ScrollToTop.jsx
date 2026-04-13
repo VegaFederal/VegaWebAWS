@@ -12,10 +12,21 @@ const ScrollToTop = () => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
+    // Force instant scroll behavior globally for route changes.
+    document.documentElement.style.scrollBehavior = 'auto'
+    document.body.style.scrollBehavior = 'auto'
   }, [])
 
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    // Jump straight to the top (no smooth scroll), even if CSS attempts smooth scrolling.
+    const jump = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    }
+    jump()
+    const id = requestAnimationFrame(jump)
+    return () => cancelAnimationFrame(id)
   }, [pathname])
 
   return null
