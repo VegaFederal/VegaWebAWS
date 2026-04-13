@@ -331,31 +331,34 @@
   }
 }
 
-/* Mission: two-column (delivers) + mission-with-cards (approach) */
+/* Mission: two-column (delivers) + mission-with-cards (approach) + who-we-are — same wide inset */
 .home-mission-delivers .container,
-.home-mission-approach.mission-cards-section .container {
+.home-mission-approach.mission-cards-section .container,
+.home-who-we-are .container {
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .home-mission-delivers .container,
-  .home-mission-approach.mission-cards-section .container {
+  .home-mission-approach.mission-cards-section .container,
+  .home-who-we-are .container {
     padding-left: 6.25rem;
     padding-right: 6.25rem;
   }
 }
 
-/* Border overlay insets match 6.25rem mission container padding (TwoColumnSection default is 5rem). Home only. */
-@media (min-width: 768px) {
-  .home-mission-delivers .two-column-container-border-overlay::after {
-    left: 6.25rem;
-    right: 6.25rem;
+/* Who We Are: center logo image when stacked (matches TwoColumnSection <992px layout) */
+@media (max-width: 991px) {
+  .home-who-we-are .two-column-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
-}
 
-@media (min-width: 1024px) {
-  .home-mission-delivers .two-column-image {
-    margin-left: 0 !important;
+  .home-who-we-are .two-column-image img {
+    width: auto !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -389,30 +392,6 @@
 
 .home-why-choose h5:first-child {
   margin-top: 0;
-}
-
-/* "Who We Are" two-column section – cap at 5rem to match site-wide rhythm */
-.home-who-we-are.two-column-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-@media (min-width: 768px) {
-  .home-who-we-are.two-column-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-}
-
-.home-who-we-are .container {
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .home-who-we-are .container {
-    padding-left: 6.25rem;
-    padding-right: 6.25rem;
-  }
 }
 
 /* Bullet lists */
