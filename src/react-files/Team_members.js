@@ -6,6 +6,7 @@ import krista from './assets/About_us/Krista.png'
 import Jessica from './assets/About_us/Jessica.png'
 import dan from './assets/About_us/Dan.png'
 import RyanE from './assets/About_us/Ryan_E.png'
+import Ellie from './assets/About_us/Ellie.png'
 import joseph from './assets/About_us/Joseph_K.png'
 import Nick from './assets/About_us/Nick.png'
 import blas from './assets/About_us/Blas.png'
@@ -118,6 +119,19 @@ export const teamMembers =[
                 "Christian Brothers College HS (CBC)",
                 "Trail running",
                 "Coffee"
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Ellie",
+            "title": "Senior Software Engineer",
+            "image": Ellie,
+            "veteranLogo": null,
+            "veteranLogoSize": null,
+            "details": [
+                "Westfield High School in Chantilly, VA",
+                "Navigating places from memory",
+                "Coffee, and bone broth"
             ]
         },
         {

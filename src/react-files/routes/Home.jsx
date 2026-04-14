@@ -118,7 +118,7 @@ const Home = () => {
           { title: 'Vega', text: 'Automating your mission so the people who carry it out can achieve theirs.' },
         ]}
       />
-
+      
       <BannerSection
         title="Why Choose Vega?"
         bgColor="bg-primary"
@@ -165,7 +165,8 @@ const Home = () => {
         imageSize="320px"
         bgColor="bg-white"
         className="home-who-we-are"
-        contentGap="tight"
+        columnRatio={[3, 7]}
+        gap="1.5rem"
         content={
           <div>
             <h4 className="text-secondary">We've Lived the Mission. Now We Help Automate It.</h4>

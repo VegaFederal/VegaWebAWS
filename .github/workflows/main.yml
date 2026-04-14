@@ -146,12 +146,10 @@ jobs:
 
           PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
-          SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
           AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
 
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
-          echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
 
       - name: Set environment variables
@@ -190,7 +188,6 @@ jobs:
           parameter-overrides: >-
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
-            SubnetIds=${{ env.SUBNET_IDS }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
@@ -245,7 +242,6 @@ jobs:
           CONFIG_FILE="config/production-config.json"
           PROJECT_NAME=$(jq -r '.projectName' $CONFIG_FILE)
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
-          SUBNET_IDS=$(jq -r '.subnetIds' $CONFIG_FILE)
           AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
           DOMAIN_NAME=$(jq -r '.domainName // ""' $CONFIG_FILE)
           WWW_DOMAIN=$(jq -r '.wwwDomain // ""' $CONFIG_FILE)
@@ -254,7 +250,6 @@ jobs:
 
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
-          echo "SUBNET_IDS=$SUBNET_IDS" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
           echo "DOMAIN_NAME=$DOMAIN_NAME" >> $GITHUB_ENV
           echo "WWW_DOMAIN=$WWW_DOMAIN" >> $GITHUB_ENV
@@ -290,7 +285,6 @@ jobs:
           parameter-overrides: >-
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
-            SubnetIds=${{ env.SUBNET_IDS }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
             DomainName=${{ env.DOMAIN_NAME }},
             WwwDomain=${{ env.WWW_DOMAIN }},

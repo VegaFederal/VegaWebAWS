@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './StickyStackSection.css'
 
 function isVideoUrl (src) {
@@ -18,7 +18,7 @@ function isVideoUrl (src) {
  * @param {string} backgroundColor - CSS color value for section background (e.g. '#FAF9F6', 'rgb(250,249,246)'). Overrides bgColor when set.
  * @param {string} stickyCardsOffset - Where cards stick (default '25vh'). Use vh for uniform scaling.
  * @param {string} stickyReleasePadding - Extra scroll before cards unstick (default '15vh'). Use vh for uniform scaling.
- * @param {number} autoTabInterval - If set (ms), auto-cycle tabs (Overview → Capabilities → Mission Impact). e.g. 5000 = 5 seconds. 0 or omit to disable.
+ * @param {number} autoTabInterval - If set (ms), auto-cycle tabs while a card is in view (Overview → Capabilities → Mission Impact). e.g. 5000 = 5 seconds. 0 or omit to disable.
  * @param {string} className - Additional CSS classes
  */
 const StickyStackSection = ({
@@ -74,12 +74,44 @@ const StickyStackSection = ({
 
 const TAB_ORDER = ['overview', 'capabilities', 'missionImpact']
 
+const AUTO_TAB_VIEWPORT_MARGIN = '-20% 0px -25% 0px'
+const AUTO_TAB_MIN_RATIO = 0.38
+
 function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTabInterval = 0 }) {
   const hasTabs = item.overview != null && Array.isArray(item.capabilities) && item.missionImpact != null
   const [activeTab, setActiveTab] = useState('overview')
+  const [isCardInView, setIsCardInView] = useState(false)
+  const cardRef = useRef(null)
 
   useEffect(() => {
-    if (!hasTabs || !autoTabInterval || autoTabInterval <= 0) return
+    if (!hasTabs) return
+    const el = cardRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const visible =
+          entry.isIntersecting && entry.intersectionRatio >= AUTO_TAB_MIN_RATIO
+        setIsCardInView(visible)
+      },
+      {
+        root: null,
+        rootMargin: AUTO_TAB_VIEWPORT_MARGIN,
+        threshold: [0, 0.1, 0.2, 0.3, 0.38, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+      }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasTabs])
+
+  useEffect(() => {
+    if (!isCardInView) {
+      setActiveTab('overview')
+    }
+  }, [isCardInView])
+
+  useEffect(() => {
+    if (!hasTabs || !autoTabInterval || autoTabInterval <= 0 || !isCardInView) return
     const id = setInterval(() => {
       setActiveTab((prev) => {
         const i = TAB_ORDER.indexOf(prev)
@@ -88,12 +120,13 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
       })
     }, autoTabInterval)
     return () => clearInterval(id)
-  }, [hasTabs, autoTabInterval])
+  }, [hasTabs, autoTabInterval, isCardInView])
 
   const contentColClass = `sticky-stack-card-content col-12 col-lg-6 ${index % 2 === 1 ? 'order-lg-2' : ''}`
 
   return (
     <article
+      ref={cardRef}
       className={`sticky-stack-card ${isFirstCard ? 'sticky-stack-card-first' : ''}`}
       style={{
         '--stack-index': stackIndex ?? index,
@@ -101,7 +134,7 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
         zIndex: index + 1
       }}
     >
-      <div className="sticky-stack-card-inner row align-items-start g-4">
+      <div className="sticky-stack-card-inner row g-4">
         <div className={contentColClass}>
           {item.title && (
             <h2 className="sticky-stack-title">{item.title}</h2>
