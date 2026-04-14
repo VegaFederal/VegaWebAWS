@@ -58,8 +58,7 @@ const TwoColumnSection = ({
   imagePercent,
   contentPercent,
   imageColumnSpan,
-  contentColumnSpan,
-  isOurStory = false
+  contentColumnSpan
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
@@ -93,25 +92,23 @@ const TwoColumnSection = ({
       {image && <img src={image} alt={imageAlt} style={imageStyle} />}
     </div>
   )
-  }
-
   const textCol = <div className="two-column-content">{content}</div>
 
   if(isOurStory) {
     return (
-    <div className={sectionClasses}>
-      <div className={containerClasses}>
-        <div className={`${gridClasses} two-column-reversed-our-story row align-items-center`} style={gridStyle}>
-          <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
-            {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
-          </div>
-          <div className="two-column-content col">
-            {content}
+      <div className={sectionClasses}>
+        <div className={containerClasses}>
+          <div className={`${gridClasses} two-column-reversed-our-story row align-items-center`} style={gridStyle}>
+            <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
+              {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
+            </div>
+            <div className="two-column-content col">
+              {content}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
   }
 
   return (
@@ -134,13 +131,15 @@ const TwoColumnSection = ({
     </div>
   )
 
+}
+
 function resolveColumnRatio ({
   columnRatio,
   imagePercent,
   contentPercent,
   imageColumnSpan,
   contentColumnSpan
-}) {
+}){
   if (Array.isArray(columnRatio) && columnRatio.length === 2) {
     const [a, b] = columnRatio.map((n) => Math.max(0.01, Number(n) || 1))
     return [a, b]
