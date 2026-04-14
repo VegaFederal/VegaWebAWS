@@ -58,7 +58,8 @@ const TwoColumnSection = ({
   imagePercent,
   contentPercent,
   imageColumnSpan,
-  contentColumnSpan
+  contentColumnSpan,
+  isOurStory = false
 }) => {
   const sectionClasses = `two-column-section ${bgColor}${borderOverlay ? ' two-column-section-border-overlay' : ''} ${className}`.trim()
   const containerClasses = `container${borderOverlay ? ' two-column-container-border-overlay' : ''}`.trim()
