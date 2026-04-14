@@ -6,7 +6,7 @@ import { HeroSection, TwoColumnSection, CenteredContentSection } from '../compon
 import RyanPHeadshot from '../assets/RyanHeadshot.jpeg'
 import ThembaHHeadshot from '../assets/ThembaHeadshot.jpg'
 import OurStoryHero from '../assets/StLouisSkyLineArial.jpg'
-import OurStoryVegaStarVideo from '../assets/movingNightSky.mp4'
+import OurStoryVegaStarVideo from '../assets/StaryNight.mp4'
 
 import '../components/typography.css'
 import './Our_Story.css'
