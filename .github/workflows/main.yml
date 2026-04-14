@@ -244,6 +244,7 @@ jobs:
           VPC_ID=$(jq -r '.vpcId' $CONFIG_FILE)
           AI_MODEL=$(jq -r '.aiModel' $CONFIG_FILE)
           DOMAIN_NAME=$(jq -r '.domainName // ""' $CONFIG_FILE)
+          WWW_DOMAIN=$(jq -r '.wwwDomain // ""' $CONFIG_FILE)
           CERTIFICATE_ARN=$(jq -r '.certificateArn // ""' $CONFIG_FILE)
           CREATE_HOSTED_ZONE=$(jq -r '.createHostedZone // "false"' $CONFIG_FILE)
 
@@ -251,6 +252,7 @@ jobs:
           echo "VPC_ID=$VPC_ID" >> $GITHUB_ENV
           echo "AI_MODEL=$AI_MODEL" >> $GITHUB_ENV
           echo "DOMAIN_NAME=$DOMAIN_NAME" >> $GITHUB_ENV
+          echo "WWW_DOMAIN=$WWW_DOMAIN" >> $GITHUB_ENV
           echo "CERTIFICATE_ARN=$CERTIFICATE_ARN" >> $GITHUB_ENV
           echo "CREATE_HOSTED_ZONE=$CREATE_HOSTED_ZONE" >> $GITHUB_ENV
 
@@ -285,6 +287,7 @@ jobs:
             VpcId=${{ env.VPC_ID }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
             DomainName=${{ env.DOMAIN_NAME }},
+            WwwDomain=${{ env.WWW_DOMAIN }},
             CertificateArn=${{ env.CERTIFICATE_ARN }},
             CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }}
           no-fail-on-empty-changeset: "1"

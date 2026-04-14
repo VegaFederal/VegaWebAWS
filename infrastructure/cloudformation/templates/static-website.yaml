@@ -12,6 +12,11 @@ Parameters:
     Default: ""
     Description: Custom domain name (e.g., example.com)
 
+  WwwDomain:
+    Type: String
+    Default: ""
+    Description: WWW subdomain (e.g., www.vegafederal.com)
+
   CertificateArn:
     Type: String
     Default: ""
@@ -26,6 +31,7 @@ Parameters:
 Conditions:
   HasCustomDomain: !Not [!Equals [!Ref DomainName, ""]]
   HasCertificate: !Not [!Equals [!Ref CertificateArn, ""]]
+  HasWwwDomain: !Not [!Equals [!Ref WwwDomain, ""]]
   ShouldCreateHostedZone: !And [!Condition HasCustomDomain, !Equals [!Ref CreateHostedZone, "true"]]
 
 Resources:
@@ -100,7 +106,10 @@ Resources:
         PriceClass: PriceClass_100
         Aliases: !If
           - HasCustomDomain
-          - [!Ref DomainName]
+          - !If
+            - HasWwwDomain
+            - [!Ref DomainName, !Ref WwwDomain]
+            - [!Ref DomainName]
           - !Ref AWS::NoValue
         ViewerCertificate: !If
           - HasCertificate
@@ -232,7 +241,7 @@ Resources:
       HostedZoneConfig:
         Comment: !Sub "Hosted zone for ${DomainName}"
 
-  # DNS Record for CloudFront
+  # DNS Record for CloudFront (apex domain)
   DNSRecord:
     Type: AWS::Route53::RecordSet
     Condition: HasCustomDomain
@@ -242,7 +251,19 @@ Resources:
       Type: A
       AliasTarget:
         DNSName: !GetAtt CloudFrontDistribution.DomainName
-        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront hosted zone ID
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  # DNS Record for www subdomain
+  WwwDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: HasWwwDomain
+    Properties:
+      HostedZoneName: !Sub "${DomainName}."
+      Name: !Ref WwwDomain
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
 
 Outputs:
   WebsiteBucketName:
