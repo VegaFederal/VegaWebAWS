@@ -2,8 +2,24 @@ import React from 'react'
 import './TwoColumnSection.css'
 
 /**
- * TwoColumnSection — image + text inside a single Bootstrap `.container` (same horizontal margins as other sections).
- *
+ * TwoColumnSection - Image and text side-by-side section
+ * Uses grid layout for responsive two-column design
+ * 
+ * @param {string} image - Image source URL
+ * @param {string} imageAlt - Alt text for image
+ * @param {boolean} imageFirst - Whether image comes first (default: true)
+ * @param {string} imageSize - Optional max width for the image (e.g. '10rem', '200px')
+ * @param {number} imageColumnSpan - Image column span on desktop (default: 5)
+ * @param {number} contentColumnSpan - Content column span on desktop (default: 7)
+ * @param {ReactNode} content - Content to display (text, headings, etc.)
+ * @param {string} bgColor - Background color class (default: 'bg-white')
+ * @param {string} className - Additional CSS classes
+ * @param {boolean} isReversed - Whether the text is on the right or the left
+ * @param {string} marginL
+ * @param {string} marginR
+ * @param {boolean} borderOverlay - When true, show a border overlay around the container (no layout change)
+ * @param {string} contentGap - Gap between image and text: 'default' | 'narrow' (1.25rem) | 'tight' (0.75rem), or any CSS length (e.g. '1rem'). Use 'narrow' or 'tight' for small/square images.
+ * @param {boolean} isOurStory - Check to see if this is the Our story page
  * @param {string} image - Image source URL (optional; column still renders if omitted)
  * @param {string} [imageAlt=''] - Alt text for the image
  * @param {boolean} [imageFirst=true] - When true (and not `isReversed`), image is on the left on large screens
@@ -38,6 +54,7 @@ const TwoColumnSection = ({
   marginR = '',
   borderOverlay = false,
   contentGap,
+  isOurStory = false,
   imagePercent,
   contentPercent,
   imageColumnSpan,
@@ -77,6 +94,23 @@ const TwoColumnSection = ({
   )
   const textCol = <div className="two-column-content">{content}</div>
 
+  if(isOurStory) {
+    return (
+      <div className={sectionClasses}>
+        <div className={containerClasses}>
+          <div className={`${gridClasses} two-column-reversed-our-story row align-items-center`} style={gridStyle}>
+            <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
+              {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
+            </div>
+            <div className="two-column-content col">
+              {content}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={sectionClasses}>
       <div className={containerClasses}>
@@ -96,6 +130,7 @@ const TwoColumnSection = ({
       </div>
     </div>
   )
+
 }
 
 function resolveColumnRatio ({
@@ -104,7 +139,7 @@ function resolveColumnRatio ({
   contentPercent,
   imageColumnSpan,
   contentColumnSpan
-}) {
+}){
   if (Array.isArray(columnRatio) && columnRatio.length === 2) {
     const [a, b] = columnRatio.map((n) => Math.max(0.01, Number(n) || 1))
     return [a, b]
