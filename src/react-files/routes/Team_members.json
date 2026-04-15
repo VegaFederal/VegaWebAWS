@@ -142,6 +142,19 @@
                 "The ability to learn something new"
             ]
         },
+        {
+            "id": 11,
+            "name": "Trevor",
+            "title": "Senior Software Engineer",
+            "image": "trevor",
+            "veteranLogo": null,
+            "veteranLogoSize": null,
+            "details": [
+                "Battlefield High School (Haymarket, VA)",
+                "Bringing the house down at karaoke",
+                "An ungodly amount of Diet Coke"
+            ]
+        },
 
         {
             "id": 12,

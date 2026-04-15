@@ -15,7 +15,7 @@ import Kyle from './assets/About_us/Kyle.png'
 import Brian from './assets/About_us/Brian.png'
 import vetNavy from './assets/About_us/US_Navy.png' // Navy
 import vetArmy from './assets/About_us/US_Army.png' // Army
-
+import Trevor from './assets/About_us/Trevor.png'
 export const teamMembers =[
     {
             "id": 1,
@@ -160,7 +160,19 @@ export const teamMembers =[
                 "The ability to learn something new"
             ]
         },
-
+        {
+            "id": 11,
+            "name": "Trevor",
+            "title": "Senior Software Engineer",
+            "image": Trevor,
+            "veteranLogo": null,
+            "veteranLogoSize": null,
+            "details": [
+                "Battlefield High School (Haymarket, VA)",
+                "Bringing the house down at karaoke",
+                "An ungodly amount of Diet Coke"
+            ]
+        },
         {
             "id": 12,
             "name": "Blas",
