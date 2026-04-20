@@ -98,7 +98,7 @@ const TwoColumnSection = ({
     return (
       <div className={sectionClasses}>
         <div className={containerClasses}>
-          <div className={`${gridClasses} two-column-reversed-our-story row align-items-center`} style={gridStyle}>
+          <div className="two-column-reversed-our-story row align-items-center" style={gridStyle}>
             <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
               {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
             </div>
