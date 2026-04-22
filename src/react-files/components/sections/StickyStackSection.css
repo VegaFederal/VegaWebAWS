@@ -1,0 +1,210 @@
+/* Sticky Stack Section - all values in vh for uniform behavior across viewport sizes */
+.sticky-stack-section {
+  padding: 5vh 0;
+  --sticky-card-step: 0.5vh;
+  --sticky-card-min-height: 60vh;
+  --sticky-stack-line-height: 1;
+}
+
+/* Title sticks at top; all cards (including first) stack together below */
+.sticky-stack-title-wrap {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+}
+
+.sticky-stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Cards stack below the stuck title — keep sticky on all viewports including mobile */
+.sticky-stack-card {
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--sticky-cards-offset, 25vh) + (var(--stack-index) * var(--sticky-card-step)));
+}
+
+.sticky-stack-card-inner {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  transform: translateY(calc(var(--stack-index) * 0.4vh));
+  transition: transform 0.2s ease;
+  min-height: var(--sticky-card-min-height);
+  overflow: hidden;
+}
+
+/* Tabs */
+.sticky-stack-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.sticky-stack-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 2px solid rgba(0, 24, 55, 0.12);
+}
+
+.sticky-stack-tab {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2f3a49;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sticky-stack-tab.active {
+  color: var(--stack-accent, #DD004A);
+  border-bottom-color: var(--stack-accent, #DD004A);
+}
+
+
+.sticky-stack-tab-panels {
+  min-height: 8rem;
+}
+
+
+/* Capabilities tab only: reset ul padding + line-height for list items */
+.sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+  line-height: var(--sticky-stack-line-height);
+}
+
+.sticky-stack-card-media {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.sticky-stack-card-media img,
+.sticky-stack-card-media-video {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 0;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .sticky-stack-card-media {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .sticky-stack-card-media img,
+  .sticky-stack-card-media-video {
+    max-height: none;
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 1600px) {
+  .sticky-stack-section {
+    --sticky-card-min-height: 55vh;
+  }
+  .sticky-stack-section .sticky-stack-text {
+    font-size: 1rem;
+  }
+  .sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+    font-size: 1rem;
+    line-height: var(--sticky-stack-line-height);
+  }
+}
+@media (max-width: 1024px) {
+  .sticky-stack-card-inner {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* Mobile: compact layout so full cards are visible on scroll */
+@media (max-width: 768px) {
+  .sticky-stack-section {
+    padding: 3vh 0;
+    --sticky-cards-offset: 12vh !important;
+    --sticky-card-step: 0.3vh;
+  }
+  .sticky-stack-header {
+    margin: 0 0 0.5rem;
+    padding: 0 0.5rem 0.25rem;
+  }
+  .sticky-stack-header p {
+    font-size: 0.9rem;
+  }
+  .sticky-stack-list {
+    gap: 1.5rem;
+  }
+  .sticky-stack-card-inner {
+    padding: 1.25rem;
+    border-radius: 16px;
+    transform: translateY(calc(var(--stack-index) * 0.25vh));
+  }
+  .sticky-stack-title-wrap {
+    top: 3.5rem;
+  }
+  .sticky-stack-card {
+    top: calc(var(--sticky-cards-offset, 12vh) + (var(--stack-index) * var(--sticky-card-step)));
+  }
+  .sticky-stack-tabs {
+    gap: 0.375rem;
+  }
+  .sticky-stack-tab {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .sticky-stack-tab-list {
+    gap: 0.375rem;
+  }
+  .sticky-stack-section .sticky-stack-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .sticky-stack-section [id$="-capabilities"] .sticky-stack-bullet-list li {
+    font-size: 0.875rem;
+    line-height: 1.25;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .sticky-stack-tab-panels {
+    min-height: 6rem;
+  }
+  .sticky-stack-card-inner .row {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+.sticky-stack-card-media img,
+.sticky-stack-card-media-video {
+  border-radius: 12px;
+  }
+}
+
+/* Symmetrical margins matching hero on large screens (≥1400px) */
+@media (min-width: 1400px) {
+  .sticky-stack-section > .container {
+    max-width: 100%;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}

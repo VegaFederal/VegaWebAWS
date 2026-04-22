@@ -1,0 +1,20 @@
+/* Banner Section */
+/* Shared utilities (bg colors, text colors) imported globally in index.css */
+
+.banner-section-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-section-fixed {
+  padding: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .banner-section {
+    padding: 3rem 0;
+  }
+}
+
