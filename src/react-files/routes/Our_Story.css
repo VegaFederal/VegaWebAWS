@@ -1,0 +1,42 @@
+.why-vega-section h1,
+.why-vega-section .centered-content-title h2 {
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0 0 0.75rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-content {
+    max-width: 65ch;
+  }
+  
+  .why-vega-section .why-vega-subheading {
+    color: #dc3545 !important;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-paragraph {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .why-vega-paragraph strong {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .why-vega-section .why-vega-statement {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 1rem 0 0 0 !important;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
