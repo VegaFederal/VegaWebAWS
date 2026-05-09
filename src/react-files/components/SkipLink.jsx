@@ -41,7 +41,7 @@ const SkipLink = () => {
     <a 
       href="#after-navbar"
       className="skip-link" 
-      tabIndex={0}
+      tabIndex={-1}
       ref={skipLinkRef}
       onClick={handleClick}
     >

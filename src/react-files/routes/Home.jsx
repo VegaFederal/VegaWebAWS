@@ -29,7 +29,7 @@ const Home = () => {
 
         <div className="hero-inner">
           <div className="hero-text-col">
-            <div id="after-navbar" tabIndex={-1} className="hero-text-block">
+            <div id="after-navbar" tabIndex={0} className="hero-text-block">
               <h1 className="hero-title">
                 Automate Your <span className="hero-title-accent">Mission</span>
               </h1>
