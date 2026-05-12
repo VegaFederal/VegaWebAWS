@@ -41,7 +41,7 @@ Resources:
   HelloFunction:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: HelloFunction
+      FunctionName: !Sub HelloFunction-${Environment}
       Runtime: python3.12
       Role: !GetAtt HelloFunctionRole.Arn
       Handler: index.handler
