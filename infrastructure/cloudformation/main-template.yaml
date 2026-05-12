@@ -37,6 +37,10 @@ Parameters:
     AllowedValues: ["true", "false"]
     Description: Create Route 53 hosted zone for domain
 
+  DeploymentBucket:
+    Type: String
+    Description: S3 bucket containing Lambda deployment packages
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -64,6 +68,18 @@ Resources:
         WwwDomain: !Ref WwwDomain
         CertificateArn: !Ref CertificateArn
         CreateHostedZone: !Ref CreateHostedZone
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  # API + Lambda Stack
+  ApiLambdaStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/api-lambda.yaml
+      Parameters:
+        Environment: !Ref Environment
+        DeploymentBucket: !Ref DeploymentBucket
       Tags:
         - Key: Environment
           Value: !Ref Environment

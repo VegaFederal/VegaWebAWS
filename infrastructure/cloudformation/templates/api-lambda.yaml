@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: API Gateway for VegaWebAWS
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    Description: The deployment environment
+  DeploymentBucket:
+    Type: String
+    Description: S3 bucket containing Lambda functions
+
+Resources:
+  MyApi:
+    Type: 'AWS::ApiGatewayV2::Api'
+    Properties:
+      Name: VegaWebAWSAPI
+      ProtocolType: HTTP
+
+  MyIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref MyApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !GetAtt HelloFunction.Arn
+      PayloadFormatVersion: "2.0"
+
+  HelloFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  HelloFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub HelloFunction-${Environment} # needs to have unique function name for each new stack created.
+      Runtime: python3.12
+      Role: !GetAtt HelloFunctionRole.Arn
+      Handler: index.handler
+      Code:
+        S3Bucket: !Ref DeploymentBucket
+        S3Key: !Sub ${Environment}/lambda/hello/index.zip
+
+  ApiGatewayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref HelloFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MyApi}/*/*
+
+  GetHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: GET /hello
+      Target: !Sub integrations/${MyIntegration}
+
+  PostHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: POST /hello
+      Target: !Sub integrations/${MyIntegration}
+
+  PutHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: PUT /hello/{id} # needs to know the id of the record to update.
+      Target: !Sub integrations/${MyIntegration}
+
+  DeleteHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: DELETE /hello/{id} # needs to know the id of the record to delete.
+      Target: !Sub integrations/${MyIntegration}
+
+  HttpApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref MyApi
+      StageName: $default
+      AutoDeploy: true
+
+Outputs:
+  ApiEndpoint:
+    Description: HTTP API endpoint URL
+    Value: !Sub https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/hello
+
+
+
+
+
