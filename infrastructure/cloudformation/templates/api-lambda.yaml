@@ -57,11 +57,32 @@ Resources:
       Principal: apigateway.amazonaws.com
       SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MyApi}/*/*
 
-  HelloRoute:
+  GetHelloRoute:
     Type: AWS::ApiGatewayV2::Route
     Properties:
       ApiId: !Ref MyApi
       RouteKey: GET /hello
+      Target: !Sub integrations/${MyIntegration}
+
+  PostHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: POST /hello
+      Target: !Sub integrations/${MyIntegration}
+
+  PutHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: PUT /hello/{id} # needs to know the id of the record to update.
+      Target: !Sub integrations/${MyIntegration}
+
+  DeleteHelloRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref MyApi
+      RouteKey: DELETE /hello/{id} # needs to know the id of the record to delete.
       Target: !Sub integrations/${MyIntegration}
 
   HttpApiStage:
