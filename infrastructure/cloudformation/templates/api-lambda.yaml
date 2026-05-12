@@ -41,7 +41,7 @@ Resources:
   HelloFunction:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: !Sub HelloFunction-${Environment}
+      FunctionName: !Sub HelloFunction-${Environment} # needs to have unique function name for each new stack created.
       Runtime: python3.12
       Role: !GetAtt HelloFunctionRole.Arn
       Handler: index.handler
