@@ -9,6 +9,12 @@ Parameters:
   DeploymentBucket:
     Type: String
     Description: S3 bucket containing Lambda functions
+  TableName: # parameter for the DynamoDB table name from the dynamodb.yaml file.
+    Type: String
+    Description: DynamoDB table name
+  TableArn: # parameter for the DynamoDB table ARN from the dynamodb.yaml file.
+    Type: String
+    Description: DynamoDB table ARN
 
 Resources:
   MyApi:
@@ -37,6 +43,15 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: DynamoDBAccessPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:Scan
+                Resource: !Ref TableArn
 
   HelloFunction:
     Type: AWS::Lambda::Function
@@ -45,6 +60,10 @@ Resources:
       Runtime: python3.12
       Role: !GetAtt HelloFunctionRole.Arn
       Handler: index.handler
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref TableName
+          TABLE_ARN: !Ref TableArn
       Code:
         S3Bucket: !Ref DeploymentBucket
         S3Key: !Sub ${Environment}/lambda/hello/index.zip

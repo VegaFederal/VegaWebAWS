@@ -91,6 +91,8 @@ Resources:
       Parameters:
         Environment: !Ref Environment
         DeploymentBucket: !Ref DeploymentBucket
+        TableName: !GetAtt DynamoDBStack.Outputs.TableName
+        TableArn: !GetAtt DynamoDBStack.Outputs.TableArn
       Tags:
         - Key: Environment
           Value: !Ref Environment

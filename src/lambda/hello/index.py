@@ -1,4 +1,13 @@
 import json
+import boto3
+import os
+
+# create a dynamodb resource
+dynamodb = boto3.resource('dynamodb')
+# create a table object
+table = dynamodb.Table(os.environ['TABLE_NAME'])
+
+
 def handler(event, context):
     method = event['requestContext']['http']['method'] # Grabs the method of the request POST, PUT, DELETE, GET
     body = event.get('body', '{}') # grabs the body of the request if it exists, otherwise returns an empty JSON object
@@ -29,12 +38,14 @@ def handler(event, context):
             "body": json.dumps({"deletedId": id})
         }
     elif method == 'GET':   # this method is used to get a record from the database.
-        id = path_params.get('id') # grabs the id from the path parameters to know which record to get.
+        # id = path_params.get('id') # grabs the id from the path parameters to know which record to get.
+        response = table.scan() # removed id because we are getting all records.
+        items = response['Items']
         # here is where you would do something with the data, like get it from a database.
         return {
             "statusCode": 200, 
-            "headers": {"Content-Type": "text/plain"},
-            "body": "Hello World"
+            "headers": {"Content-Type": "application/json"},
+            "body": json.dumps(items)
         }
 
     else: # else return an error.
