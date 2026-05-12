@@ -180,6 +180,12 @@ jobs:
       - name: Upload templates to S3
         run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
 
+      - name: Package Lambda functions
+        run: |
+          cd src/lambda/hello
+          zip index.zip index.py
+          aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/hello/index.zip
+
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -188,7 +194,8 @@ jobs:
           parameter-overrides: >-
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
-            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            DeploymentBucket=${{ env.TEMPLATE_BUCKET }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
