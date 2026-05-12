@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for VegaWebAWS team members
+Parameters:
+  Environment: # this is the environment name for the table.
+    Type: String
+    Default: dev
+    Description: The deployment environment
+
+Resources:
+  TeamMembersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub team-members-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+Outputs:
+  TableName: # will be used to create the table name in the api-lambda.yaml file.
+    Description: DynamoDB table name
+    Value: !Ref TeamMembersTable
+  TableArn: # will be used to grant permissions to the lambda function.
+    Description: DynamoDB table ARN
+    Value: !GetAtt TeamMembersTable.Arn
