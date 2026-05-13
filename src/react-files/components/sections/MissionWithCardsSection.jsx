@@ -23,7 +23,7 @@ const MissionWithCardsSection = ({
       <div className="container">
         <div className="row g-3 g-lg-4 align-items-start">
           <div className="col-12 col-lg-5 mission-cards-left-col">
-            <div className="mission-cards-mission">
+            <div className="mission-cards-mission" tabIndex={0}>
               {missionTitle && <h2 className="mb-3">{missionTitle}</h2>}
               <div className="text-secondary">
                 {missionContent}
