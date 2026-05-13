@@ -58,6 +58,19 @@ export const teamMembers =[
         },
         {
             "id": 4,
+            "name": "Brian",
+            "title": "Director, Solutions Architecture & Delivery",
+            "image": Brian,
+            "veteranLogo": null,
+            "veteranLogoSize": null,
+            "details": [
+                "Lexington High School in Lexington, MA.",
+                "I'm surprisingly good at \"la erre vibrante\".",
+                "Double espresso with oat milk."
+            ]
+        },
+        {
+            "id": 5,
             "name": "Chris",
             "title": "Director of Defense Health",
             "image": chris,
@@ -70,7 +83,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 5,
+            "id": 6,
             "name": "Krista",
             "title": "Operations Leader",
             "image": krista,
@@ -83,7 +96,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 6,
+            "id": 7,
             "name": "Jessica",
             "title": "Director of Recruitment",
             "image": Jessica,
@@ -96,7 +109,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 7,
+            "id": 8,
             "name": "Dan",
             "title": "Senior Software Engineer",
             "image": dan,
@@ -109,7 +122,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 8,
+            "id": 9,
             "name": "Ryan E.",
             "title": "Senior Software Engineer",
             "image": RyanE,
@@ -122,7 +135,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 16,
+            "id": 10,
             "name": "Ellie",
             "title": "Senior Software Engineer",
             "image": Ellie,
@@ -135,7 +148,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 9,
+            "id": 11,
             "name": "Joseph K.",
             "title": "Software Engineer",
             "image": joseph,
@@ -148,7 +161,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 10,
+            "id": 12,
             "name": "Nick",
             "title": "Software Engineer",
             "image": Nick,
@@ -161,7 +174,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 11,
+            "id": 13,
             "name": "Trevor",
             "title": "Senior Software Engineer",
             "image": Trevor,
@@ -174,7 +187,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 12,
+            "id": 14,
             "name": "Blas",
             "title": "Software Engineer",
             "image": blas,
@@ -187,7 +200,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 13,
+            "id": 15,
             "name": "Robbie",
             "title": "Intern Engineer",
             "image": robbie,
@@ -200,7 +213,7 @@ export const teamMembers =[
             ]
         },
         {
-            "id": 14,
+            "id": 16,
             "name": "Kyle",
             "title": "Senior Geospatial Data Engineer",
             "image": Kyle,
@@ -210,19 +223,6 @@ export const teamMembers =[
                 "A Catholic school in southern Louisiana",
                 "I have been a clarinetist for nearly 15 years.",
                 "Celsius, Monster, Alani, and Crunchwraps"
-            ]
-        },
-        {
-            "id": 15,
-            "name": "Brian",
-            "title": "Director, Solutions Architecture & Delivery",
-            "image": Brian,
-            "veteranLogo": null,
-            "veteranLogoSize": null,
-            "details": [
-                "Lexington High School in Lexington, MA.",
-                "I'm surprisingly good at \"la erre vibrante\".",
-                "Double espresso with oat milk."
             ]
         }
 ]

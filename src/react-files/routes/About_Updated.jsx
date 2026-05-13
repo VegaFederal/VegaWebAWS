@@ -43,13 +43,13 @@ const About_Updated = () => {
             </div>
           </header>
 
-          <div id='after-navbar' tabIndex={-1} className='flex flex-col items-center pt-30'>
+          <div id='after-navbar' tabIndex={0} className='flex flex-col items-center pt-30'>
                         {/* Header Section */}
                         <div className='flex justify-center mb-[50px] px-4'>
                             <h1 className='text-white text-3xl md:text-5xl font-bold text-center'>Our Team</h1>
                         </div>
                         
-                        <div className='flex flex-col items-center mb-[80px] px-4'>
+                        <div className='flex flex-col items-center mb-[80px] px-4' tabIndex={0}>
                             <h2 className='text-white text-xl md:text-3xl font-bold text-center'>Answers to these questions are below: </h2>
                             <p className='text-white text-base md:text-2xl text-center'>Where did you go to High School? (the "quintessential" STL question)</p>
                             <p className='text-white text-base md:text-2xl text-center'>What's something you are surprisingly good at that has nothing to do with tech?</p>
@@ -63,6 +63,9 @@ const About_Updated = () => {
                                   key={member.id}
                                   data-card-id={member.id}
                                   className={`about-team-card ${visibleCards.has(String(member.id)) ? 'about-team-card--visible' : ''}`}
+                                  tabIndex={0}
+                                  role="group"
+                                  aria-label={`${member.name}, ${member.title}`}
                                 >
                                     <div className='about-team-card__img-wrap'>
                                         <img

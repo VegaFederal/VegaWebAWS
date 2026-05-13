@@ -90,7 +90,7 @@ const HeroSection = ({
       )}
       <div className="container position-relative z-2 hero-container h-100">
         <div className="row align-items-center hero-row">
-          <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} py-3 py-md-4 py-lg-5`} style={contentStyle}>
+          <div className={`col-12 col-lg-10 col-xl-8 ${colOffsetClass} ${textClass} py-3 py-md-4 py-lg-5`} style={contentStyle} tabIndex={0}>
             {title && <h1 className="text-white mb-3">{title}</h1>}
             {content ? content : (
               <>
