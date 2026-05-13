@@ -180,6 +180,8 @@ jobs:
       - name: Upload templates to S3
         run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
 
+
+
       - name: Package Lambda functions
         run: |
           cd src/lambda/hello
@@ -198,6 +200,19 @@ jobs:
             DeploymentBucket=${{ env.TEMPLATE_BUCKET }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
+      
+      - name: Seed DynamoDB
+        run: |
+          TABLE_NAME=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='TableName'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          
+          if [ ! -z "$TABLE_NAME" ]; then
+            TABLE_NAME=$TABLE_NAME python scripts/seed-dynamodb.py
+          else
+            echo "No table found, skipping seed."
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v3

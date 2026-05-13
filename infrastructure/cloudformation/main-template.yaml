@@ -101,6 +101,9 @@ Resources:
 
 Outputs:
   # Your outputs will go here
+  TableName: # will be used to seed the DynamoDB table.
+    Description: DynamoDB table name
+    Value: !GetAtt DynamoDBStack.Outputs.TableName
 
   WebServerSecurityGroupId:
     Condition: HasVpcConfig
