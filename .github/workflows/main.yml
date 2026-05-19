@@ -184,9 +184,9 @@ jobs:
 
       - name: Package Lambda functions
         run: |
-          cd src/lambda/hello
+          cd src/lambda/team-members
           zip index.zip index.py
-          aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/hello/index.zip
+          aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
 
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1

@@ -17,21 +17,21 @@ Parameters:
     Description: DynamoDB table ARN
 
 Resources:
-  MyApi:
+  TeamMembersApi:
     Type: 'AWS::ApiGatewayV2::Api'
     Properties:
-      Name: VegaWebAWSAPI
+      Name: !Sub VegaWebAWS-TeamMembers-${Environment}
       ProtocolType: HTTP
 
-  MyIntegration:
+  TeamMembersIntegration:
     Type: AWS::ApiGatewayV2::Integration
     Properties:
-      ApiId: !Ref MyApi
+      ApiId: !Ref TeamMembersApi
       IntegrationType: AWS_PROXY
-      IntegrationUri: !GetAtt HelloFunction.Arn
+      IntegrationUri: !GetAtt TeamMembersFunction.Arn
       PayloadFormatVersion: "2.0"
 
-  HelloFunctionRole:
+  TeamMembersLambdaRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -53,12 +53,12 @@ Resources:
                   - dynamodb:Scan
                 Resource: !Ref TableArn
 
-  HelloFunction:
+  TeamMembersFunction:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: !Sub HelloFunction-${Environment} # needs to have unique function name for each new stack created.
+      FunctionName: !Sub TeamMembersFunction-${Environment} # needs to have unique function name for each new stack created.
       Runtime: python3.12
-      Role: !GetAtt HelloFunctionRole.Arn
+      Role: !GetAtt TeamMembersLambdaRole.Arn
       Handler: index.handler
       Environment:
         Variables:
@@ -66,57 +66,52 @@ Resources:
           TABLE_ARN: !Ref TableArn
       Code:
         S3Bucket: !Ref DeploymentBucket
-        S3Key: !Sub ${Environment}/lambda/hello/index.zip
+        S3Key: !Sub ${Environment}/lambda/team-members/index.zip
 
-  ApiGatewayPermission:
+  TeamMembersLambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
-      FunctionName: !Ref HelloFunction
+      FunctionName: !Ref TeamMembersFunction
       Principal: apigateway.amazonaws.com
-      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MyApi}/*/*
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${TeamMembersApi}/*/*
 
-  GetHelloRoute:
+  GetTeamMembersRoute:
     Type: AWS::ApiGatewayV2::Route
     Properties:
-      ApiId: !Ref MyApi
-      RouteKey: GET /hello
-      Target: !Sub integrations/${MyIntegration}
+      ApiId: !Ref TeamMembersApi
+      RouteKey: GET /team-members
+      Target: !Sub integrations/${TeamMembersIntegration}
 
-  PostHelloRoute:
+  PostTeamMembersRoute:
     Type: AWS::ApiGatewayV2::Route
     Properties:
-      ApiId: !Ref MyApi
-      RouteKey: POST /hello
-      Target: !Sub integrations/${MyIntegration}
+      ApiId: !Ref TeamMembersApi
+      RouteKey: POST /team-members
+      Target: !Sub integrations/${TeamMembersIntegration}
 
-  PutHelloRoute:
+  PutTeamMembersRoute:
     Type: AWS::ApiGatewayV2::Route
     Properties:
-      ApiId: !Ref MyApi
-      RouteKey: PUT /hello/{id} # needs to know the id of the record to update.
-      Target: !Sub integrations/${MyIntegration}
+      ApiId: !Ref TeamMembersApi
+      RouteKey: PUT /team-members/{id}
+      Target: !Sub integrations/${TeamMembersIntegration}
 
-  DeleteHelloRoute:
+  DeleteTeamMembersRoute:
     Type: AWS::ApiGatewayV2::Route
     Properties:
-      ApiId: !Ref MyApi
-      RouteKey: DELETE /hello/{id} # needs to know the id of the record to delete.
-      Target: !Sub integrations/${MyIntegration}
+      ApiId: !Ref TeamMembersApi
+      RouteKey: DELETE /team-members/{id} # needs to know the id of the record to delete.
+      Target: !Sub integrations/${TeamMembersIntegration}
 
-  HttpApiStage:
+  TeamMembersApiStage:
     Type: AWS::ApiGatewayV2::Stage
     Properties:
-      ApiId: !Ref MyApi
+      ApiId: !Ref TeamMembersApi
       StageName: $default
       AutoDeploy: true
 
 Outputs:
   ApiEndpoint:
-    Description: HTTP API endpoint URL
-    Value: !Sub https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/hello
-
-
-
-
-
+    Description: Team Members API endpoint URL
+    Value: !Sub https://${TeamMembersApi}.execute-api.${AWS::Region}.amazonaws.com/team-members
