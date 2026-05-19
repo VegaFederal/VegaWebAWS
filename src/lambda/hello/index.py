@@ -54,3 +54,4 @@ def handler(event, context):
             "headers": {"Content-Type": "application/json"},
             "body": json.dumps({"error": "Method not allowed"})
         }
+        
