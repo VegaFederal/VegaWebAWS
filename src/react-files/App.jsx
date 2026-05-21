@@ -32,11 +32,6 @@ function App() {
         document.activeElement.blur();
       }
       
-      // Ensure skip link is ready
-      const skipLink = document.querySelector('.skip-link');
-      if (skipLink) {
-        skipLink.setAttribute('tabindex', '0');
-      }
     }, 300);
     
     return () => {

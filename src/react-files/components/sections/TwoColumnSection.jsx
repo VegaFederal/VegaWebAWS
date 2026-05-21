@@ -92,7 +92,7 @@ const TwoColumnSection = ({
       {image && <img src={image} alt={imageAlt} style={imageStyle} />}
     </div>
   )
-  const textCol = <div className="two-column-content">{content}</div>
+  const textCol = <div className="two-column-content" tabIndex={0}>{content}</div>
 
   if(isOurStory) {
     return (
@@ -102,7 +102,7 @@ const TwoColumnSection = ({
             <div className="two-column-image col-lg ml-0 lg:ml-10" style={inputStyle}>
               {image && <img src={image} alt={imageAlt} style={imageStyle}/>}
             </div>
-            <div className="two-column-content col">
+            <div className="two-column-content col" tabIndex={0}>
               {content}
             </div>
           </div>

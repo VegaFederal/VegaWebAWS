@@ -40,7 +40,9 @@ const CenteredContentSection = ({
   return (
     <div className={sectionClasses}>
       <div className={wrapperClasses} style={wrapperStyle}>
-        {content}
+        <div tabIndex={0}>
+          {content}
+        </div>
       </div>
     </div>
   )

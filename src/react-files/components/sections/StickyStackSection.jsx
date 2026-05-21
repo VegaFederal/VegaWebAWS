@@ -47,7 +47,7 @@ const StickyStackSection = ({
   return (
     <section className={`sticky-stack-section ${bgClass} ${className}`.trim()} style={sectionStyle}>
       <div className={`sticky-stack-title-wrap ${bgClass}`.trim()} style={titleStyle}>
-        <div className={`sticky-stack-header text-center ${bgClass}`.trim()} style={titleStyle}>
+        <div className={`sticky-stack-header text-center ${bgClass}`.trim()} style={titleStyle} tabIndex={0}>
           <div className="container">
             {title && <h2>{title}</h2>}
             {subtitle && <p>{subtitle}</p>}
@@ -82,6 +82,8 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
   const [activeTab, setActiveTab] = useState('overview')
   const [isCardInView, setIsCardInView] = useState(false)
   const cardRef = useRef(null)
+  const tabRefs = useRef({})
+  const panelRefs = useRef({})
 
   useEffect(() => {
     if (!hasTabs) return
@@ -122,6 +124,41 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
     return () => clearInterval(id)
   }, [hasTabs, autoTabInterval, isCardInView])
 
+  const focusPanel = (tabName) => {
+    if (!tabName) return
+    setActiveTab(tabName)
+    requestAnimationFrame(() => {
+      panelRefs.current[tabName]?.focus()
+    })
+  }
+
+  const focusTab = (tabName) => {
+    if (!tabName) return
+    setActiveTab(tabName)
+    requestAnimationFrame(() => {
+      tabRefs.current[tabName]?.focus()
+    })
+  }
+
+  const handleTabKeyDown = (e, tabName) => {
+    if (e.key !== 'Tab' || e.shiftKey) return
+    e.preventDefault()
+    focusPanel(tabName)
+  }
+
+  const handlePanelKeyDown = (e, tabName) => {
+    if (e.key !== 'Tab') return
+    if (e.shiftKey) {
+      e.preventDefault()
+      focusTab(tabName)
+      return
+    }
+    const tabIndex = TAB_ORDER.indexOf(tabName)
+    if (tabIndex === -1 || tabIndex === TAB_ORDER.length - 1) return
+    e.preventDefault()
+    focusTab(TAB_ORDER[tabIndex + 1])
+  }
+
   const contentColClass = `sticky-stack-card-content col-12 col-lg-6 ${index % 2 === 1 ? 'order-lg-2' : ''}`
 
   return (
@@ -144,6 +181,7 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
             <div className="sticky-stack-tabs">
               <div className="sticky-stack-tab-list" role="tablist" aria-label="Card content tabs">
                 <button
+                  ref={(el) => { tabRefs.current.overview = el }}
                   type="button"
                   role="tab"
                   aria-selected={activeTab === 'overview'}
@@ -151,10 +189,13 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
                   id={`card-${index}-tab-overview`}
                   className={`sticky-stack-tab ${activeTab === 'overview' ? 'active' : ''}`}
                   onClick={() => setActiveTab('overview')}
+                  onFocus={() => setActiveTab('overview')}
+                  onKeyDown={(e) => handleTabKeyDown(e, 'overview')}
                 >
                   Overview
                 </button>
                 <button
+                  ref={(el) => { tabRefs.current.capabilities = el }}
                   type="button"
                   role="tab"
                   aria-selected={activeTab === 'capabilities'}
@@ -162,10 +203,13 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
                   id={`card-${index}-tab-capabilities`}
                   className={`sticky-stack-tab ${activeTab === 'capabilities' ? 'active' : ''}`}
                   onClick={() => setActiveTab('capabilities')}
+                  onFocus={() => setActiveTab('capabilities')}
+                  onKeyDown={(e) => handleTabKeyDown(e, 'capabilities')}
                 >
                   Capabilities
                 </button>
                 <button
+                  ref={(el) => { tabRefs.current.missionImpact = el }}
                   type="button"
                   role="tab"
                   aria-selected={activeTab === 'missionImpact'}
@@ -173,18 +217,36 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
                   id={`card-${index}-tab-missionImpact`}
                   className={`sticky-stack-tab ${activeTab === 'missionImpact' ? 'active' : ''}`}
                   onClick={() => setActiveTab('missionImpact')}
+                  onFocus={() => setActiveTab('missionImpact')}
+                  onKeyDown={(e) => handleTabKeyDown(e, 'missionImpact')}
                 >
                   Mission Impact
                 </button>
               </div>
               <div className="sticky-stack-tab-panels">
                 {activeTab === 'overview' && (
-                  <div id={`card-${index}-overview`} role="tabpanel" aria-labelledby={`card-${index}-tab-overview`} className="sticky-stack-tab-panel">
+                  <div
+                    ref={(el) => { panelRefs.current.overview = el }}
+                    id={`card-${index}-overview`}
+                    role="tabpanel"
+                    aria-labelledby={`card-${index}-tab-overview`}
+                    className="sticky-stack-tab-panel"
+                    tabIndex={0}
+                    onKeyDown={(e) => handlePanelKeyDown(e, 'overview')}
+                  >
                     <p className="sticky-stack-text">{item.overview}</p>
                   </div>
                 )}
                 {activeTab === 'capabilities' && (
-                  <div id={`card-${index}-capabilities`} role="tabpanel" aria-labelledby={`card-${index}-tab-capabilities`} className="sticky-stack-tab-panel">
+                  <div
+                    ref={(el) => { panelRefs.current.capabilities = el }}
+                    id={`card-${index}-capabilities`}
+                    role="tabpanel"
+                    aria-labelledby={`card-${index}-tab-capabilities`}
+                    className="sticky-stack-tab-panel"
+                    tabIndex={0}
+                    onKeyDown={(e) => handlePanelKeyDown(e, 'capabilities')}
+                  >
                     <ul className="sticky-stack-bullet-list">
                       {item.capabilities.map((cap, i) => (
                         <li key={i}>{cap}</li>
@@ -193,7 +255,15 @@ function StickyStackCard ({ item, index, stackIndex, isFirstCard = false, autoTa
                   </div>
                 )}
                 {activeTab === 'missionImpact' && (
-                  <div id={`card-${index}-missionImpact`} role="tabpanel" aria-labelledby={`card-${index}-tab-missionImpact`} className="sticky-stack-tab-panel">
+                  <div
+                    ref={(el) => { panelRefs.current.missionImpact = el }}
+                    id={`card-${index}-missionImpact`}
+                    role="tabpanel"
+                    aria-labelledby={`card-${index}-tab-missionImpact`}
+                    className="sticky-stack-tab-panel"
+                    tabIndex={0}
+                    onKeyDown={(e) => handlePanelKeyDown(e, 'missionImpact')}
+                  >
                     <p className="sticky-stack-text sticky-stack-mission-impact">{item.missionImpact}</p>
                   </div>
                 )}

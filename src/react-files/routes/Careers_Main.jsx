@@ -11,7 +11,7 @@ const Careers_Main = () => {
                 </div>
             </header>
 
-            <div id="after-navbar" tabIndex={-1}>
+            <div id="after-navbar" tabIndex={0}>
                 <main id="main-content" tabIndex={-1}>
                 {/* Full page iframe with adjusted margin */}
                 <div style={{ marginTop: '-30px' }}>
