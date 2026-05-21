@@ -20,9 +20,11 @@ Resources:
           KeyType: HASH
 
 Outputs:
-  TableName: # will be used to create the table name in the api-lambda.yaml file.
-    Description: DynamoDB table name
+  TeamMembersTableName:
     Value: !Ref TeamMembersTable
-  TableArn: # will be used to grant permissions to the lambda function.
-    Description: DynamoDB table ARN
+    Export:
+      Name: !Sub "vega-team-members-table-name-${Environment}"
+  TeamMembersTableArn:
     Value: !GetAtt TeamMembersTable.Arn
+    Export:
+      Name: !Sub "vega-team-members-table-arn-${Environment}"

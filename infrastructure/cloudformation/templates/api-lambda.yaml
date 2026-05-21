@@ -83,27 +83,6 @@ Resources:
       RouteKey: GET /team-members
       Target: !Sub integrations/${TeamMembersIntegration}
 
-  PostTeamMembersRoute:
-    Type: AWS::ApiGatewayV2::Route
-    Properties:
-      ApiId: !Ref TeamMembersApi
-      RouteKey: POST /team-members
-      Target: !Sub integrations/${TeamMembersIntegration}
-
-  PutTeamMembersRoute:
-    Type: AWS::ApiGatewayV2::Route
-    Properties:
-      ApiId: !Ref TeamMembersApi
-      RouteKey: PUT /team-members/{id}
-      Target: !Sub integrations/${TeamMembersIntegration}
-
-  DeleteTeamMembersRoute:
-    Type: AWS::ApiGatewayV2::Route
-    Properties:
-      ApiId: !Ref TeamMembersApi
-      RouteKey: DELETE /team-members/{id} # needs to know the id of the record to delete.
-      Target: !Sub integrations/${TeamMembersIntegration}
-
   TeamMembersApiStage:
     Type: AWS::ApiGatewayV2::Stage
     Properties:
