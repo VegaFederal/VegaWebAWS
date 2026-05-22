@@ -6,7 +6,7 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table(os.environ['TABLE_NAME'])
 
 
-def handler(event):
+def handler(event, context):
     method = event['requestContext']['http']['method']
 
     try:

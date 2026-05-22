@@ -91,8 +91,8 @@ Resources:
       Parameters:
         Environment: !Ref Environment
         DeploymentBucket: !Ref DeploymentBucket
-        TableName: !GetAtt DynamoDBStack.Outputs.TableName
-        TableArn: !GetAtt DynamoDBStack.Outputs.TableArn
+        TableName: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
+        TableArn: !GetAtt DynamoDBStack.Outputs.TeamMembersTableArn
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -100,10 +100,9 @@ Resources:
 
 
 Outputs:
-  # Your outputs will go here
   TableName: # will be used to seed the DynamoDB table.
     Description: DynamoDB table name
-    Value: !GetAtt DynamoDBStack.Outputs.TableName
+    Value: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
 
   WebServerSecurityGroupId:
     Condition: HasVpcConfig
