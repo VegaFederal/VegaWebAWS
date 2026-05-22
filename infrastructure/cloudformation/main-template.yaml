@@ -37,6 +37,10 @@ Parameters:
     AllowedValues: ["true", "false"]
     Description: Create Route 53 hosted zone for domain
 
+  DeploymentBucket:
+    Type: String
+    Description: S3 bucket containing Lambda deployment packages
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -68,10 +72,37 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
+  # DynamoDB Stack
+  DynamoDBStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/dynamodb.yaml
+      Parameters:
+        Environment: !Ref Environment
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  # API + Lambda Stack
+  ApiLambdaStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/api-lambda.yaml
+      Parameters:
+        Environment: !Ref Environment
+        DeploymentBucket: !Ref DeploymentBucket
+        TableName: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
+        TableArn: !GetAtt DynamoDBStack.Outputs.TeamMembersTableArn
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
 
 
 Outputs:
-  # Your outputs will go here
+  TableName: # will be used to seed the DynamoDB table.
+    Description: DynamoDB table name
+    Value: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
 
   WebServerSecurityGroupId:
     Condition: HasVpcConfig
