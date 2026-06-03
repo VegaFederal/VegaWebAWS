@@ -208,10 +208,15 @@ jobs:
             --query "Stacks[0].Outputs[?OutputKey=='TableName'].OutputValue" \
             --output text 2>/dev/null || echo "")
           
-          if [ ! -z "$TABLE_NAME" ]; then
-            TABLE_NAME=$TABLE_NAME python scripts/seed-dynamodb.py
+          BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='AssetsBucketName'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          
+          if [ ! -z "$TABLE_NAME" ] && [ ! -z "$BUCKET_NAME" ]; then
+            TABLE_NAME=$TABLE_NAME BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
           else
-            echo "No table found, skipping seed."
+            echo "TABLE_NAME or BUCKET_NAME not found, skipping seed."
           fi
 
       - name: Set up Node.js
