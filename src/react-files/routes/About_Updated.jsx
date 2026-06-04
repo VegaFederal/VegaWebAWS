@@ -15,6 +15,7 @@ const About_Updated = () => {
   }, [])
 
   useEffect(() => {
+    console.log('fetching team members')
     fetch('https://7vwom90zl0.execute-api.us-east-1.amazonaws.com/team-members')
       .then(response => response.json())
       .then(data => {
@@ -40,7 +41,7 @@ const About_Updated = () => {
     )
     cards.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [teamMembers])
 
   return (
     <>
