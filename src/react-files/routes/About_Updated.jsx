@@ -21,7 +21,7 @@ const About_Updated = () => {
         setTeamMembers(data)
       })
       .catch(error => console.error('Error:', error));
-  }, [teamMembers]);
+  }, []);
 
   /* Lazy reveal: observe each card, add visible class when in viewport */
   useEffect(() => {
