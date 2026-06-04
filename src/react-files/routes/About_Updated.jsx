@@ -19,7 +19,8 @@ const About_Updated = () => {
     fetch('https://7vwom90zl0.execute-api.us-east-1.amazonaws.com/team-members')
       .then(response => response.json())
       .then(data => {
-        setTeamMembers(data)
+        const sorted = data.sort((a, b) => Number(a.id) - Number(b.id))
+        setTeamMembers(sorted)
       })
       .catch(error => console.error('Error:', error));
   }, []);
