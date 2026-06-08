@@ -2,16 +2,28 @@ import { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
-import { teamMembers } from '../Team_members.js'
+//import { teamMembers } from '../Team_members.js'
 import './About_Updated.css'
 
 const About_Updated = () => {
   const gridRef = useRef(null)
   const [visibleCards, setVisibleCards] = useState(new Set())
+  const [teamMembers, setTeamMembers] = useState([])
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [])
+
+  useEffect(() => {
+    console.log('fetching team members')
+    fetch('https://7vwom90zl0.execute-api.us-east-1.amazonaws.com/team-members')
+      .then(response => response.json())
+      .then(data => {
+        const sorted = data.sort((a, b) => Number(a.id) - Number(b.id))
+        setTeamMembers(sorted)
+      })
+      .catch(error => console.error('Error:', error));
+  }, []);
 
   /* Lazy reveal: observe each card, add visible class when in viewport */
   useEffect(() => {
@@ -30,7 +42,7 @@ const About_Updated = () => {
     )
     cards.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [teamMembers])
 
   return (
     <>

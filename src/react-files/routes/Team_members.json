@@ -4,7 +4,7 @@
             "name": "Ryan",
             "title": "Founder & CEO",
             "image": "ryan",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "Aquinas Mercy High School",
@@ -17,7 +17,7 @@
             "name": "Themba",
             "title": "Co-Founder & Chief Growth Officer",
             "image": "themba",
-            "veteranLogo": "vetNavy",
+            "veteranLogo": "US_Navy",
             "veteranLogoSize": null,
             "details": [
                 "Stanley-Boyd High (WI)",
@@ -82,7 +82,7 @@
             "name": "Dan",
             "title": "Senior Software Engineer",
             "image": "dan",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "Rosary High School",
@@ -94,7 +94,7 @@
             "id": 8,
             "name": "Ryan E.",
             "title": "Senior Software Engineer",
-            "image": "RyanE",
+            "image": "Ryan_E",
             "veteranLogo": null,
             "veteranLogoSize": null,
             "details": [
@@ -120,7 +120,7 @@
             "id": 9,
             "name": "Joseph K.",
             "title": "Software Engineer",
-            "image": "joseph",
+            "image": "Joseph_K",
             "veteranLogo": null,
             "veteranLogoSize": null,
             "details": [
@@ -187,7 +187,7 @@
             "name": "Kyle",
             "title": "Senior Geospatial Data Engineer",
             "image": "Kyle",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "A Catholic school in southern Louisiana",
