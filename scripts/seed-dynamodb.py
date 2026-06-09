@@ -45,6 +45,7 @@ for member in members:
 
     table.put_item(Item={
         'id': str(member['id']),
+        'memberOrder': member['memberOrder'],
         'name': member['name'],
         'title': member['title'],
         'image': image_map.get(image_key, ''),

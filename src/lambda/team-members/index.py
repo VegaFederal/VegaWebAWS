@@ -28,8 +28,9 @@ def handler(event, context):
 
 def get_team_members():
     response = table.scan()
+    members = sorted(response['Items'], key=lambda x: x['memberOrder'])
     return {
         "statusCode": 200,
         "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
-        "body": json.dumps(response['Items'])
+        "body": json.dumps(members)
     }
