@@ -41,6 +41,14 @@ Parameters:
     Type: String
     Description: S3 bucket containing Lambda deployment packages
 
+  TableName:
+    Type: String
+    Description: Shared DynamoDB table name (always team-members-dev)
+
+  TableArn:
+    Type: String
+    Description: Shared DynamoDB table ARN
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -72,17 +80,6 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # DynamoDB Stack
-  DynamoDBStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/dynamodb.yaml
-      Parameters:
-        Environment: !Ref Environment
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
   # API + Lambda Stack
   ApiLambdaStack:
     Type: AWS::CloudFormation::Stack
@@ -91,8 +88,8 @@ Resources:
       Parameters:
         Environment: !Ref Environment
         DeploymentBucket: !Ref DeploymentBucket
-        TableName: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
-        TableArn: !GetAtt DynamoDBStack.Outputs.TeamMembersTableArn
+        TableName: !Ref TableName
+        TableArn: !Ref TableArn
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -113,7 +110,7 @@ Resources:
 Outputs:
   TableName: # will be used to seed the DynamoDB table.
     Description: DynamoDB table name
-    Value: !GetAtt DynamoDBStack.Outputs.TeamMembersTableName
+    Value: !Ref TableName
 
   WebServerSecurityGroupId:
     Condition: HasVpcConfig
