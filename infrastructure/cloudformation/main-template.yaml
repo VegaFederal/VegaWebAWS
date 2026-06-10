@@ -149,3 +149,7 @@ Outputs:
   AssetsBucketUrl:
     Description: Base URL for assets
     Value: !GetAtt AssetsStack.Outputs.BucketUrl
+
+  ApiEndpoint:
+    Description: Team Members API endpoint URL
+    Value: !GetAtt ApiLambdaStack.Outputs.ApiEndpoint

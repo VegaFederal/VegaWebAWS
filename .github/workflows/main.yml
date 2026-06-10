@@ -234,7 +234,12 @@ jobs:
             --stack-name ${{ env.STACK_NAME }} \
             --query "Stacks[0].Outputs[?OutputKey=='ApiEndpoint'].OutputValue" \
             --output text)
+          if [ -z "$API_URL" ]; then
+            echo "ERROR: ApiEndpoint output not found in stack ${{ env.STACK_NAME }}"
+            exit 1
+          fi
           echo "VITE_API_URL=$API_URL" > src/.env
+          echo "API URL set to: $API_URL"
 
       - name: Build website
         run: npm run build
