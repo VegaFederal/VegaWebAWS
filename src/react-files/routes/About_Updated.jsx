@@ -16,10 +16,10 @@ const About_Updated = () => {
 
   useEffect(() => {
     console.log('fetching team members')
-    fetch('https://7vwom90zl0.execute-api.us-east-1.amazonaws.com/team-members')
+    fetch(import.meta.env.VITE_API_URL)
       .then(response => response.json())
       .then(data => {
-        const sorted = data.sort((a, b) => Number(a.id) - Number(b.id))
+        const sorted = data.sort((a, b) => a.memberOrder - b.memberOrder)
         setTeamMembers(sorted)
       })
       .catch(error => console.error('Error:', error));
