@@ -219,6 +219,19 @@ jobs:
             echo "TABLE_NAME or BUCKET_NAME not found, skipping seed."
           fi
 
+      - name: Migrate DynamoDB - add memberOrder to existing records
+        run: |
+          TABLE_NAME=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='TableName'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          
+          if [ ! -z "$TABLE_NAME" ]; then
+            TABLE_NAME=$TABLE_NAME python scripts/migrate-add-member-order.py
+          else
+            echo "TABLE_NAME not found, skipping migration."
+          fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
