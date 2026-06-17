@@ -21,7 +21,7 @@ Resources:
         - AttributeName: id
           KeyType: HASH
 
-Outputs:
+Outputs: 
   TeamMembersTableName:
     Value: !Ref TeamMembersTable
     Export:
