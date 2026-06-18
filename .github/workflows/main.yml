@@ -166,6 +166,33 @@ jobs:
           echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
 
+      - name: Set shared database environment
+        run: echo "DB_ENVIRONMENT=dev" >> $GITHUB_ENV
+
+      - name: Deploy shared DynamoDB stack if needed
+        run: |
+          DB_STACK_NAME="vega-database-dev"
+          if aws cloudformation describe-stacks --stack-name $DB_STACK_NAME 2>/dev/null; then
+            echo "DynamoDB stack already exists, skipping deployment."
+          else
+            echo "DynamoDB stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $DB_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/dynamodb.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          DB_TABLE_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableName'].OutputValue" \
+            --output text)
+          DB_TABLE_ARN=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableArn'].OutputValue" \
+            --output text)
+          echo "DB_TABLE_NAME=$DB_TABLE_NAME" >> $GITHUB_ENV
+          echo "DB_TABLE_ARN=$DB_TABLE_ARN" >> $GITHUB_ENV
+
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
@@ -197,26 +224,23 @@ jobs:
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
-            DeploymentBucket=${{ env.TEMPLATE_BUCKET }}
+            DeploymentBucket=${{ env.TEMPLATE_BUCKET }},
+            TableName=${{ env.DB_TABLE_NAME }},
+            TableArn=${{ env.DB_TABLE_ARN }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
       
       - name: Seed DynamoDB
         run: |
-          TABLE_NAME=$(aws cloudformation describe-stacks \
-            --stack-name ${{ env.STACK_NAME }} \
-            --query "Stacks[0].Outputs[?OutputKey=='TableName'].OutputValue" \
-            --output text 2>/dev/null || echo "")
-          
           BUCKET_NAME=$(aws cloudformation describe-stacks \
             --stack-name ${{ env.STACK_NAME }} \
             --query "Stacks[0].Outputs[?OutputKey=='AssetsBucketName'].OutputValue" \
             --output text 2>/dev/null || echo "")
           
-          if [ ! -z "$TABLE_NAME" ] && [ ! -z "$BUCKET_NAME" ]; then
-            TABLE_NAME=$TABLE_NAME BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
+          if [ ! -z "${{ env.DB_TABLE_NAME }}" ] && [ ! -z "$BUCKET_NAME" ]; then
+            TABLE_NAME=${{ env.DB_TABLE_NAME }} BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
           else
-            echo "TABLE_NAME or BUCKET_NAME not found, skipping seed."
+            echo "DB_TABLE_NAME or BUCKET_NAME not found, skipping seed."
           fi
 
       - name: Set up Node.js
