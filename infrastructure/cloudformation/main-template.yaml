@@ -68,6 +68,7 @@ Resources:
   # Static Website Stack
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
+    DependsOn: ApiLambdaStack
     Properties:
       TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
       Parameters:
@@ -76,6 +77,7 @@ Resources:
         WwwDomain: !Ref WwwDomain
         CertificateArn: !Ref CertificateArn
         CreateHostedZone: !Ref CreateHostedZone
+        ApiGatewayDomainName: !GetAtt ApiLambdaStack.Outputs.ApiDomainName
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -148,5 +150,7 @@ Outputs:
     Value: !GetAtt AssetsStack.Outputs.BucketUrl
 
   ApiEndpoint:
-    Description: Team Members API endpoint URL
-    Value: !GetAtt ApiLambdaStack.Outputs.ApiEndpoint
+    Description: Team Members API endpoint URL (via CloudFront)
+    Value: !Sub
+      - https://${CloudFrontDomain}/team-members
+      - CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName

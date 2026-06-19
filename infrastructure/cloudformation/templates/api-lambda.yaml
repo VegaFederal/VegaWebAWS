@@ -94,3 +94,7 @@ Outputs:
   ApiEndpoint:
     Description: Team Members API endpoint URL
     Value: !Sub https://${TeamMembersApi}.execute-api.${AWS::Region}.amazonaws.com/team-members
+
+  ApiDomainName:
+    Description: Team Members API domain name
+    Value: !Sub ${TeamMembersApi}.execute-api.${AWS::Region}.amazonaws.com
