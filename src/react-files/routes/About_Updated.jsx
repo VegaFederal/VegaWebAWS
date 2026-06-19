@@ -2,28 +2,52 @@ import { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SkipLink from '../components/SkipLink'
-//import { teamMembers } from '../Team_members.js'
+import { fetchTeamMembers } from '../utils/fetchTeamMembers'
 import './About_Updated.css'
+
+const TEAM_LOAD_ERROR_MESSAGE =
+  "We're having trouble loading our team right now. Please refresh the page or try again in a few moments."
 
 const About_Updated = () => {
   const gridRef = useRef(null)
   const [visibleCards, setVisibleCards] = useState(new Set())
   const [teamMembers, setTeamMembers] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [loadError, setLoadError] = useState(null)
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [])
 
   useEffect(() => {
-    console.log('fetching team members')
-    fetch(import.meta.env.VITE_API_URL)
-      .then(response => response.json())
-      .then(data => {
+    let isMounted = true
+
+    const loadTeamMembers = async () => {
+      setIsLoading(true)
+      setLoadError(null)
+
+      try {
+        const data = await fetchTeamMembers(import.meta.env.VITE_API_URL)
+        if (!isMounted) return
+
         const sorted = data.sort((a, b) => a.memberOrder - b.memberOrder)
         setTeamMembers(sorted)
-      })
-      .catch(error => console.error('Error:', error));
-  }, []);
+      } catch {
+        if (!isMounted) return
+        setLoadError(TEAM_LOAD_ERROR_MESSAGE)
+      } finally {
+        if (isMounted) {
+          setIsLoading(false)
+        }
+      }
+    }
+
+    loadTeamMembers()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
 
   /* Lazy reveal: observe each card, add visible class when in viewport */
   useEffect(() => {
@@ -69,6 +93,15 @@ const About_Updated = () => {
                         </div>
 
                         {/* Responsive Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
+                        {isLoading && (
+                          <p className='about-team-status' role='status'>Loading our team...</p>
+                        )}
+                        {loadError && (
+                          <p className='about-team-status about-team-status--error' role='alert'>
+                            {loadError}
+                          </p>
+                        )}
+                        {!isLoading && !loadError && (
                         <div ref={gridRef} className='about-team-grid'>
                             {teamMembers && teamMembers.map((member) => (
                                 <div
@@ -102,6 +135,7 @@ const About_Updated = () => {
                                 </div>
                             ))}
                         </div>
+                        )}
           </div>
         </div>
       </section>
