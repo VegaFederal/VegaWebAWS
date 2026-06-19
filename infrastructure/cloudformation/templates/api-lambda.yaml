@@ -74,7 +74,7 @@ Resources:
       Action: lambda:InvokeFunction
       FunctionName: !Ref TeamMembersFunction
       Principal: apigateway.amazonaws.com
-      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${TeamMembersApi}/*/*
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${TeamMembersApi}/*/GET/team-members
 
   GetTeamMembersRoute:
     Type: AWS::ApiGatewayV2::Route
