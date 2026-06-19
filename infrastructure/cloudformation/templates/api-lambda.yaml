@@ -61,6 +61,7 @@ Resources:
       Role: !GetAtt TeamMembersLambdaRole.Arn
       Handler: index.handler
       Timeout: 10
+      MemorySize: 128
       Environment:
         Variables:
           TABLE_NAME: !Ref TableName
