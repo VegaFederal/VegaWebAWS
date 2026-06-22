@@ -5,6 +5,7 @@ from decimal import Decimal
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table(os.environ['TABLE_NAME'])
+ALLOWED_ORIGIN = os.environ.get('ALLOWED_ORIGIN', '')
 
 
 def decimal_to_native(obj):
@@ -18,6 +19,17 @@ def decimal_to_native(obj):
 
 
 def handler(event, context):
+    headers = event.get('headers', {})
+    origin = headers.get('origin', '')
+    referer = headers.get('referer', '')
+
+    if ALLOWED_ORIGIN and origin != ALLOWED_ORIGIN and not referer.startswith(ALLOWED_ORIGIN):
+        return {
+            "statusCode": 403,
+            "headers": {"Content-Type": "application/json"},
+            "body": json.dumps({"error": "Forbidden"})
+        }
+
     method = event['requestContext']['http']['method']
 
     try:
