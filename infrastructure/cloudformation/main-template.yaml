@@ -49,6 +49,11 @@ Parameters:
     Type: String
     Description: Shared DynamoDB table ARN
 
+  AllowedOrigin:
+    Type: String
+    Default: ""
+    Description: Allowed site origin for Lambda (e.g. https://d123.cloudfront.net or https://vegafederal.com)
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -92,6 +97,7 @@ Resources:
         DeploymentBucket: !Ref DeploymentBucket
         TableName: !Ref TableName
         TableArn: !Ref TableArn
+        AllowedOrigin: !Ref AllowedOrigin
       Tags:
         - Key: Environment
           Value: !Ref Environment

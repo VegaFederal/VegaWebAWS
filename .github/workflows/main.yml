@@ -215,6 +215,18 @@ jobs:
           zip index.zip index.py
           aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
 
+      - name: Resolve allowed origin for dev
+        run: |
+          CF_DOMAIN=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='WebsiteURL'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          if [ -n "$CF_DOMAIN" ] && [ "$CF_DOMAIN" != "None" ]; then
+            echo "ALLOWED_ORIGIN=https://${CF_DOMAIN}" >> $GITHUB_ENV
+          else
+            echo "ALLOWED_ORIGIN=" >> $GITHUB_ENV
+          fi
+
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -226,9 +238,35 @@ jobs:
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
             DeploymentBucket=${{ env.TEMPLATE_BUCKET }},
             TableName=${{ env.DB_TABLE_NAME }},
-            TableArn=${{ env.DB_TABLE_ARN }}
+            TableArn=${{ env.DB_TABLE_ARN }},
+            AllowedOrigin=${{ env.ALLOWED_ORIGIN }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
+
+      - name: Set allowed origin after first deploy
+        if: env.ALLOWED_ORIGIN == ''
+        run: |
+          CF_DOMAIN=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='WebsiteURL'].OutputValue" \
+            --output text)
+          if [ -z "$CF_DOMAIN" ] || [ "$CF_DOMAIN" = "None" ]; then
+            echo "WebsiteURL not found, skipping allowed origin update."
+            exit 0
+          fi
+          aws cloudformation deploy \
+            --stack-name ${{ env.STACK_NAME }} \
+            --template-file infrastructure/cloudformation/main-template.yaml \
+            --parameter-overrides \
+              Environment=${{ env.ENVIRONMENT }} \
+              VpcId=${{ env.VPC_ID }} \
+              TemplateBucket=${{ env.TEMPLATE_BUCKET }} \
+              DeploymentBucket=${{ env.TEMPLATE_BUCKET }} \
+              TableName=${{ env.DB_TABLE_NAME }} \
+              TableArn=${{ env.DB_TABLE_ARN }} \
+              AllowedOrigin=https://${CF_DOMAIN} \
+            --no-fail-on-empty-changeset \
+            --capabilities CAPABILITY_NAMED_IAM
       
       - name: Seed DynamoDB
         run: |
@@ -352,7 +390,8 @@ jobs:
             DomainName=${{ env.DOMAIN_NAME }},
             WwwDomain=${{ env.WWW_DOMAIN }},
             CertificateArn=${{ env.CERTIFICATE_ARN }},
-            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }}
+            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }},
+            AllowedOrigin=https://${{ env.DOMAIN_NAME }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 

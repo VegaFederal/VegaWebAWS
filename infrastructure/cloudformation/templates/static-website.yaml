@@ -123,6 +123,7 @@ Resources:
               QueryString: true
               Headers:
                 - Origin
+                - Referer
                 - Authorization
               Cookies:
                 Forward: none
