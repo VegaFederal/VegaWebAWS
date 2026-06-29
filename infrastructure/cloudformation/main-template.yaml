@@ -43,7 +43,7 @@ Parameters:
 
   TableName:
     Type: String
-    Description: Shared DynamoDB table name (always team-members-dev)
+    Description: Shared DynamoDB table name (e.g. team-members-dev, team-members-production)
 
   TableArn:
     Type: String
