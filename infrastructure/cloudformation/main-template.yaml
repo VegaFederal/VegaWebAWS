@@ -37,6 +37,23 @@ Parameters:
     AllowedValues: ["true", "false"]
     Description: Create Route 53 hosted zone for domain
 
+  DeploymentBucket:
+    Type: String
+    Description: S3 bucket containing Lambda deployment packages
+
+  TableName:
+    Type: String
+    Description: Shared DynamoDB table name (always team-members-dev)
+
+  TableArn:
+    Type: String
+    Description: Shared DynamoDB table ARN
+
+  AllowedOrigin:
+    Type: String
+    Default: ""
+    Description: Allowed site origin for Lambda (e.g. https://d123.cloudfront.net or https://vegafederal.com)
+
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
 
@@ -56,6 +73,7 @@ Resources:
   # Static Website Stack
   StaticWebsiteStack:
     Type: AWS::CloudFormation::Stack
+    DependsOn: ApiLambdaStack
     Properties:
       TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/static-website.yaml
       Parameters:
@@ -64,6 +82,33 @@ Resources:
         WwwDomain: !Ref WwwDomain
         CertificateArn: !Ref CertificateArn
         CreateHostedZone: !Ref CreateHostedZone
+        ApiGatewayDomainName: !GetAtt ApiLambdaStack.Outputs.ApiDomainName
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  # API + Lambda Stack
+  ApiLambdaStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/api-lambda.yaml
+      Parameters:
+        Environment: !Ref Environment
+        DeploymentBucket: !Ref DeploymentBucket
+        TableName: !Ref TableName
+        TableArn: !Ref TableArn
+        AllowedOrigin: !Ref AllowedOrigin
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Assets Stack
+  AssetsStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/assets.yaml
+      Parameters:
+        Environment: !Ref Environment
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -71,7 +116,9 @@ Resources:
 
 
 Outputs:
-  # Your outputs will go here
+  TableName: # will be used to seed the DynamoDB table.
+    Description: DynamoDB table name
+    Value: !Ref TableName
 
   WebServerSecurityGroupId:
     Condition: HasVpcConfig
@@ -99,3 +146,17 @@ Outputs:
     Value: !GetAtt StaticWebsiteStack.Outputs.CloudFrontLogsBucketName
     Export:
       Name: !Sub ${AWS::StackName}-CloudFrontLogsBucketName
+  
+  AssetsBucketName:
+    Description: S3 bucket for assets
+    Value: !GetAtt AssetsStack.Outputs.BucketName
+
+  AssetsBucketUrl:
+    Description: Base URL for assets
+    Value: !GetAtt AssetsStack.Outputs.BucketUrl
+
+  ApiEndpoint:
+    Description: Team Members API endpoint URL (via CloudFront)
+    Value: !Sub
+      - https://${CloudFrontDomain}/team-members
+      - CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
