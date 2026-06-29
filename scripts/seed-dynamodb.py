@@ -19,49 +19,14 @@ s3 = boto3.client('s3', region_name=REGION)
 dynamodb = boto3.resource('dynamodb', region_name=REGION)
 table = dynamodb.Table(TABLE_NAME)
 
+response = table.scan(Limit=1)
+if response['Count'] > 0:
+    print(f"Table {TABLE_NAME} already has data, skipping seed.")
+    sys.exit(0)
+
 with open('src/react-files/routes/Team_members.json') as f:
     members = json.load(f)
 
-order_by_id = {str(member['id']): member['memberOrder'] for member in members}
-
-
-def scan_all_items():
-    items = []
-    response = table.scan()
-    items.extend(response['Items'])
-    while 'LastEvaluatedKey' in response:
-        response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
-        items.extend(response['Items'])
-    return items
-
-
-def backfill_member_order():
-    updated = 0
-    for item in scan_all_items():
-        if 'memberOrder' in item:
-            continue
-        member_id = item['id']
-        if member_id not in order_by_id:
-            print(f"Skipping {member_id}: no memberOrder in JSON")
-            continue
-        table.update_item(
-            Key={'id': member_id},
-            UpdateExpression='SET memberOrder = :mo',
-            ExpressionAttributeValues={':mo': order_by_id[member_id]}
-        )
-        print(f"Backfilled memberOrder for {item.get('name', member_id)}")
-        updated += 1
-    print(f"Backfill complete. {updated} record(s) updated.")
-    return updated
-
-
-response = table.scan(Limit=1)
-if response['Count'] > 0:
-    print(f"Table {TABLE_NAME} already has data, skipping full seed.")
-    backfill_member_order()
-    sys.exit(0)
-
-# Bootstrap empty table: upload images then insert records
 image_map = {}
 assets_dir = 'src/react-files/assets/About_us'
 for file in os.listdir(assets_dir):
