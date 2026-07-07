@@ -19,26 +19,22 @@ s3 = boto3.client('s3', region_name=REGION)
 dynamodb = boto3.resource('dynamodb', region_name=REGION)
 table = dynamodb.Table(TABLE_NAME)
 
-# upload all images to S3
-image_map = {}
-assets_dir = 'src/react-files/assets/About_us'
-for file in os.listdir(assets_dir):
-    s3.upload_file(f'{assets_dir}/{file}', BUCKET_NAME, f'About_us/{file}')
-    name_key = os.path.splitext(file)[0].lower()
-    image_map[name_key] = f'https://{BUCKET_NAME}.s3.amazonaws.com/About_us/{file}' #this is the url of the image in the s3 bucket.
-    print(f"Uploaded {file}")
-
-# check if table already has data — if so, skip seeding
 response = table.scan(Limit=1)
 if response['Count'] > 0:
     print(f"Table {TABLE_NAME} already has data, skipping seed.")
     sys.exit(0)
 
-# load the JSON file
 with open('src/react-files/routes/Team_members.json') as f:
     members = json.load(f)
 
-# insert each member
+image_map = {}
+assets_dir = 'src/react-files/assets/About_us'
+for file in os.listdir(assets_dir):
+    s3.upload_file(f'{assets_dir}/{file}', BUCKET_NAME, f'About_us/{file}')
+    name_key = os.path.splitext(file)[0].lower()
+    image_map[name_key] = f'https://{BUCKET_NAME}.s3.amazonaws.com/About_us/{file}'
+    print(f"Uploaded {file}")
+
 for member in members:
     image_key = member['image'].lower()
     veteran_key = member.get('veteranLogo', '').lower() if member.get('veteranLogo') else None
