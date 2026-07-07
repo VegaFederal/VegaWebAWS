@@ -1,10 +1,11 @@
 [
     {
             "id": 1,
+            "memberOrder": 1,
             "name": "Ryan",
             "title": "Founder & CEO",
             "image": "ryan",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "Aquinas Mercy High School",
@@ -14,10 +15,11 @@
         },
         {
             "id": 2,
+            "memberOrder": 2,
             "name": "Themba",
             "title": "Co-Founder & Chief Growth Officer",
             "image": "themba",
-            "veteranLogo": "vetNavy",
+            "veteranLogo": "US_Navy",
             "veteranLogoSize": null,
             "details": [
                 "Stanley-Boyd High (WI)",
@@ -27,6 +29,7 @@
         },
         {
             "id": 3,
+            "memberOrder": 3,
             "name": "Mark",
             "title": "Director of Cloud Engineering",
             "image": "mark",
@@ -40,6 +43,7 @@
         },
         {
             "id": 4,
+            "memberOrder": 4,
             "name": "Chris",
             "title": "Director of Defense Health",
             "image": "chris",
@@ -53,6 +57,7 @@
         },
         {
             "id": 5,
+            "memberOrder": 5,
             "name": "Krista",
             "title": "Operations Leader",
             "image": "krista",
@@ -66,6 +71,7 @@
         },
         {
             "id": 6,
+            "memberOrder": 6,
             "name": "Jessica",
             "title": "Director of Recruitment",
             "image": "Jessica",
@@ -79,10 +85,11 @@
         },
         {
             "id": 7,
+            "memberOrder": 7,
             "name": "Dan",
             "title": "Senior Software Engineer",
             "image": "dan",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "Rosary High School",
@@ -92,9 +99,10 @@
         },
         {
             "id": 8,
+            "memberOrder": 8,
             "name": "Ryan E.",
             "title": "Senior Software Engineer",
-            "image": "RyanE",
+            "image": "Ryan_E",
             "veteranLogo": null,
             "veteranLogoSize": null,
             "details": [
@@ -105,6 +113,7 @@
         },
         {
             "id": 16,
+            "memberOrder": 9,
             "name": "Ellie",
             "title": "Senior Software Engineer",
             "image": "Ellie",
@@ -118,9 +127,10 @@
         },
         {
             "id": 9,
+            "memberOrder": 10,
             "name": "Joseph K.",
             "title": "Software Engineer",
-            "image": "joseph",
+            "image": "Joseph_K",
             "veteranLogo": null,
             "veteranLogoSize": null,
             "details": [
@@ -131,6 +141,7 @@
         },
         {
             "id": 10,
+            "memberOrder": 11,
             "name": "Nick",
             "title": "Software Engineer",
             "image": "Nick",
@@ -144,6 +155,7 @@
         },
         {
             "id": 11,
+            "memberOrder": 12,
             "name": "Trevor",
             "title": "Senior Software Engineer",
             "image": "trevor",
@@ -158,6 +170,7 @@
 
         {
             "id": 12,
+            "memberOrder": 13,
             "name": "Blas",
             "title": "Software Engineer",
             "image": "blas",
@@ -171,6 +184,7 @@
         },
         {
             "id": 13,
+            "memberOrder": 14,
             "name": "Robbie",
             "title": "Intern Engineer",
             "image": "robbie",
@@ -184,10 +198,11 @@
         },
         {
             "id": 14,
+            "memberOrder": 15,
             "name": "Kyle",
             "title": "Senior Geospatial Data Engineer",
             "image": "Kyle",
-            "veteranLogo": "vetArmy",
+            "veteranLogo": "US_Army",
             "veteranLogoSize": null,
             "details": [
                 "A Catholic school in southern Louisiana",
@@ -197,6 +212,7 @@
         },
         {
             "id": 15,
+            "memberOrder": 16,
             "name": "Brian",
             "title": "Director, Solutions Architecture & Delivery",
             "image": "Brian",
