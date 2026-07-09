@@ -102,19 +102,6 @@ Resources:
         - Key: Environment
           Value: !Ref Environment
 
-  # Assets Stack
-  AssetsStack:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: !Sub https://${TemplateBucket}.s3.amazonaws.com/templates/assets.yaml
-      Parameters:
-        Environment: !Ref Environment
-      Tags:
-        - Key: Environment
-          Value: !Ref Environment
-
-
-
 Outputs:
   TableName: # will be used to seed the DynamoDB table.
     Description: DynamoDB table name
@@ -147,14 +134,6 @@ Outputs:
     Export:
       Name: !Sub ${AWS::StackName}-CloudFrontLogsBucketName
   
-  AssetsBucketName:
-    Description: S3 bucket for assets
-    Value: !GetAtt AssetsStack.Outputs.BucketName
-
-  AssetsBucketUrl:
-    Description: Base URL for assets
-    Value: !GetAtt AssetsStack.Outputs.BucketUrl
-
   ApiEndpoint:
     Description: Team Members API endpoint URL (via CloudFront)
     Value: !Sub
