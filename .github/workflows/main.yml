@@ -195,6 +195,25 @@ jobs:
           echo "DB_TABLE_NAME=$DB_TABLE_NAME" >> $GITHUB_ENV
           echo "DB_TABLE_ARN=$DB_TABLE_ARN" >> $GITHUB_ENV
 
+      - name: Deploy shared assets stack if needed
+        run: |
+          ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
+            echo "Assets stack already exists, skipping deployment."
+          else
+            echo "Assets stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $ASSETS_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/assets.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          ASSETS_BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $ASSETS_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
+            --output text)
+          echo "ASSETS_BUCKET_NAME=$ASSETS_BUCKET_NAME" >> $GITHUB_ENV
+
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
@@ -272,10 +291,7 @@ jobs:
       
       - name: Seed DynamoDB
         run: |
-          BUCKET_NAME=$(aws cloudformation describe-stacks \
-            --stack-name ${{ env.STACK_NAME }} \
-            --query "Stacks[0].Outputs[?OutputKey=='AssetsBucketName'].OutputValue" \
-            --output text 2>/dev/null || echo "")
+          BUCKET_NAME=${{ env.ASSETS_BUCKET_NAME }}
           
           if [ ! -z "${{ env.DB_TABLE_NAME }}" ] && [ ! -z "$BUCKET_NAME" ]; then
             TABLE_NAME=${{ env.DB_TABLE_NAME }} BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
@@ -392,6 +408,25 @@ jobs:
           echo "DB_TABLE_NAME=$DB_TABLE_NAME" >> $GITHUB_ENV
           echo "DB_TABLE_ARN=$DB_TABLE_ARN" >> $GITHUB_ENV
 
+      - name: Deploy shared assets stack if needed
+        run: |
+          ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
+            echo "Assets stack already exists, skipping deployment."
+          else
+            echo "Assets stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $ASSETS_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/assets.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          ASSETS_BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $ASSETS_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
+            --output text)
+          echo "ASSETS_BUCKET_NAME=$ASSETS_BUCKET_NAME" >> $GITHUB_ENV
+
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
@@ -433,10 +468,7 @@ jobs:
 
       - name: Seed DynamoDB
         run: |
-          BUCKET_NAME=$(aws cloudformation describe-stacks \
-            --stack-name ${{ env.STACK_NAME }} \
-            --query "Stacks[0].Outputs[?OutputKey=='AssetsBucketName'].OutputValue" \
-            --output text 2>/dev/null || echo "")
+          BUCKET_NAME=${{ env.ASSETS_BUCKET_NAME }}
 
           if [ ! -z "${{ env.DB_TABLE_NAME }}" ] && [ ! -z "$BUCKET_NAME" ]; then
             TABLE_NAME=${{ env.DB_TABLE_NAME }} BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py

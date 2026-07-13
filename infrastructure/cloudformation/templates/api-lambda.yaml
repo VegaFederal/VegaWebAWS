@@ -14,7 +14,7 @@ Parameters:
     Description: DynamoDB table name
   TableArn: # parameter for the DynamoDB table ARN from the dynamodb.yaml file.
     Type: String
-    Description: DynamoDB table ARN
+    Description: DynamoDB table ARN 
   AllowedOrigin:
     Type: String
     Default: ""
