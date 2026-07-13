@@ -166,6 +166,54 @@ jobs:
           echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
 
+      - name: Set shared database environment
+        run: |
+          # Branch deploys share the dev database; table name comes from DB_ENVIRONMENT.
+          echo "DB_ENVIRONMENT=dev" >> $GITHUB_ENV
+
+      - name: Deploy shared DynamoDB stack if needed
+        run: |
+          DB_STACK_NAME="vega-database-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $DB_STACK_NAME 2>/dev/null; then
+            echo "DynamoDB stack already exists, skipping deployment."
+          else
+            echo "DynamoDB stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $DB_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/dynamodb.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          DB_TABLE_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableName'].OutputValue" \
+            --output text)
+          DB_TABLE_ARN=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableArn'].OutputValue" \
+            --output text)
+          echo "DB_TABLE_NAME=$DB_TABLE_NAME" >> $GITHUB_ENV
+          echo "DB_TABLE_ARN=$DB_TABLE_ARN" >> $GITHUB_ENV
+
+      - name: Deploy shared assets stack if needed
+        run: |
+          ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
+            echo "Assets stack already exists, skipping deployment."
+          else
+            echo "Assets stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $ASSETS_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/assets.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          ASSETS_BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $ASSETS_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
+            --output text)
+          echo "ASSETS_BUCKET_NAME=$ASSETS_BUCKET_NAME" >> $GITHUB_ENV
+
       - name: Create template bucket
         run: |
             TIMESTAMP=$(date +%s)
@@ -180,6 +228,26 @@ jobs:
       - name: Upload templates to S3
         run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
 
+
+
+      - name: Package Lambda functions
+        run: |
+          cd src/lambda/team-members
+          zip index.zip index.py
+          aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
+
+      - name: Resolve allowed origin for dev
+        run: |
+          CF_DOMAIN=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='WebsiteURL'].OutputValue" \
+            --output text 2>/dev/null || echo "")
+          if [ -n "$CF_DOMAIN" ] && [ "$CF_DOMAIN" != "None" ]; then
+            echo "ALLOWED_ORIGIN=https://${CF_DOMAIN}" >> $GITHUB_ENV
+          else
+            echo "ALLOWED_ORIGIN=" >> $GITHUB_ENV
+          fi
+
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -188,9 +256,48 @@ jobs:
           parameter-overrides: >-
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
-            TemplateBucket=${{ env.TEMPLATE_BUCKET }}
+            TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            DeploymentBucket=${{ env.TEMPLATE_BUCKET }},
+            TableName=${{ env.DB_TABLE_NAME }},
+            TableArn=${{ env.DB_TABLE_ARN }},
+            AllowedOrigin=${{ env.ALLOWED_ORIGIN }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
+
+      - name: Set allowed origin after first deploy
+        if: env.ALLOWED_ORIGIN == ''
+        run: |
+          CF_DOMAIN=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='WebsiteURL'].OutputValue" \
+            --output text)
+          if [ -z "$CF_DOMAIN" ] || [ "$CF_DOMAIN" = "None" ]; then
+            echo "WebsiteURL not found, skipping allowed origin update."
+            exit 0
+          fi
+          aws cloudformation deploy \
+            --stack-name ${{ env.STACK_NAME }} \
+            --template-file infrastructure/cloudformation/main-template.yaml \
+            --parameter-overrides \
+              Environment=${{ env.ENVIRONMENT }} \
+              VpcId=${{ env.VPC_ID }} \
+              TemplateBucket=${{ env.TEMPLATE_BUCKET }} \
+              DeploymentBucket=${{ env.TEMPLATE_BUCKET }} \
+              TableName=${{ env.DB_TABLE_NAME }} \
+              TableArn=${{ env.DB_TABLE_ARN }} \
+              AllowedOrigin=https://${CF_DOMAIN} \
+            --no-fail-on-empty-changeset \
+            --capabilities CAPABILITY_NAMED_IAM
+      
+      - name: Seed DynamoDB
+        run: |
+          BUCKET_NAME=${{ env.ASSETS_BUCKET_NAME }}
+          
+          if [ ! -z "${{ env.DB_TABLE_NAME }}" ] && [ ! -z "$BUCKET_NAME" ]; then
+            TABLE_NAME=${{ env.DB_TABLE_NAME }} BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
+          else
+            echo "DB_TABLE_NAME or BUCKET_NAME not found, skipping seed."
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -200,11 +307,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
         working-directory: ./src
-      
+
+      - name: Set API URL env variable for build
+        run: |
+          API_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiEndpoint'].OutputValue" \
+            --output text)
+          if [ -z "$API_URL" ]; then
+            echo "ERROR: ApiEndpoint output not found in stack ${{ env.STACK_NAME }}"
+            exit 1
+          fi
+          echo "VITE_API_URL=$API_URL" > src/.env
+          echo "API URL set to: $API_URL"
+
       - name: Build website
         run: npm run build
         working-directory: ./src
-
 
       - name: Upload website files
         run: |
@@ -263,6 +382,50 @@ jobs:
           
           echo "ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
           echo "STACK_NAME=$STACK_NAME" >> $GITHUB_ENV
+          echo "DB_ENVIRONMENT=$ENVIRONMENT" >> $GITHUB_ENV
+
+      - name: Deploy shared DynamoDB stack if needed
+        run: |
+          DB_STACK_NAME="vega-database-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $DB_STACK_NAME 2>/dev/null; then
+            echo "DynamoDB stack already exists, skipping deployment."
+          else
+            echo "DynamoDB stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $DB_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/dynamodb.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          DB_TABLE_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableName'].OutputValue" \
+            --output text)
+          DB_TABLE_ARN=$(aws cloudformation describe-stacks \
+            --stack-name $DB_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='TeamMembersTableArn'].OutputValue" \
+            --output text)
+          echo "DB_TABLE_NAME=$DB_TABLE_NAME" >> $GITHUB_ENV
+          echo "DB_TABLE_ARN=$DB_TABLE_ARN" >> $GITHUB_ENV
+
+      - name: Deploy shared assets stack if needed
+        run: |
+          ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
+          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
+            echo "Assets stack already exists, skipping deployment."
+          else
+            echo "Assets stack not found, deploying..."
+            aws cloudformation deploy \
+              --stack-name $ASSETS_STACK_NAME \
+              --template-file infrastructure/cloudformation/templates/assets.yaml \
+              --parameter-overrides Environment=${{ env.DB_ENVIRONMENT }} \
+              --no-fail-on-empty-changeset
+          fi
+          ASSETS_BUCKET_NAME=$(aws cloudformation describe-stacks \
+            --stack-name $ASSETS_STACK_NAME \
+            --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" \
+            --output text)
+          echo "ASSETS_BUCKET_NAME=$ASSETS_BUCKET_NAME" >> $GITHUB_ENV
 
       - name: Create template bucket
         run: |
@@ -277,6 +440,12 @@ jobs:
       - name: Upload templates to S3
         run: aws s3 sync infrastructure/cloudformation/templates/ s3://$TEMPLATE_BUCKET/templates/
 
+      - name: Package Lambda functions
+        run: |
+          cd src/lambda/team-members
+          zip index.zip index.py
+          aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
+
       - name: Deploy CloudFormation stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -286,12 +455,26 @@ jobs:
             Environment=${{ env.ENVIRONMENT }},
             VpcId=${{ env.VPC_ID }},
             TemplateBucket=${{ env.TEMPLATE_BUCKET }},
+            DeploymentBucket=${{ env.TEMPLATE_BUCKET }},
             DomainName=${{ env.DOMAIN_NAME }},
             WwwDomain=${{ env.WWW_DOMAIN }},
             CertificateArn=${{ env.CERTIFICATE_ARN }},
-            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }}
+            CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }},
+            TableName=${{ env.DB_TABLE_NAME }},
+            TableArn=${{ env.DB_TABLE_ARN }},
+            AllowedOrigin=https://${{ env.DOMAIN_NAME }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
+
+      - name: Seed DynamoDB
+        run: |
+          BUCKET_NAME=${{ env.ASSETS_BUCKET_NAME }}
+
+          if [ ! -z "${{ env.DB_TABLE_NAME }}" ] && [ ! -z "$BUCKET_NAME" ]; then
+            TABLE_NAME=${{ env.DB_TABLE_NAME }} BUCKET_NAME=$BUCKET_NAME python scripts/seed-dynamodb.py
+          else
+            echo "DB_TABLE_NAME or BUCKET_NAME not found, skipping seed."
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -301,6 +484,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
         working-directory: ./src
+
+      - name: Set API URL env variable for build
+        run: |
+          API_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiEndpoint'].OutputValue" \
+            --output text)
+          if [ -z "$API_URL" ]; then
+            echo "ERROR: ApiEndpoint output not found in stack ${{ env.STACK_NAME }}"
+            exit 1
+          fi
+          echo "VITE_API_URL=$API_URL" > src/.env
+          echo "API URL set to: $API_URL"
       
       - name: Build website
         run: npm run build

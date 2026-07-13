@@ -28,6 +28,10 @@ Parameters:
     AllowedValues: ["true", "false"]
     Description: Create Route 53 hosted zone for domain
 
+  ApiGatewayDomainName:
+    Type: String
+    Description: API Gateway domain name
+
 Conditions:
   HasCustomDomain: !Not [!Equals [!Ref DomainName, ""]]
   HasCertificate: !Not [!Equals [!Ref CertificateArn, ""]]
@@ -89,6 +93,11 @@ Resources:
             Id: WebsiteOrigin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+          - DomainName: !Ref ApiGatewayDomainName
+            Id: ApiGatewayOrigin
+            CustomOriginConfig:
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
         Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:
@@ -103,6 +112,23 @@ Resources:
               Forward: none
           ViewerProtocolPolicy: redirect-to-https
           ResponseHeadersPolicyId: !Ref SecurityHeadersPolicy
+        CacheBehaviors:
+          - PathPattern: /team-members
+            TargetOriginId: ApiGatewayOrigin
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            ForwardedValues:
+              QueryString: true
+              Headers:
+                - Origin
+                - Referer
+                - Authorization
+              Cookies:
+                Forward: none
+            ViewerProtocolPolicy: redirect-to-https
+            ResponseHeadersPolicyId: !Ref SecurityHeadersPolicy
         PriceClass: PriceClass_100
         Aliases: !If
           - HasCustomDomain
