@@ -62,12 +62,6 @@ const Navbar = () => {
             <li className="nav-item nav-item-careers">
               <NavLink className={({ isActive }) => `nav-link nav-link-careers-btn${isActive ? ' active' : ''}`} to="/Careers" onClick={closeCollapse}><span>Careers</span></NavLink>
             </li>
-            {/* <li className="nav-item">
-              <NavLink className={linkClass} to="/ExamplePage" onClick={closeCollapse}>Example Page</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className={linkClass} to="/Homepage2" onClick={closeCollapse}>Homepage 2</NavLink>
-            </li> */}
           </ul>
         </div>
       </div>
