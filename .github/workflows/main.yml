@@ -198,10 +198,11 @@ jobs:
       - name: Deploy shared assets stack if needed
         run: |
           ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
-          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
-            echo "Assets stack already exists, skipping deployment."
+          STACK_STATUS=$(aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME --query "Stacks[0].StackStatus" --output text 2>/dev/null || echo "NOT_FOUND")
+          if [[ "$STACK_STATUS" =~ ^(CREATE_COMPLETE|UPDATE_COMPLETE|UPDATE_ROLLBACK_COMPLETE)$ ]]; then
+            echo "Assets stack already exists ($STACK_STATUS), skipping deployment."
           else
-            echo "Assets stack not found, deploying..."
+            echo "Assets stack status: $STACK_STATUS — deploying..."
             aws cloudformation deploy \
               --stack-name $ASSETS_STACK_NAME \
               --template-file infrastructure/cloudformation/templates/assets.yaml \
@@ -411,10 +412,11 @@ jobs:
       - name: Deploy shared assets stack if needed
         run: |
           ASSETS_STACK_NAME="vega-assets-${{ env.DB_ENVIRONMENT }}"
-          if aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME 2>/dev/null; then
-            echo "Assets stack already exists, skipping deployment."
+          STACK_STATUS=$(aws cloudformation describe-stacks --stack-name $ASSETS_STACK_NAME --query "Stacks[0].StackStatus" --output text 2>/dev/null || echo "NOT_FOUND")
+          if [[ "$STACK_STATUS" =~ ^(CREATE_COMPLETE|UPDATE_COMPLETE|UPDATE_ROLLBACK_COMPLETE)$ ]]; then
+            echo "Assets stack already exists ($STACK_STATUS), skipping deployment."
           else
-            echo "Assets stack not found, deploying..."
+            echo "Assets stack status: $STACK_STATUS — deploying..."
             aws cloudformation deploy \
               --stack-name $ASSETS_STACK_NAME \
               --template-file infrastructure/cloudformation/templates/assets.yaml \
