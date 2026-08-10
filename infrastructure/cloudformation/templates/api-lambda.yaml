@@ -26,6 +26,15 @@ Resources:
     Properties:
       Name: !Sub VegaWebAWS-TeamMembers-${Environment}
       ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref AllowedOrigin
+        AllowMethods:
+          - GET
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+        MaxAge: 300
 
   TeamMembersIntegration:
     Type: AWS::ApiGatewayV2::Integration
@@ -99,9 +108,9 @@ Resources:
 
 Outputs:
   ApiEndpoint:
-    Description: Team Members API endpoint URL
-    Value: !Sub https://${TeamMembersApi}.execute-api.${AWS::Region}.amazonaws.com/team-members
+    Description: Team Members API endpoint URL (via CloudFront — set after distribution is created)
+    Value: ""
 
   ApiDomainName:
-    Description: Team Members API domain name
+    Description: Team Members API domain name (passed to CloudFront as origin)
     Value: !Sub ${TeamMembersApi}.execute-api.${AWS::Region}.amazonaws.com
