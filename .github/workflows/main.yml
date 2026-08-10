@@ -464,7 +464,7 @@ jobs:
             CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }},
             TableName=${{ env.DB_TABLE_NAME }},
             TableArn=${{ env.DB_TABLE_ARN }},
-            AllowedOrigin=https://${{ env.DOMAIN_NAME }}
+            AllowedOrigin=https://${{ env.WWW_DOMAIN }}
           no-fail-on-empty-changeset: "1"
           capabilities: "CAPABILITY_NAMED_IAM"
 
