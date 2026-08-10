@@ -23,10 +23,16 @@ def handler(event, context):
     origin = headers.get('origin', '')
     referer = headers.get('referer', '')
 
-    if ALLOWED_ORIGIN and origin != ALLOWED_ORIGIN and not referer.startswith(ALLOWED_ORIGIN):
+    allowed = not ALLOWED_ORIGIN or origin == ALLOWED_ORIGIN or referer.startswith(ALLOWED_ORIGIN)
+    cors_origin = origin if allowed and origin else ALLOWED_ORIGIN
+
+    if not allowed:
         return {
-            "statusCode": 401,
-            "headers": {"Content-Type": "application/json"},
+            "statusCode": 403,
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+            },
             "body": json.dumps({"error": "Forbidden"})
         }
 
@@ -34,26 +40,35 @@ def handler(event, context):
 
     try:
         if method == 'GET':
-            return get_team_members()
+            return get_team_members(cors_origin)
         else:
             return {
                 "statusCode": 405,
-                "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": cors_origin,
+                },
                 "body": json.dumps({"error": "Method not allowed"})
             }
     except Exception as e:
         return {
             "statusCode": 500,
-            "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": cors_origin,
+            },
             "body": json.dumps({"error": str(e)})
         }
 
 
-def get_team_members():
+def get_team_members(cors_origin):
     response = table.scan()
     members = sorted(response['Items'], key=lambda x: x.get('memberOrder', 0))
     return {
         "statusCode": 200,
-        "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": cors_origin,
+        },
         "body": json.dumps(decimal_to_native(members))
     }

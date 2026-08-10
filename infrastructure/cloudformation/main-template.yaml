@@ -56,6 +56,7 @@ Parameters:
 
 Conditions:
   HasVpcConfig: !Not [!Equals [!Ref VpcId, '']]
+  HasCustomDomain: !Not [!Equals [!Ref DomainName, ""]]
 
 Resources:
   # Security Groups Stack
@@ -136,6 +137,9 @@ Outputs:
   
   ApiEndpoint:
     Description: Team Members API endpoint URL (via CloudFront)
-    Value: !Sub
-      - https://${CloudFrontDomain}/team-members
-      - CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
+    Value: !If
+      - HasCustomDomain
+      - !Sub "https://${DomainName}/team-members"
+      - !Sub
+        - "https://${CloudFrontDomain}/team-members"
+        - CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
