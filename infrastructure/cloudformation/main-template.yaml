@@ -139,7 +139,7 @@ Outputs:
     Description: Team Members API endpoint URL (via CloudFront)
     Value: !If
       - HasCustomDomain
-      - !Sub "https://${DomainName}/team-members"
+      - !Sub "https://${WwwDomain}/team-members"
       - !Sub
         - "https://${CloudFrontDomain}/team-members"
         - CloudFrontDomain: !GetAtt StaticWebsiteStack.Outputs.CloudFrontDistributionDomainName
