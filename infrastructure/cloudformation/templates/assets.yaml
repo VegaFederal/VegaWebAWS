@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 bucket for assets
+
+Parameters:
+  Environment:
+    Type: String
+    Description: The deployment environment
+
+Resources:
+  AssetsBucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Sub "vegawebaws-${Environment}-assets"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - HEAD
+            AllowedOrigins:
+              - '*'
+            MaxAge: 3000
+            
+  AssetsBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref AssetsBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub arn:aws:s3:::${AssetsBucket}/*
+
+Outputs:
+  BucketName:
+    Description: Assets S3 bucket name
+    Value: !Ref AssetsBucket
+  BucketUrl:
+    Description: Base URL for assets
+    Value: !Sub https://${AssetsBucket}.s3.amazonaws.com
