@@ -72,25 +72,55 @@ jobs:
           echo "WEBSITE_BUCKET=$WEBSITE_BUCKET" >> $GITHUB_ENV
           echo "CLOUDFRONT_LOGS_BUCKET=$CLOUDFRONT_LOGS_BUCKET" >> $GITHUB_ENV
 
-      - name: Empty S3 buckets
-        continue-on-error: true
+      - name: Empty S3 buckets before stack deletion
         run: |
-          
-          # Empty all buckets with fault tolerance
-          for bucket in "${{ env.WEBSITE_BUCKET }}" "${{ env.CLOUDFRONT_LOGS_BUCKET }}" "${{ env.TEMPLATE_BUCKET }}"; do
-            if [ ! -z "$bucket" ]; then
-              echo "Checking bucket: $bucket"
-              if aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
-                echo "Emptying bucket: $bucket"
-                aws s3 rm s3://$bucket --recursive 2>/dev/null || echo "Failed to empty $bucket, continuing..."
-                # Also delete any versioned objects
-                aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' --output json 2>/dev/null || echo '{"Objects":[]}')" 2>/dev/null || echo "Failed to delete versions in $bucket, continuing..."
-                aws s3api delete-objects --bucket "$bucket" --delete "$(aws s3api list-object-versions --bucket "$bucket" --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' --output json 2>/dev/null || echo '{"Objects":[]}')" 2>/dev/null || echo "Failed to delete markers in $bucket, continuing..."
-              else
-                echo "Bucket $bucket not found or not accessible, skipping..."
-              fi
+          # Empties all objects, versioned objects, and delete markers from a bucket.
+          # Fails loudly on unexpected errors so the stack delete is blocked rather
+          # than proceeding into a guaranteed BucketNotEmpty failure.
+          # Uses || [] in the JMESPath query so list-object-versions never returns
+          # {"Objects": null}, which would cause delete-objects to error.
+          empty_bucket() {
+            local bucket="$1"
+            [ -z "$bucket" ] && return 0
+
+            if ! aws s3api head-bucket --bucket "$bucket" 2>/dev/null; then
+              echo "Bucket $bucket not found or not accessible — skipping."
+              return 0
             fi
-          done
+
+            echo "Emptying bucket: $bucket"
+
+            # Non-versioned objects
+            aws s3 rm "s3://${bucket}" --recursive
+
+            # Versioned objects — || [] ensures we never pass {"Objects": null}
+            local versions
+            versions=$(aws s3api list-object-versions --bucket "$bucket" \
+              --query '{Objects: Versions[].{Key: Key, VersionId: VersionId} || []}' \
+              --output json)
+            local version_count
+            version_count=$(echo "$versions" | jq '.Objects | length')
+            if [ "$version_count" -gt 0 ]; then
+              aws s3api delete-objects --bucket "$bucket" --delete "$versions"
+            fi
+
+            # Delete markers — same null-safety pattern
+            local markers
+            markers=$(aws s3api list-object-versions --bucket "$bucket" \
+              --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId} || []}' \
+              --output json)
+            local marker_count
+            marker_count=$(echo "$markers" | jq '.Objects | length')
+            if [ "$marker_count" -gt 0 ]; then
+              aws s3api delete-objects --bucket "$bucket" --delete "$markers"
+            fi
+
+            echo "Bucket $bucket emptied successfully."
+          }
+
+          empty_bucket "${{ env.WEBSITE_BUCKET }}"
+          empty_bucket "${{ env.CLOUDFRONT_LOGS_BUCKET }}"
+          empty_bucket "${{ env.TEMPLATE_BUCKET }}"
 
       - name: Delete CloudFormation stack
         run: |
