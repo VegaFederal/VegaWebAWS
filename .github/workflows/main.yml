@@ -75,10 +75,6 @@ jobs:
       - name: Empty S3 buckets before stack deletion
         run: |
           # Empties all objects, versioned objects, and delete markers from a bucket.
-          # Fails loudly on unexpected errors so the stack delete is blocked rather
-          # than proceeding into a guaranteed BucketNotEmpty failure.
-          # Uses || [] in the JMESPath query so list-object-versions never returns
-          # {"Objects": null}, which would cause delete-objects to error.
           empty_bucket() {
             local bucket="$1"
             [ -z "$bucket" ] && return 0
@@ -556,10 +552,6 @@ jobs:
       - name: Empty S3 buckets before stack deletion
         run: |
           # Empties all objects, versioned objects, and delete markers from a bucket.
-          # Fails loudly on unexpected errors so the stack delete is blocked rather
-          # than proceeding into a guaranteed BucketNotEmpty failure.
-          # Uses || [] in the JMESPath query so list-object-versions never returns
-          # {"Objects": null}, which would cause delete-objects to error.
           empty_bucket() {
             local bucket="$1"
             [ -z "$bucket" ] && return 0
