@@ -264,7 +264,7 @@ jobs:
           aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
 
       - name: Deploy CloudFormation stack
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v2
         with:
           name: ${{ env.STACK_NAME }}
           template: infrastructure/cloudformation/main-template.yaml
@@ -437,7 +437,7 @@ jobs:
           aws s3 cp index.zip s3://$TEMPLATE_BUCKET/$ENVIRONMENT/lambda/team-members/index.zip
 
       - name: Deploy CloudFormation stack
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v2
         with:
           name: ${{ env.STACK_NAME }}
           template: infrastructure/cloudformation/main-template.yaml
