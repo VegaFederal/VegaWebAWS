@@ -275,7 +275,7 @@ jobs:
             DeploymentBucket=${{ env.TEMPLATE_BUCKET }},
             TableName=${{ env.DB_TABLE_NAME }},
             TableArn=${{ env.DB_TABLE_ARN }}
-          no-fail-on-empty-changeset: "1"
+          fail-on-empty-changeset: "0"
           capabilities: "CAPABILITY_NAMED_IAM"
 
       - name: Seed DynamoDB
@@ -452,7 +452,7 @@ jobs:
             CreateHostedZone=${{ env.CREATE_HOSTED_ZONE }},
             TableName=${{ env.DB_TABLE_NAME }},
             TableArn=${{ env.DB_TABLE_ARN }}
-          no-fail-on-empty-changeset: "1"
+          fail-on-empty-changeset: "0"
           capabilities: "CAPABILITY_NAMED_IAM"
 
       - name: Seed DynamoDB
