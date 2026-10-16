@@ -14,11 +14,7 @@ Parameters:
     Description: DynamoDB table name
   TableArn: # parameter for the DynamoDB table ARN from the dynamodb.yaml file.
     Type: String
-    Description: DynamoDB table ARN 
-  AllowedOrigin:
-    Type: String
-    Default: ""
-    Description: Allowed site origin (e.g. https://vegafederal.com)
+    Description: DynamoDB table ARN
 
 Resources:
   TeamMembersApi:
@@ -26,15 +22,6 @@ Resources:
     Properties:
       Name: !Sub VegaWebAWS-TeamMembers-${Environment}
       ProtocolType: HTTP
-      CorsConfiguration:
-        AllowOrigins:
-          - !Ref AllowedOrigin
-        AllowMethods:
-          - GET
-          - OPTIONS
-        AllowHeaders:
-          - Content-Type
-        MaxAge: 300
 
   TeamMembersIntegration:
     Type: AWS::ApiGatewayV2::Integration
@@ -79,7 +66,6 @@ Resources:
         Variables:
           TABLE_NAME: !Ref TableName
           TABLE_ARN: !Ref TableArn
-          ALLOWED_ORIGIN: !Ref AllowedOrigin
       Code:
         S3Bucket: !Ref DeploymentBucket
         S3Key: !Sub ${Environment}/lambda/team-members/index.zip
